@@ -1,0 +1,119 @@
+.cellar-modal-portal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.cellar-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 22, 20, 0.55);
+  backdrop-filter: blur(5px);
+  animation: cellar-fade-in 200ms ease forwards;
+}
+
+.cellar-modal {
+  position: relative;
+  width: 100%;
+  max-height: 90vh;
+  background: var(--paper-canvas);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-elevated);
+  border: var(--border-tactile);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: cellar-zoom-in 250ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 1;
+}
+
+.cellar-modal--sm { max-width: 420px; }
+.cellar-modal--md { max-width: 600px; }
+.cellar-modal--lg { max-width: 800px; }
+.cellar-modal--xl { max-width: 1040px; }
+
+.cellar-modal__close-btn {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--paper-surface);
+  color: var(--ink-secondary);
+  border: 1px solid var(--paper-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 2;
+}
+
+.cellar-modal__close-btn:hover {
+  background: var(--wine-soft);
+  color: var(--wine-bordeaux);
+}
+
+.cellar-modal__header {
+  padding: 1.75rem 2rem 1.25rem;
+  border-bottom: var(--border-hairline);
+  background: var(--paper-card);
+}
+
+.cellar-modal__stamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.1em;
+  color: var(--gold-dark);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cellar-modal__title {
+  font-family: var(--font-serif-display);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  color: var(--ink-dark);
+  line-height: 1.15;
+}
+
+.cellar-modal__subtitle {
+  font-family: var(--font-serif-editorial);
+  font-style: italic;
+  font-size: var(--text-base);
+  color: var(--ink-muted);
+  margin-top: 0.25rem;
+}
+
+.cellar-modal__body {
+  padding: 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.cellar-modal__footer {
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  border-top: var(--border-hairline);
+  background: var(--paper-card);
+}
+
+@keyframes cellar-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}

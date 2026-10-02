@@ -1,0 +1,43 @@
+.cellar-divider {
+  border: none;
+  width: 100%;
+  margin: 0;
+}
+
+.cellar-divider--hairline {
+  border-top: var(--border-hairline);
+}
+
+.cellar-divider--dashed {
+  border-top: var(--border-dashed);
+}
+
+.cellar-divider--gold {
+  border-top: var(--border-gold-stamp);
+}
+
+.cellar-divider--space-sm { margin: 0.75rem 0; }
+.cellar-divider--space-md { margin: 1.5rem 0; }
+.cellar-divider--space-lg { margin: 2.25rem 0; }
+
+/* Variante con Ornamento */
+.cellar-divider-ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.cellar-divider-ornament__line {
+  flex: 1;
+  height: 1px;
+  background: var(--paper-subtle);
+}
+
+.cellar-divider-ornament__symbol {
+  font-family: var(--font-serif-display);
+  font-size: var(--text-xs);
+  color: var(--gold-foil);
+  line-height: 1;
+  user-select: none;
+}

@@ -1,0 +1,146 @@
+.cellar-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.cellar-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cellar-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.cellar-btn--full {
+  width: 100%;
+}
+
+/* Dimensioni */
+.cellar-btn--sm {
+  height: 32px;
+  padding: 0 0.75rem;
+  font-size: var(--text-xs);
+  letter-spacing: 0.02em;
+}
+
+.cellar-btn--md {
+  height: 40px;
+  padding: 0 1.15rem;
+  font-size: var(--text-sm);
+  letter-spacing: 0.01em;
+}
+
+.cellar-btn--lg {
+  height: 48px;
+  padding: 0 1.5rem;
+  font-size: var(--text-base);
+  letter-spacing: 0.01em;
+}
+
+/* Variante Primary (Ceralacca Bordeaux & Dettagli Nobili) */
+.cellar-btn--primary {
+  background: linear-gradient(135deg, var(--wine-crimson), var(--wine-bordeaux));
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 4px rgba(108, 26, 36, 0.25), 0 4px 12px rgba(108, 26, 36, 0.15);
+}
+
+.cellar-btn--primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #9B2839, #791C27);
+  box-shadow: 0 4px 8px rgba(108, 26, 36, 0.35), 0 8px 18px rgba(108, 26, 36, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Variante Secondary (Carta Calda & Profilo Sottile) */
+.cellar-btn--secondary {
+  background: var(--paper-surface);
+  color: var(--ink-primary);
+  border: var(--border-tactile);
+  box-shadow: var(--shadow-sm);
+}
+
+.cellar-btn--secondary:hover:not(:disabled) {
+  background: var(--paper-subtle);
+  border-color: var(--ink-secondary);
+}
+
+/* Variante Outline */
+.cellar-btn--outline {
+  background: transparent;
+  color: var(--ink-primary);
+  border: var(--border-tactile);
+}
+
+.cellar-btn--outline:hover:not(:disabled) {
+  background: rgba(43, 37, 33, 0.04);
+  border-color: var(--ink-primary);
+}
+
+/* Variante Ghost */
+.cellar-btn--ghost {
+  background: transparent;
+  color: var(--ink-secondary);
+  border: 1px solid transparent;
+}
+
+.cellar-btn--ghost:hover:not(:disabled) {
+  background: rgba(43, 37, 33, 0.05);
+  color: var(--ink-dark);
+}
+
+/* Variante Gold (Timbro d'Oro) */
+.cellar-btn--gold {
+  background: linear-gradient(135deg, var(--gold-accent), var(--gold-foil));
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(184, 134, 11, 0.25);
+}
+
+.cellar-btn--gold:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* Variante Danger */
+.cellar-btn--danger {
+  background: #DC2626;
+  color: #FFFFFF;
+}
+
+.cellar-btn--danger:hover:not(:disabled) {
+  background: #B91C1C;
+}
+
+/* Icone e Loading */
+.cellar-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cellar-btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: currentColor;
+  border-radius: 50%;
+  animation: cellar-spin 0.6s linear infinite;
+}
+
+@keyframes cellar-spin {
+  to { transform: rotate(360deg); }
+}

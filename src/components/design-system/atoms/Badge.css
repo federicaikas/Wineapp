@@ -1,0 +1,138 @@
+.cellar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+}
+
+.cellar-badge--sm {
+  padding: 0.2rem 0.45rem;
+  font-size: var(--text-2xs);
+}
+
+.cellar-badge--md {
+  padding: 0.25rem 0.6rem;
+  font-size: var(--text-xs);
+}
+
+.cellar-badge__icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Neutral */
+.cellar-badge--neutral {
+  background: var(--paper-surface);
+  color: var(--ink-secondary);
+  border: var(--border-hairline);
+}
+
+/* Tipologie di vino */
+.cellar-badge--type-red {
+  background: var(--wine-soft);
+  color: var(--wine-bordeaux);
+  border: 1px solid var(--wine-border);
+}
+
+.cellar-badge--type-white {
+  background: var(--vine-soft);
+  color: var(--vine-olive);
+  border: 1px solid var(--vine-border);
+}
+
+.cellar-badge--type-sparkling {
+  background: var(--gold-soft);
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-border);
+}
+
+.cellar-badge--type-rose {
+  background: var(--rose-soft);
+  color: var(--rose-blush);
+  border: 1px solid var(--rose-border);
+}
+
+.cellar-badge--type-orange {
+  background: var(--terracotta-soft);
+  color: var(--terracotta);
+  border: 1px solid var(--terracotta-border);
+}
+
+.cellar-badge--type-dessert {
+  background: #FFF8E7;
+  color: #B27B17;
+  border: 1px solid rgba(178, 123, 23, 0.25);
+}
+
+/* Finestra di Beva / Drinking Status */
+.cellar-badge--status-ready {
+  background: #EDF7EE;
+  color: #2D6A35;
+  border: 1px solid rgba(45, 106, 53, 0.2);
+}
+
+.cellar-badge--status-aging {
+  background: var(--paper-surface);
+  color: var(--ink-secondary);
+  border: var(--border-tactile);
+}
+
+.cellar-badge--status-peak {
+  background: linear-gradient(135deg, var(--gold-soft), #FFF2CE);
+  color: #8C6207;
+  border: 1px solid var(--gold-accent);
+  box-shadow: 0 1px 4px rgba(199, 150, 40, 0.15);
+}
+
+.cellar-badge--status-past {
+  background: #F0ECE9;
+  color: var(--ink-muted);
+  border: 1px dashed var(--ink-faint);
+}
+
+/* Vintage & Annata */
+.cellar-badge--vintage {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  background: var(--paper-card);
+  color: var(--ink-dark);
+  border: 1px solid var(--paper-subtle);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 1px 2px rgba(27, 22, 19, 0.05);
+}
+
+/* Vintage Lot */
+.cellar-badge--lot {
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  background: transparent;
+  color: var(--ink-muted);
+  border-bottom: 1px dashed var(--ink-faint);
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Gold Seal */
+.cellar-badge--gold-seal {
+  background: linear-gradient(135deg, #FAF4E5, #F5E8C7);
+  color: var(--gold-dark);
+  border: 1px solid var(--gold-accent);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 1px 3px rgba(184, 134, 11, 0.12);
+}
+
+/* Wax Seal */
+.cellar-badge--wax-seal {
+  background: var(--wine-bordeaux);
+  color: #FFFFFF;
+  border-radius: var(--radius-pill);
+  padding: 0.2rem 0.6rem;
+  box-shadow: 0 1px 3px rgba(108, 26, 36, 0.3);
+}

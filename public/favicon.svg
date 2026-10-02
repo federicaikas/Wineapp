@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <circle cx="24" cy="24" r="22" fill="#722F37" stroke="#C29B38" stroke-width="1.5"/>
+  <circle cx="24" cy="24" r="18" fill="none" stroke="rgba(255,255,255,0.2)" stroke-dasharray="2 3"/>
+  <!-- Wine Glass & Monogram -->
+  <path d="M24 12C20 12 18 15 18 19C18 24 23 27 23 27V33H20C19.4 33 19 33.4 19 34C19 34.6 19.4 35 20 35H28C28.6 35 29 34.6 29 34C29 33.4 28.6 33 28 33H25V27C25 27 30 24 30 19C30 15 28 12 24 12Z" fill="#FAF5E8"/>
+  <circle cx="24" cy="20" r="1.5" fill="#C29B38"/>
+</svg>
