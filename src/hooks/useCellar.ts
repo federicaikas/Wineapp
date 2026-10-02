@@ -1,9 +1,9 @@
 import { useState, useCallback } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, initializeDatabase, addWine, updateWine, deleteWine, adjustStock, toggleFavorite, resetToDefaultSeed, computeCellarStats } from '../db/cellarDb';
-import { WineBottle, WineFormData, CellarStats } from '../types/wine';
-import { WineCategory } from '../components/design-system/atoms/Badge';
-import { SortOption } from '../components/design-system/molecules/SearchFilterBar';
+import type { WineBottle, WineFormData, CellarStats } from '../types/wine';
+import type { WineCategory } from '../components/design-system/atoms/Badge';
+import type { SortOption } from '../components/design-system/molecules/SearchFilterBar';
 import confetti from 'canvas-confetti';
 
 export function useCellar() {

@@ -1,5 +1,5 @@
-import Dexie, { Table } from 'dexie';
-import { WineBottle, CellarStats, WineFormData } from '../types/wine';
+import Dexie, { type Table } from 'dexie';
+import type { WineBottle, CellarStats, WineFormData } from '../types/wine';
 import { SEED_WINES } from './seedWines';
 
 export class CellarDatabase extends Dexie {

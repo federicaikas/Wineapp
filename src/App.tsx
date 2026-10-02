@@ -1,122 +1,116 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { useCellar } from './hooks/useCellar';
+import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal } from './components/organisms';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+export function App() {
+  const {
+    filteredWines,
+    stats,
+    searchQuery,
+    setSearchQuery,
+    selectedCategory,
+    setSelectedCategory,
+    selectedSort,
+    setSelectedSort,
+    filterFavoritesOnly,
+    setFilterFavoritesOnly,
+    selectedWine,
+    setSelectedWine,
+    isAddDrawerOpen,
+    setIsAddDrawerOpen,
+    editingWine,
+    setEditingWine,
+    handleStockChange,
+    handleToggleFavorite,
+    handleAddWine,
+    handleUpdateWine,
+    handleDeleteWine,
+    handleResetSeed,
+  } = useCellar();
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+    <div className="cellar-app">
+      {/* Testata di Cantina */}
+      <CellarHeader
+        stats={stats}
+        onOpenAdd={() => {
+          setEditingWine(null);
+          setIsAddDrawerOpen(true);
+        }}
+        onResetSeed={handleResetSeed}
+        filterFavoritesOnly={filterFavoritesOnly}
+        onToggleFilterFavorites={() => setFilterFavoritesOnly(!filterFavoritesOnly)}
+      />
+
+      {/* Main Workspace con Griglia e Filtri */}
+      <main className="cellar-main">
+        <CellarGrid
+          wines={filteredWines}
+          stats={stats}
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+          selectedSort={selectedSort}
+          onSortChange={setSelectedSort}
+          onSelectWine={(wine) => setSelectedWine(wine)}
+          onStockChange={handleStockChange}
+          onToggleFavorite={handleToggleFavorite}
+          onOpenAdd={() => {
+            setEditingWine(null);
+            setIsAddDrawerOpen(true);
+          }}
+        />
+      </main>
+
+      {/* Drawer di Registrazione / Modifica Bottiglia */}
+      <QuickAddDrawer
+        isOpen={isAddDrawerOpen || editingWine !== null}
+        onClose={() => {
+          setIsAddDrawerOpen(false);
+          setEditingWine(null);
+        }}
+        onSave={async (data) => {
+          if (editingWine) {
+            await handleUpdateWine(editingWine.id, data);
+          } else {
+            await handleAddWine(data);
+          }
+        }}
+        editingWine={editingWine}
+      />
+
+      {/* Modal Dossier di Degustazione Completo */}
+      <WineDetailModal
+        wine={selectedWine}
+        isOpen={selectedWine !== null}
+        onClose={() => setSelectedWine(null)}
+        onEdit={(wine) => {
+          setEditingWine(wine);
+        }}
+        onDelete={handleDeleteWine}
+        onStockChange={handleStockChange}
+        onToggleFavorite={handleToggleFavorite}
+      />
+
+      {/* Footer Editoriale O,nice! Studio */}
+      <footer className="cellar-footer">
+        <div className="cellar-footer__inner">
+          <div className="cellar-footer__lot">
+            <span>REGISTRO DI CANTINA PRIVATA • LOT N° 2026/04</span>
+          </div>
+          <p className="cellar-footer__credits">
+            CELLAR — Curatela, archivio e catalogazione enologica sartoriale.
+            <br />
+            Design &amp; Tipografia ispirati all’estetica materica di <em>O,nice! Studio</em>.
           </p>
+          <div className="cellar-footer__ornament">
+            <span>◆ ❦ ◆</span>
+          </div>
         </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+      </footer>
+    </div>
+  );
 }
 
-export default App
+export default App;

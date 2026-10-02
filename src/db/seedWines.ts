@@ -1,4 +1,4 @@
-import { WineBottle } from '../types/wine';
+import type { WineBottle } from '../types/wine';
 
 export const SEED_WINES: WineBottle[] = [
   {

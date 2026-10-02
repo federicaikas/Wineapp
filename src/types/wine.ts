@@ -1,4 +1,4 @@
-import { WineCategory, DrinkingStatus } from '../components/design-system/atoms/Badge';
+import type { WineCategory, DrinkingStatus } from '../components/design-system/atoms/Badge';
 
 export interface TastingNotes {
   aroma: string[];
