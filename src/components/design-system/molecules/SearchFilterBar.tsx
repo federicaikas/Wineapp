@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search, X, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
-import { WineCategory } from '../atoms/Badge';
+import { Search, X, ArrowUpDown } from 'lucide-react';
+import type { WineCategory } from '../atoms/Badge';
 import './SearchFilterBar.css';
 
 export type SortOption = 

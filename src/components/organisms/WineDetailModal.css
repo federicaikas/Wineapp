@@ -1,0 +1,349 @@
+.cellar-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cellar-detail-content__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cellar-detail-content__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cellar-detail-content__badges {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.25rem;
+}
+
+.cellar-detail-content__vintage {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  background: var(--paper-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-xs);
+}
+
+.cellar-detail-content__producer {
+  font-size: var(--text-lg);
+}
+
+.cellar-detail-content__name {
+  font-family: var(--font-serif-display);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  color: var(--ink-dark);
+  line-height: 1.15;
+}
+
+.cellar-detail-content__appellation {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--ink-muted);
+}
+
+.cellar-detail-content__fav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--paper-subtle);
+  background: var(--paper-surface);
+  color: var(--ink-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cellar-detail-content__fav-btn:hover {
+  background: var(--wine-soft);
+  color: var(--wine-bordeaux);
+}
+
+.cellar-detail-content__fav-btn--active {
+  color: var(--wine-bordeaux);
+  background: var(--wine-soft);
+  border-color: var(--wine-border);
+}
+
+.cellar-detail-content__tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.65rem;
+}
+
+.cellar-detail-content__rating-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--paper-surface);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  border: var(--border-tactile);
+}
+
+.cellar-detail-content__rating-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.cellar-detail-content__label {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-weight: 600;
+}
+
+.cellar-detail-content__score-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-border);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-xs);
+}
+
+.cellar-detail-content__score-value {
+  font-family: var(--font-serif-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--gold-dark);
+}
+
+.cellar-detail-content__score-max {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--gold-dark);
+  letter-spacing: 0.05em;
+}
+
+/* Timeline Finestra di Beva */
+.cellar-detail-content__timeline-card {
+  background: var(--paper-surface);
+  border: var(--border-tactile);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cellar-detail-content__timeline-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cellar-detail-content__timeline-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+}
+
+.cellar-detail-content__timeline-peak-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--gold-dark);
+  background: var(--gold-soft);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--gold-border);
+}
+
+.cellar-detail-content__progress-bar-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.cellar-detail-content__progress-bar {
+  position: relative;
+  height: 10px;
+  background: linear-gradient(to right, #D1D5DB, var(--gold-light), #9CA3AF);
+  border-radius: var(--radius-pill);
+}
+
+.cellar-detail-content__peak-indicator {
+  position: absolute;
+  top: -8px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cellar-detail-content__peak-pin {
+  width: 14px;
+  height: 14px;
+  background: var(--gold-foil);
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.cellar-detail-content__peak-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  white-space: nowrap;
+  margin-top: 14px;
+}
+
+.cellar-detail-content__current-indicator {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+}
+
+.cellar-detail-content__current-dot {
+  width: 18px;
+  height: 18px;
+  background: var(--wine-bordeaux);
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(108, 26, 36, 0.4);
+}
+
+.cellar-detail-content__progress-years {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+}
+
+.cellar-detail-content__current-year-tag {
+  color: var(--wine-bordeaux);
+  font-weight: 700;
+}
+
+/* Note Degustazione */
+.cellar-detail-content__tasting-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cellar-detail-content__section-header {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.cellar-detail-content__sublabel {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-secondary);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.cellar-detail-content__aroma-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.cellar-detail-content__aroma-chip {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  padding: 0.25rem 0.65rem;
+  background: var(--paper-surface);
+  border: var(--border-hairline);
+  border-radius: var(--radius-pill);
+  color: var(--ink-primary);
+}
+
+.cellar-detail-content__palate-text {
+  font-family: var(--font-serif-editorial);
+  font-style: italic;
+  font-size: var(--text-lg);
+  line-height: 1.5;
+  color: var(--ink-primary);
+  background: var(--paper-card);
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--wine-bordeaux);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+
+.cellar-detail-content__pairing {
+  background: var(--paper-surface);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-xs);
+  border: var(--border-hairline);
+}
+
+.cellar-detail-content__pairing-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--gold-dark);
+}
+
+.cellar-detail-content__pairing-text {
+  font-size: var(--text-sm);
+  color: var(--ink-primary);
+}
+
+.cellar-detail-content__private-notes {
+  background: #FFFBF2;
+  border: 1px dashed var(--gold-border);
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-xs);
+}
+
+.cellar-detail-content__notes-text {
+  font-family: var(--font-serif-editorial);
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--ink-secondary);
+}
+
+/* Footer Modal Actions */
+.cellar-detail-modal__footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.cellar-detail-modal__footer-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

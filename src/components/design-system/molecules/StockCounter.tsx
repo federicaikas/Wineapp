@@ -1,5 +1,4 @@
-import React from 'react';
-import { Minus, Plus, Wine } from 'lucide-react';
+import { Minus, Plus } from 'lucide-react';
 import './StockCounter.css';
 
 export interface StockCounterProps {

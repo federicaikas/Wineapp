@@ -1,0 +1,60 @@
+.cellar-add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cellar-add-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cellar-add-form__section-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 700;
+  display: block;
+  border-bottom: 1px dashed var(--paper-subtle);
+  padding-bottom: 0.35rem;
+}
+
+.cellar-add-form__row {
+  width: 100%;
+}
+
+.cellar-add-form__grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.cellar-add-form__grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.cellar-add-form__rating-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cellar-add-drawer__footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+@media (max-width: 600px) {
+  .cellar-add-form__grid-2,
+  .cellar-add-form__grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
