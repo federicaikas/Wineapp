@@ -5,6 +5,28 @@ Il formato segue le specifiche di [Keep a Changelog](https://keepachangelog.com/
 
 ---
 
+## [0.1.0] - 2026-10-02
+
+### Added
+- **Core Data Layer (Sub-Agent Logic)**:
+  - Schema TypeScript completo per `WineBottle`, `TastingNotes`, `DrinkingWindow`, `CellarStats`.
+  - Database client-side zero-latency su IndexedDB con **Dexie.js** (`cellarDb.ts`).
+  - Precaricamento automatico di 10 grandi vini iconici da collezione (*Barolo Riserva Monfortino*, *Sassicaia*, *Dom Pérignon Vintage*, *Brunello Il Marroneto*, *Cervaro della Sala*, *Ribolla Gravner*, *Chablis Raveneau*, *Amarone Quintarelli*, *Etna Rosso Terre Nere*, *Château d'Yquem*).
+  - Operazioni CRUD complete, gestione scorte con contatore stappature, live queries con `useCellar`.
+- **Organisms & Experience (Sub-Agent UI)**:
+  - `WineCard`: etichetta vinicola sartoriale con cornice interna, timbro annata, rating 100-punti, badge tipologia, stepper scorte e indicatore di esaurimento.
+  - `CellarGrid`: dashboard indicatori (bottiglie totali, valore economico cantina, vini pronti, all'apice e in affinamento), switch tra vista a etichette (grid) e registro da sommelier (ledger list), barra filtri per categoria e ordinamento multi-criterio.
+  - `QuickAddDrawer`: pannello laterale scorrevole con form di inserimento/modifica, sezioni identità, scorte e note sommelier.
+  - `WineDetailModal`: dossier enologico completo con timeline visiva della finestra di beva, chip olfattive, recensione al palato, abbinamento gastronomico e azione di stappatura con micro-celebrazione.
+  - `CellarHeader`: testata con monogramma sigillato in ceralacca, calcolo istantaneo del valore stimato e pulsante rapido aggiungi bottiglia.
+- **Micro-interazioni**:
+  - Effetto pirotecnico ceralacca/oro al consumo/stappatura della bottiglia.
+  - Transizioni fluide e feedback aptico visivo.
+- **Documentazione**:
+  - Creazione di `ARCHITECTURE.md` con dettagli di architettura, design tokens e comando esatto per lanciare l'applicazione in locale (`npm run dev`).
+
+---
+
 ## [0.1.0-alpha] - 2026-10-02
 
 ### Added
@@ -14,17 +36,6 @@ Il formato segue le specifiche di [Keep a Changelog](https://keepachangelog.com/
   - Palette materica su fondo caldo carta cotone (`--paper-canvas: #FAF7F2`, `--paper-card: #FFFFFF`), inchiostri calcografici (`--ink-dark`, `--ink-primary`), accenti bordeaux ceralacca (`--wine-bordeaux`) e foglia d'oro d'annata (`--gold-foil`).
   - Dettagli da etichetta vinicola: hairline border, angoli smussati sartoriali, effetti letterpress e timbro a secco.
 - **Set Iniziale Atomic Design System (`src/components/design-system/`)**:
-  - **Atoms**:
-    - `Typography`: titoli display, corsivi d'annata, etichette sans e timbri monospazio lotto.
-    - `Button`: varianti primarie ceralacca bordeaux, carta calda secondaria, outline, ghost e timbro d'oro.
-    - `Badge`: categorie vino (Rosso, Bianco, Bollicine, Rosato, Orange, Dolce), finestre di beva (*Pronto*, *In affinamento*, *All'apice*, *Oltre*) e pill annata.
-    - `Input`, `Select`, `TextArea`: campi di input con etichette vintage e focus ring bordeaux.
-    - `RatingStars`: scala 5 stelle e badge 100-punti da guida vinicola.
-    - `Divider`: hairline, tratteggiato e con ornamento a losanga dorata.
-  - **Molecules**:
-    - `StockCounter`: stepper tattile con indicazione esaurito per inventario cantina.
-    - `WineStatPill`: visualizzatore di metriche enologiche (annata, gradazione, ubicazione).
-    - `SearchFilterBar`: barra di ricerca istantanea con chip di categoria e ordinamento.
-    - `EmptyState`: stato vuoto poetico con monogramma calice e call-to-action.
-    - `Drawer` & `Modal`: componenti di overlay con sfocatura e animazione sartoriale.
+  - **Atoms**: `Typography`, `Button`, `Badge`, `Input`, `Select`, `TextArea`, `RatingStars`, `Divider`.
+  - **Molecules**: `StockCounter`, `WineStatPill`, `SearchFilterBar`, `EmptyState`, `Drawer`, `Modal`.
 - **Governance**: Creazione del protocollo `AGENTS.md` per coordinamento multi-agente.
