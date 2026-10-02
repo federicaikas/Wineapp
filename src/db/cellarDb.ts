@@ -10,6 +10,9 @@ export class CellarDatabase extends Dexie {
     this.version(1).stores({
       wines: 'id, name, producer, vintage, category, drinkingStatus, stock, favorite, createdAt, updatedAt',
     });
+    this.on('populate', () => {
+      this.wines.bulkAdd(SEED_WINES);
+    });
   }
 }
 

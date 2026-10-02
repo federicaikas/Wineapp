@@ -1,10 +1,11 @@
 {
-  "name": "scaffold",
+  "name": "cellar",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:debug": "vite --debug --host",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"

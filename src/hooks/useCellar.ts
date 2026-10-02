@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db, initializeDatabase, addWine, updateWine, deleteWine, adjustStock, toggleFavorite, resetToDefaultSeed, computeCellarStats } from '../db/cellarDb';
 import type { WineBottle, WineFormData, CellarStats } from '../types/wine';
@@ -15,11 +15,13 @@ export function useCellar() {
   const [isAddDrawerOpen, setIsAddDrawerOpen] = useState(false);
   const [editingWine, setEditingWine] = useState<WineBottle | null>(null);
 
-  // Assicura l'inizializzazione del database
-  const allWines = useLiveQuery(async () => {
-    await initializeDatabase();
-    return db.wines.toArray();
-  }, []) || [];
+  // Inizializza il database in background al montaggio se vuoto
+  useEffect(() => {
+    initializeDatabase().catch(console.error);
+  }, []);
+
+  // Live query puramente di lettura (senza transazioni di scrittura)
+  const allWines = useLiveQuery(() => db.wines.toArray(), []) || [];
 
   // Calcolo statistiche globali della cantina
   const stats: CellarStats = computeCellarStats(allWines);
