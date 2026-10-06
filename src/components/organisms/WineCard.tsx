@@ -4,7 +4,6 @@ import { Typography, Divider, Button, StockCounter, MaturityTimeline } from '../
 import { Heart, MapPin, Eye, Edit3 } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
 import { formatVintage } from '../../utils/formatters';
-import winePlaceholder from '../../assets/wine_placeholder.jpg';
 import './WineCard.css';
 
 export interface WineCardProps {
@@ -47,23 +46,8 @@ export const WineCard: React.FC<WineCardProps> = ({
       }`}
       onClick={() => onSelect(wine)}
     >
-      {/* Blocco Titolo Etichetta & Foto Prodotto (Reale o Segnaposto) */}
+      {/* Blocco Titolo Etichetta */}
       <div className="cellar-wine-card__body">
-        <div className="cellar-wine-card__photo-badge">
-          {wine.imageUrl && wine.imageUrl !== 'neutral' ? (
-            <img
-              src={wine.imageUrl}
-              alt={wine.name}
-              className="cellar-wine-card__photo-img"
-            />
-          ) : (
-            <img
-              src={winePlaceholder}
-              alt={wine.name}
-              className="cellar-wine-card__photo-img"
-            />
-          )}
-        </div>
         <div className="cellar-wine-card__producer-row">
           <Typography variant="body-sm" color="secondary" className="cellar-wine-card__producer">
             {wine.producer}
@@ -91,7 +75,7 @@ export const WineCard: React.FC<WineCardProps> = ({
           </tr>
           <tr>
             <th>Vitigni</th>
-            <td>{wine.grapes.join(', ') || 'Autoctono'}</td>
+            <td>{wine.grapes?.join(', ') || 'Autoctono'}</td>
           </tr>
           <tr>
             <th>Gradazione</th>
@@ -153,7 +137,10 @@ export const WineCard: React.FC<WineCardProps> = ({
             variant="outline"
             size="sm"
             icon={<Eye size={14} />}
-            onClick={() => onSelect(wine)}
+            onClick={(e) => {
+              e.stopPropagation();
+              onSelect(wine);
+            }}
           >
             Scheda
           </Button>

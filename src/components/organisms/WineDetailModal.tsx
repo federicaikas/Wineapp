@@ -3,11 +3,11 @@ import confetti from 'canvas-confetti';
 import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
-import { Heart, Edit3, Trash2, Wine, Utensils, Calendar, Sparkles, Globe, Calculator, Camera, ImageOff, ExternalLink, Search } from 'lucide-react';
+import { Heart, Edit3, Trash2, Wine, Utensils, Calendar, Sparkles, Globe, Calculator, Search } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
 import { calculateWineOptimalDrinkingWindow, analyzeWineWebsiteUrl } from '../../utils/onlineWineSearch';
 import { formatVintage } from '../../utils/formatters';
-import { getWineryWebsiteUrl, getWineryDisplayDomain } from '../../utils/wineryUtils';
+import { getWineryWebsiteUrl } from '../../utils/wineryUtils';
 import './WineDetailModal.css';
 
 export interface WineDetailModalProps {
@@ -32,11 +32,17 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   onUpdateWine,
 }) => {
   const [isCalculatingWindow, setIsCalculatingWindow] = useState(false);
-  const [imageSearchFeedback, setImageSearchFeedback] = useState<string | null>(null);
 
   const [websiteInput, setWebsiteInput] = useState(wine?.websiteUrl || '');
   const [isAnalyzingWebsite, setIsAnalyzingWebsite] = useState(false);
   const [websiteAnalysisSuccess, setWebsiteAnalysisSuccess] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    if (wine) {
+      setWebsiteInput(wine.websiteUrl || '');
+      setWebsiteAnalysisSuccess(null);
+    }
+  }, [wine?.id, wine?.websiteUrl]);
 
   if (!wine) return null;
 
@@ -71,23 +77,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
     }
   };
 
-  const fileInputRef = React.useRef<HTMLInputElement>(null);
-
-  const handleCameraCapture = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file && wine && onUpdateWine) {
-      const reader = new FileReader();
-      reader.onload = async (event) => {
-        const base64Image = event.target?.result as string;
-        if (base64Image) {
-          await onUpdateWine(wine.id, { imageUrl: base64Image });
-          setImageSearchFeedback('✓ Foto scattata e salvata con successo!');
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const handleCalculateOptimalDrinkingWindow = async () => {
     if (!wine || !onUpdateWine) return;
     setIsCalculatingWindow(true);
@@ -110,12 +99,11 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
 
 
   const currentYear = new Date().getFullYear();
-  const windowStart = wine.drinkingWindow.start || wine.vintage;
-  const windowEnd = wine.drinkingWindow.end || wine.vintage + 10;
-  const peakYear = wine.drinkingWindow.peakYear || Math.round((windowStart + windowEnd) / 2);
+  const windowStart = wine.drinkingWindow?.start || wine.vintage;
+  const windowEnd = wine.drinkingWindow?.end || wine.vintage + 10;
+  const peakYear = wine.drinkingWindow?.peakYear || Math.round((windowStart + windowEnd) / 2);
 
   const wineryUrl = getWineryWebsiteUrl(wine.producer, wine.websiteUrl);
-  const wineryDomain = getWineryDisplayDomain(wineryUrl);
 
   const formattedPrice = new Intl.NumberFormat('it-IT', {
     style: 'currency',
@@ -192,75 +180,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
       }
     >
       <div className="cellar-detail-content">
-        {/* Barra azione Scatta Foto sopra l'immagine del prodotto */}
-        <input
-          type="file"
-          accept="image/*"
-          capture="environment"
-          ref={fileInputRef}
-          style={{ display: 'none' }}
-          onChange={handleCameraCapture}
-        />
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-          <Typography variant="body-sm" color="secondary" style={{ fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.75rem' }}>
-            Immagine Prodotto
-          </Typography>
-          <Button
-            variant="secondary"
-            size="sm"
-            icon={<Camera size={14} />}
-            onClick={() => fileInputRef.current?.click()}
-          >
-            Scatta foto
-          </Button>
-        </div>
-
-        {imageSearchFeedback && (
-          <div style={{ fontSize: '0.8rem', color: imageSearchFeedback.includes('✓') ? '#2D6A35' : '#6E6259', marginBottom: '8px', fontWeight: 500 }}>
-            {imageSearchFeedback}
-          </div>
-        )}
-
-        {/* Immagine o Box Neutro */}
-        {wine.imageUrl && wine.imageUrl !== 'neutral' ? (
-          <div className="cellar-detail-modal__photo-hero">
-            <img
-              src={wine.imageUrl}
-              alt={wine.name}
-              className="cellar-detail-modal__photo-hero-img"
-            />
-            <span className="cellar-detail-modal__photo-tag">
-              ✓ Foto Prodotto
-            </span>
-          </div>
-        ) : (
-          <div
-            className="cellar-detail-modal__neutral-box"
-            style={{
-              height: '150px',
-              backgroundColor: '#EAE6E1',
-              borderRadius: '12px',
-              border: '1px dashed rgba(45,35,74,0.18)',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '6px',
-              color: '#6E6259',
-              padding: '16px',
-              marginBottom: '8px',
-            }}
-          >
-            <ImageOff size={26} style={{ opacity: 0.5 }} />
-            <span style={{ fontSize: '0.85rem', fontWeight: 600, fontFamily: 'var(--font-sans)', textAlign: 'center' }}>
-              Box neutro - Nessuna foto impostata
-            </span>
-            <span style={{ fontSize: '0.75rem', opacity: 0.75, textAlign: 'center' }}>
-              Clicca "Scatta foto" in alto per fotografare la bottiglia dal vivo
-            </span>
-          </div>
-        )}
-
         {/* Intestazione Principale coordinata con le Card */}
         <div className="cellar-detail-content__header">
           <div className="cellar-detail-content__title-block" style={{ flex: 1 }}>
@@ -273,30 +192,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
                 <span className="cellar-wine-card__flag-badge" title={wine.country || 'Italia'}>
                   {getCountryFlag(wine.country)}
                 </span>
-                <a
-                  href={wineryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontSize: '0.75rem',
-                    color: '#722F37',
-                    fontWeight: 600,
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '3px',
-                    textDecoration: 'none',
-                    marginLeft: '4px',
-                    background: '#F9F6F0',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    border: '1px solid rgba(114, 47, 55, 0.15)',
-                  }}
-                  title={`Visita il sito ufficiale di ${wine.producer}`}
-                >
-                  <Globe size={11} />
-                  <span>Sito Cantina</span>
-                  <ExternalLink size={10} />
-                </a>
               </div>
 
               <Typography variant="serif-title" size="md" className="cellar-wine-card__name" style={{ fontSize: '1.85rem', margin: '4px 0 6px 0' }}>
@@ -363,7 +258,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             )}
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Vitigni</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.grapes.join(', ') || 'Autoctono'}</td>
+              <td style={{ padding: '6px 0 6px 8px' }}>{wine.grapes?.join(', ') || 'Autoctono'}</td>
             </tr>
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Gradazione</th>
@@ -382,29 +277,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Ubicazione</th>
               <td style={{ padding: '6px 0 6px 8px' }}>{wine.location}</td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Sito Cantina</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>
-                <a
-                  href={wineryUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    color: '#722F37',
-                    fontWeight: 600,
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    textDecoration: 'none',
-                  }}
-                  title={`Visita il sito ufficiale di ${wine.producer}`}
-                >
-                  <Globe size={13} />
-                  <span>{wineryDomain}</span>
-                  <ExternalLink size={12} style={{ opacity: 0.7 }} />
-                </a>
-              </td>
             </tr>
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Valore stimato</th>
@@ -542,7 +414,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           </div>
 
           {/* Aromi */}
-          {wine.tastingNotes.aroma.length > 0 && (
+          {wine.tastingNotes?.aroma?.length > 0 && (
             <div className="cellar-detail-content__aromas">
               <span className="cellar-detail-content__sublabel">
                 Note Olfattive Principali:
@@ -558,7 +430,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           )}
 
           {/* Esperienza al Palato */}
-          {wine.tastingNotes.palate && (
+          {wine.tastingNotes?.palate && (
             <div className="cellar-detail-content__palate">
               <span className="cellar-detail-content__sublabel">
                 Esperienza al Palato:
@@ -573,7 +445,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           )}
 
           {/* Abbinamenti Gastronomici (Box Bianco) */}
-          {wine.tastingNotes.pairing && (
+          {wine.tastingNotes?.pairing && (
             <div className="cellar-detail-content__pairing">
               <div className="cellar-detail-content__pairing-header">
                 <Utensils size={15} />
