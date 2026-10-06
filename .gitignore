@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary dev scratch files
+scratch/
+src/db/tmp_seed.js

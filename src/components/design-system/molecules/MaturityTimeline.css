@@ -1,0 +1,120 @@
+/* ==========================================================================
+   CELLAR — MaturityTimeline Molecule
+   Linea minimal con puntatore per i 4 stadi: Giovane, Pronto, Apice, Vecchio
+   ========================================================================== */
+
+.cellar-maturity-timeline {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 18px;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+.cellar-maturity-timeline__track-container {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  display: flex;
+  align-items: center;
+}
+
+.cellar-maturity-timeline__track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  background: rgba(45, 35, 74, 0.1);
+  border-radius: 9999px;
+}
+
+.cellar-maturity-timeline__progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 3px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, #7A9A3B 0%, #E5A823 50%, #6C1A24 100%);
+  border-radius: 9999px;
+  transition: width 250ms ease-in-out;
+}
+
+.cellar-maturity-timeline__nodes {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.cellar-maturity-timeline__node {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #E8E5DF;
+  border: 1px solid rgba(45, 35, 74, 0.15);
+  transition: all 200ms ease;
+  z-index: 1;
+}
+
+.cellar-maturity-timeline__node--passed {
+  z-index: 2;
+}
+
+/* Puntatore Attivo che scorre lungo la linea */
+.cellar-maturity-timeline__pointer {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: left 250ms ease-in-out;
+  z-index: 3;
+}
+
+.cellar-maturity-timeline__pin {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #FFFFFF;
+  transition: background-color 200ms ease, box-shadow 200ms ease;
+}
+
+/* Container Etichette dei 4 stadi con posizionamento assoluto in percentuale */
+.cellar-maturity-timeline__labels-wrap {
+  position: relative;
+  width: 100%;
+  height: 16px;
+  margin-top: 2px;
+}
+
+.cellar-maturity-timeline__label {
+  position: absolute;
+  top: 0;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--text-muted, #948E9E);
+  transition: color 150ms ease, font-weight 150ms ease;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.cellar-maturity-timeline__label--active {
+  font-weight: 700;
+}
+
+/* Varianti size */
+.cellar-maturity-timeline--sm {
+  gap: 2px;
+}
+
+.cellar-maturity-timeline--sm .cellar-maturity-timeline__label {
+  font-size: 0.65rem;
+}

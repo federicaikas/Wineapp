@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useLiveQuery } from 'dexie-react-hooks';
-import { db, initializeDatabase, addWine, updateWine, deleteWine, adjustStock, toggleFavorite, resetToDefaultSeed, computeCellarStats } from '../db/cellarDb';
+import { db, initializeDatabase, addWine, addWinesBatch, updateWine, deleteWine, adjustStock, toggleFavorite, resetToDefaultSeed, computeCellarStats } from '../db/cellarDb';
 import type { WineBottle, WineFormData, CellarStats } from '../types/wine';
 import type { WineCategory } from '../components/design-system/atoms/Badge';
 import type { SortOption } from '../components/design-system/molecules/SearchFilterBar';
@@ -9,8 +9,10 @@ import confetti from 'canvas-confetti';
 export function useCellar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<WineCategory | 'all'>('all');
+  const [selectedCountryFilter, setSelectedCountryFilter] = useState<'all' | 'IT' | 'FR' | 'ES' | 'EE'>('all');
   const [selectedSort, setSelectedSort] = useState<SortOption>('date-desc');
   const [filterFavoritesOnly, setFilterFavoritesOnly] = useState(false);
+  const [maxPrice, setMaxPrice] = useState<number>(500);
   const [selectedWine, setSelectedWine] = useState<WineBottle | null>(null);
   const [isAddDrawerOpen, setIsAddDrawerOpen] = useState(false);
   const [editingWine, setEditingWine] = useState<WineBottle | null>(null);
@@ -26,11 +28,27 @@ export function useCellar() {
   // Calcolo statistiche globali della cantina
   const stats: CellarStats = computeCellarStats(allWines);
 
-  // Filtraggio e Ordinamento
+  // Filtraggio e Ordinamento (Mostra solo le bottiglie presenti in cantina con stock > 0)
   const filteredWines = allWines.filter((wine) => {
+    // Le bottiglie con scorte esaurite (stock <= 0) sconsigliano dalla cantina e vanno in "Stappate"
+    if (wine.stock <= 0) {
+      return false;
+    }
+    // Filtro per prezzo massimo
+    if (wine.price > maxPrice) {
+      return false;
+    }
     // Filtro per categoria
     if (selectedCategory !== 'all' && wine.category !== selectedCategory) {
       return false;
+    }
+    // Filtro per Paese (IT, FR, ES, EE)
+    if (selectedCountryFilter !== 'all') {
+      const country = (wine.country || 'Italia').trim().toLowerCase();
+      if (selectedCountryFilter === 'IT' && !country.includes('ital')) return false;
+      if (selectedCountryFilter === 'FR' && !country.includes('franc')) return false;
+      if (selectedCountryFilter === 'ES' && !country.includes('spagn') && !country.includes('spain')) return false;
+      if (selectedCountryFilter === 'EE' && (country.includes('ital') || country.includes('franc') || country.includes('spagn') || country.includes('spain'))) return false;
     }
     // Filtro per preferiti
     if (filterFavoritesOnly && !wine.favorite) {
@@ -60,8 +78,10 @@ export function useCellar() {
         return a.vintage - b.vintage; // Più maturo prima (es. 2010 prima di 2021)
       case 'vintage-asc':
         return b.vintage - a.vintage; // Più giovane prima
-      case 'rating-desc':
-        return (b.criticScore || b.rating * 20) - (a.criticScore || a.rating * 20);
+      case 'price-desc':
+        return b.price - a.price;
+      case 'price-asc':
+        return a.price - b.price;
       case 'stock-desc':
         return b.stock - a.stock;
       case 'name-asc':
@@ -96,6 +116,18 @@ export function useCellar() {
     return created;
   }, []);
 
+  const handleAddWinesBatch = useCallback(async (dataArray: WineFormData[]) => {
+    const count = await addWinesBatch(dataArray);
+    setIsAddDrawerOpen(false);
+    confetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.7 },
+      colors: ['#6C1A24', '#96AB41', '#B8860B', '#EE9A3A'],
+    });
+    return count;
+  }, []);
+
   const handleUpdateWine = useCallback(async (id: string, data: Partial<WineBottle>) => {
     await updateWine(id, data);
     setEditingWine(null);
@@ -124,10 +156,14 @@ export function useCellar() {
     setSearchQuery,
     selectedCategory,
     setSelectedCategory,
+    selectedCountryFilter,
+    setSelectedCountryFilter,
     selectedSort,
     setSelectedSort,
     filterFavoritesOnly,
     setFilterFavoritesOnly,
+    maxPrice,
+    setMaxPrice,
     selectedWine,
     setSelectedWine,
     isAddDrawerOpen,
@@ -137,6 +173,7 @@ export function useCellar() {
     handleStockChange,
     handleToggleFavorite,
     handleAddWine,
+    handleAddWinesBatch,
     handleUpdateWine,
     handleDeleteWine,
     handleResetSeed,

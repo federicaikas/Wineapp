@@ -1,14 +1,50 @@
 :root {
   /* ==========================================================================
+     ANTIGRAVITY ATOMIC DESIGN SYSTEM TOKENS
+     ========================================================================== */
+  
+  /* 1. COLOR PALETTE */
+  --background-base: #FFFDF9;      /* Panna caldo */
+  --text-primary: #2D234A;         /* Viola scuro profondo */
+  --brand-primary: #2D234A;        /* Viola scuro profondo */
+  --accent-secondary: #E5A823;     /* Giallo senape / Ocra calda */
+  --accent-tertiary: #96AB41;     /* Verde oliva pistacchio (colore di riferimento) */
+  --text-muted: #706880;           /* Grigio-viola desaturato */
+
+  /* 2. TYPOGRAPHY SYSTEM */
+  --font-display: "DIN Bold", "DIN Alternate", "Oswald", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-eyebrow: "Caveat", cursive;
+
+  --display-line-height: 0.95;
+  --display-letter-spacing: -0.02em;
+  --eyebrow-rotation: -3deg;
+
+  /* 3. SPACING SCALE & RADIUS */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+
+  --radius-soft: 8px;
+  --radius-pill: 999px;
+
+  --transition-hover: 200ms ease-in-out;
+
+  /* ==========================================================================
      CELLAR — Design Tokens (O,nice! Studio Aesthetic)
      Tactile Warm Paper • Editorial Serif • Vintage Wine Label Details
      ========================================================================== */
 
   /* --- TYPOGRAPHY --- */
   --font-serif-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-serif-editorial: 'Cormorant Garamond', Garamond, 'Didot', serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-serif-editorial: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-sans: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'Space Mono', 'Courier Prime', Menlo, monospace;
+
 
   /* Font Scale */
   --text-2xs: 0.6875rem; /* 11px */
@@ -52,16 +88,16 @@
   --gold-soft: #FAF5E6;         /* Sfondo timbri di pregio */
   --gold-border: rgba(184, 134, 11, 0.28);
 
-  /* Terroir & Vigneto (Cypress / Olive) */
-  --vine-olive: #435443;        /* Foglia di vite autunnale */
-  --vine-sage: #617762;         /* Salvia selvatica */
-  --vine-soft: #EFF4EF;         /* Fondo fresco per bianchi e freschi */
-  --vine-border: rgba(67, 84, 67, 0.2);
+  /* Terroir & Bianchi (Verde Pistacchio Oliva #96AB41) */
+  --vine-olive: #6B7D2A;        /* Verde oliva scuro per testo */
+  --vine-sage: #96AB41;         /* Verde pistacchio oliva di riferimento */
+  --vine-soft: #F4F7E6;         /* Sfondo verde tenue */
+  --vine-border: rgba(150, 171, 65, 0.4);
 
-  /* Ambra & Terracotta (Amphora / Orange) */
-  --terracotta: #AD5537;        /* Argilla di vinificazione */
-  --terracotta-soft: #FAF0EB;   /* Fondo per vini macerati e orange */
-  --terracotta-border: rgba(173, 85, 55, 0.22);
+  /* Ambra & Ocra (Orange / Macerati) */
+  --terracotta: #C87D2B;        /* Ocra ambrata per vini orange */
+  --terracotta-soft: #FAF3E8;   /* Sfondo ocra tenue */
+  --terracotta-border: rgba(200, 125, 43, 0.28);
 
   /* Rosé & Pet Nat */
   --rose-blush: #B65E6D;

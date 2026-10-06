@@ -1,0 +1,183 @@
+.cellar-pie-card {
+  background: #FFFFFF;
+  border-radius: var(--radius-soft, 8px);
+  border: 1px solid rgba(45, 35, 74, 0.12);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(45, 35, 74, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cellar-pie-card__title {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #3B1B54;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem 0;
+}
+
+.cellar-pie-card__subtitle {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  color: var(--text-muted, #706880);
+  margin: 0 0 1.25rem 0;
+}
+
+.cellar-pie-card__empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.9rem;
+  color: var(--text-muted, #706880);
+  font-style: italic;
+  background: var(--paper-canvas, #FAF7F2);
+  border-radius: var(--radius-soft, 6px);
+  margin-top: 1rem;
+}
+
+.cellar-pie-card__body {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.cellar-pie-card__svg-wrap {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cellar-pie-slice {
+  transition: transform 0.2s ease, opacity 0.2s ease, filter 0.2s ease;
+  cursor: pointer;
+  transform-origin: center;
+}
+
+.cellar-pie-slice:hover,
+.cellar-pie-slice--hovered {
+  opacity: 0.92;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.15));
+  transform: scale(1.03);
+}
+
+.cellar-pie-card__center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+  width: 120px;
+}
+
+.cellar-pie-center__value {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #3B1B54;
+  line-height: 1;
+}
+
+.cellar-pie-center__label {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.725rem;
+  font-weight: 600;
+  color: var(--text-muted, #706880);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 110px;
+}
+
+.cellar-pie-center__pct {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #96AB41;
+  margin-top: 2px;
+}
+
+/* Legenda */
+.cellar-pie-card__legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 200px;
+}
+
+.cellar-pie-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-soft, 6px);
+  background: var(--paper-canvas, #FAF7F2);
+  border: 1px solid rgba(45, 35, 74, 0.06);
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.cellar-pie-legend-item:hover,
+.cellar-pie-legend-item--active {
+  background: #FFFFFF;
+  border-color: rgba(59, 27, 84, 0.25);
+  box-shadow: 0 2px 6px rgba(45, 35, 74, 0.06);
+}
+
+.cellar-pie-legend-item__color {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cellar-pie-legend-item__icon {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+.cellar-pie-legend-item__name {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3B1B54;
+  flex: 1;
+}
+
+.cellar-pie-legend-item__count {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted, #706880);
+}
+
+.cellar-pie-legend-item__pct {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: #3B1B54;
+  min-width: 42px;
+  text-align: right;
+}

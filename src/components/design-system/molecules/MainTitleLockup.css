@@ -1,0 +1,64 @@
+.ag-title-lockup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ag-title-lockup__heading {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: var(--display-line-height, 0.95);
+  letter-spacing: var(--display-letter-spacing, -0.02em);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Prima riga in viola (#2D234A) */
+.ag-title-lockup__primary {
+  color: var(--text-primary, #2D234A);
+  display: block;
+}
+
+/* Focus finale in senape (#E5A823) */
+.ag-title-lockup__accent {
+  color: var(--accent-secondary, #E5A823);
+  display: block;
+}
+
+/* Dimensioni */
+.ag-title-lockup--sm .ag-title-lockup__heading {
+  font-size: 2rem; /* 32px */
+}
+
+.ag-title-lockup--md .ag-title-lockup__heading {
+  font-size: 2.75rem; /* 44px */
+}
+
+.ag-title-lockup--lg .ag-title-lockup__heading {
+  font-size: 3.75rem; /* 60px */
+}
+
+.ag-title-lockup--hero .ag-title-lockup__heading {
+  font-size: 4.5rem; /* 72px */
+}
+
+.ag-title-lockup__subtitle {
+  margin-top: var(--space-2, 8px);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  color: var(--text-muted, #706880);
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .ag-title-lockup--hero .ag-title-lockup__heading {
+    font-size: 3rem;
+  }
+  .ag-title-lockup--lg .ag-title-lockup__heading {
+    font-size: 2.5rem;
+  }
+}

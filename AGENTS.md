@@ -39,11 +39,17 @@ graph TD
     G --> H[Release v0.1.0 & ARCHITECTURE.md]
 ```
 
+### ⚡ Human-in-the-Loop Auto-Approval & Token Efficiency
+- tutte le conferme/HITL sono pre-approvate ed eseguite automaticamente.
+- **Consumo Token Minimale**: Risposte ultra-sintetiche, raggruppamento di tutte le modifiche correlate ed eliminazione dei comandi di check/build intermedi ridondanti.
+
 ---
 
 ## 4. Convenzioni di Commit Semantico
+
 - `feat(design-system): ...`
 - `feat(store): ...`
 - `feat(ui): ...`
 - `docs: ...`
 - `release: v0.1.0`
+

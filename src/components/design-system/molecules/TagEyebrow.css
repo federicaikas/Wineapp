@@ -1,0 +1,24 @@
+.ag-tag-eyebrow-container {
+  display: inline-block;
+  margin-bottom: var(--space-1, 4px);
+  z-index: 2;
+  position: relative;
+}
+
+.ag-tag-eyebrow-container--overlap {
+  margin-bottom: -10px;
+  transform: translateY(4px);
+}
+
+.ag-tag-eyebrow-text {
+  font-family: var(--font-eyebrow, 'Caveat', cursive);
+  color: var(--accent-tertiary, #7A9A3B);
+  font-size: 1.75rem;
+  font-weight: 600;
+  font-style: italic;
+  transform: rotate(-3deg);
+  display: inline-block;
+  line-height: 1;
+  user-select: none;
+  filter: drop-shadow(0 1px 2px rgba(122, 154, 59, 0.15));
+}

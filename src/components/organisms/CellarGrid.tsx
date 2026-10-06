@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge } from '../design-system';
+import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Button, Tag } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List, Sparkles, Clock, CheckCircle2, Wine } from 'lucide-react';
+import { LayoutGrid, List } from 'lucide-react';
 import './CellarGrid.css';
 
 export interface CellarGridProps {
@@ -14,12 +14,18 @@ export interface CellarGridProps {
   onSearchChange: (q: string) => void;
   selectedCategory: WineCategory | 'all';
   onCategoryChange: (cat: WineCategory | 'all') => void;
+  selectedCountryFilter?: 'all' | 'IT' | 'FR' | 'ES' | 'EE';
+  onCountryFilterChange?: (country: 'all' | 'IT' | 'FR' | 'ES' | 'EE') => void;
   selectedSort: SortOption;
   onSortChange: (sort: SortOption) => void;
+  maxPrice?: number;
+  onMaxPriceChange?: (price: number) => void;
   onSelectWine: (wine: WineBottle) => void;
+  onEditWine: (wine: WineBottle) => void;
   onStockChange: (id: string, delta: number) => void;
   onToggleFavorite: (id: string) => void;
   onOpenAdd: () => void;
+  onOpenStats?: () => void;
 }
 
 export const CellarGrid: React.FC<CellarGridProps> = ({
@@ -29,63 +35,103 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
   onSearchChange,
   selectedCategory,
   onCategoryChange,
+  selectedCountryFilter,
+  onCountryFilterChange,
   selectedSort,
   onSortChange,
+  maxPrice,
+  onMaxPriceChange,
   onSelectWine,
+  onEditWine,
   onStockChange,
   onToggleFavorite,
   onOpenAdd,
+  onOpenStats,
 }) => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   return (
     <div className="cellar-grid-wrapper">
-      {/* Dashboard Statistiche Cantina */}
-      <section className="cellar-dashboard-stats" aria-label="Statistiche della Cantina">
-        <div className="cellar-dashboard-stat">
-          <span className="cellar-dashboard-stat__icon cellar-dashboard-stat__icon--wine">
-            <Wine size={18} />
-          </span>
-          <div className="cellar-dashboard-stat__info">
-            <span className="cellar-dashboard-stat__label">Bottiglie in Custodia</span>
-            <span className="cellar-dashboard-stat__value">{stats.totalBottles}</span>
-            <span className="cellar-dashboard-stat__sub">{stats.uniqueLabels} etichette uniche</span>
-          </div>
-        </div>
+      {/* Dashboard Statistiche Cantina con FeatureCard Atomic Design */}
+      {(() => {
+        const getCategoryPills = (breakdown: Record<WineCategory, number>) => [
+          { category: 'red', label: 'rossi', count: breakdown.red || 0 },
+          { category: 'white', label: 'bianchi', count: breakdown.white || 0 },
+          { category: 'sparkling', label: 'bollicine', count: breakdown.sparkling || 0 },
+          { category: 'orange', label: 'orange', count: breakdown.orange || 0 },
+          { category: 'rose', label: 'rosati', count: breakdown.rose || 0 },
+          { category: 'dessert', label: 'dolci', count: breakdown.dessert || 0 },
+        ];
 
-        <div className="cellar-dashboard-stat">
-          <span className="cellar-dashboard-stat__icon cellar-dashboard-stat__icon--ready">
-            <CheckCircle2 size={18} />
-          </span>
-          <div className="cellar-dashboard-stat__info">
-            <span className="cellar-dashboard-stat__label">Pronte al Calice</span>
-            <span className="cellar-dashboard-stat__value">{stats.readyToDrinkCount}</span>
-            <span className="cellar-dashboard-stat__sub">beva immediata</span>
-          </div>
-        </div>
+        const formattedTotalValue = new Intl.NumberFormat('it-IT', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 0,
+        }).format(stats.totalEstimatedValue);
 
-        <div className="cellar-dashboard-stat">
-          <span className="cellar-dashboard-stat__icon cellar-dashboard-stat__icon--peak">
-            <Sparkles size={18} />
-          </span>
-          <div className="cellar-dashboard-stat__info">
-            <span className="cellar-dashboard-stat__label">All’Apice della Maturità</span>
-            <span className="cellar-dashboard-stat__value">{stats.peakCount}</span>
-            <span className="cellar-dashboard-stat__sub">massima espressione</span>
-          </div>
-        </div>
+        const avgPriceVal = stats.totalBottles > 0 ? Math.round(stats.totalEstimatedValue / stats.totalBottles) : 0;
+        const formattedAvgPrice = new Intl.NumberFormat('it-IT', {
+          style: 'currency',
+          currency: 'EUR',
+          maximumFractionDigits: 0,
+        }).format(avgPriceVal);
 
-        <div className="cellar-dashboard-stat">
-          <span className="cellar-dashboard-stat__icon cellar-dashboard-stat__icon--aging">
-            <Clock size={18} />
-          </span>
-          <div className="cellar-dashboard-stat__info">
-            <span className="cellar-dashboard-stat__label">In Affinamento</span>
-            <span className="cellar-dashboard-stat__value">{stats.agingCount}</span>
-            <span className="cellar-dashboard-stat__sub">da custodire</span>
-          </div>
-        </div>
-      </section>
+        return (
+          <section className="cellar-dashboard-stats" aria-label="Statistiche della Cantina">
+            {/* 1° Posto: Verde Patrimonio Totale (Box quadrata e piccola) */}
+            <FeatureCard
+              badgeText="PATRIMONIO"
+              title={`${formattedTotalValue}`}
+              variant="green"
+              accentBorder={false}
+            >
+              <div className="ag-feature-card__green-sub">
+                <span>Valore medio</span>
+                <strong>{formattedAvgPrice}</strong>
+              </div>
+            </FeatureCard>
+
+            {/* 2° Posto: Viola In cantina */}
+            <FeatureCard
+              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.all)}
+              title="In cantina"
+              totalBadge={stats.totalBottles}
+              variant="purple"
+              accentBorder={false}
+            />
+
+            {/* 3° Posto: Apice */}
+            <FeatureCard
+              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.peak)}
+              title="Apice"
+              totalBadge={stats.peakCount}
+              accentBorder={false}
+            />
+
+            {/* 4° Posto: Affinamento */}
+            <FeatureCard
+              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.aging)}
+              title="Affinamento"
+              totalBadge={stats.agingCount}
+              accentBorder={false}
+            />
+
+            {/* 5° Posto: Statistiche */}
+            <FeatureCard
+              badgeText="REPORT"
+              title="Statistiche"
+              onClick={onOpenStats}
+              accentBorder={true}
+              className="cellar-stats-card-link"
+            >
+              <div className="cellar-stats-card-link__content">
+                <span>Mappa &amp; Analisi</span>
+                <strong className="cellar-stats-card-link__arrow">Apri →</strong>
+              </div>
+            </FeatureCard>
+          </section>
+        );
+      })()}
 
       {/* Barra Filtri & Ricerca */}
       <div className="cellar-grid-toolbar">
@@ -94,31 +140,64 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           onSearchChange={onSearchChange}
           selectedCategory={selectedCategory}
           onCategoryChange={onCategoryChange}
+          selectedCountryFilter={selectedCountryFilter}
+          onCountryFilterChange={onCountryFilterChange}
           selectedSort={selectedSort}
           onSortChange={onSortChange}
-          counts={stats.categoryBreakdown}
-          totalCount={stats.totalBottles}
+          maxPrice={maxPrice}
+          onMaxPriceChange={onMaxPriceChange}
         />
 
         <div className="cellar-view-toggle">
-          <button
-            type="button"
-            className={`cellar-view-toggle__btn ${viewMode === 'grid' ? 'cellar-view-toggle__btn--active' : ''}`}
+          <Button
+            variant={viewMode === 'grid' ? 'primary' : 'ghost'}
+            size="sm"
+            icon={<LayoutGrid size={15} />}
             onClick={() => setViewMode('grid')}
             aria-label="Vista etichette a griglia"
           >
-            <LayoutGrid size={16} />
-            <span className="cellar-view-toggle__label">Griglia</span>
-          </button>
-          <button
-            type="button"
-            className={`cellar-view-toggle__btn ${viewMode === 'list' ? 'cellar-view-toggle__btn--active' : ''}`}
+            Griglia
+          </Button>
+          <Button
+            variant={viewMode === 'list' ? 'primary' : 'ghost'}
+            size="sm"
+            icon={<List size={15} />}
             onClick={() => setViewMode('list')}
             aria-label="Vista registro a catalogo"
           >
-            <List size={16} />
-            <span className="cellar-view-toggle__label">Registro</span>
-          </button>
+            Registro
+          </Button>
+        </div>
+      </div>
+
+      {/* Legenda Colori & Tipologie Vino */}
+      <div className="cellar-color-legend" aria-label="Legenda Colori e Tipologie Vini">
+        <span className="cellar-color-legend__title">Legenda Tipologie &amp; Colori:</span>
+        <div className="cellar-color-legend__items">
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'red' ? 'all' : 'red')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="red" size="sm">Rosso</Badge>
+            <span className="cellar-color-legend__desc">(Rack 1 Sx)</span>
+          </div>
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'white' ? 'all' : 'white')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="white" size="sm">Bianco</Badge>
+            <span className="cellar-color-legend__desc">(Rack 2 Centro)</span>
+          </div>
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'sparkling' ? 'all' : 'sparkling')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="sparkling" size="sm">Bollicine</Badge>
+            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
+          </div>
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'rose' ? 'all' : 'rose')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="rose" size="sm">Rosato</Badge>
+            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
+          </div>
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'orange' ? 'all' : 'orange')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="orange" size="sm">Orange</Badge>
+            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
+          </div>
+          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'dessert' ? 'all' : 'dessert')} style={{ cursor: 'pointer' }}>
+            <Badge variant="wine-type" category="dessert" size="sm">Dolce</Badge>
+            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
+          </div>
         </div>
       </div>
 
@@ -142,6 +221,7 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
               key={wine.id}
               wine={wine}
               onSelect={onSelectWine}
+              onEdit={onEditWine}
               onStockChange={onStockChange}
               onToggleFavorite={onToggleFavorite}
             />
@@ -151,13 +231,13 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
         /* Vista a Registro Sartoriale (Elenco Dettagliato) */
         <div className="cellar-list-ledger">
           <div className="cellar-list-ledger__header">
-            <span className="cellar-list-ledger__col-wine">Vino &amp; Produttore</span>
-            <span className="cellar-list-ledger__col-vintage">Millesimo</span>
-            <span className="cellar-list-ledger__col-category">Tipologia</span>
-            <span className="cellar-list-ledger__col-status">Stato Beva</span>
-            <span className="cellar-list-ledger__col-rating">Critica</span>
-            <span className="cellar-list-ledger__col-stock">Scorte</span>
-            <span className="cellar-list-ledger__col-price">Valore</span>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-wine">Vino &amp; Produttore</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-vintage">Millesimo</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-category">Tipologia</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-status">Stato Beva</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-rating">Critica</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-stock">Scorte</Typography>
+            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-price">Valore</Typography>
           </div>
 
           <div className="cellar-list-ledger__body">
@@ -168,32 +248,48 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
                 onClick={() => onSelectWine(wine)}
               >
                 <div className="cellar-list-ledger__col-wine">
-                  <span className="cellar-list-row__producer">{wine.producer}</span>
-                  <span className="cellar-list-row__name">{wine.name}</span>
-                  <span className="cellar-list-row__appellation">{wine.appellation}</span>
+                  <Typography variant="serif-italic" color="secondary" className="cellar-list-row__producer">
+                    {wine.producer}
+                  </Typography>
+                  <Typography variant="serif-title" size="sm" className="cellar-list-row__name">
+                    {wine.name}
+                  </Typography>
+                  <Typography variant="body-sm" color="muted" className="cellar-list-row__appellation">
+                    {wine.appellation} • {wine.region}
+                  </Typography>
                 </div>
 
                 <div className="cellar-list-ledger__col-vintage">
-                  <span className="cellar-list-row__vintage">{wine.vintage}</span>
+                  <Tag variant="pill">{wine.vintage}</Tag>
                 </div>
 
                 <div className="cellar-list-ledger__col-category">
                   <Badge variant="wine-type" category={wine.category} size="sm">
-                    {wine.category}
+                    {wine.category === 'red' && 'Rosso'}
+                    {wine.category === 'white' && 'Bianco'}
+                    {wine.category === 'sparkling' && 'Bollicine'}
+                    {wine.category === 'rose' && 'Rosato'}
+                    {wine.category === 'orange' && 'Orange'}
+                    {wine.category === 'dessert' && 'Passito'}
                   </Badge>
                 </div>
 
                 <div className="cellar-list-ledger__col-status">
                   <Badge variant="drinking-status" status={wine.drinkingStatus} size="sm">
-                    {wine.drinkingStatus}
+                    {wine.drinkingStatus === 'ready' && 'Pronto'}
+                    {wine.drinkingStatus === 'aging' && 'Affinamento'}
+                    {wine.drinkingStatus === 'peak' && 'All’apice'}
+                    {wine.drinkingStatus === 'past' && 'Oltre picco'}
                   </Badge>
                 </div>
 
                 <div className="cellar-list-ledger__col-rating">
                   {wine.criticScore ? (
-                    <span className="cellar-list-row__score">{wine.criticScore} PTS</span>
+                    <Typography variant="stamp-mono" color="primary">
+                      {wine.criticScore} PTS
+                    </Typography>
                   ) : (
-                    <span>{wine.rating} ★</span>
+                    <RatingStars value={wine.rating} size="sm" />
                   )}
                 </div>
 
@@ -201,15 +297,18 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
                   className="cellar-list-ledger__col-stock"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  <span className="cellar-list-row__stock-num">
-                    {wine.stock} btg.
-                  </span>
+                  <StockCounter
+                    count={wine.stock}
+                    size="sm"
+                    onIncrement={() => onStockChange(wine.id, 1)}
+                    onDecrement={() => onStockChange(wine.id, -1)}
+                  />
                 </div>
 
                 <div className="cellar-list-ledger__col-price">
-                  <span className="cellar-list-row__price">
+                  <Typography variant="serif-title" size="sm" color="primary">
                     € {wine.price}
-                  </span>
+                  </Typography>
                 </div>
               </div>
             ))}
@@ -219,3 +318,4 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
     </div>
   );
 };
+

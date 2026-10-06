@@ -1,0 +1,30 @@
+/* Content Block: Paragrafo Montserrat (700 bold per frasi chiave in #2D234A, 400 regular per testo di supporto in #706880) */
+.ag-content-block {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  line-height: 1.6;
+  margin: 0 0 var(--space-3, 16px) 0;
+}
+
+.ag-content-block--sm {
+  font-size: 0.875rem;
+}
+
+.ag-content-block--md {
+  font-size: 1rem;
+}
+
+.ag-content-block--lg {
+  font-size: 1.15rem;
+}
+
+/* Testo di supporto 400 regular in #706880 */
+.ag-content-block__support {
+  color: var(--text-muted, #706880);
+  font-weight: 400;
+}
+
+/* Frasi chiave 700 bold in #2D234A */
+.ag-content-block__highlight {
+  color: var(--text-primary, #2D234A);
+  font-weight: 700;
+}

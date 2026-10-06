@@ -1,89 +1,86 @@
 import React from 'react';
 import { Button } from '../design-system';
 import type { CellarStats } from '../../types/wine';
-import { Plus, Wine, RotateCcw, Heart } from 'lucide-react';
+import { Plus, Heart, Wine, Sparkles } from 'lucide-react';
 import './CellarHeader.css';
 
 export interface CellarHeaderProps {
   stats: CellarStats;
+  uncorkedCount: number;
+  currentView?: 'cellar' | 'stats' | 'uncorked' | 'showcase';
   onOpenAdd: () => void;
-  onResetSeed: () => void;
+  onResetSeed?: () => void;
   filterFavoritesOnly: boolean;
   onToggleFilterFavorites: () => void;
+  onOpenUncorked: () => void;
+  onOpenRandomWine?: () => void;
+  onGoHome?: () => void;
 }
 
 export const CellarHeader: React.FC<CellarHeaderProps> = ({
   stats,
+  uncorkedCount,
+  currentView = 'cellar',
   onOpenAdd,
-  onResetSeed,
   filterFavoritesOnly,
   onToggleFilterFavorites,
+  onOpenUncorked,
+  onOpenRandomWine,
+  onGoHome,
 }) => {
-  const formattedCellarValue = new Intl.NumberFormat('it-IT', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0,
-  }).format(stats.totalEstimatedValue);
-
   return (
     <header className="cellar-masthead">
       <div className="cellar-masthead__container">
-        {/* Brand & Monogramma */}
-        <div className="cellar-masthead__brand">
-          <div className="cellar-masthead__seal">
-            <Wine size={20} className="cellar-masthead__seal-icon" />
-          </div>
-
-          <div className="cellar-masthead__brand-text">
-            <div className="cellar-masthead__meta">
-              <span className="cellar-masthead__stamp">ARCHIVIO PRIVATO N° 0482</span>
-              <span className="cellar-masthead__sep">•</span>
-              <span className="cellar-masthead__date">COLLEZIONE ENOLOGICA</span>
-            </div>
-            <h1 className="cellar-masthead__title">CELLAR</h1>
-          </div>
+        {/* Brand WINAPP */}
+        <div
+          className="cellar-masthead__brand"
+          onClick={onGoHome}
+          style={{ cursor: 'pointer' }}
+          title="Torna alla Cantina (Home)"
+        >
+          <h1 className="cellar-masthead__title">WINAPP - La cantina di Federica</h1>
         </div>
 
-        {/* Metriche Rapide & Azioni Header */}
+        {/* Bottoni di azione */}
         <div className="cellar-masthead__actions">
-          {/* Badge Valore Cantina */}
-          <div className="cellar-masthead__value-pill">
-            <span className="cellar-masthead__value-label">Valore Stimato</span>
-            <span className="cellar-masthead__value-amount">{formattedCellarValue}</span>
-          </div>
+          {onOpenRandomWine && (
+            <Button
+              variant="outline"
+              size="md"
+              icon={<Sparkles size={16} />}
+              onClick={onOpenRandomWine}
+              className="cellar-header-btn-random"
+            >
+              Cosa beviamo? 🍷
+            </Button>
+          )}
 
-          {/* Filtro Preferiti */}
-          <button
-            type="button"
-            className={`cellar-masthead__fav-toggle ${filterFavoritesOnly ? 'cellar-masthead__fav-toggle--active' : ''}`}
+          <Button
+            variant={filterFavoritesOnly ? 'primary' : 'outline'}
+            size="md"
+            icon={<Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />}
             onClick={onToggleFilterFavorites}
-            title="Mostra solo bottiglie preferite"
+            className="cellar-header-btn-fav"
           >
-            <Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
-            <span className="cellar-masthead__fav-label">Preferiti ({stats.favoritesCount})</span>
-          </button>
+            Preferiti ({stats.favoritesCount})
+          </Button>
 
-          {/* Reset Seed Database */}
-          <button
-            type="button"
-            className="cellar-masthead__seed-btn"
-            onClick={() => {
-              if (window.confirm('Vuoi ripristinare il catalogo d’esempio con i grandi vini iconici?')) {
-                onResetSeed();
-              }
-            }}
-            title="Ripristina collezione seed di prova"
+          <Button
+            variant={currentView === 'uncorked' ? 'primary' : 'outline'}
+            size="md"
+            icon={<Wine size={16} />}
+            onClick={onOpenUncorked}
+            className={`cellar-header-btn-uncorked ${currentView === 'uncorked' ? 'cellar-header-btn-uncorked--active' : ''}`}
           >
-            <RotateCcw size={15} />
-            <span className="cellar-masthead__seed-label">Reset Seed</span>
-          </button>
+            Bottiglie stappate ({uncorkedCount})
+          </Button>
 
-          {/* CTA Aggiungi Bottiglia */}
           <Button
             variant="primary"
             size="md"
             icon={<Plus size={16} />}
             onClick={onOpenAdd}
+            className="cellar-header-btn-add"
           >
             Nuova Bottiglia
           </Button>
@@ -92,3 +89,4 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
     </header>
   );
 };
+

@@ -1,0 +1,273 @@
+/* Feature Card: Background bianco/neutro con accento bordo o badge superiore #7A9A3B, titolo DIN e testo Montserrat */
+.ag-feature-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-soft, 8px);
+  padding: 1.2rem 1.25rem;
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  box-shadow: 0 2px 12px rgba(45, 35, 74, 0.04);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 125px;
+  box-sizing: border-box;
+  transition: transform var(--transition-hover, 200ms ease-in-out), box-shadow var(--transition-hover, 200ms ease-in-out);
+}
+
+.ag-feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.08);
+}
+
+.ag-feature-card--accent-border {
+  border-top: 4px solid var(--accent-tertiary, #7A9A3B);
+}
+
+.ag-feature-card__top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2, 8px);
+  width: 100%;
+  min-height: 28px;
+}
+
+.ag-feature-card__badge-wrapper {
+  margin-bottom: 0;
+}
+
+.ag-feature-card__total-box {
+  background: #FFFFFF;
+  border: 1px solid rgba(45, 35, 74, 0.18);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #3B1B54;
+  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.08);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Ripartizione Categorie in Alto */
+.ag-feature-card__categories {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.ag-feature-card__cat-pill {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ag-feature-card__cat-pill--red {
+  background: rgba(108, 26, 36, 0.08);
+  color: #6C1A24;
+  border: 1px solid rgba(108, 26, 36, 0.2);
+}
+
+.ag-feature-card__cat-pill--white {
+  background: rgba(243, 184, 56, 0.18);
+  color: #B88414;
+  border: 1px solid rgba(243, 184, 56, 0.4);
+}
+
+.ag-feature-card__cat-pill--sparkling {
+  background: rgba(150, 171, 65, 0.18);
+  color: #6B7D2A;
+  border: 1px solid rgba(150, 171, 65, 0.4);
+}
+
+.ag-feature-card__cat-pill--rose {
+  background: rgba(224, 110, 137, 0.15);
+  color: #C84B66;
+  border: 1px solid rgba(224, 110, 137, 0.4);
+}
+
+.ag-feature-card__cat-pill--orange {
+  background: rgba(238, 154, 58, 0.18);
+  color: #C67822;
+  border: 1px solid rgba(238, 154, 58, 0.35);
+}
+
+.ag-feature-card__cat-pill--dessert {
+  background: rgba(154, 107, 41, 0.08);
+  color: #9A6B29;
+  border: 1px solid rgba(154, 107, 41, 0.2);
+}
+
+.ag-feature-card__icon {
+  color: var(--accent-tertiary, #7A9A3B);
+  margin-bottom: var(--space-2, 8px);
+  display: flex;
+  align-items: center;
+}
+
+/* Titolo DIN Bold in Viola Grande */
+.ag-feature-card__title {
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #3B1B54; /* Viola scuro di marca */
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-top: 0.85rem;
+}
+
+/* Testo Montserrat */
+.ag-feature-card__description {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0 0 var(--space-3, 16px) 0;
+}
+
+.ag-feature-card__highlight {
+  color: var(--text-primary, #2D234A);
+  font-weight: 700;
+}
+
+.ag-feature-card__text {
+  color: var(--text-muted, #706880);
+  font-weight: 400;
+}
+
+.ag-feature-card__action {
+  margin-top: auto;
+}
+
+/* Varianti Cromatiche Personalizzate */
+.ag-feature-card--purple {
+  background-color: #3B1B54 !important;
+  color: #FFFFFF !important;
+  border-color: #3B1B54 !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__title {
+  color: #FFFFFF !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__total-box {
+  background: #FFFFFF !important;
+  color: #3B1B54 !important;
+  border-color: #FFFFFF !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--red {
+  background: #F7EFEF !important;
+  color: #6C1A24 !important;
+  border: 1px solid rgba(108, 26, 36, 0.4) !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--white {
+  background: #FFF9E6 !important;
+  color: #B88414 !important;
+  border: 1px solid rgba(243, 184, 56, 0.5) !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--sparkling {
+  background: #F4F7E6 !important;
+  color: #6B7D2A !important;
+  border: 1px solid rgba(150, 171, 65, 0.5) !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--rose {
+  background: #FDF0F3 !important;
+  color: #C84B66 !important;
+  border: 1px solid rgba(224, 110, 137, 0.5) !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--orange {
+  background: #FFF4E8 !important;
+  color: #C67822 !important;
+  border: 1px solid rgba(238, 154, 58, 0.5) !important;
+}
+
+.ag-feature-card--purple .ag-feature-card__cat-pill--dessert {
+  background: #FFF8E7 !important;
+  color: #9A6B29 !important;
+  border: 1px solid rgba(154, 107, 41, 0.4) !important;
+}
+
+.ag-feature-card--green {
+  background-color: #96AB41 !important;
+  color: #FFFFFF !important;
+  border-color: #96AB41 !important;
+  padding: 0.85rem 0.9rem !important;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  max-width: 140px;
+  justify-content: space-between !important;
+}
+
+.ag-feature-card--green .ag-feature-card__top-bar {
+  min-height: auto;
+  justify-content: flex-start !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ag-feature-card--green .ag-feature-card__badge-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.ag-feature-card--green .ag-feature-card__badge-wrapper .ag-tag,
+.ag-feature-card--green .ag-feature-card__badge-wrapper .cellar-tag {
+  background: transparent !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  border: none !important;
+  font-size: 0.65rem !important;
+  font-weight: 700 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ag-feature-card--green .ag-feature-card__title {
+  color: #FFFFFF !important;
+  font-size: 1.35rem !important;
+  line-height: 1.1 !important;
+  margin-top: 0.15rem !important;
+  margin-bottom: 0.15rem !important;
+  padding-top: 0 !important;
+  word-break: break-word;
+}
+
+.ag-feature-card--green .ag-feature-card__green-sub {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.ag-feature-card--green .ag-feature-card__green-sub span {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.ag-feature-card--green .ag-feature-card__green-sub strong {
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  font-weight: 700;
+}

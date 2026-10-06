@@ -32,40 +32,40 @@ export class ErrorBoundary extends Component<Props, State> {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: '#FAF7F2',
-          color: '#1A1614',
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
+          backgroundColor: 'var(--paper-canvas)',
+          color: 'var(--ink-primary)',
+          fontFamily: 'var(--font-sans)',
           padding: '2rem',
           textAlign: 'center',
         }}>
           <div style={{
             maxWidth: '540px',
-            backgroundColor: '#FFFFFF',
-            border: '1px solid rgba(43, 37, 33, 0.15)',
-            borderRadius: '8px',
+            backgroundColor: 'var(--paper-card)',
+            border: 'var(--border-tactile)',
+            borderRadius: 'var(--radius-md)',
             padding: '2.5rem 2rem',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
+            boxShadow: 'var(--shadow-card)',
           }}>
             <span style={{
-              fontFamily: "'Space Mono', monospace",
-              fontSize: '11px',
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'var(--text-xs)',
               letterSpacing: '0.12em',
-              color: '#B8860B',
+              color: 'var(--gold-foil)',
               textTransform: 'uppercase',
             }}>
-              CELLAR • AVVISO DI SISTEMA
+              WINAPP • AVVISO DI SISTEMA
             </span>
             <h1 style={{
-              fontFamily: "'Fraunces', serif",
-              fontSize: '24px',
+              fontFamily: 'var(--font-serif-display)',
+              fontSize: 'var(--text-2xl)',
               margin: '0.75rem 0',
-              color: '#6C1A24',
+              color: 'var(--wine-bordeaux)',
             }}>
               Si è verificato un imprevisto
             </h1>
             <p style={{
-              fontSize: '14px',
-              color: '#5F564F',
+              fontSize: 'var(--text-sm)',
+              color: 'var(--ink-secondary)',
               marginBottom: '1.5rem',
               lineHeight: 1.5,
             }}>
@@ -75,14 +75,15 @@ export class ErrorBoundary extends Component<Props, State> {
               type="button"
               onClick={() => window.location.reload()}
               style={{
-                background: 'linear-gradient(135deg, #8B2332, #6C1A24)',
+                background: 'linear-gradient(135deg, var(--wine-crimson), var(--wine-bordeaux))',
                 color: '#FFFFFF',
                 border: 'none',
-                borderRadius: '4px',
+                borderRadius: 'var(--radius-sm)',
                 padding: '0.75rem 1.5rem',
-                fontSize: '14px',
-                fontWeight: 500,
+                fontSize: 'var(--text-sm)',
+                fontWeight: 600,
                 cursor: 'pointer',
+                transition: 'var(--transition-fast)',
               }}
             >
               Ricarica la Cantina
@@ -95,3 +96,4 @@ export class ErrorBoundary extends Component<Props, State> {
     return this.props.children;
   }
 }
+

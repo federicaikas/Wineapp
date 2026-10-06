@@ -93,3 +93,17 @@
   letter-spacing: 0.08em;
   font-weight: 700;
 }
+
+.cellar-type--eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Modifier di taglia facoltativa */
+.cellar-type--size-sm { font-size: var(--text-sm); }
+.cellar-type--size-md { font-size: var(--text-base); }
+.cellar-type--size-lg { font-size: var(--text-xl); }
+

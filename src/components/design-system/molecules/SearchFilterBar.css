@@ -102,67 +102,189 @@
   border-color: var(--wine-bordeaux);
 }
 
-/* Category Filter Chips */
-.cellar-filterbar__categories {
+/* Pulsante Toggle Filtri Collassati */
+.cellar-filterbar__dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 42px;
+  padding: 0 1rem;
+  background: var(--paper-card, #FFFFFF);
+  border: 1px solid rgba(45, 35, 74, 0.15);
+  border-radius: var(--radius-sm, 6px);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #3B1B54;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
+}
+
+.cellar-filterbar__dropdown-toggle:hover {
+  background: #F8F4EC;
+  border-color: #3B1B54;
+}
+
+.cellar-filterbar__dropdown-toggle--active {
+  background: #3B1B54;
+  color: #FFFFFF;
+  border-color: #3B1B54;
+}
+
+.cellar-filterbar__active-badge {
+  background: #8B263E;
+  color: #FFFFFF;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cellar-filterbar__chevron {
+  transition: transform 0.2s ease;
+}
+
+.cellar-filterbar__chevron--open {
+  transform: rotate(180deg);
+}
+
+/* Pannello Menu a Tendina Filtri Collassati */
+.cellar-filterbar__dropdown-panel {
+  background: #FFFFFF;
+  border: 1px solid rgba(59, 27, 84, 0.15);
+  border-radius: 8px;
+  padding: 1.15rem;
+  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  animation: dropdownFade 0.2s ease;
+}
+
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.cellar-filterbar__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.cellar-filterbar__group-title {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #706880;
+}
+
+.cellar-filterbar__chips-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .cellar-filterbar__chip {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.85rem;
-  background: var(--paper-surface);
-  border: var(--border-hairline);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  color: var(--ink-secondary);
+  padding: 0.4rem 0.9rem;
+  background: var(--paper-surface, #F8F4EC);
+  border: 1px solid rgba(45, 35, 74, 0.12);
+  border-radius: 9999px;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #3B1B54;
   cursor: pointer;
   white-space: nowrap;
-  transition: all var(--transition-fast);
+  transition: all 0.15s ease;
 }
 
 .cellar-filterbar__chip:hover {
-  background: var(--paper-subtle);
-  color: var(--ink-dark);
+  background: #EFE8DA;
+  border-color: #3B1B54;
 }
 
 .cellar-filterbar__chip--active {
-  background: var(--ink-dark);
+  background: #3B1B54;
   color: #FFFFFF;
-  border-color: var(--ink-dark);
+  border-color: #3B1B54;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--red {
-  background: var(--wine-bordeaux);
-  border-color: var(--wine-bordeaux);
+  background: #6C1A24;
+  border-color: #6C1A24;
+  color: #FFFFFF;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--white {
-  background: var(--vine-olive);
-  border-color: var(--vine-olive);
+  background: #F3B838;
+  color: #2D234A;
+  border-color: #F3B838;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--sparkling {
-  background: var(--gold-accent);
-  border-color: var(--gold-accent);
-}
-
-.cellar-filterbar__chip-count {
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
-  padding: 1px 5px;
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: var(--radius-pill);
-}
-
-.cellar-filterbar__chip--active .cellar-filterbar__chip-count {
-  background: rgba(255, 255, 255, 0.25);
+  background: #96AB41;
   color: #FFFFFF;
+  border-color: #96AB41;
 }
+
+.cellar-filterbar__chip--active.cellar-filterbar__chip--orange {
+  background: #EE9A3A;
+  color: #FFFFFF;
+  border-color: #EE9A3A;
+}
+
+.cellar-filterbar__chip--active.cellar-filterbar__chip--rose {
+  background: #E06E89;
+  color: #FFFFFF;
+  border-color: #E06E89;
+}
+
+.cellar-filterbar__chip--active.cellar-filterbar__chip--dessert {
+  background: #9A6B29;
+  color: #FFFFFF;
+  border-color: #9A6B29;
+}
+
+.cellar-filterbar__chip-flag {
+  font-size: 0.9rem;
+}
+
+.cellar-filterbar__reset-wrap {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(45, 35, 74, 0.08);
+  padding-top: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.cellar-filterbar__reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: none;
+  color: #8B263E;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.cellar-filterbar__reset-btn:hover {
+  background: #FCE8EC;
+}
+

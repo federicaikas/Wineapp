@@ -3,6 +3,45 @@
 Tutte le modifiche rilevanti a questo progetto sono documentate in questo file.
 Il formato segue le specifiche di [Keep a Changelog](https://keepachangelog.com/it/1.0.0/) e [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-06
+
+### Added & Optimized
+- **Estrazione Informazioni con IA da URL Sito Web**:
+  - Aggiunto campo URL input e pulsante `ANALIZZA` nella scheda vino (`WineDetailModal`).
+  - Visita e analizza il sito web estraendo note olfattive, palato, abbinamenti, denominazione, vitigni, grado alcolico e immagine della bottiglia.
+  - Mantenimento **tassativo ed inalterato** di annata (`vintage`) e prezzo (`price`).
+  - Badge feedback visuale `✨ Ricerca ed Estrazione con IA`.
+- **Integrazione Scatta Foto Nativa (Camera)**:
+  - Sostituita la ricerca online immagini con la funzionalità `Scatta foto` direttamente integrata con la fotocamera del dispositivo mobile/desktop (`input capture="environment"`).
+- **Legenda Colori e Tipologie Vini**:
+  - Inserita barra di legenda interattiva sotto i filtri di ricerca con tutti i badge cromatici (Rossi, Bianchi, Bollicine, Rosati, Orange, Dolci) e le relative collocazioni nelle rack di cantina.
+- **Ordinamento e Slider Prezzo**:
+  - Aggiunto slider range per filtrare le bottiglie in base al prezzo massimo.
+  - Aggiornato l'ordinamento con le opzioni *Prezzo: Dal più caro* e *Prezzo: Dal meno caro* (rimossa voce punteggio).
+- **Tasto "Cosa beviamo? 🍷" & "Cerca info 🔍"**:
+  - Pulsante casuale in alto a destra per scegliere e aprire la scheda di una bottiglia pronta in cantina.
+  - Pulsante rapido `Cerca info` sotto il nome del vino per avviare ricerche Google mirate.
+- **Ottimizzazione Generale & Refactoring**:
+  - Verificato typecheck TypeScript (`tsc --noEmit`) con 0 errori.
+  - Verificata compilazione di produzione (`npm run build`) con successo.
+
+---
+
+## [0.2.0] - 2026-10-05
+
+### Added & Integrated
+- **Integrazione Completa dell'Atomic Design System nell'App Main**:
+  - `CellarHeader`: Integrati `TagEyebrow` ("Archivio Privato N° 0482") e `MainTitleLockup` ("CELLAR • CAVE PRIVÉE") con pulsanti atomici primari e secondari.
+  - `CellarGrid`: Inserita la Hero Banner `HeroSection` in apertura di catalogo e convertite le 4 metriche di cruscotto in `FeatureCard` atomiche con bordo accento `#7A9A3B`, titoli DIN Bold e dettagli Montserrat.
+  - `WineDetailModal`: Riprogettato il dossier enologico con `TagEyebrow` (produttore), `MainTitleLockup` (titolo vino e denominazione), `ContentBlock` per le note degustative e pulsanti d'azione atomici (Stappa, Modifica, Elimina).
+  - `QuickAddDrawer`: Integrati gli elementi atomici nei form di acquisizione ed edit.
+- **Antigravity Atomic Design System Library**:
+  - Configurazione dei **Tokens & Primitive (Atoms)**:
+    - Palette Colori: `background-base` (`#FFFDF9`), `text-primary` / `brand-primary` (`#2D234A`), `accent-secondary` (`#E5A823`), `accent-tertiary` (`#7A9A3B`), `text-muted` (`#706880`).
+    - Tipografia: Display DIN Bold (`"DIN Bold", "DIN Alternate", "Oswald"` all-caps, line-height 0.95, letter-spacing -0.02em), Body Text Montserrat (400 Regular & 700 Bold), Eyebrow Script Caveat (italic 600, rotazione -3deg).
+    - Esportazione dei token in JSON (`src/styles/tokens.json`) e CSS variables (`src/styles/tokens.css`).
+  - Showcase interattivo navigabile con il pulsante **"🎨 Design System UI"**.
+
 ---
 
 ## [0.1.0] - 2026-10-02

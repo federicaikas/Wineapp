@@ -1,4 +1,5 @@
 import type { WineCategory, DrinkingStatus } from '../components/design-system/atoms/Badge';
+export type { WineCategory, DrinkingStatus };
 
 export interface TastingNotes {
   aroma: string[];
@@ -18,6 +19,7 @@ export interface WineBottle {
   producer: string;
   vintage: number;
   category: WineCategory;
+  subCategory?: string; // es. "Rosso evoluto", "Metodo Classico", "Dolce Muffato"
   appellation: string; // es. DOCG Barolo, AOC Champagne, Bolgheri Sassicaia DOC
   country: string;
   region: string;
@@ -34,8 +36,13 @@ export interface WineBottle {
   tastingNotes: TastingNotes;
   lotNumber: string; // es. "LOT B-2018/48"
   favorite: boolean;
+  purchaseChannel?: 'GDO' | 'cantina' | 'fiera' | 'altro' | string;
   notes?: string;
-  uncorkedCount?: number; // quante bottiglie sono state stappate
+  websiteUrl?: string; // URL del sito web ufficiale della cantina
+  uncorkedCount?: number;
+  imageUrl?: string; // foto dell'etichetta scansionata o caricata
+  aiCalculated?: boolean; // indicatore se la finestra di beva e le info sono state calcolate con l'IA & fonti online
+  aiCalculatedDetails?: string; // spiegazione dettagliata del calcolo IA dell'apice
   createdAt: string;
   updatedAt: string;
 }
@@ -50,6 +57,12 @@ export interface CellarStats {
   favoritesCount: number;
   depletedCount: number;
   categoryBreakdown: Record<WineCategory, number>;
+  statusCategoryBreakdown: {
+    all: Record<WineCategory, number>;
+    ready: Record<WineCategory, number>;
+    peak: Record<WineCategory, number>;
+    aging: Record<WineCategory, number>;
+  };
 }
 
 export type WineFormData = Omit<WineBottle, 'id' | 'createdAt' | 'updatedAt' | 'uncorkedCount'>;

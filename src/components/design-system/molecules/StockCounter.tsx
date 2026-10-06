@@ -14,7 +14,7 @@ export const StockCounter: React.FC<StockCounterProps> = ({
   count,
   onIncrement,
   onDecrement,
-  label = 'Bottiglie',
+  label = 'btg.',
   size = 'md',
   disabled = false,
 }) => {
@@ -24,7 +24,7 @@ export const StockCounter: React.FC<StockCounterProps> = ({
     <div className={`cellar-stock-counter cellar-stock-counter--${size} ${isOutOfStock ? 'cellar-stock-counter--depleted' : ''}`}>
       <button
         type="button"
-        className="cellar-stock-counter__btn cellar-stock-counter__btn--minus"
+        className="cellar-stock-counter__btn"
         onClick={(e) => {
           e.stopPropagation();
           onDecrement();
@@ -35,18 +35,13 @@ export const StockCounter: React.FC<StockCounterProps> = ({
         <Minus size={size === 'sm' ? 12 : 14} />
       </button>
 
-      <div className="cellar-stock-counter__info">
-        <span className="cellar-stock-counter__number">
-          {count}
-        </span>
-        <span className="cellar-stock-counter__label">
-          {isOutOfStock ? 'Esaurito' : label}
-        </span>
-      </div>
+      <span className="cellar-stock-counter__text">
+        {count} <span className="cellar-stock-counter__unit">{isOutOfStock ? 'esaurito' : label}</span>
+      </span>
 
       <button
         type="button"
-        className="cellar-stock-counter__btn cellar-stock-counter__btn--plus"
+        className="cellar-stock-counter__btn"
         onClick={(e) => {
           e.stopPropagation();
           onIncrement();

@@ -10,8 +10,39 @@
 /* Dashboard Statistiche */
 .cellar-dashboard-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: 140px 1.5fr 1fr 1fr 1fr;
   gap: 1rem;
+  align-items: stretch;
+}
+
+.cellar-stats-card-link {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cellar-stats-card-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 35, 74, 0.08);
+  border-color: var(--wine-bordeaux, #722F37);
+}
+
+.cellar-stats-card-link__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+  font-size: 0.8125rem;
+  color: #6E6259;
+  font-family: var(--font-sans);
+}
+
+.cellar-stats-card-link__arrow {
+  color: var(--wine-bordeaux, #722F37);
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+
+.cellar-stats-card-link:hover .cellar-stats-card-link__arrow {
+  transform: translateX(3px);
 }
 
 .cellar-dashboard-stat {
@@ -240,4 +271,52 @@
   .cellar-grid-toolbar {
     flex-direction: column;
   }
+}
+
+/* Legenda Colori e Tipologie */
+.cellar-color-legend {
+  background: var(--paper-card, #FDFBF7);
+  border: var(--border-tactile, 1px solid rgba(45,35,74,0.12));
+  border-radius: var(--radius-sm, 8px);
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
+}
+
+.cellar-color-legend__title {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-secondary, #6E6259);
+}
+
+.cellar-color-legend__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.75rem;
+}
+
+.cellar-color-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.cellar-color-legend__item:hover {
+  background: rgba(114, 47, 55, 0.05);
+}
+
+.cellar-color-legend__desc {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--ink-dark, #2D234A);
+  font-weight: 500;
 }

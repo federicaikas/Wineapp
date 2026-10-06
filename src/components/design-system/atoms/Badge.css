@@ -42,27 +42,27 @@
 }
 
 .cellar-badge--type-white {
-  background: var(--vine-soft);
-  color: var(--vine-olive);
-  border: 1px solid var(--vine-border);
+  background: #FFF9E6;
+  color: #B88414;
+  border: 1px solid rgba(243, 184, 56, 0.4);
 }
 
 .cellar-badge--type-sparkling {
-  background: var(--gold-soft);
-  color: var(--gold-dark);
-  border: 1px solid var(--gold-border);
+  background: #F4F7E6;
+  color: #6B7D2A;
+  border: 1px solid rgba(150, 171, 65, 0.4);
 }
 
 .cellar-badge--type-rose {
-  background: var(--rose-soft);
-  color: var(--rose-blush);
-  border: 1px solid var(--rose-border);
+  background: #FDF0F3;
+  color: #C84B66;
+  border: 1px solid rgba(224, 110, 137, 0.4);
 }
 
 .cellar-badge--type-orange {
-  background: var(--terracotta-soft);
-  color: var(--terracotta);
-  border: 1px solid var(--terracotta-border);
+  background: #FFF4E8;
+  color: #C67822;
+  border: 1px solid rgba(238, 154, 58, 0.35);
 }
 
 .cellar-badge--type-dessert {

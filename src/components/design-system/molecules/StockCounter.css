@@ -1,99 +1,81 @@
 .cellar-stock-counter {
   display: inline-flex;
   align-items: center;
-  background: var(--paper-surface);
-  border: var(--border-tactile);
-  border-radius: var(--radius-sm);
-  padding: 2px;
-  gap: 0.35rem;
-  transition: all var(--transition-fast);
+  background: rgba(45, 35, 74, 0.03);
+  border: 1px solid rgba(45, 35, 74, 0.08);
+  border-radius: var(--radius-pill, 9999px);
+  padding: 1px 4px;
+  gap: 0.15rem;
+  transition: all var(--transition-fast, 150ms ease);
 }
 
 .cellar-stock-counter--sm {
-  height: 28px;
-  padding: 1px 3px;
+  height: 26px;
+  padding: 0 4px;
 }
 
 .cellar-stock-counter--md {
-  height: 36px;
-  padding: 2px 4px;
+  height: 30px;
+  padding: 1px 6px;
 }
 
 .cellar-stock-counter__btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: var(--radius-xs);
-  background: var(--paper-card);
-  color: var(--ink-primary);
-  border: 1px solid var(--paper-subtle);
-  transition: all var(--transition-fast);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text-muted, #706880);
+  border: none;
+  transition: all var(--transition-fast, 150ms ease);
   cursor: pointer;
+  padding: 0;
 }
 
 .cellar-stock-counter--sm .cellar-stock-counter__btn {
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .cellar-stock-counter__btn:hover:not(:disabled) {
-  background: var(--wine-soft);
-  color: var(--wine-bordeaux);
-  border-color: var(--wine-border);
-}
-
-.cellar-stock-counter__btn:active:not(:disabled) {
-  transform: scale(0.95);
+  background: rgba(45, 35, 74, 0.08);
+  color: var(--wine-bordeaux, #6C1A24);
 }
 
 .cellar-stock-counter__btn:disabled {
-  opacity: 0.35;
+  opacity: 0.25;
   cursor: not-allowed;
 }
 
-.cellar-stock-counter__info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.4rem;
-  min-width: 44px;
+.cellar-stock-counter__text {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary, #2D234A);
+  padding: 0 0.25rem;
+  white-space: nowrap;
 }
 
-.cellar-stock-counter__number {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  line-height: 1;
-  color: var(--ink-dark);
+.cellar-stock-counter--sm .cellar-stock-counter__text {
+  font-size: 0.75rem;
 }
 
-.cellar-stock-counter--sm .cellar-stock-counter__number {
-  font-size: var(--text-xs);
-}
-
-.cellar-stock-counter__label {
-  font-size: var(--text-2xs);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--ink-muted);
-  line-height: 1;
-  margin-top: 2px;
+.cellar-stock-counter__unit {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: var(--text-muted, #706880);
 }
 
 /* Stato esaurito */
 .cellar-stock-counter--depleted {
-  border-color: rgba(220, 38, 38, 0.25);
-  background: #FEF2F2;
+  border-color: rgba(220, 38, 38, 0.15);
+  background: rgba(254, 242, 242, 0.6);
 }
 
-.cellar-stock-counter--depleted .cellar-stock-counter__number {
+.cellar-stock-counter--depleted .cellar-stock-counter__text {
   color: #DC2626;
 }
 
-.cellar-stock-counter--depleted .cellar-stock-counter__label {
-  color: #DC2626;
-  font-weight: 600;
-}
+

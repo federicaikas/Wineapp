@@ -1,37 +1,51 @@
+/* ==========================================================================
+   CELLAR — WineCard Component Styles (Organism 2: FeatureCard Alignment)
+   Same layout structure, DIN title typography, accent border & padding
+   ========================================================================== */
+
 .cellar-wine-card {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-soft, 8px);
+  padding: var(--space-4, 24px);
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  box-shadow: 0 2px 12px rgba(45, 35, 74, 0.04);
   position: relative;
-  background: var(--paper-card);
-  border: var(--border-tactile);
-  border-radius: var(--radius-sm);
-  padding: 1.35rem 1.35rem 1.15rem;
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
-  box-shadow: var(--shadow-card);
+  align-items: stretch;
+  transition: transform var(--transition-hover, 200ms ease-in-out), box-shadow var(--transition-hover, 200ms ease-in-out);
   cursor: pointer;
   overflow: hidden;
-  /* Bordo interno decorativo da etichetta di vino */
-  outline: 1px solid rgba(184, 134, 11, 0.12);
-  outline-offset: -6px;
+
+  /* Accent border superiore ispessito a 14px */
+  border-top: 14px solid var(--accent-tertiary, #7A9A3B);
 }
 
 .cellar-wine-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-elevated);
-  border-color: var(--ink-secondary);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.08);
 }
 
+/* Bordi d'accento & Colori cromatici per tipologia di vino (spessore 8px) */
+.cellar-wine-card--cat-red { --category-color: #6C1A24; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-white { --category-color: #B88414; border-top-color: #F3B838; }
+.cellar-wine-card--cat-sparkling { --category-color: #6B7D2A; border-top-color: #96AB41; }
+.cellar-wine-card--cat-rose { --category-color: #E06E89; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-orange { --category-color: #C67822; border-top-color: #EE9A3A; }
+.cellar-wine-card--cat-dessert { --category-color: #9A6B29; border-top-color: var(--category-color); }
+
+/* Header con Badges & Pulsante Preferito */
 .cellar-wine-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-2, 8px);
 }
 
 .cellar-wine-card__badges {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: var(--space-1, 4px);
   flex-wrap: wrap;
 }
 
@@ -39,145 +53,246 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid transparent;
-  color: var(--ink-muted);
-  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  color: var(--text-muted, #706880);
+  background: var(--background-base, #FFFDF9);
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all var(--transition-fast, 150ms ease);
 }
 
 .cellar-wine-card__fav-btn:hover {
-  background: var(--wine-soft);
-  color: var(--wine-bordeaux);
+  background: var(--wine-soft, #F7EFEF);
+  color: var(--wine-bordeaux, #6C1A24);
+  border-color: rgba(108, 26, 36, 0.2);
 }
 
 .cellar-wine-card__fav-btn--active {
-  color: var(--wine-bordeaux);
+  color: #2D234A;
+  background: #F3AB19;
+  border-color: #F3AB19;
 }
 
+/* Riga timbro lotto & millesimo */
 .cellar-wine-card__stamp-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 0.65rem;
+  margin-bottom: var(--space-2, 8px);
 }
 
-.cellar-wine-card__vintage-pill {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 0.15rem 0.5rem;
-  background: var(--paper-surface);
-  border: var(--border-hairline);
-  border-radius: var(--radius-xs);
-  color: var(--ink-dark);
+.cellar-wine-card__lot {
+  font-family: var(--font-mono, monospace);
+  font-size: var(--text-2xs, 0.6875rem);
+  color: var(--text-muted, #706880);
+  letter-spacing: 0.1em;
 }
 
+/* Corpo etichetta: Produttore, Titolo DIN Bold & Descrizione Montserrat */
 .cellar-wine-card__body {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-3, 16px);
+  position: relative;
 }
 
-.cellar-wine-card__producer {
-  display: block;
-  font-size: var(--text-base);
-  margin-bottom: 0.2rem;
-  color: var(--ink-secondary);
-}
-
-.cellar-wine-card__name {
-  font-family: var(--font-serif-display);
-  font-size: var(--text-xl);
-  font-weight: 500;
-  color: var(--ink-dark);
-  line-height: 1.25;
-  margin-bottom: 0.35rem;
-  letter-spacing: -0.01em;
-}
-
-.cellar-wine-card__appellation {
-  font-family: var(--font-sans);
-  font-size: var(--text-xs);
-  color: var(--ink-muted);
-  line-height: 1.4;
-}
-
-.cellar-wine-card__region {
-  color: var(--ink-secondary);
-}
-
-.cellar-wine-card__stats {
-  margin-top: auto;
-  margin-bottom: 0.75rem;
-}
-
-.cellar-wine-card__pills {
-  display: flex;
-  gap: 0.35rem;
+.cellar-wine-card__photo-badge {
+  width: 100%;
+  max-height: 120px;
+  overflow: hidden;
+  border-radius: 6px;
   margin-bottom: 0.65rem;
-  flex-wrap: wrap;
+  border: 1px solid rgba(45, 35, 74, 0.12);
+  background: #FDFBF7;
 }
 
-.cellar-wine-card__rating-row {
+.cellar-wine-card__photo-img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+}
+
+.cellar-wine-card__producer-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.35rem;
+  gap: var(--space-2, 8px);
+  margin-bottom: var(--space-1, 4px);
 }
 
-.cellar-wine-card__price {
-  font-family: var(--font-mono);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--ink-primary);
+.cellar-wine-card__producer {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--text-muted, #706880);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
 }
 
-.cellar-wine-card__location {
-  display: flex;
+.cellar-wine-card__flag-badge {
+  font-size: 0.95rem;
+  line-height: 1;
+  display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  font-family: var(--font-sans);
-  font-size: var(--text-2xs);
-  color: var(--ink-muted);
-  margin-top: 0.25rem;
-}
-
-.cellar-wine-card__location-icon {
-  color: var(--gold-dark);
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
   flex-shrink: 0;
 }
 
+
+/* Titolo DIN Bold come Organism 2: FeatureCard */
+.cellar-wine-card__name {
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary, #2D234A);
+  text-transform: uppercase;
+  line-height: var(--display-line-height, 0.95);
+  letter-spacing: var(--display-letter-spacing, -0.02em);
+  margin: 0 0 var(--space-2, 8px) 0;
+}
+
+.cellar-wine-card__appellation {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--category-color, var(--brand-primary, #2D234A));
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cellar-wine-card__bullet {
+  color: var(--accent-secondary, #E5A823);
+  margin: 0 var(--space-1, 4px);
+}
+
+.cellar-wine-card__region {
+  color: var(--text-primary, #2D234A);
+  font-weight: 600;
+}
+
+/* Tabella Minimal Specifiche (Annata, Vitigni, Gradazione) */
+.cellar-wine-card__spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: auto;
+  margin-bottom: var(--space-3, 12px);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+}
+
+.cellar-wine-card__spec-table tr {
+  border-bottom: 1px solid rgba(45, 35, 74, 0.06);
+}
+
+.cellar-wine-card__spec-table tr:last-child {
+  border-bottom: none;
+}
+
+.cellar-wine-card__spec-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-muted, #706880);
+  padding: 5px 8px 5px 0;
+  width: 40%;
+  font-size: 0.775rem;
+}
+
+.cellar-wine-card__spec-table td {
+  text-align: right;
+  font-weight: 600;
+  color: var(--text-primary, #2D234A);
+  padding: 5px 0 5px 8px;
+  font-size: 0.8rem;
+  word-break: break-word;
+}
+
+/* Riga Meta: Ubicazione Cantina & Prezzo */
+.cellar-wine-card__meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2, 8px);
+}
+
+.cellar-wine-card__price {
+  font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--brand-primary, #2D234A);
+}
+
+.cellar-wine-card__timeline-wrapper {
+  margin-top: 0.65rem;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: #FFFFFF;
+  border-radius: var(--radius-soft, 8px);
+  border: 1px solid rgba(45, 35, 74, 0.12);
+  box-shadow: 0 1px 4px rgba(45, 35, 74, 0.04);
+}
+
+/* Ubicazione Cantina */
+.cellar-wine-card__location {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1, 4px);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  color: var(--text-muted, #706880);
+}
+
+.cellar-wine-card__location-icon {
+  color: var(--accent-secondary, #E5A823);
+  flex-shrink: 0;
+}
+
+/* Footer etichetta */
 .cellar-wine-card__footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: var(--space-2, 8px);
+  padding-top: var(--space-2, 8px);
+  border-top: 1px solid rgba(45, 35, 74, 0.08);
 }
 
-/* Stato esaurito / bottiglie a zero */
+.cellar-wine-card__footer-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+}
+
+
+/* Stato esaurito / bottiglie a 0 */
 .cellar-wine-card--depleted {
-  background: var(--paper-surface);
-  border-color: rgba(43, 37, 33, 0.15);
+  background-color: #FAF7F2;
   opacity: 0.85;
 }
 
 .cellar-wine-card__depleted-seal {
   position: absolute;
-  top: 40%;
-  left: -20px;
-  right: -20px;
-  background: rgba(220, 38, 38, 0.9);
+  top: 42%;
+  left: -24px;
+  right: -24px;
+  background: linear-gradient(135deg, #8B2332, #6C1A24);
   color: #FFFFFF;
   text-align: center;
-  padding: 0.35rem 0;
-  transform: rotate(-7deg);
-  font-family: var(--font-mono);
-  font-size: var(--text-2xs);
+  padding: 6px 0;
+  transform: rotate(-6deg);
+  box-shadow: 0 4px 16px rgba(108, 26, 36, 0.3);
+  pointer-events: none;
+  z-index: 10;
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: var(--text-xs, 0.75rem);
   font-weight: 700;
   letter-spacing: 0.15em;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  pointer-events: none;
 }
+
+

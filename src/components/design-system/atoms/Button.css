@@ -51,31 +51,47 @@
   letter-spacing: 0.01em;
 }
 
-/* Variante Primary (Ceralacca Bordeaux & Dettagli Nobili) */
+/* ==========================================================================
+   ATOMIC DESIGN SPECIFIC BUTTON VARIANTS (.ag-btn & .cellar-btn)
+   ========================================================================== */
+
+/* Primary Button: Sfondo #2D234A, testo bianco Montserrat 700, hover background #E5A823 con transizione 200ms */
+.ag-btn--primary,
 .cellar-btn--primary {
-  background: linear-gradient(135deg, var(--wine-crimson), var(--wine-bordeaux));
+  background-color: var(--text-primary, #2D234A);
   color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 2px 4px rgba(108, 26, 36, 0.25), 0 4px 12px rgba(108, 26, 36, 0.15);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-weight: 700;
+  border: 1.5px solid var(--text-primary, #2D234A);
+  border-radius: var(--radius-pill, 999px);
+  transition: background-color var(--transition-hover, 200ms ease-in-out), border-color var(--transition-hover, 200ms ease-in-out), color var(--transition-hover, 200ms ease-in-out);
 }
 
+.ag-btn--primary:hover:not(:disabled),
 .cellar-btn--primary:hover:not(:disabled) {
-  background: linear-gradient(135deg, #9B2839, #791C27);
-  box-shadow: 0 4px 8px rgba(108, 26, 36, 0.35), 0 8px 18px rgba(108, 26, 36, 0.2);
-  transform: translateY(-1px);
+  background-color: var(--accent-secondary, #E5A823);
+  border-color: var(--accent-secondary, #E5A823);
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(229, 168, 35, 0.3);
 }
 
-/* Variante Secondary (Carta Calda & Profilo Sottile) */
+/* Secondary Button: Tratto 1.5px #2D234A, fondo trasparente, hover text #E5A823 con transizione 200ms */
+.ag-btn--secondary,
 .cellar-btn--secondary {
-  background: var(--paper-surface);
-  color: var(--ink-primary);
-  border: var(--border-tactile);
-  box-shadow: var(--shadow-sm);
+  background-color: transparent;
+  color: var(--text-primary, #2D234A);
+  border: 1.5px solid var(--text-primary, #2D234A);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-weight: 700;
+  border-radius: var(--radius-pill, 999px);
+  transition: color var(--transition-hover, 200ms ease-in-out), border-color var(--transition-hover, 200ms ease-in-out), background-color var(--transition-hover, 200ms ease-in-out);
 }
 
+.ag-btn--secondary:hover:not(:disabled),
 .cellar-btn--secondary:hover:not(:disabled) {
-  background: var(--paper-subtle);
-  border-color: var(--ink-secondary);
+  background-color: transparent;
+  color: var(--accent-secondary, #E5A823);
+  border-color: var(--accent-secondary, #E5A823);
 }
 
 /* Variante Outline */

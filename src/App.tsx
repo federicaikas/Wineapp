@@ -1,19 +1,30 @@
+import { useState } from 'react';
 import { useCellar } from './hooks/useCellar';
 import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal } from './components/organisms';
+import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
+import { CellarStatsPage } from './components/pages/CellarStatsPage';
+import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
 import './App.css';
 
 export function App() {
+  const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase'>('cellar');
+
   const {
+    allWines,
     filteredWines,
     stats,
     searchQuery,
     setSearchQuery,
     selectedCategory,
     setSelectedCategory,
+    selectedCountryFilter,
+    setSelectedCountryFilter,
     selectedSort,
     setSelectedSort,
     filterFavoritesOnly,
     setFilterFavoritesOnly,
+    maxPrice,
+    setMaxPrice,
     selectedWine,
     setSelectedWine,
     isAddDrawerOpen,
@@ -23,16 +34,41 @@ export function App() {
     handleStockChange,
     handleToggleFavorite,
     handleAddWine,
+    handleAddWinesBatch,
     handleUpdateWine,
     handleDeleteWine,
     handleResetSeed,
   } = useCellar();
+
+  const totalUncorkedCount = allWines.reduce((sum, w) => sum + (w.uncorkedCount || (w.stock === 0 ? 1 : 0)), 0);
+
+  const handleGoHome = () => {
+    setViewMode('cellar');
+    setSearchQuery('');
+    setSelectedCategory('all');
+    setSelectedCountryFilter('all');
+    setFilterFavoritesOnly(false);
+    setSelectedWine(null);
+  };
+
+  const handleOpenRandomWine = () => {
+    // Seleziona solo vini disponibili in cantina (stock > 0)
+    const availableWines = allWines.filter((w) => w.stock > 0);
+    if (availableWines.length === 0) {
+      alert('Non ci sono bottiglie disponibili attualmente in cantina!');
+      return;
+    }
+    const randomIndex = Math.floor(Math.random() * availableWines.length);
+    setSelectedWine(availableWines[randomIndex]);
+  };
 
   return (
     <div className="cellar-app">
       {/* Testata di Cantina */}
       <CellarHeader
         stats={stats}
+        uncorkedCount={totalUncorkedCount}
+        currentView={viewMode}
         onOpenAdd={() => {
           setEditingWine(null);
           setIsAddDrawerOpen(true);
@@ -40,28 +76,56 @@ export function App() {
         onResetSeed={handleResetSeed}
         filterFavoritesOnly={filterFavoritesOnly}
         onToggleFilterFavorites={() => setFilterFavoritesOnly(!filterFavoritesOnly)}
+        onOpenUncorked={() => setViewMode(viewMode === 'uncorked' ? 'cellar' : 'uncorked')}
+        onOpenRandomWine={handleOpenRandomWine}
+        onGoHome={handleGoHome}
       />
 
-      {/* Main Workspace con Griglia e Filtri */}
-      <main className="cellar-main">
-        <CellarGrid
-          wines={filteredWines}
+      {viewMode === 'stats' ? (
+        <CellarStatsPage
+          wines={allWines}
           stats={stats}
-          searchQuery={searchQuery}
-          onSearchChange={setSearchQuery}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-          selectedSort={selectedSort}
-          onSortChange={setSelectedSort}
+          onBack={() => setViewMode('cellar')}
           onSelectWine={(wine) => setSelectedWine(wine)}
+        />
+      ) : viewMode === 'uncorked' ? (
+        <UncorkedWinesPage
+          wines={allWines}
+          onBack={() => setViewMode('cellar')}
+          onSelectWine={(wine) => setSelectedWine(wine)}
+          onEditWine={(wine) => setEditingWine(wine)}
           onStockChange={handleStockChange}
           onToggleFavorite={handleToggleFavorite}
-          onOpenAdd={() => {
-            setEditingWine(null);
-            setIsAddDrawerOpen(true);
-          }}
         />
-      </main>
+      ) : viewMode === 'showcase' ? (
+        <DesignSystemShowcase />
+      ) : (
+        <main className="cellar-main">
+          <CellarGrid
+            wines={filteredWines}
+            stats={stats}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            selectedCountryFilter={selectedCountryFilter}
+            onCountryFilterChange={setSelectedCountryFilter}
+            selectedSort={selectedSort}
+            onSortChange={setSelectedSort}
+            maxPrice={maxPrice}
+            onMaxPriceChange={setMaxPrice}
+            onSelectWine={(wine) => setSelectedWine(wine)}
+            onEditWine={(wine) => setEditingWine(wine)}
+            onStockChange={handleStockChange}
+            onToggleFavorite={handleToggleFavorite}
+            onOpenAdd={() => {
+              setEditingWine(null);
+              setIsAddDrawerOpen(true);
+            }}
+            onOpenStats={() => setViewMode('stats')}
+          />
+        </main>
+      )}
 
       {/* Drawer di Registrazione / Modifica Bottiglia */}
       <QuickAddDrawer
@@ -77,6 +141,9 @@ export function App() {
             await handleAddWine(data);
           }
         }}
+        onSaveBatch={async (dataArray) => {
+          await handleAddWinesBatch(dataArray);
+        }}
         editingWine={editingWine}
       />
 
@@ -91,22 +158,23 @@ export function App() {
         onDelete={handleDeleteWine}
         onStockChange={handleStockChange}
         onToggleFavorite={handleToggleFavorite}
+        onUpdateWine={handleUpdateWine}
       />
 
       {/* Footer Editoriale O,nice! Studio */}
       <footer className="cellar-footer">
         <div className="cellar-footer__inner">
-          <div className="cellar-footer__lot">
-            <span>REGISTRO DI CANTINA PRIVATA • LOT N° 2026/04</span>
-          </div>
-          <p className="cellar-footer__credits">
-            CELLAR — Curatela, archivio e catalogazione enologica sartoriale.
-            <br />
-            Design &amp; Tipografia ispirati all’estetica materica di <em>O,nice! Studio</em>.
-          </p>
-          <div className="cellar-footer__ornament">
-            <span>◆ ❦ ◆</span>
-          </div>
+          <Typography
+            variant="serif-italic"
+            color="secondary"
+            className="cellar-footer__credits"
+            onClick={handleGoHome}
+            style={{ cursor: 'pointer' }}
+            title="Torna alla Cantina (Home)"
+          >
+            WINAPP - La cantina di Federica
+          </Typography>
+          <Divider variant="ornament" symbol="◆ ❦ ◆" spacing="sm" />
         </div>
       </footer>
     </div>
@@ -114,3 +182,4 @@ export function App() {
 }
 
 export default App;
+
