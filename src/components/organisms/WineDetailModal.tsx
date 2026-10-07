@@ -3,9 +3,9 @@ import confetti from 'canvas-confetti';
 import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
-import { Heart, Edit3, Trash2, Wine, Utensils, Calendar, Sparkles, Globe, Calculator, Search } from 'lucide-react';
+import { Heart, Edit3, Trash2, Wine, Utensils, Calendar, Sparkles, Globe, Calculator, Search, X } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
-import { calculateWineOptimalDrinkingWindow, analyzeWineWebsiteUrl } from '../../utils/onlineWineSearch';
+import { calculateWineOptimalDrinkingWindow, analyzeWineWebsiteUrl, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
 import { formatVintage } from '../../utils/formatters';
 import { getWineryWebsiteUrl } from '../../utils/wineryUtils';
 import './WineDetailModal.css';
@@ -46,16 +46,13 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
 
   if (!wine) return null;
 
-  const handleAnalyzeWebsite = async () => {
+  const handleAnalyzeAutomatic = async () => {
     if (!wine || !onUpdateWine) return;
-    const defaultWineryUrl = getWineryWebsiteUrl(wine.producer, wine.websiteUrl);
-    const urlToAnalyze = websiteInput.trim() || defaultWineryUrl;
-    if (!urlToAnalyze) return;
 
     setIsAnalyzingWebsite(true);
     setWebsiteAnalysisSuccess(null);
     try {
-      const result = await analyzeWineWebsiteUrl(urlToAnalyze, wine);
+      const result = await analyzeWineAutomatic(wine);
       // Vincolo tassativo: annata (vintage) e prezzo (price) NON cambiano mai
       await onUpdateWine(wine.id, {
         tastingNotes: result.tastingNotes,
@@ -65,13 +62,12 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
         alcohol: result.alcohol || wine.alcohol,
         imageUrl: result.imageUrl || wine.imageUrl,
         notes: result.notes || wine.notes,
-        websiteUrl: urlToAnalyze,
         aiCalculated: true,
         aiCalculatedDetails: result.aiCalculatedDetails,
       });
-      setWebsiteAnalysisSuccess(`✨ Scheda analizzata con IA dal sito web: ${urlToAnalyze}. Annata (${formatVintage(wine.vintage)}) e prezzo (€${wine.price}) sono rimasti invariati.`);
+      setWebsiteAnalysisSuccess(`✨ Analisi completata con successo tramite ricerca online multipla.`);
     } catch (err) {
-      console.error('Errore durante l’analisi del sito web:', err);
+      console.error('Errore durante l’analisi automatica:', err);
     } finally {
       setIsAnalyzingWebsite(false);
     }
@@ -116,6 +112,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       size="lg"
+      hideCloseButton
       footer={
         <div className="cellar-detail-modal__footer-actions">
           <div className="cellar-detail-modal__footer-stock">
@@ -138,9 +135,9 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
                   onClose();
                 }
               }}
-            >
-              Elimina
-            </Button>
+              title="Elimina"
+              aria-label="Elimina"
+            />
 
             <Button
               variant="secondary"
@@ -150,17 +147,29 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
                 onEdit(wine);
                 onClose();
               }}
+              title="Modifica"
+              aria-label="Modifica"
+            />
+
+            <button
+              type="button"
+              className={`cellar-wine-card__fav-btn ${wine.favorite ? 'cellar-wine-card__fav-btn--active' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onToggleFavorite(wine.id);
+              }}
+              style={{ width: '40px', height: '40px' }}
+              title={wine.favorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
+              aria-label={wine.favorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
             >
-              Modifica
-            </Button>
+              <Heart size={18} fill={wine.favorite ? 'currentColor' : 'none'} />
+            </button>
 
             <Button
               variant="primary"
               size="md"
-              icon={<Wine size={16} />}
               disabled={wine.stock <= 0}
               onClick={() => {
-                // Sparo micro-animazione di coriandoli celebrativi per stappatura
                 confetti({
                   particleCount: 100,
                   spread: 70,
@@ -172,9 +181,19 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
                   onClose();
                 }, 300);
               }}
+              className="cellar-detail-modal__stappa-btn"
             >
-              Bottiglia Stappata
+              Stappa
             </Button>
+
+            <Button
+              variant="outline"
+              size="md"
+              icon={<X size={16} />}
+              onClick={onClose}
+              title="Chiudi scheda"
+              aria-label="Chiudi scheda"
+            />
           </div>
         </div>
       }
@@ -189,39 +208,11 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
                 <Typography variant="body-sm" color="secondary" className="cellar-wine-card__producer">
                   {wine.producer}
                 </Typography>
-                <span className="cellar-wine-card__flag-badge" title={wine.country || 'Italia'}>
-                  {getCountryFlag(wine.country)}
-                </span>
               </div>
 
               <Typography variant="serif-title" size="md" className="cellar-wine-card__name" style={{ fontSize: '1.85rem', margin: '4px 0 6px 0' }}>
                 {wine.name}
               </Typography>
-
-              {/* Tasto Cerca Info subito sotto il nome della bottiglia */}
-              <div style={{ margin: '6px 0 10px 0' }}>
-                <a
-                  href={`https://www.google.com/search?q=${encodeURIComponent(`${wine.name} ${wine.producer}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    icon={<Search size={14} />}
-                    style={{
-                      borderColor: '#722F37',
-                      color: '#722F37',
-                      fontSize: '0.8rem',
-                      fontWeight: 600,
-                      borderRadius: '6px',
-                    }}
-                  >
-                    Cerca info 🔍
-                  </Button>
-                </a>
-              </div>
 
               <Typography variant="body-sm" className="cellar-wine-card__appellation" style={{ fontSize: '1.05rem' }}>
                 {wine.appellation}
@@ -229,30 +220,50 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             </div>
           </div>
 
-          <button
-            type="button"
-            className={`cellar-wine-card__fav-btn ${wine.favorite ? 'cellar-wine-card__fav-btn--active' : ''}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              onToggleFavorite(wine.id);
-            }}
-            style={{ width: '38px', height: '38px' }}
-            title={wine.favorite ? 'Incluso tra i preferiti' : 'Aggiungi ai preferiti'}
+          {/* Cerca Info in alto a destra */}
+          <a
+            href={`https://www.google.com/search?q=${encodeURIComponent(`${wine.name} ${wine.producer}`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', flexShrink: 0, alignSelf: 'flex-start' }}
           >
-            <Heart size={20} fill={wine.favorite ? 'currentColor' : 'none'} />
-          </button>
+            <Button
+              variant="outline"
+              size="sm"
+              icon={<Search size={14} />}
+              style={{
+                borderColor: '#722F37',
+                color: '#722F37',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                borderRadius: '6px',
+              }}
+            >
+              Cerca info 🔍
+            </Button>
+          </a>
         </div>
 
         {/* Tabella Minimal Specifiche (Stesso design delle card della home) */}
         <table className="cellar-wine-card__spec-table" style={{ fontSize: '0.875rem', margin: '8px 0' }}>
           <tbody>
             <tr>
+              <td colSpan={2} style={{ padding: '6px 0' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '1.25rem' }}>{getCountryFlag(wine.country)}</span>
+                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Regione</strong>{' '}<strong>{wine.region}</strong></span>
+                  <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
+                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Zona</strong>{' '}<strong>{wine.appellation}</strong></span>
+                </div>
+              </td>
+            </tr>
+            <tr>
               <th style={{ width: '30%', padding: '6px 8px 6px 0' }}>Annata</th>
               <td style={{ padding: '6px 0 6px 8px' }}>{formatVintage(wine.vintage)}</td>
             </tr>
             {wine.subCategory && (
               <tr>
-                <th style={{ padding: '6px 8px 6px 0' }}>Specificazione</th>
+                <th style={{ padding: '6px 8px 6px 0' }}>Tipologia</th>
                 <td style={{ padding: '6px 0 6px 8px', fontWeight: 600, color: '#3B1B54' }}>{wine.subCategory}</td>
               </tr>
             )}
@@ -261,22 +272,14 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               <td style={{ padding: '6px 0 6px 8px' }}>{wine.grapes?.join(', ') || 'Autoctono'}</td>
             </tr>
             <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Gradazione</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.alcohol}% Vol</td>
+              <th style={{ padding: '6px 8px 6px 0' }}>Gradazione / Formato</th>
+              <td style={{ padding: '6px 0 6px 8px' }}>{wine.alcohol}% Vol  ·  {wine.bottleSize}</td>
             </tr>
             <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Acquisto</th>
+              <th style={{ padding: '6px 8px 6px 0' }}>Acquisto / Ubicazione</th>
               <td style={{ padding: '6px 0 6px 8px', textTransform: 'capitalize' }}>
-                {wine.purchaseChannel === 'GDO' ? 'GDO' : (wine.purchaseChannel || 'Cantina')}
+                {wine.purchaseChannel === 'GDO' ? 'GDO' : (wine.purchaseChannel || 'Cantina')}  ·  {wine.location}
               </td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Formato</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.bottleSize}</td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Ubicazione</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.location}</td>
             </tr>
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Valore stimato</th>
@@ -299,10 +302,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span className="cellar-detail-content__peak-sans">
-                Momento TOP: <strong>{peakYear}</strong>
-              </span>
-
               <Button
                 variant="primary"
                 size="sm"
@@ -331,7 +330,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           <div className="cellar-detail-content__progress-bar-wrap">
             <div className="cellar-detail-content__progress-years">
               <span>{windowStart} (Inizio Beva)</span>
-              <span className="cellar-detail-content__current-year-tag">Anno Corrente ({currentYear})</span>
+              <span className="cellar-detail-content__current-year-tag">Momento TOP: {peakYear}</span>
               <span>{windowEnd} (Termine Ottimale)</span>
             </div>
           </div>
@@ -341,7 +340,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
 
         {/* Profilo Sensoriale & Degustazione */}
         <div className="cellar-detail-content__tasting-section">
-          {/* Blocco Input Analisi Sito Cantina con IA */}
+          {/* Blocco Input Analisi Automatica con IA */}
           <div style={{
             background: '#FBF9F5',
             border: '1px solid rgba(45,35,74,0.12)',
@@ -353,7 +352,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Globe size={15} style={{ color: '#722F37' }} />
                 <strong style={{ fontSize: '0.875rem', color: '#2D234A', fontFamily: 'var(--font-sans)' }}>
-                  Analisi Scheda dal Sito Web Cantina
+                  Analisi vino con IA
                 </strong>
               </div>
               <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '4px', background: '#F5E1DA', color: '#722F37', fontWeight: 600 }}>
@@ -362,31 +361,16 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             </div>
 
             <p style={{ fontSize: '0.775rem', color: '#6E6259', margin: '0 0 10px 0' }}>
-              Inserisci l'URL del sito web per estrarre con l'IA note olfattive, abbinamenti, vitigni e foto. <em>(Annata {formatVintage(wine.vintage)} e prezzo €{wine.price} rimarranno inalterati)</em>.
+              Cliccando "Analizza", l'IA cercherà su Google, analizzerà i primi 5 siti web e confronterà i dati per restituire un'analisi con i profumi principali, le caratteristiche sensoriali e gli abbinamenti. <em>(Annata {formatVintage(wine.vintage)} e prezzo €{wine.price} rimarranno inalterati)</em>.
             </p>
 
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-              <input
-                type="text"
-                placeholder="https://www.cantina-esempio.it/scheda-vino"
-                value={websiteInput}
-                onChange={(e) => setWebsiteInput(e.target.value)}
-                style={{
-                  flex: 1,
-                  padding: '7px 12px',
-                  borderRadius: '6px',
-                  border: '1px solid rgba(45,35,74,0.18)',
-                  fontSize: '0.85rem',
-                  backgroundColor: '#FFFFFF',
-                  outline: 'none',
-                }}
-              />
+            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'flex-end' }}>
               <Button
                 variant="primary"
                 size="sm"
                 icon={<Sparkles size={14} />}
                 loading={isAnalyzingWebsite}
-                onClick={handleAnalyzeWebsite}
+                onClick={handleAnalyzeAutomatic}
                 style={{ flexShrink: 0 }}
               >
                 {isAnalyzingWebsite ? 'Analisi IA...' : 'ANALIZZA'}

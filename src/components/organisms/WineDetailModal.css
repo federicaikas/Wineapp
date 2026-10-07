@@ -316,6 +316,19 @@
   gap: 0.5rem;
 }
 
+/* Bottone Stappa — viola */
+.cellar-detail-modal__stappa-btn.cellar-btn {
+  background-color: #5B2D8E;
+  border-color: #5B2D8E;
+  color: #FFFFFF;
+}
+
+.cellar-detail-modal__stappa-btn.cellar-btn:hover:not(:disabled) {
+  background-color: #472172;
+  border-color: #472172;
+  box-shadow: 0 4px 12px rgba(91, 45, 142, 0.35);
+}
+
 /* Autocompletamento Informazioni Sommelier Bar */
 .cellar-detail-autofill-bar {
   display: flex;

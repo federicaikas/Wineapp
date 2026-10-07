@@ -14,6 +14,7 @@ export interface CellarHeaderProps {
   onToggleFilterFavorites: () => void;
   onOpenUncorked: () => void;
   onOpenRandomWine?: () => void;
+  onOpenManage?: () => void;
   onGoHome?: () => void;
 }
 
@@ -26,6 +27,7 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
   onToggleFilterFavorites,
   onOpenUncorked,
   onOpenRandomWine,
+  onOpenManage,
   onGoHome,
 }) => {
   return (
@@ -84,6 +86,16 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
           >
             Nuova Bottiglia
           </Button>
+
+          {onOpenManage && (
+            <Button
+              variant="outline"
+              size="md"
+              onClick={onOpenManage}
+            >
+              Gestisci cantina
+            </Button>
+          )}
         </div>
       </div>
     </header>

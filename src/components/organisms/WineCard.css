@@ -22,17 +22,17 @@
 }
 
 .cellar-wine-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(45, 35, 74, 0.12);
 }
 
 /* Bordi d'accento & Colori cromatici per tipologia di vino (spessore 8px) */
-.cellar-wine-card--cat-red { --category-color: #6C1A24; border-top-color: var(--category-color); }
-.cellar-wine-card--cat-white { --category-color: #B88414; border-top-color: #F3B838; }
-.cellar-wine-card--cat-sparkling { --category-color: #6B7D2A; border-top-color: #96AB41; }
-.cellar-wine-card--cat-rose { --category-color: #E06E89; border-top-color: var(--category-color); }
-.cellar-wine-card--cat-orange { --category-color: #C67822; border-top-color: #EE9A3A; }
-.cellar-wine-card--cat-dessert { --category-color: #9A6B29; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-red { --category-color: #9F0000; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-white { --category-color: #FFCC79; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-sparkling { --category-color: #A0A738; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-rose { --category-color: #E74D6F; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-orange { --category-color: #F2542D; border-top-color: var(--category-color); }
+.cellar-wine-card--cat-dessert { --category-color: #B85F00; border-top-color: var(--category-color); }
 
 /* Header con Badges & Pulsante Preferito */
 .cellar-wine-card__header {
@@ -66,7 +66,7 @@
 .cellar-wine-card__fav-btn:hover {
   background: var(--wine-soft, #F7EFEF);
   color: var(--wine-bordeaux, #6C1A24);
-  border-color: rgba(108, 26, 36, 0.2);
+  border-color: rgba(159, 0, 0, 0.2);
 }
 
 .cellar-wine-card__fav-btn--active {
@@ -93,7 +93,6 @@
 /* Corpo etichetta: Produttore, Titolo DIN Bold & Descrizione Montserrat */
 .cellar-wine-card__body {
   margin-bottom: var(--space-3, 16px);
-  position: relative;
 }
 
 .cellar-wine-card__photo-badge {
@@ -111,6 +110,11 @@
   height: 120px;
   object-fit: cover;
   display: block;
+  transition: transform 400ms ease-out;
+}
+
+.cellar-wine-card:hover .cellar-wine-card__photo-img {
+  transform: scale(1.04);
 }
 
 .cellar-wine-card__producer-row {
@@ -130,6 +134,12 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   display: block;
+  transition: color var(--transition-fast, 150ms ease), transform var(--transition-fast, 150ms ease);
+}
+
+.cellar-wine-card:hover .cellar-wine-card__producer {
+  color: var(--ink-dark, #1A1614);
+  transform: translateX(2px);
 }
 
 .cellar-wine-card__flag-badge {
@@ -156,6 +166,11 @@
   line-height: var(--display-line-height, 0.95);
   letter-spacing: var(--display-letter-spacing, -0.02em);
   margin: 0 0 var(--space-2, 8px) 0;
+  transition: color var(--transition-hover, 200ms ease-in-out);
+}
+
+.cellar-wine-card:hover .cellar-wine-card__name {
+  color: var(--category-color, var(--text-primary));
 }
 
 .cellar-wine-card__appellation {
@@ -236,6 +251,8 @@
   border-radius: var(--radius-soft, 8px);
   border: 1px solid rgba(45, 35, 74, 0.12);
   box-shadow: 0 1px 4px rgba(45, 35, 74, 0.04);
+  position: relative;
+  z-index: 10;
 }
 
 /* Ubicazione Cantina */
@@ -258,15 +275,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-2, 8px);
+  gap: var(--space-1, 4px);
   padding-top: var(--space-2, 8px);
   border-top: 1px solid rgba(45, 35, 74, 0.08);
+  position: relative;
+  z-index: 10;
+}
+
+/* Rendi i bottoni solidi per sovrastare le onde (sfondo bianco anziché trasparente/semi-trasparente) */
+.cellar-wine-card__footer .cellar-stock-counter,
+.cellar-wine-card__footer .cellar-btn--outline {
+  background-color: #FFFFFF;
 }
 
 .cellar-wine-card__footer-actions {
   display: flex;
   align-items: center;
-  gap: var(--space-2, 8px);
+  gap: var(--space-1, 4px);
 }
 
 
@@ -286,7 +311,7 @@
   text-align: center;
   padding: 6px 0;
   transform: rotate(-6deg);
-  box-shadow: 0 4px 16px rgba(108, 26, 36, 0.3);
+  box-shadow: 0 4px 16px rgba(159, 0, 0, 0.3);
   pointer-events: none;
   z-index: 10;
   font-family: var(--font-display, "DIN Bold", sans-serif);
@@ -295,4 +320,269 @@
   letter-spacing: 0.15em;
 }
 
+/* ==========================================================================
+   MICRO-ANIMATION: BOLLICINE PER VINI SPARKLING (PERLAGE FINE)
+   ========================================================================== */
+@keyframes sparkling-bubbles {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-300px) translateX(15px);
+    opacity: 0;
+  }
+}
 
+@keyframes sparkling-bubbles-alt {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-320px) translateX(-10px);
+    opacity: 0;
+  }
+}
+
+.cellar-wine-card--cat-sparkling::before,
+.cellar-wine-card--cat-sparkling::after {
+  content: '';
+  position: absolute;
+  bottom: 0px; 
+  left: 20%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(128, 134, 45, 0.9); /* #7A9A3B */
+  box-shadow: 
+    15px 10px 0 1px rgba(96, 100, 34, 0.8),
+    25px 25px 0 0 rgba(160, 167, 56, 0.9),
+    35px 5px 0 -1px rgba(128, 134, 45, 0.7),
+    45px 40px 0 1px rgba(144, 150, 50, 0.8),
+    60px 15px 0 0 rgba(96, 100, 34, 0.9),
+    75px 30px 0 2px rgba(160, 167, 56, 0.7),
+    85px 10px 0 -1px rgba(144, 150, 50, 0.8),
+    100px 45px 0 1px rgba(128, 134, 45, 0.9),
+    115px 20px 0 0 rgba(96, 100, 34, 0.7),
+    130px 35px 0 1px rgba(160, 167, 56, 0.8),
+    150px 10px 0 -1px rgba(144, 150, 50, 0.9),
+    170px 50px 0 0 rgba(128, 134, 45, 0.7),
+    190px 25px 0 1px rgba(96, 100, 34, 0.8),
+    210px 15px 0 -1px rgba(160, 167, 56, 0.9),
+    230px 40px 0 0 rgba(144, 150, 50, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5; /* Passa SOTTO il footer (10) e la timeline (10) */
+}
+
+.cellar-wine-card--cat-sparkling::after {
+  left: 10%;
+  width: 2px;
+  height: 2px;
+  background: rgba(160, 167, 56, 0.9);
+  box-shadow: 
+    20px 30px 0 1px rgba(144, 150, 50, 0.8),
+    40px 15px 0 -1px rgba(128, 134, 45, 0.9),
+    50px 45px 0 0 rgba(96, 100, 34, 0.7),
+    70px 20px 0 1px rgba(160, 167, 56, 0.8),
+    90px 5px 0 -1px rgba(144, 150, 50, 0.9),
+    110px 35px 0 0 rgba(128, 134, 45, 0.7),
+    130px 15px 0 1px rgba(96, 100, 34, 0.8),
+    140px 50px 0 -1px rgba(160, 167, 56, 0.9),
+    160px 25px 0 0 rgba(144, 150, 50, 0.7),
+    180px 10px 0 1px rgba(128, 134, 45, 0.8),
+    200px 40px 0 -1px rgba(96, 100, 34, 0.9),
+    220px 20px 0 0 rgba(160, 167, 56, 0.7),
+    240px 45px 0 1px rgba(144, 150, 50, 0.8),
+    260px 15px 0 -1px rgba(128, 134, 45, 0.9),
+    280px 30px 0 0 rgba(96, 100, 34, 0.7);
+}
+
+.cellar-wine-card--cat-sparkling:hover::before {
+  animation: sparkling-bubbles 2.5s ease-in infinite;
+}
+
+.cellar-wine-card--cat-sparkling:hover::after {
+  animation: sparkling-bubbles-alt 2s ease-in 0.3s infinite;
+}
+
+/* ==========================================================================
+   MICRO-ANIMATION: INTRECCIO DI LINEE PER VINI ROSSI E BIANCHI
+   ========================================================================== */
+@keyframes intertwine-wave {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* Colori specifici per le linee */
+.cellar-wine-card--cat-red {
+  --line-color-1: #9F0000;
+  --line-color-2: #B30000;
+  --line-color-3: rgba(159, 0, 0, 0.8);
+  --line-color-4: rgba(179, 0, 0, 0.9);
+}
+.cellar-wine-card--cat-white {
+  --line-color-1: #FFCC79;
+  --line-color-2: #FFD48E;
+  --line-color-3: rgba(255, 204, 121, 0.8);
+  --line-color-4: rgba(255, 212, 142, 0.9);
+}
+.cellar-wine-card--cat-orange {
+  --line-color-1: #F2542D;
+  --line-color-2: #FF6B47; /* Leggermente più chiaro per contrasto */
+  --line-color-3: rgba(242, 84, 45, 0.8);
+  --line-color-4: rgba(242, 84, 45, 0.9);
+}
+
+/* Base styles per tutte e 4 le linee (Rossi, Bianchi e Orange) */
+.cellar-wine-card--cat-red::before,
+.cellar-wine-card--cat-red::after,
+.cellar-wine-card--cat-red .cellar-wine-card__body::before,
+.cellar-wine-card--cat-red .cellar-wine-card__body::after,
+.cellar-wine-card--cat-white::before,
+.cellar-wine-card--cat-white::after,
+.cellar-wine-card--cat-white .cellar-wine-card__body::before,
+.cellar-wine-card--cat-white .cellar-wine-card__body::after,
+.cellar-wine-card--cat-orange::before,
+.cellar-wine-card--cat-orange::after,
+.cellar-wine-card--cat-orange .cellar-wine-card__body::before,
+.cellar-wine-card--cat-orange .cellar-wine-card__body::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: transparent;
+  bottom: -750px; /* Inizia completamente nascosto sotto */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+/* Linea 1 */
+.cellar-wine-card--cat-red::before,
+.cellar-wine-card--cat-white::before,
+.cellar-wine-card--cat-orange::before {
+  border: 3px solid var(--line-color-1);
+  border-radius: 40%;
+  transition: bottom 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-out;
+}
+
+/* Linea 2 */
+.cellar-wine-card--cat-red::after,
+.cellar-wine-card--cat-white::after,
+.cellar-wine-card--cat-orange::after {
+  border: 1.5px solid var(--line-color-2);
+  border-radius: 43%;
+  transition: bottom 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.05s, opacity 0.6s ease-out 0.05s;
+}
+
+/* Linea 3 */
+.cellar-wine-card--cat-red .cellar-wine-card__body::before,
+.cellar-wine-card--cat-white .cellar-wine-card__body::before,
+.cellar-wine-card--cat-orange .cellar-wine-card__body::before {
+  border: 4px solid var(--line-color-3);
+  border-radius: 45%;
+  transition: bottom 0.85s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, opacity 0.55s ease-out 0.1s;
+}
+
+/* Linea 4 */
+.cellar-wine-card--cat-red .cellar-wine-card__body::after,
+.cellar-wine-card--cat-white .cellar-wine-card__body::after,
+.cellar-wine-card--cat-orange .cellar-wine-card__body::after {
+  border: 1px solid var(--line-color-4);
+  border-radius: 48%;
+  transition: bottom 0.95s cubic-bezier(0.4, 0, 0.2, 1) 0.15s, opacity 0.65s ease-out 0.15s;
+}
+
+/* HOVER STATES: Ancorate al fondo della card, salgono solo di 90-120px */
+.cellar-wine-card--cat-red:hover::before,
+.cellar-wine-card--cat-white:hover::before,
+.cellar-wine-card--cat-orange:hover::before {
+  bottom: -610px; /* Mostra 90px */
+  opacity: 0.35;
+  animation: intertwine-wave 9s linear infinite;
+}
+
+.cellar-wine-card--cat-red:hover::after,
+.cellar-wine-card--cat-white:hover::after,
+.cellar-wine-card--cat-orange:hover::after {
+  bottom: -600px; /* Mostra 100px */
+  opacity: 0.3;
+  animation: intertwine-wave 7s linear infinite reverse;
+}
+
+.cellar-wine-card--cat-red:hover .cellar-wine-card__body::before,
+.cellar-wine-card--cat-white:hover .cellar-wine-card__body::before,
+.cellar-wine-card--cat-orange:hover .cellar-wine-card__body::before {
+  bottom: -590px; /* Mostra 110px */
+  opacity: 0.25;
+  animation: intertwine-wave 11s linear infinite;
+}
+
+.cellar-wine-card--cat-red:hover .cellar-wine-card__body::after,
+.cellar-wine-card--cat-white:hover .cellar-wine-card__body::after,
+.cellar-wine-card--cat-orange:hover .cellar-wine-card__body::after {
+  bottom: -580px; /* Mostra 120px */
+  opacity: 0.4;
+  animation: intertwine-wave 8s linear infinite reverse;
+}
+
+/* ==========================================================================
+   MICRO-ANIMATION: ONDA DENSA PER VINI DOLCI (EFFETTO SCIROPPO/MIELE)
+   ========================================================================== */
+@keyframes syrup-wave {
+  0% { transform: translateX(-50%) rotate(0deg); }
+  100% { transform: translateX(-50%) rotate(360deg); }
+}
+
+.cellar-wine-card--cat-dessert::before,
+.cellar-wine-card--cat-dessert::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: rgba(184, 95, 0, 0.15); /* #9A6B29 opaco */
+  bottom: -850px;
+  border-radius: 42%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  /* Transizioni molto lunghe per dare l'idea di un liquido pesante che fa fatica a salire */
+  transition: bottom 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease-out;
+  transform: translateX(-50%);
+  filter: blur(6px); /* Il blur aggiunge un senso di densità materica */
+}
+
+.cellar-wine-card--cat-dessert::after {
+  background: rgba(184, 95, 0, 0.25);
+  border-radius: 38%;
+  transition: bottom 1.8s cubic-bezier(0.4, 0, 0.2, 1) 0.1s, opacity 1s ease-out 0.1s;
+}
+
+.cellar-wine-card--cat-dessert:hover::before {
+  bottom: -690px; /* Sale pigramente riempiendo appena il fondo */
+  opacity: 1;
+  animation: syrup-wave 20s linear infinite; /* Molto lenta per il senso di viscosità */
+}
+
+.cellar-wine-card--cat-dessert:hover::after {
+  bottom: -670px;
+  opacity: 1;
+  animation: syrup-wave 26s linear infinite reverse;
+}

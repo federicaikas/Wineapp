@@ -72,39 +72,39 @@
 }
 
 .ag-feature-card__cat-pill--red {
-  background: rgba(108, 26, 36, 0.08);
-  color: #6C1A24;
-  border: 1px solid rgba(108, 26, 36, 0.2);
+  background: rgba(159, 0, 0, 0.08);
+  color: #9F0000;
+  border: 1px solid rgba(159, 0, 0, 0.2);
 }
 
 .ag-feature-card__cat-pill--white {
-  background: rgba(243, 184, 56, 0.18);
-  color: #B88414;
-  border: 1px solid rgba(243, 184, 56, 0.4);
+  background: rgba(255, 204, 121, 0.18);
+  color: #FFCC79;
+  border: 1px solid rgba(255, 204, 121, 0.4);
 }
 
 .ag-feature-card__cat-pill--sparkling {
-  background: rgba(150, 171, 65, 0.18);
-  color: #6B7D2A;
-  border: 1px solid rgba(150, 171, 65, 0.4);
+  background: rgba(160, 167, 56, 0.18);
+  color: #A0A738;
+  border: 1px solid rgba(160, 167, 56, 0.4);
 }
 
 .ag-feature-card__cat-pill--rose {
-  background: rgba(224, 110, 137, 0.15);
-  color: #C84B66;
-  border: 1px solid rgba(224, 110, 137, 0.4);
+  background: rgba(231, 77, 111, 0.15);
+  color: #E74D6F;
+  border: 1px solid rgba(231, 77, 111, 0.4);
 }
 
 .ag-feature-card__cat-pill--orange {
-  background: rgba(238, 154, 58, 0.18);
-  color: #C67822;
-  border: 1px solid rgba(238, 154, 58, 0.35);
+  background: rgba(242, 84, 45, 0.18);
+  color: #F2542D;
+  border: 1px solid rgba(242, 84, 45, 0.35);
 }
 
 .ag-feature-card__cat-pill--dessert {
-  background: rgba(154, 107, 41, 0.08);
-  color: #9A6B29;
-  border: 1px solid rgba(154, 107, 41, 0.2);
+  background: rgba(184, 95, 0, 0.08);
+  color: #B85F00;
+  border: 1px solid rgba(184, 95, 0, 0.2);
 }
 
 .ag-feature-card__icon {
@@ -169,38 +169,38 @@
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--red {
   background: #F7EFEF !important;
-  color: #6C1A24 !important;
-  border: 1px solid rgba(108, 26, 36, 0.4) !important;
+  color: #9F0000 !important;
+  border: 1px solid rgba(159, 0, 0, 0.4) !important;
 }
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--white {
   background: #FFF9E6 !important;
-  color: #B88414 !important;
-  border: 1px solid rgba(243, 184, 56, 0.5) !important;
+  color: #FFCC79 !important;
+  border: 1px solid rgba(255, 204, 121, 0.5) !important;
 }
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--sparkling {
   background: #F4F7E6 !important;
-  color: #6B7D2A !important;
-  border: 1px solid rgba(150, 171, 65, 0.5) !important;
+  color: #A0A738 !important;
+  border: 1px solid rgba(160, 167, 56, 0.5) !important;
 }
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--rose {
   background: #FDF0F3 !important;
-  color: #C84B66 !important;
-  border: 1px solid rgba(224, 110, 137, 0.5) !important;
+  color: #E74D6F !important;
+  border: 1px solid rgba(231, 77, 111, 0.5) !important;
 }
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--orange {
   background: #FFF4E8 !important;
-  color: #C67822 !important;
-  border: 1px solid rgba(238, 154, 58, 0.5) !important;
+  color: #F2542D !important;
+  border: 1px solid rgba(242, 84, 45, 0.5) !important;
 }
 
 .ag-feature-card--purple .ag-feature-card__cat-pill--dessert {
   background: #FFF8E7 !important;
-  color: #9A6B29 !important;
-  border: 1px solid rgba(154, 107, 41, 0.4) !important;
+  color: #B85F00 !important;
+  border: 1px solid rgba(184, 95, 0, 0.4) !important;
 }
 
 .ag-feature-card--green {

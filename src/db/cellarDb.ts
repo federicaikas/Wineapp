@@ -20,6 +20,21 @@ export class CellarDatabase extends Dexie {
 
 export const db = new CellarDatabase();
 
+async function syncToServer() {
+  // Solo se siamo in dev con vite (in build di prod fetcherà qualcosa che non esiste ma non crasherà l'app)
+  if (import.meta.env.PROD) return;
+  try {
+    const allWines = await db.wines.toArray();
+    await fetch('/api/sync-wines', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(allWines)
+    });
+  } catch (err) {
+    console.error("Errore sincronizzazione DB in dev:", err);
+  }
+}
+
 // Inizializzazione automatica e popolamento cantina utente
 export async function initializeDatabase(): Promise<void> {
   const isPopulatedKey = 'cellar_wines_imported_user_v1';
@@ -113,6 +128,7 @@ export async function addWine(data: WineFormData): Promise<WineBottle> {
     updatedAt: now,
   };
   await db.wines.add(newBottle);
+  syncToServer().catch(console.error);
   return newBottle;
 }
 
@@ -126,6 +142,7 @@ export async function addWinesBatch(winesData: WineFormData[]): Promise<number> 
     updatedAt: now,
   }));
   await db.wines.bulkAdd(bottlesToInsert);
+  syncToServer().catch(console.error);
   return bottlesToInsert.length;
 }
 
@@ -135,10 +152,12 @@ export async function updateWine(id: string, updates: Partial<WineBottle>): Prom
     ...updates,
     updatedAt: now,
   });
+  syncToServer().catch(console.error);
 }
 
 export async function deleteWine(id: string): Promise<void> {
   await db.wines.delete(id);
+  syncToServer().catch(console.error);
 }
 
 export async function adjustStock(id: string, delta: number): Promise<{ newStock: number; uncorked: boolean }> {

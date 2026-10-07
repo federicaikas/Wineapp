@@ -11,6 +11,7 @@ export interface ModalProps {
   children: React.ReactNode;
   footer?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg' | 'xl';
+  hideCloseButton?: boolean;
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -22,6 +23,7 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   footer,
   size = 'md',
+  hideCloseButton = false,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -51,14 +53,16 @@ export const Modal: React.FC<ModalProps> = ({
         role="dialog"
         aria-modal="true"
       >
-        <button
-          type="button"
-          className="cellar-modal__close-btn"
-          onClick={onClose}
-          aria-label="Chiudi finestra"
-        >
-          <X size={18} />
-        </button>
+        {!hideCloseButton && (
+          <button
+            type="button"
+            className="cellar-modal__close-btn"
+            onClick={onClose}
+            aria-label="Chiudi finestra"
+          >
+            <X size={18} />
+          </button>
+        )}
 
         {(title || lotStamp) && (
           <div className="cellar-modal__header">

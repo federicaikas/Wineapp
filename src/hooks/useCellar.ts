@@ -123,7 +123,7 @@ export function useCellar() {
       particleCount: 80,
       spread: 70,
       origin: { y: 0.7 },
-      colors: ['#6C1A24', '#96AB41', '#B8860B', '#EE9A3A'],
+      colors: ['#9F0000', '#A0A738', '#FFCC79', '#F2542D'],
     });
     return count;
   }, []);

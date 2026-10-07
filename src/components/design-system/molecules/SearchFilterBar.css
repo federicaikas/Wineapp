@@ -222,39 +222,39 @@
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--red {
-  background: #6C1A24;
-  border-color: #6C1A24;
+  background: #9F0000;
+  border-color: #9F0000;
   color: #FFFFFF;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--white {
-  background: #F3B838;
+  background: #FFCC79;
   color: #2D234A;
-  border-color: #F3B838;
+  border-color: #FFCC79;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--sparkling {
-  background: #96AB41;
+  background: #A0A738;
   color: #FFFFFF;
-  border-color: #96AB41;
+  border-color: #A0A738;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--orange {
-  background: #EE9A3A;
+  background: #F2542D;
   color: #FFFFFF;
-  border-color: #EE9A3A;
+  border-color: #F2542D;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--rose {
-  background: #E06E89;
+  background: #E74D6F;
   color: #FFFFFF;
-  border-color: #E06E89;
+  border-color: #E74D6F;
 }
 
 .cellar-filterbar__chip--active.cellar-filterbar__chip--dessert {
-  background: #9A6B29;
+  background: #B85F00;
   color: #FFFFFF;
-  border-color: #9A6B29;
+  border-color: #B85F00;
 }
 
 .cellar-filterbar__chip-flag {

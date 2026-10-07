@@ -125,25 +125,25 @@ export const WineCard: React.FC<WineCardProps> = ({
             variant="outline"
             size="sm"
             icon={<Edit3 size={14} />}
+            title="Modifica"
+            aria-label="Modifica"
             onClick={(e) => {
               e.stopPropagation();
               onEdit?.(wine);
             }}
-          >
-            Modifica
-          </Button>
+          />
 
           <Button
             variant="outline"
             size="sm"
             icon={<Eye size={14} />}
+            title="Scheda"
+            aria-label="Scheda"
             onClick={(e) => {
               e.stopPropagation();
               onSelect(wine);
             }}
-          >
-            Scheda
-          </Button>
+          />
 
           <button
             type="button"

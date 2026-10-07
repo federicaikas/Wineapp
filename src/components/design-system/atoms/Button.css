@@ -160,3 +160,9 @@
 @keyframes cellar-spin {
   to { transform: rotate(360deg); }
 }
+
+/* Icon-only buttons: quando non c'è label, rendi il bottone quadrato */
+.cellar-btn:not(:has(.cellar-btn__label)) {
+  padding: 0;
+  aspect-ratio: 1;
+}

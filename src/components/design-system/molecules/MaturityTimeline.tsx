@@ -18,12 +18,12 @@ const STAGES: Array<{ key: DrinkingStatus; label: string }> = [
 ];
 
 const CATEGORY_COLORS: Record<string, string> = {
-  red: '#6C1A24',
-  white: '#F3B838',      // Giallo schiarito
-  sparkling: '#96AB41',  // Verde
-  rose: '#E06E89',       // Rosa elegante
-  orange: '#EE9A3A',     // Arancione schiarito
-  dessert: '#9A6B29',
+  red: '#9F0000',
+  white: '#FFCC79',      // Giallo schiarito
+  sparkling: '#A0A738',  // Verde
+  rose: '#E74D6F',       // Rosa elegante
+  orange: '#F2542D',     // Arancione schiarito
+  dessert: '#B85F00',
 };
 
 export const MaturityTimeline: React.FC<MaturityTimelineProps> = ({

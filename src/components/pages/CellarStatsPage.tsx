@@ -15,12 +15,12 @@ export interface CellarStatsPageProps {
 }
 
 const CATEGORY_NAMES: Record<string, { label: string; color: string }> = {
-  red: { label: 'Rossi', color: '#6C1A24' },
-  white: { label: 'Bianchi', color: '#F3B838' },
-  sparkling: { label: 'Bollicine', color: '#96AB41' },
-  orange: { label: 'Orange', color: '#EE9A3A' },
-  rose: { label: 'Rosati', color: '#E06E89' },
-  dessert: { label: 'Dolci', color: '#9A6B29' },
+  red: { label: 'Rossi', color: '#9F0000' },
+  white: { label: 'Bianchi', color: '#FFCC79' },
+  sparkling: { label: 'Bollicine', color: '#A0A738' },
+  orange: { label: 'Orange', color: '#F2542D' },
+  rose: { label: 'Rosati', color: '#E74D6F' },
+  dessert: { label: 'Dolci', color: '#B85F00' },
 };
 
 const COUNTRY_COLORS = [
@@ -33,7 +33,7 @@ const COUNTRY_COLORS = [
   '#D52B1E', // Svizzera
   '#8B2332', // Bordeaux
   '#96AB41', // Pistacchio
-  '#EE9A3A', // Orange
+  '#F2542D', // Orange
   '#B8860B', // Oro
 ];
 
