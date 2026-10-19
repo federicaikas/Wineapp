@@ -20,8 +20,15 @@ L'esperienza utente è ispirata alla raffinata estetica editoriale di **O,nice! 
 - **Specializzazione**: Design tokens CSS, atomi e molecole sartoriali, composizione organisms complessi (`WineCard`, `CellarGrid`, `QuickAddDrawer`, `FilterToolbar`, `WineDetailModal`).
 
 
-### 🛠️ Sub-Agent Git / QA (Quality, Testing & Semantic Versioning)
-- **Specializzazione**: Type safety (`tsc --noEmit`), build verification (`vite build`), linting, convenzione Conventional Commits (`feat:`, `fix:`, `chore:`, `refactor:`), gestione tag di versione e aggiornamento puntuale di `CHANGELOG.md`.
+### 🛠️ Sub-Agent Git / QA (Quality, Hygiene & GitHub Automation)
+- **Modello Assegnato**: Economico & Ultra-veloce (`gemini-2.5-flash` / `gemini-1.5-flash`).
+- **Skill di Riferimento**: [git-github-keeper](file:///.agents/skills/git-github-keeper/SKILL.md).
+- **Trigger**: Automatico al termine di ogni modifica o implementazione del progetto.
+- **Responsabilità**:
+  - Controllo qualità preventivo: `npx oxlint` (0 errori, 0 warning) e `npm run build` (`tsc -b && vite build`).
+  - Igiene del repository: pulizia file temporanei, verifica stato git.
+  - Conventional Commits: redazione automatica del commit semantico (`feat:`, `fix:`, `chore:`, `style:`).
+  - Sincronizzazione automatica: `git push origin main` con monitoraggio del deploy su Vercel.
 
 ---
 
@@ -29,19 +36,17 @@ L'esperienza utente è ispirata alla raffinata estetica editoriale di **O,nice! 
 
 ```mermaid
 graph TD
-    A[Lead Orchestrator: Kick-Off & Architecture] --> B[Fase 0: Scaffolding + Design Tokens + Atomi]
-    B --> C[Tag v0.1.0-alpha & CHANGELOG.md]
-    C --> D[Fase 1: Parallel Execution]
-    D --> E[Sub-Agent Logic: Schemi TS + Dexie DB + CRUD]
-    D --> F[Sub-Agent UI: Organisms WineCard, CellarGrid, QuickAddDrawer]
-    E --> G[Sub-Agent Git/QA: Typecheck & Build Validation]
-    F --> G
-    G --> H[Release v0.1.0 & ARCHITECTURE.md]
+    A[Richiesta Utente / Modifica] --> B[Lead Orchestrator / Sub-Agent UI / Logic]
+    B --> C[Implementazione Modifiche Codice]
+    C --> D[Sub-Agent Git/QA: gemini-2.5-flash]
+    D --> E[Check Qualità: oxlint + vite build]
+    E --> F[Git Commit Semantico + Push origin main]
+    F --> G[Notifica di Completamento all'Utente]
 ```
 
 ### ⚡ Human-in-the-Loop Auto-Approval & Token Efficiency
-- tutte le conferme/HITL sono pre-approvate ed eseguite automaticamente.
-- **Consumo Token Minimale**: Risposte ultra-sintetiche, raggruppamento di tutte le modifiche correlate ed eliminazione dei comandi di check/build intermedi ridondanti.
+- Tutte le conferme operative e decisioni tecniche sono pre-approvate ed eseguite automaticamente.
+- **Consumo Token Minimale**: Task di git, linting e push delegati a modelli flash economici per azzerare lo spreco di token.
 
 ---
 
