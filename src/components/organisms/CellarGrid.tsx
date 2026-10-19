@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Button, Tag } from '../design-system';
+import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Tag } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
 import { LayoutGrid, List } from 'lucide-react';
 import './CellarGrid.css';
@@ -50,29 +50,86 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 }) => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
+  const viewToggleElement = (
+    <div className="cellar-view-toggle" role="group" aria-label="Modalità visualizzazione">
+      <button
+        type="button"
+        className={`cellar-view-toggle__item ${viewMode === 'grid' ? 'cellar-view-toggle__item--active' : ''}`}
+        onClick={() => setViewMode('grid')}
+        aria-label="Vista etichette a griglia"
+      >
+        <LayoutGrid size={15} />
+        <span>Griglia</span>
+      </button>
+      <button
+        type="button"
+        className={`cellar-view-toggle__item ${viewMode === 'list' ? 'cellar-view-toggle__item--active' : ''}`}
+        onClick={() => setViewMode('list')}
+        aria-label="Vista registro a catalogo"
+      >
+        <List size={15} />
+        <span>Registro</span>
+      </button>
+    </div>
+  );
+
   return (
     <div className="cellar-grid-wrapper">
-      {/* Box Statistiche Cantina */}
-      {onOpenStats && (
-        <section className="cellar-dashboard-stats" aria-label="Statistiche della Cantina">
-          <FeatureCard
-            badgeText="REPORT & ANALISI"
-            title="Statistiche Cantina"
-            onClick={onOpenStats}
-            accentBorder={true}
-            className="cellar-stats-card-link"
-          >
-            <div className="cellar-stats-card-link__content">
-              <span>
-                <strong>{stats.totalBottles} {stats.totalBottles === 1 ? 'bottiglia' : 'bottiglie'}</strong> • Consulta patrimonio, tipologie e mappa delle regioni
-              </span>
-              <strong className="cellar-stats-card-link__arrow">Apri Statistiche →</strong>
-            </div>
-          </FeatureCard>
-        </section>
-      )}
+      {/* Sezione Superiore: Statistiche Cantina (80%) e Legenda (20%) su desktop */}
+      <div className="cellar-top-banner">
+        {onOpenStats && (
+          <section className="cellar-top-banner__stats" aria-label="Statistiche della Cantina">
+            <FeatureCard
+              badgeText="REPORT & ANALISI"
+              title="Statistiche Cantina"
+              onClick={onOpenStats}
+              accentBorder={true}
+              className="cellar-stats-card-link"
+            >
+              <div className="cellar-stats-card-link__content">
+                <div className="cellar-stats-card-link__number-group">
+                  <span className="cellar-stats-card-link__bottles-count">
+                    <strong>{stats.totalBottles}</strong> {stats.totalBottles === 1 ? 'bottiglia totale' : 'bottiglie totali'}
+                  </span>
+                  <span className="cellar-stats-card-link__open-text">
+                    Apri statistiche →
+                  </span>
+                </div>
+                <span className="cellar-stats-card-link__subtitle">
+                  Consulta patrimonio, tipologie e mappa delle regioni
+                </span>
+              </div>
+            </FeatureCard>
+          </section>
+        )}
 
-      {/* Barra Filtri & Ricerca */}
+        {/* Legenda Colori & Tipologie Vino (visibile su desktop, nascosta solo da mobile) */}
+        <div className="cellar-color-legend" aria-label="Legenda Colori e Tipologie Vini">
+          <span className="cellar-color-legend__title">Legenda Tipologie:</span>
+          <div className="cellar-color-legend__items">
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'red' ? 'all' : 'red')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="red" size="sm">Rosso</Badge>
+            </div>
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'white' ? 'all' : 'white')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="white" size="sm">Bianco</Badge>
+            </div>
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'sparkling' ? 'all' : 'sparkling')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="sparkling" size="sm">Bollicine</Badge>
+            </div>
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'rose' ? 'all' : 'rose')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="rose" size="sm">Rosato</Badge>
+            </div>
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'orange' ? 'all' : 'orange')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="orange" size="sm">Orange</Badge>
+            </div>
+            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'dessert' ? 'all' : 'dessert')} style={{ cursor: 'pointer' }}>
+              <Badge variant="wine-type" category="dessert" size="sm">Dolce</Badge>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Barra Filtri, Ricerca e Toggle Viste */}
       <div className="cellar-grid-toolbar">
         <SearchFilterBar
           searchQuery={searchQuery}
@@ -85,53 +142,8 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           onSortChange={onSortChange}
           maxPrice={maxPrice}
           onMaxPriceChange={onMaxPriceChange}
+          viewToggle={viewToggleElement}
         />
-
-        <div className="cellar-view-toggle">
-          <Button
-            variant={viewMode === 'grid' ? 'primary' : 'ghost'}
-            size="sm"
-            icon={<LayoutGrid size={15} />}
-            onClick={() => setViewMode('grid')}
-            aria-label="Vista etichette a griglia"
-          >
-            Griglia
-          </Button>
-          <Button
-            variant={viewMode === 'list' ? 'primary' : 'ghost'}
-            size="sm"
-            icon={<List size={15} />}
-            onClick={() => setViewMode('list')}
-            aria-label="Vista registro a catalogo"
-          >
-            Registro
-          </Button>
-        </div>
-      </div>
-
-      {/* Legenda Colori & Tipologie Vino */}
-      <div className="cellar-color-legend" aria-label="Legenda Colori e Tipologie Vini">
-        <span className="cellar-color-legend__title">Legenda Tipologie:</span>
-        <div className="cellar-color-legend__items">
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'red' ? 'all' : 'red')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="red" size="sm">Rosso</Badge>
-          </div>
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'white' ? 'all' : 'white')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="white" size="sm">Bianco</Badge>
-          </div>
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'sparkling' ? 'all' : 'sparkling')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="sparkling" size="sm">Bollicine</Badge>
-          </div>
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'rose' ? 'all' : 'rose')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="rose" size="sm">Rosato</Badge>
-          </div>
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'orange' ? 'all' : 'orange')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="orange" size="sm">Orange</Badge>
-          </div>
-          <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'dessert' ? 'all' : 'dessert')} style={{ cursor: 'pointer' }}>
-            <Badge variant="wine-type" category="dessert" size="sm">Dolce</Badge>
-          </div>
-        </div>
       </div>
 
       {/* Risultati o Stato Vuoto */}

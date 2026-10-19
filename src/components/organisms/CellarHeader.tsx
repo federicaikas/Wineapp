@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button } from '../design-system';
 import type { CellarStats } from '../../types/wine';
-import { Plus, Heart, Wine, Sparkles } from 'lucide-react';
+import { Plus, Heart, History, Shuffle } from 'lucide-react';
 import './CellarHeader.css';
 
 export interface CellarHeaderProps {
   stats: CellarStats;
-  uncorkedCount: number;
+  uncorkedCount?: number;
   currentView?: 'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage';
   onOpenAdd: () => void;
   onResetSeed?: () => void;
@@ -20,90 +20,85 @@ export interface CellarHeaderProps {
 
 export const CellarHeader: React.FC<CellarHeaderProps> = ({
   stats,
-  uncorkedCount,
   currentView = 'cellar',
   onOpenAdd,
   filterFavoritesOnly,
   onToggleFilterFavorites,
   onOpenUncorked,
   onOpenRandomWine,
-  onOpenManage,
   onGoHome,
 }) => {
   return (
     <header className="cellar-masthead">
       <div className="cellar-masthead__container">
-        {/* Brand WINAPP */}
+        {/* Brand WINAPP - grande, al centro su mobile */}
         <div
           className="cellar-masthead__brand"
           onClick={onGoHome}
           style={{ cursor: 'pointer' }}
           title="Torna alla Cantina (Home)"
         >
-          <h1 className="cellar-masthead__title">WINAPP - La cantina di Federica</h1>
+          <h1 className="cellar-masthead__title">WINAPP</h1>
         </div>
 
         {/* Bottoni di azione */}
         <div className="cellar-masthead__actions">
-          {onOpenRandomWine && (
-            <Button
-              variant="outline"
-              size="md"
-              icon={<Sparkles size={16} />}
-              onClick={onOpenRandomWine}
-              className="cellar-header-btn-random"
-            >
-              Cosa beviamo? 🍷
-            </Button>
-          )}
-
-          <button
-            type="button"
-            onClick={onToggleFilterFavorites}
-            className={`cellar-header-btn-fav ${filterFavoritesOnly ? 'cellar-header-btn-fav--active' : ''}`}
-            title={`Preferiti (${stats.favoritesCount})`}
-            aria-label={`Filtra preferiti (${stats.favoritesCount})`}
-          >
-            <Heart size={18} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
-            {stats.favoritesCount > 0 && (
-              <span className="cellar-header-btn-fav__count" aria-hidden="true">
-                {stats.favoritesCount}
-              </span>
+          {/* Subito sotto: i due bottoni cosa beviamo e nuova bottiglia */}
+          <div className="cellar-masthead__primary-actions">
+            {onOpenRandomWine && (
+              <Button
+                variant="outline"
+                size="md"
+                icon={<Shuffle size={16} />}
+                onClick={onOpenRandomWine}
+                className="cellar-header-btn-random"
+              >
+                COSA BEVIAMO
+              </Button>
             )}
-          </button>
 
-          <Button
-            variant={currentView === 'uncorked' ? 'primary' : 'outline'}
-            size="md"
-            icon={<Wine size={16} />}
-            onClick={onOpenUncorked}
-            className={`cellar-header-btn-uncorked ${currentView === 'uncorked' ? 'cellar-header-btn-uncorked--active' : ''}`}
-          >
-            Bottiglie stappate ({uncorkedCount})
-          </Button>
-
-          <Button
-            variant="primary"
-            size="md"
-            icon={<Plus size={16} />}
-            onClick={onOpenAdd}
-            className="cellar-header-btn-add"
-          >
-            Nuova Bottiglia
-          </Button>
-
-          {onOpenManage && (
             <Button
-              variant="outline"
+              variant="primary"
               size="md"
-              onClick={onOpenManage}
+              icon={<Plus size={16} />}
+              onClick={onOpenAdd}
+              className="cellar-header-btn-add"
             >
-              Gestisci cantina
+              Nuova Bottiglia
             </Button>
-          )}
+          </div>
+
+          {/* Sotto: le icone di preferiti e stappate con etichetta */}
+          <div className="cellar-masthead__secondary-actions">
+            <button
+              type="button"
+              onClick={onToggleFilterFavorites}
+              className={`cellar-header-btn-fav ${filterFavoritesOnly ? 'cellar-header-btn-fav--active' : ''}`}
+              title={`Preferiti (${stats.favoritesCount})`}
+              aria-label={`Filtra preferiti (${stats.favoritesCount})`}
+            >
+              <Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
+              <span className="cellar-header-btn-fav__label">Preferiti</span>
+              {stats.favoritesCount > 0 && (
+                <span className="cellar-header-btn-fav__count" aria-hidden="true">
+                  {stats.favoritesCount}
+                </span>
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={onOpenUncorked}
+              className={`cellar-header-btn-uncorked ${currentView === 'uncorked' ? 'cellar-header-btn-uncorked--active' : ''}`}
+              title="Cronologia bottiglie stappate"
+              aria-label="Cronologia bottiglie stappate"
+            >
+              <History size={16} />
+              <span className="cellar-header-btn-uncorked__label">Stappate</span>
+            </button>
+          </div>
         </div>
       </div>
     </header>
   );
 };
-

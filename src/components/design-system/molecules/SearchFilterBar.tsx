@@ -25,6 +25,7 @@ export interface SearchFilterBarProps {
   onSortChange: (sort: SortOption) => void;
   maxPrice?: number;
   onMaxPriceChange?: (price: number) => void;
+  viewToggle?: React.ReactNode;
 }
 
 const CATEGORIES: Array<{ key: WineCategory | 'all'; label: string }> = [
@@ -56,6 +57,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   onSortChange,
   maxPrice = 500,
   onMaxPriceChange,
+  viewToggle,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -95,39 +97,54 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
           )}
         </div>
 
-        {/* Pulsante Menu a Tendina Filtri Collassati */}
-        <button
-          type="button"
-          className={`cellar-filterbar__dropdown-toggle ${isDropdownOpen ? 'cellar-filterbar__dropdown-toggle--active' : ''}`}
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        >
-          <SlidersHorizontal size={15} />
-          <span>Filtri</span>
-          {activeFiltersCount > 0 && (
-            <span className="cellar-filterbar__active-badge">{activeFiltersCount}</span>
-          )}
-          <ChevronDown
-            size={15}
-            className={`cellar-filterbar__chevron ${isDropdownOpen ? 'cellar-filterbar__chevron--open' : ''}`}
-          />
-        </button>
-
-        {/* Ordinamento */}
-        <div className="cellar-filterbar__sort-wrap">
-          <ArrowUpDown size={15} className="cellar-filterbar__sort-icon" />
-          <select
-            className="cellar-filterbar__sort-select"
-            value={selectedSort}
-            onChange={(e) => onSortChange(e.target.value as SortOption)}
+        {/* Gruppo Controlli: Filtri, Ordina e Griglia/Registro (in una sola riga su mobile) */}
+        <div className="cellar-filterbar__actions-group">
+          {/* Pulsante Menu a Tendina Filtri Collassati */}
+          <button
+            type="button"
+            className={`cellar-filterbar__dropdown-toggle ${isDropdownOpen ? 'cellar-filterbar__dropdown-toggle--active' : ''}`}
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
-            <option value="date-desc">Recenti prima</option>
-            <option value="vintage-desc">Annata: Più maturi</option>
-            <option value="vintage-asc">Annata: Più giovani</option>
-            <option value="price-desc">Prezzo: Dal più caro</option>
-            <option value="price-asc">Prezzo: Dal meno caro</option>
-            <option value="stock-desc">Quantità residua</option>
-            <option value="name-asc">Nome alfabetico (A-Z)</option>
-          </select>
+            <SlidersHorizontal size={15} />
+            <span>Filtri</span>
+            {activeFiltersCount > 0 && (
+              <span className="cellar-filterbar__active-badge">{activeFiltersCount}</span>
+            )}
+            <ChevronDown
+              size={15}
+              className={`cellar-filterbar__chevron ${isDropdownOpen ? 'cellar-filterbar__chevron--open' : ''}`}
+            />
+          </button>
+
+          {/* Ordinamento con testo segnaposto 'ordina' in viola come filtri */}
+          <div className="cellar-filterbar__sort-wrap">
+            <div className="cellar-filterbar__dropdown-toggle cellar-filterbar__sort-btn">
+              <ArrowUpDown size={15} />
+              <span>ordina</span>
+              <ChevronDown size={15} className="cellar-filterbar__chevron" />
+              <select
+                className="cellar-filterbar__sort-native-select"
+                value={selectedSort}
+                onChange={(e) => onSortChange(e.target.value as SortOption)}
+                aria-label="Ordina bottiglie"
+              >
+                <option value="date-desc">Recenti prima</option>
+                <option value="vintage-desc">Annata: Più maturi</option>
+                <option value="vintage-asc">Annata: Più giovani</option>
+                <option value="price-desc">Prezzo: Dal più caro</option>
+                <option value="price-asc">Prezzo: Dal meno caro</option>
+                <option value="stock-desc">Quantità residua</option>
+                <option value="name-asc">Nome alfabetico (A-Z)</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Switcher Griglia/Registro */}
+          {viewToggle && (
+            <div className="cellar-filterbar__toggle-slot">
+              {viewToggle}
+            </div>
+          )}
         </div>
       </div>
 

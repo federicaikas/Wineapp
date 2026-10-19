@@ -201,8 +201,15 @@ export function App() {
             style={{ cursor: 'pointer' }}
             title="Torna alla Cantina (Home)"
           >
-            WINAPP - La cantina di Federica
+            WINAPP
           </Typography>
+          <button
+            type="button"
+            className="cellar-footer__manage-link"
+            onClick={() => setViewMode('manage')}
+          >
+            Carica tutti i dati della tua cantina in un click
+          </button>
           <Divider variant="ornament" symbol="◆ ❦ ◆" spacing="sm" />
         </div>
       </footer>

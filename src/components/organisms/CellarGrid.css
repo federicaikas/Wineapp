@@ -7,16 +7,26 @@
   gap: 2rem;
 }
 
-/* Dashboard Statistiche (Singola Box Statistiche) */
-.cellar-dashboard-stats {
-  display: block;
+/* Dashboard Statistiche & Legenda (Top Banner: 80% Statistiche, 20% Legenda su desktop) */
+.cellar-top-banner {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  width: 100%;
+}
+
+.cellar-top-banner__stats {
+  display: flex;
   width: 100%;
 }
 
 .cellar-stats-card-link {
   width: 100%;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cellar-stats-card-link:hover {
@@ -34,18 +44,47 @@
   color: #6E6259;
   font-family: var(--font-sans);
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.cellar-stats-card-link__arrow {
-  color: var(--wine-bordeaux, #722F37);
+.cellar-stats-card-link__number-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cellar-stats-card-link__bottles-count {
+  font-size: 1.15rem;
+  color: #2D234A;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+}
+
+.cellar-stats-card-link__bottles-count strong {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #3B1B54;
+}
+
+.cellar-stats-card-link__open-text {
+  font-size: 0.85rem;
   font-weight: 700;
+  color: var(--wine-bordeaux, #722F37);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   transition: transform 0.2s ease;
-  white-space: nowrap;
 }
 
-.cellar-stats-card-link:hover .cellar-stats-card-link__arrow {
+.cellar-stats-card-link:hover .cellar-stats-card-link__open-text {
   transform: translateX(4px);
+}
+
+.cellar-stats-card-link__subtitle {
+  color: #6E6259;
+  font-size: 0.85rem;
+  font-style: italic;
+  font-family: var(--font-serif-editorial, serif);
 }
 
 .cellar-dashboard-stat {
@@ -131,41 +170,49 @@
 }
 
 .cellar-view-toggle {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  background: var(--paper-card);
-  border: var(--border-tactile);
-  border-radius: var(--radius-sm);
-  padding: 3px;
+  background: #FFFFFF;
+  border: 1px solid rgba(45, 35, 74, 0.15);
+  border-radius: 6px;
+  padding: 2px;
   gap: 2px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
   flex-shrink: 0;
-  margin-top: 2px;
+  height: 42px;
+  box-sizing: border-box;
 }
 
-.cellar-view-toggle__btn {
+.cellar-view-toggle__item {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.45rem 0.75rem;
-  border-radius: var(--radius-xs);
+  padding: 0 0.65rem;
+  height: 100%;
+  border-radius: 4px;
   border: none;
   background: transparent;
-  color: var(--ink-muted);
-  font-size: var(--text-xs);
+  color: #706880;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all var(--transition-fast);
+  transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
-.cellar-view-toggle__btn:hover {
-  color: var(--ink-dark);
+.cellar-view-toggle__item:hover {
+  color: #3B1B54;
 }
 
-.cellar-view-toggle__btn--active {
-  background: var(--paper-surface);
-  color: var(--ink-dark);
-  box-shadow: var(--shadow-sm);
+.cellar-view-toggle__item--active {
+  background: transparent !important;
+  color: #3B1B54 !important;
+  font-weight: 700 !important;
+}
+
+.cellar-view-toggle__item--active svg {
+  color: #3B1B54 !important;
 }
 
 /* Griglia Etichette Vini (5 bottiglie per riga su Desktop/Web) */
@@ -276,6 +323,15 @@
 }
 
 @media (max-width: 900px) {
+  .cellar-top-banner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Togli la legenda solo da mobile */
+  .cellar-color-legend {
+    display: none !important;
+  }
+
   .cellar-list-ledger {
     overflow-x: auto;
   }
@@ -284,7 +340,7 @@
     min-width: 780px;
   }
   .cellar-grid-toolbar {
-    flex-direction: column;
+    width: 100%;
   }
 }
 
@@ -298,12 +354,13 @@
     gap: 1.15rem;
   }
   .cellar-view-toggle {
-    width: 100%;
+    height: 38px;
+    padding: 1px;
   }
-  .cellar-view-toggle__btn {
-    flex: 1;
-    justify-content: center;
-    padding: 0.55rem;
+  .cellar-view-toggle__item {
+    padding: 0 0.45rem;
+    font-size: 0.75rem;
+    gap: 0.25rem;
   }
 }
 
@@ -314,21 +371,24 @@
   }
 }
 
-/* Legenda Colori e Tipologie */
+/* Legenda Colori e Tipologie (Desktop 20% width) */
 .cellar-color-legend {
   background: var(--paper-card, #FDFBF7);
   border: var(--border-tactile, 1px solid rgba(45,35,74,0.12));
   border-radius: var(--radius-sm, 8px);
-  padding: 0.85rem 1.25rem;
+  padding: 0.85rem 1rem;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 0.5rem;
   box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .cellar-color-legend__title {
   font-family: var(--font-sans);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -336,28 +396,19 @@
 }
 
 .cellar-color-legend__items {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.35rem 0.5rem;
   align-items: center;
-  gap: 1.25rem 1.75rem;
 }
 
 .cellar-color-legend__item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 4px 8px;
   border-radius: 6px;
   transition: background 0.15s ease;
 }
 
 .cellar-color-legend__item:hover {
   background: rgba(114, 47, 55, 0.05);
-}
-
-.cellar-color-legend__desc {
-  font-family: var(--font-sans);
-  font-size: 0.8125rem;
-  color: var(--ink-dark, #2D234A);
-  font-weight: 500;
 }
