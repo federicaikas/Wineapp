@@ -19,6 +19,12 @@ L'esperienza utente è ispirata alla raffinata estetica editoriale di **O,nice! 
 ### 🎨 Sub-Agent UI (Atomic Design & Editorial Aesthetics)
 - **Specializzazione**: Design tokens CSS, atomi e molecole sartoriali, composizione organisms complessi (`WineCard`, `CellarGrid`, `QuickAddDrawer`, `FilterToolbar`, `WineDetailModal`).
 
+### ☁️ Sub-Agent Back-End & AI Services (Cloud & Intelligence)
+- **Specializzazione**: Architettura Supabase PostgreSQL, autenticazione multi-tenant con RLS, storage Cloudflare R2, Edge Functions e pipeline multimodale Gemini per estrazione da etichetta e AI Sommelier.
+- **Skill di Riferimento**:
+  - [supabase-architect](file:///.agents/skills/supabase-architect/SKILL.md)
+  - [ai-multimodal-extractor](file:///.agents/skills/ai-multimodal-extractor/SKILL.md)
+
 
 ### 🛠️ Sub-Agent Git / QA (Quality, Hygiene & GitHub Automation)
 - **Modello Assegnato**: Economico & Ultra-veloce (`gemini-2.5-flash` / `gemini-1.5-flash`).
