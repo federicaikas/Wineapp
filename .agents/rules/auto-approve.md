@@ -1,4 +1,9 @@
-# Human-in-the-Loop Auto-Approval Rule
+# Full Autonomy & Auto-Approval Rule
 
-- **Direttiva Utente**: In questa fase di sviluppo, tutte le decisioni operative, conferme di build/test, esecuzioni automatiche e attività human-in-the-loop devono essere **accettate ed eseguite in automatico** senza richiedere ulteriori conferme manuali.
-- **Autonomia**: Procedi direttamente con la soluzione ottimale raccomandata, la compilazione e la verifica end-to-end dei task.
+- **Direttiva Tassativa Utente**: Accetta sempre ed esegui qualsiasi decisione tecnica, modifica, comando shell, test di qualità, commit e push in **piena e totale autonomia**.
+- **Zero Interruzioni Manuali**: Non richiedere mai conferme per passaggi operativi, applicazione di modifiche, esecuzione di controlli o push verso GitHub.
+- **Flusso Automatico Completo**:
+  1. Comprensione della richiesta ed implementazione della soluzione ottimale.
+  2. Verifica automatica del codice (`oxlint` + `vite build`).
+  3. Git commit semantico e `git push origin main` a fine operazione.
+  4. Sintesi finale dell'avvenuto completamento.
