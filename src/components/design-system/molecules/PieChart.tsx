@@ -43,57 +43,69 @@ export const PieChart: React.FC<PieChartProps> = ({
   const outerRadius = size / 2 - 10;
   const innerRadius = donutRadius;
 
-  let currentAngle = -90;
+  interface SliceItem extends PieChartDataItem {
+    percentage: number;
+    pathData: string;
+    idx: number;
+  }
 
-  const slices = data.map((item, idx) => {
-    const percentage = (item.value / total) * 100;
-    const angle = (item.value / total) * 360;
+  const { slices } = data.reduce<{ currentAngle: number; slices: SliceItem[] }>(
+    (acc, item, idx) => {
+      const percentage = (item.value / total) * 100;
+      const angle = (item.value / total) * 360;
 
-    const startAngle = currentAngle;
-    const endAngle = currentAngle + angle;
-    currentAngle += angle;
+      const startAngle = acc.currentAngle;
+      const endAngle = acc.currentAngle + angle;
 
-    const startRad = (startAngle * Math.PI) / 180;
-    const endRad = (endAngle * Math.PI) / 180;
+      const startRad = (startAngle * Math.PI) / 180;
+      const endRad = (endAngle * Math.PI) / 180;
 
-    const x1_out = center + outerRadius * Math.cos(startRad);
-    const y1_out = center + outerRadius * Math.sin(startRad);
-    const x2_out = center + outerRadius * Math.cos(endRad);
-    const y2_out = center + outerRadius * Math.sin(endRad);
+      const x1_out = center + outerRadius * Math.cos(startRad);
+      const y1_out = center + outerRadius * Math.sin(startRad);
+      const x2_out = center + outerRadius * Math.cos(endRad);
+      const y2_out = center + outerRadius * Math.sin(endRad);
 
-    const x1_in = center + innerRadius * Math.cos(startRad);
-    const y1_in = center + innerRadius * Math.sin(startRad);
-    const x2_in = center + innerRadius * Math.cos(endRad);
-    const y2_in = center + innerRadius * Math.sin(endRad);
+      const x1_in = center + innerRadius * Math.cos(startRad);
+      const y1_in = center + innerRadius * Math.sin(startRad);
+      const x2_in = center + innerRadius * Math.cos(endRad);
+      const y2_in = center + innerRadius * Math.sin(endRad);
 
-    const largeArc = angle > 180 ? 1 : 0;
+      const largeArc = angle > 180 ? 1 : 0;
 
-    let pathData = '';
-    if (angle >= 359.99) {
-      pathData = `
-        M ${center} ${center - outerRadius}
-        A ${outerRadius} ${outerRadius} 0 1 1 ${center - 0.01} ${center - outerRadius}
-        L ${center - 0.01} ${center - innerRadius}
-        A ${innerRadius} ${innerRadius} 0 1 0 ${center} ${center - innerRadius}
-        Z
-      `;
-    } else {
-      pathData = `
-        M ${x1_out} ${y1_out}
-        A ${outerRadius} ${outerRadius} 0 ${largeArc} 1 ${x2_out} ${y2_out}
-        L ${x2_in} ${y2_in}
-        A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${x1_in} ${y1_in}
-        Z
-      `;
-    }
+      let pathData = '';
+      if (angle >= 359.99) {
+        pathData = `
+          M ${center} ${center - outerRadius}
+          A ${outerRadius} ${outerRadius} 0 1 1 ${center - 0.01} ${center - outerRadius}
+          L ${center - 0.01} ${center - innerRadius}
+          A ${innerRadius} ${innerRadius} 0 1 0 ${center} ${center - innerRadius}
+          Z
+        `;
+      } else {
+        pathData = `
+          M ${x1_out} ${y1_out}
+          A ${outerRadius} ${outerRadius} 0 ${largeArc} 1 ${x2_out} ${y2_out}
+          L ${x2_in} ${y2_in}
+          A ${innerRadius} ${innerRadius} 0 ${largeArc} 0 ${x1_in} ${y1_in}
+          Z
+        `;
+      }
 
-    return {
-      ...item,
-      percentage,
-      pathData,
-      idx,
-    };
-  });
+      return {
+        currentAngle: endAngle,
+        slices: [
+          ...acc.slices,
+          {
+            ...item,
+            percentage,
+            pathData,
+            idx,
+          },
+        ],
+      };
+    },
+    { currentAngle: -90, slices: [] }
+  );
 
   const activeItem = hoveredIdx !== null ? slices[hoveredIdx] : null;
 

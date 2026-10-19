@@ -57,15 +57,20 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
             </Button>
           )}
 
-          <Button
-            variant={filterFavoritesOnly ? 'primary' : 'outline'}
-            size="md"
-            icon={<Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />}
+          <button
+            type="button"
             onClick={onToggleFilterFavorites}
-            className="cellar-header-btn-fav"
+            className={`cellar-header-btn-fav ${filterFavoritesOnly ? 'cellar-header-btn-fav--active' : ''}`}
+            title={`Preferiti (${stats.favoritesCount})`}
+            aria-label={`Filtra preferiti (${stats.favoritesCount})`}
           >
-            Preferiti ({stats.favoritesCount})
-          </Button>
+            <Heart size={18} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
+            {stats.favoritesCount > 0 && (
+              <span className="cellar-header-btn-fav__count" aria-hidden="true">
+                {stats.favoritesCount}
+              </span>
+            )}
+          </button>
 
           <Button
             variant={currentView === 'uncorked' ? 'primary' : 'outline'}

@@ -13,15 +13,27 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  transition: transform var(--transition-hover, 200ms ease-in-out), box-shadow var(--transition-hover, 200ms ease-in-out);
   cursor: pointer;
   overflow: hidden;
 
   /* Accent border superiore ispessito a 14px */
   border-top: 14px solid var(--accent-tertiary, #7A9A3B);
+
+  /* Scrollytelling Reveal Defaults */
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--transition-hover, 200ms ease-in-out);
+  will-change: opacity, transform;
 }
 
-.cellar-wine-card:hover {
+.cellar-wine-card.cellar-wine-card--revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cellar-wine-card.cellar-wine-card--revealed:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(45, 35, 74, 0.12);
 }
@@ -596,9 +608,20 @@
     border-radius: 10px;
   }
 
+  /* Microanimazione al tocco della scheda su mobile */
+  .cellar-wine-card:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.12s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
   .cellar-wine-card__fav-btn {
     width: 36px;
     height: 36px;
+  }
+
+  /* Microanimazione tap cuore */
+  .cellar-wine-card__fav-btn:active {
+    animation: heart-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
   .cellar-wine-card__name {
@@ -610,6 +633,12 @@
     padding-top: 10px;
     gap: 0.5rem;
   }
+
+  /* Microanimazione feedback stepper pulsanti quantità */
+  .cellar-stock-counter__btn:active:not(:disabled) {
+    transform: scale(0.85);
+    background: rgba(114, 47, 55, 0.15);
+  }
 }
 
 @media (hover: none) {
@@ -618,4 +647,5 @@
     box-shadow: 0 2px 12px rgba(45, 35, 74, 0.04);
   }
 }
+
 

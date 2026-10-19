@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { WineBottle, WineFormData } from '../../types/wine';
 import type { WineCategory, DrinkingStatus } from '../design-system/atoms/Badge';
 import { Drawer, Input, Select, TextArea, Button, Divider, RatingStars } from '../design-system';
@@ -109,6 +109,15 @@ const SUBCATEGORIES_MAP: Record<WineCategory, { label: string; value: string }[]
   ],
 };
 
+const CURRENT_YEAR = new Date().getFullYear();
+const VINTAGE_OPTIONS = [
+  { value: '0', label: 'Annata Sconosciuta (S.A. / N.V.)' },
+  ...Array.from({ length: 77 }, (_, i) => {
+    const y = CURRENT_YEAR - i;
+    return { value: y.toString(), label: y.toString() };
+  }),
+];
+
 export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
   isOpen,
   onClose,
@@ -133,7 +142,12 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
   const [isScanning, setIsScanning] = useState(false);
   const [scanDetectedFields, setScanDetectedFields] = useState<string[]>([]);
 
-  useEffect(() => {
+  const [prevEditingWine, setPrevEditingWine] = useState(editingWine);
+  const [prevIsOpen, setPrevIsOpen] = useState(isOpen);
+
+  if (editingWine !== prevEditingWine || isOpen !== prevIsOpen) {
+    setPrevEditingWine(editingWine);
+    setPrevIsOpen(isOpen);
     if (editingWine) {
       setFormData({
         name: editingWine.name,
@@ -175,7 +189,7 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
       setBatchError(null);
       setBatchFileName(null);
     }
-  }, [editingWine, isOpen]);
+  }
 
   const handleLabelImageScan = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -279,15 +293,6 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
       setIsSubmitting(false);
     }
   };
-
-  const currentYear = new Date().getFullYear();
-  const VINTAGE_OPTIONS = [
-    { value: '0', label: 'Annata Sconosciuta (S.A. / N.V.)' },
-    ...Array.from({ length: 77 }, (_, i) => {
-      const y = currentYear - i;
-      return { value: y.toString(), label: y.toString() };
-    }),
-  ];
 
   const toggleAroma = (aroma: string) => {
     const currentAromas = formData.tastingNotes.aroma || [];
@@ -513,7 +518,7 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
           <Select
             label="Annata"
             value={formData.vintage.toString()}
-            onChange={(e) => setFormData({ ...formData, vintage: parseInt(e.target.value) || currentYear })}
+            onChange={(e) => setFormData({ ...formData, vintage: parseInt(e.target.value) || CURRENT_YEAR })}
             options={VINTAGE_OPTIONS}
           />
         </div>

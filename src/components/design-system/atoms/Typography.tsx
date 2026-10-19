@@ -23,6 +23,21 @@ export interface TypographyProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
 }
 
+const TAG_MAP: Record<string, React.ElementType> = {
+  'display-lg': 'h1',
+  'display-md': 'h2',
+  'headline': 'h2',
+  'title-serif': 'h3',
+  'title-sans': 'h4',
+  'eyebrow': 'span',
+  'caption': 'span',
+  'stamp-mono': 'span',
+  'vintage-lot': 'span',
+  'body': 'p',
+  'body-sm': 'p',
+  'serif-italic': 'p',
+};
+
 export const Typography: React.FC<TypographyProps> = ({
   variant = 'body',
   as,
@@ -33,21 +48,7 @@ export const Typography: React.FC<TypographyProps> = ({
   ...props
 }) => {
   const normalizedVariant = variant === 'serif-title' ? 'title-serif' : variant;
-
-  const Component = as || (() => {
-    switch (normalizedVariant) {
-      case 'display-lg': return 'h1';
-      case 'display-md': return 'h2';
-      case 'headline': return 'h2';
-      case 'title-serif': return 'h3';
-      case 'title-sans': return 'h4';
-      case 'eyebrow': return 'span';
-      case 'caption': return 'span';
-      case 'stamp-mono':
-      case 'vintage-lot': return 'span';
-      default: return 'p';
-    }
-  })();
+  const Component = as || TAG_MAP[normalizedVariant] || 'p';
 
   const classes = [
     'cellar-type',

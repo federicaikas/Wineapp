@@ -201,7 +201,7 @@ export async function importCellarData(jsonString: string): Promise<number> {
     await db.wines.clear();
     await db.wines.bulkAdd(parsed);
     return parsed.length;
-  } catch (err) {
+  } catch {
     throw new Error('Impossibile importare il file JSON: dati non conformi.');
   }
 }

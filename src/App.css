@@ -63,3 +63,19 @@
   }
 }
 
+/* ==========================================================================
+   Scrollytelling Progress Hairline Indicator
+   ========================================================================== */
+.cellar-scrollytelling-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #6C1A24 0%, #B8860B 50%, #435443 100%);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.08s ease-out;
+  box-shadow: 0 1px 4px rgba(184, 134, 11, 0.4);
+}
+
+

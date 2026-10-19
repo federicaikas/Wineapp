@@ -34,11 +34,11 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   const [isAnalyzingWebsite, setIsAnalyzingWebsite] = useState(false);
   const [websiteAnalysisSuccess, setWebsiteAnalysisSuccess] = useState<string | null>(null);
 
-  React.useEffect(() => {
-    if (wine) {
-      setWebsiteAnalysisSuccess(null);
-    }
-  }, [wine?.id]);
+  const [prevWineId, setPrevWineId] = useState(wine?.id);
+  if (wine && wine.id !== prevWineId) {
+    setPrevWineId(wine.id);
+    setWebsiteAnalysisSuccess(null);
+  }
 
   if (!wine) return null;
 
@@ -105,7 +105,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       size="lg"
-      hideCloseButton
       footer={
         <div className="cellar-detail-modal__footer-actions">
           <div className="cellar-detail-modal__footer-stock">
@@ -184,6 +183,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               size="md"
               icon={<X size={16} />}
               onClick={onClose}
+              className="cellar-detail-modal__footer-close-btn"
               title="Chiudi scheda"
               aria-label="Chiudi scheda"
             />

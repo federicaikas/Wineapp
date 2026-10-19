@@ -90,19 +90,67 @@
   box-shadow: 0 4px 12px rgba(114, 47, 55, 0.35) !important;
 }
 
-/* Bottone Preferiti (Giallo #F3AB19) */
+/* Bottone Preferiti (Icon-Only, Rotondo con Micro-badge) */
 .cellar-header-btn-fav {
-  background-color: #F3AB19 !important;
-  color: #2D234A !important;
-  border-color: #F3AB19 !important;
-  border-radius: 9999px !important;
-  font-weight: 700 !important;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50% !important;
+  background-color: var(--paper-surface, #F3ECE1) !important;
+  color: #706880 !important;
+  border: 1px solid rgba(45, 35, 74, 0.12) !important;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  padding: 0 !important;
+  flex-shrink: 0;
 }
 
 .cellar-header-btn-fav:hover {
-  background-color: #E59F12 !important;
-  border-color: #E59F12 !important;
+  background-color: #FAF4E8 !important;
+  border-color: #F3AB19 !important;
+  color: #F3AB19 !important;
+  transform: scale(1.06);
+}
+
+.cellar-header-btn-fav--active {
+  background-color: #F3AB19 !important;
+  border-color: #F3AB19 !important;
   color: #2D234A !important;
+  box-shadow: 0 3px 10px rgba(243, 171, 25, 0.35) !important;
+}
+
+.cellar-header-btn-fav:active {
+  animation: heart-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cellar-header-btn-fav__count {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #3B1B54;
+  color: #FFFFFF;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes heart-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.3) rotate(-8deg); }
+  75% { transform: scale(0.92) rotate(4deg); }
+  100% { transform: scale(1) rotate(0deg); }
 }
 
 /* Bottone Bottiglie Stappate (Verde Design System #96AB41 / #6B7D2A) */

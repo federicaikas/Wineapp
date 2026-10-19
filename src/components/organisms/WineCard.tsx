@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { WineBottle } from '../../types/wine';
 import { Typography, Divider, Button, StockCounter, MaturityTimeline } from '../design-system';
 import { Heart, MapPin, Eye, Edit3 } from 'lucide-react';
@@ -29,6 +29,25 @@ export const WineCard: React.FC<WineCardProps> = ({
   onToggleFavorite,
 }) => {
   const isOutOfStock = wine.stock <= 0;
+  const [isRevealed, setIsRevealed] = useState(() => typeof IntersectionObserver === 'undefined');
+  const cardRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsRevealed(true);
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   // Formattazione prezzo
   const formattedPrice = new Intl.NumberFormat('it-IT', {
@@ -41,7 +60,10 @@ export const WineCard: React.FC<WineCardProps> = ({
 
   return (
     <article
+      ref={cardRef}
       className={`cellar-wine-card cellar-wine-card--cat-${wine.category} ${
+        isRevealed ? 'cellar-wine-card--revealed' : ''
+      } ${
         isOutOfStock ? 'cellar-wine-card--depleted' : ''
       }`}
       onClick={() => onSelect(wine)}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCellar } from './hooks/useCellar';
 import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal } from './components/organisms';
 import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
@@ -9,6 +9,19 @@ import './App.css';
 
 export function App() {
   const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage'>('cellar');
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalHeight > 0) {
+        const progress = Math.min(100, Math.max(0, (window.scrollY / totalHeight) * 100));
+        setScrollProgress(progress);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const {
     allWines,
@@ -65,6 +78,13 @@ export function App() {
 
   return (
     <div className="cellar-app">
+      {/* Barra Scrollytelling Cantina */}
+      <div
+        className="cellar-scrollytelling-bar"
+        style={{ width: `${scrollProgress}%` }}
+        aria-hidden="true"
+      />
+
       {/* Testata di Cantina */}
       <CellarHeader
         stats={stats}

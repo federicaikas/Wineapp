@@ -215,6 +215,11 @@
   border-color: #3B1B54;
 }
 
+.cellar-filterbar__chip:active {
+  transform: scale(0.94);
+  transition: transform 0.1s ease;
+}
+
 .cellar-filterbar__chip--active {
   background: #3B1B54;
   color: #FFFFFF;

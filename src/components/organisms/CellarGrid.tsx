@@ -111,31 +111,25 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
       {/* Legenda Colori & Tipologie Vino */}
       <div className="cellar-color-legend" aria-label="Legenda Colori e Tipologie Vini">
-        <span className="cellar-color-legend__title">Legenda Tipologie &amp; Colori:</span>
+        <span className="cellar-color-legend__title">Legenda Tipologie:</span>
         <div className="cellar-color-legend__items">
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'red' ? 'all' : 'red')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="red" size="sm">Rosso</Badge>
-            <span className="cellar-color-legend__desc">(Rack 1 Sx)</span>
           </div>
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'white' ? 'all' : 'white')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="white" size="sm">Bianco</Badge>
-            <span className="cellar-color-legend__desc">(Rack 2 Centro)</span>
           </div>
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'sparkling' ? 'all' : 'sparkling')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="sparkling" size="sm">Bollicine</Badge>
-            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
           </div>
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'rose' ? 'all' : 'rose')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="rose" size="sm">Rosato</Badge>
-            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
           </div>
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'orange' ? 'all' : 'orange')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="orange" size="sm">Orange</Badge>
-            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
           </div>
           <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'dessert' ? 'all' : 'dessert')} style={{ cursor: 'pointer' }}>
             <Badge variant="wine-type" category="dessert" size="sm">Dolce</Badge>
-            <span className="cellar-color-legend__desc">(Rack 3 Dx)</span>
           </div>
         </div>
       </div>
