@@ -586,3 +586,36 @@
   opacity: 1;
   animation: syrup-wave 26s linear infinite reverse;
 }
+
+/* ==========================================================================
+   Mobile Responsive Optimizations
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cellar-wine-card {
+    padding: 16px;
+    border-radius: 10px;
+  }
+
+  .cellar-wine-card__fav-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .cellar-wine-card__name {
+    font-size: 1.45rem;
+    line-height: 1.15;
+  }
+
+  .cellar-wine-card__footer {
+    padding-top: 10px;
+    gap: 0.5rem;
+  }
+}
+
+@media (hover: none) {
+  .cellar-wine-card:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(45, 35, 74, 0.04);
+  }
+}
+

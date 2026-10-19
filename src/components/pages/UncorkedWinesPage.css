@@ -78,3 +78,28 @@
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
+
+/* ==========================================================================
+   Mobile Responsive Uncorked Page
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cellar-uncorked-page {
+    padding: 1rem 0.85rem 3rem;
+    gap: 1.25rem;
+  }
+
+  .cellar-uncorked-page__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .cellar-uncorked-page__title {
+    font-size: 1.6rem;
+  }
+
+  .cellar-uncorked-page__icon-badge {
+    width: 42px;
+    height: 42px;
+  }
+}
+

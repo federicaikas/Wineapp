@@ -78,4 +78,21 @@
   color: #DC2626;
 }
 
+@media (max-width: 768px) {
+  .cellar-stock-counter {
+    height: 34px;
+    padding: 2px 6px;
+    gap: 0.25rem;
+  }
+  .cellar-stock-counter__btn {
+    width: 26px;
+    height: 26px;
+  }
+  .cellar-stock-counter__text {
+    font-size: 0.85rem;
+    padding: 0 0.35rem;
+  }
+}
+
+
 

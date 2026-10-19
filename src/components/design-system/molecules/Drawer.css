@@ -130,4 +130,20 @@
   .cellar-drawer--lg {
     width: 100vw;
   }
+
+  .cellar-drawer__header {
+    padding: 1.15rem 1rem 0.85rem;
+  }
+
+  .cellar-drawer__title {
+    font-size: 1.4rem;
+  }
+
+  .cellar-drawer__body {
+    padding: 1rem;
+  }
+
+  .cellar-drawer__footer {
+    padding: 0.85rem 1rem calc(env(safe-area-inset-bottom, 0px) + 0.85rem);
+  }
 }

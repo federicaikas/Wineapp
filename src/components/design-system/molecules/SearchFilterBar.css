@@ -288,3 +288,38 @@
   background: #FCE8EC;
 }
 
+/* ==========================================================================
+   Mobile Responsive FilterBar
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cellar-filterbar__top {
+    gap: 0.5rem;
+  }
+
+  .cellar-filterbar__search-wrap {
+    min-width: 100%;
+    flex: 1 1 100%;
+  }
+
+  .cellar-filterbar__sort-wrap,
+  .cellar-filterbar__dropdown-toggle {
+    flex: 1 1 calc(50% - 0.25rem);
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .cellar-filterbar__sort-select {
+    width: 100%;
+  }
+
+  .cellar-filterbar__dropdown-panel {
+    padding: 0.85rem;
+  }
+
+  .cellar-filterbar__chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.75rem;
+  }
+}
+
+

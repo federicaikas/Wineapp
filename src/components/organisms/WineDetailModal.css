@@ -446,5 +446,65 @@
   border: 1px solid rgba(21, 128, 61, 0.2);
 }
 
+/* ==========================================================================
+   Mobile Responsive Wine Detail Dossier
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cellar-detail-content {
+    gap: 1rem;
+  }
+
+  .cellar-detail-content__name {
+    font-size: 1.65rem;
+    line-height: 1.15;
+  }
+
+  .cellar-detail-content__producer {
+    font-size: var(--text-base);
+  }
+
+  .cellar-detail-content__tech-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .cellar-detail-autofill-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 0.85rem;
+  }
+
+  .cellar-detail-autofill-bar button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cellar-detail-modal__footer-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .cellar-detail-modal__footer-stock {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .cellar-detail-modal__footer-buttons {
+    display: grid;
+    grid-template-columns: auto auto auto 1fr;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .cellar-detail-modal__footer-buttons .cellar-detail-modal__stappa-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+
 
 

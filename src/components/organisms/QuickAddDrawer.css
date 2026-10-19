@@ -414,3 +414,33 @@
   margin: 0;
 }
 
+/* ==========================================================================
+   Mobile Responsive QuickAddDrawer
+   ========================================================================== */
+@media (max-width: 640px) {
+  .cellar-add-form {
+    gap: 1rem;
+  }
+
+  .cellar-add-form__grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .cellar-add-form__grid-3 {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .cellar-scan-upload-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cellar-add-form__aroma-chip {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.74rem;
+  }
+}
+
+
