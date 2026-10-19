@@ -52,86 +52,25 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
   return (
     <div className="cellar-grid-wrapper">
-      {/* Dashboard Statistiche Cantina con FeatureCard Atomic Design */}
-      {(() => {
-        const getCategoryPills = (breakdown: Record<WineCategory, number>) => [
-          { category: 'red', label: 'rossi', count: breakdown.red || 0 },
-          { category: 'white', label: 'bianchi', count: breakdown.white || 0 },
-          { category: 'sparkling', label: 'bollicine', count: breakdown.sparkling || 0 },
-          { category: 'orange', label: 'orange', count: breakdown.orange || 0 },
-          { category: 'rose', label: 'rosati', count: breakdown.rose || 0 },
-          { category: 'dessert', label: 'dolci', count: breakdown.dessert || 0 },
-        ];
-
-        const formattedTotalValue = new Intl.NumberFormat('it-IT', {
-          style: 'currency',
-          currency: 'EUR',
-          maximumFractionDigits: 0,
-        }).format(stats.totalEstimatedValue);
-
-        const avgPriceVal = stats.totalBottles > 0 ? Math.round(stats.totalEstimatedValue / stats.totalBottles) : 0;
-        const formattedAvgPrice = new Intl.NumberFormat('it-IT', {
-          style: 'currency',
-          currency: 'EUR',
-          maximumFractionDigits: 0,
-        }).format(avgPriceVal);
-
-        return (
-          <section className="cellar-dashboard-stats" aria-label="Statistiche della Cantina">
-            {/* 1° Posto: Verde Patrimonio Totale (Box quadrata e piccola) */}
-            <FeatureCard
-              badgeText="PATRIMONIO"
-              title={`${formattedTotalValue}`}
-              variant="green"
-              accentBorder={false}
-            >
-              <div className="ag-feature-card__green-sub">
-                <span>Valore medio</span>
-                <strong>{formattedAvgPrice}</strong>
-              </div>
-            </FeatureCard>
-
-            {/* 2° Posto: Viola In cantina */}
-            <FeatureCard
-              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.all)}
-              title="In cantina"
-              totalBadge={stats.totalBottles}
-              variant="purple"
-              accentBorder={false}
-            />
-
-            {/* 3° Posto: Apice */}
-            <FeatureCard
-              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.peak)}
-              title="Apice"
-              totalBadge={stats.peakCount}
-              accentBorder={false}
-            />
-
-            {/* 4° Posto: Affinamento */}
-            <FeatureCard
-              categoryCounts={getCategoryPills(stats.statusCategoryBreakdown.aging)}
-              title="Affinamento"
-              totalBadge={stats.agingCount}
-              accentBorder={false}
-            />
-
-            {/* 5° Posto: Statistiche */}
-            <FeatureCard
-              badgeText="REPORT"
-              title="Statistiche"
-              onClick={onOpenStats}
-              accentBorder={true}
-              className="cellar-stats-card-link"
-            >
-              <div className="cellar-stats-card-link__content">
-                <span>Mappa &amp; Analisi</span>
-                <strong className="cellar-stats-card-link__arrow">Apri →</strong>
-              </div>
-            </FeatureCard>
-          </section>
-        );
-      })()}
+      {/* Box Statistiche Cantina */}
+      {onOpenStats && (
+        <section className="cellar-dashboard-stats" aria-label="Statistiche della Cantina">
+          <FeatureCard
+            badgeText="REPORT & ANALISI"
+            title="Statistiche Cantina"
+            onClick={onOpenStats}
+            accentBorder={true}
+            className="cellar-stats-card-link"
+          >
+            <div className="cellar-stats-card-link__content">
+              <span>
+                <strong>{stats.totalBottles} {stats.totalBottles === 1 ? 'bottiglia' : 'bottiglie'}</strong> • Consulta patrimonio, tipologie e mappa delle regioni
+              </span>
+              <strong className="cellar-stats-card-link__arrow">Apri Statistiche →</strong>
+            </div>
+          </FeatureCard>
+        </section>
+      )}
 
       {/* Barra Filtri & Ricerca */}
       <div className="cellar-grid-toolbar">

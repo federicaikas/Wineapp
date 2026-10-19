@@ -87,6 +87,16 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
     maximumFractionDigits: 0,
   }).format(avgPrice);
 
+  // 3. Dati Ripartizione In Cantina con grafica chiara
+  const inCellarCategories = [
+    { key: 'red', label: 'Rossi', color: '#9F0000', count: stats.statusCategoryBreakdown.all.red || 0 },
+    { key: 'white', label: 'Bianchi', color: '#B8860B', count: stats.statusCategoryBreakdown.all.white || 0 },
+    { key: 'sparkling', label: 'Bollicine', color: '#6B7D2A', count: stats.statusCategoryBreakdown.all.sparkling || 0 },
+    { key: 'rose', label: 'Rosati', color: '#E74D6F', count: stats.statusCategoryBreakdown.all.rose || 0 },
+    { key: 'orange', label: 'Orange', color: '#F2542D', count: stats.statusCategoryBreakdown.all.orange || 0 },
+    { key: 'dessert', label: 'Dolci', color: '#8A5A1B', count: stats.statusCategoryBreakdown.all.dessert || 0 },
+  ];
+
   return (
     <div className="cellar-stats-page">
       <div className="cellar-stats-page__container">
@@ -105,7 +115,7 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
           </Button>
         </div>
 
-        {/* Schede KPI di Sintesi */}
+        {/* Schede KPI di Sintesi (Patrimonio, Valore Medio, Bottiglie e Paese) */}
         <div className="cellar-stats-page__kpis">
           <div className="cellar-stats-kpi">
             <div className="cellar-stats-kpi__icon cellar-stats-kpi__icon--purple">
@@ -147,6 +157,61 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
                 {topCountryFlag} {topCountry}
               </span>
             </div>
+          </div>
+        </div>
+
+        {/* Box In Cantina: Ripartizione Chiara per Tipologia */}
+        <div className="cellar-stats-in-cellar-card">
+          <div className="cellar-stats-in-cellar-card__header">
+            <div>
+              <span className="cellar-stats-in-cellar-card__badge">IN CANTINA</span>
+              <h2 className="cellar-stats-in-cellar-card__title">Composizione delle Bottiglie</h2>
+              <p className="cellar-stats-in-cellar-card__desc">
+                Panoramica chiara di tutte le tipologie attualmente presenti nella tua cantina
+              </p>
+            </div>
+            <div className="cellar-stats-in-cellar-card__total-pill">
+              Disponibili: <strong>{stats.totalBottles}</strong> {stats.totalBottles === 1 ? 'bottiglia' : 'bottiglie'}
+            </div>
+          </div>
+
+          <div className="cellar-stats-in-cellar-card__grid">
+            {inCellarCategories.map((cat) => {
+              const percentage = stats.totalBottles > 0 
+                ? Math.round((cat.count / stats.totalBottles) * 100) 
+                : 0;
+
+              return (
+                <div key={cat.key} className="cellar-stats-category-item">
+                  <div className="cellar-stats-category-item__header">
+                    <div className="cellar-stats-category-item__label-group">
+                      <span 
+                        className="cellar-stats-category-item__dot"
+                        style={{ backgroundColor: cat.color }}
+                      />
+                      <span className="cellar-stats-category-item__name">{cat.label}</span>
+                    </div>
+                    <span className="cellar-stats-category-item__count">
+                      <strong>{cat.count}</strong> {cat.count === 1 ? 'bt' : 'bt'}
+                    </span>
+                  </div>
+
+                  <div className="cellar-stats-category-item__bar-wrap">
+                    <div 
+                      className="cellar-stats-category-item__bar" 
+                      style={{ 
+                        width: `${percentage}%`,
+                        backgroundColor: cat.color 
+                      }} 
+                    />
+                  </div>
+
+                  <div className="cellar-stats-category-item__footer">
+                    <span className="cellar-stats-category-item__percentage">{percentage}% del totale</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 

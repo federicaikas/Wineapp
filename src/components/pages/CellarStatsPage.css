@@ -111,6 +111,152 @@
   gap: 1.5rem;
 }
 
+/* ==========================================================================
+   Card In Cantina: Ripartizione Chiara per Tipologia
+   ========================================================================== */
+.cellar-stats-in-cellar-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  border-radius: var(--radius-soft, 8px);
+  padding: 1.5rem 1.75rem;
+  box-shadow: 0 2px 10px rgba(45, 35, 74, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.cellar-stats-in-cellar-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cellar-stats-in-cellar-card__badge {
+  display: inline-block;
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: #3B1B54;
+  background: rgba(59, 27, 84, 0.08);
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.cellar-stats-in-cellar-card__title {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #3B1B54;
+  text-transform: uppercase;
+  margin: 0 0 0.25rem;
+  line-height: 1.1;
+}
+
+.cellar-stats-in-cellar-card__desc {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  color: var(--text-muted, #706880);
+  margin: 0;
+}
+
+.cellar-stats-in-cellar-card__total-pill {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background: #F8F4EC;
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  color: #3B1B54;
+}
+
+.cellar-stats-in-cellar-card__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.cellar-stats-category-item {
+  background: var(--paper-canvas, #FAF7F2);
+  border: 1px solid rgba(45, 35, 74, 0.08);
+  border-radius: 8px;
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cellar-stats-category-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(45, 35, 74, 0.06);
+}
+
+.cellar-stats-category-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cellar-stats-category-item__label-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cellar-stats-category-item__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.cellar-stats-category-item__name {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #2D234A;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.cellar-stats-category-item__count {
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: 1.1rem;
+  color: #3B1B54;
+}
+
+.cellar-stats-category-item__bar-wrap {
+  width: 100%;
+  height: 8px;
+  background: rgba(45, 35, 74, 0.06);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.cellar-stats-category-item__bar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cellar-stats-category-item__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cellar-stats-category-item__percentage {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted, #706880);
+}
+
 @media (max-width: 900px) {
   .cellar-stats-page__charts-grid {
     grid-template-columns: 1fr;
@@ -147,6 +293,24 @@
 
   .cellar-stats-kpi__value {
     font-size: 1.15rem;
+  }
+
+  .cellar-stats-in-cellar-card {
+    padding: 1.15rem 1rem;
+    gap: 1rem;
+  }
+
+  .cellar-stats-in-cellar-card__title {
+    font-size: 1.3rem;
+  }
+
+  .cellar-stats-in-cellar-card__grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .cellar-stats-category-item {
+    padding: 0.85rem 1rem;
   }
 }
 
