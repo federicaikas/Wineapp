@@ -4,10 +4,11 @@ import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal } from './com
 import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
 import { CellarStatsPage } from './components/pages/CellarStatsPage';
 import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
+import { ManageCellarPage } from './components/pages/ManageCellarPage';
 import './App.css';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase'>('cellar');
+  const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage'>('cellar');
 
   const {
     allWines,
@@ -78,6 +79,7 @@ export function App() {
         onToggleFilterFavorites={() => setFilterFavoritesOnly(!filterFavoritesOnly)}
         onOpenUncorked={() => setViewMode(viewMode === 'uncorked' ? 'cellar' : 'uncorked')}
         onOpenRandomWine={handleOpenRandomWine}
+        onOpenManage={() => setViewMode('manage')}
         onGoHome={handleGoHome}
       />
 
@@ -87,6 +89,13 @@ export function App() {
           stats={stats}
           onBack={() => setViewMode('cellar')}
           onSelectWine={(wine) => setSelectedWine(wine)}
+        />
+      ) : viewMode === 'manage' ? (
+        <ManageCellarPage
+          wines={allWines}
+          onBack={() => setViewMode('cellar')}
+          onOpenAdd={() => setIsAddDrawerOpen(true)}
+          onImportWines={async (w) => { await handleAddWinesBatch(w); }}
         />
       ) : viewMode === 'uncorked' ? (
         <UncorkedWinesPage

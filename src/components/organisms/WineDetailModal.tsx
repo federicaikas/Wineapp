@@ -3,11 +3,10 @@ import confetti from 'canvas-confetti';
 import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
-import { Heart, Edit3, Trash2, Wine, Utensils, Calendar, Sparkles, Globe, Calculator, Search, X } from 'lucide-react';
+import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Globe, Calculator, Search, X } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
-import { calculateWineOptimalDrinkingWindow, analyzeWineWebsiteUrl, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
+import { calculateWineOptimalDrinkingWindow, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
 import { formatVintage } from '../../utils/formatters';
-import { getWineryWebsiteUrl } from '../../utils/wineryUtils';
 import './WineDetailModal.css';
 
 export interface WineDetailModalProps {
@@ -32,17 +31,14 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   onUpdateWine,
 }) => {
   const [isCalculatingWindow, setIsCalculatingWindow] = useState(false);
-
-  const [websiteInput, setWebsiteInput] = useState(wine?.websiteUrl || '');
   const [isAnalyzingWebsite, setIsAnalyzingWebsite] = useState(false);
   const [websiteAnalysisSuccess, setWebsiteAnalysisSuccess] = useState<string | null>(null);
 
   React.useEffect(() => {
     if (wine) {
-      setWebsiteInput(wine.websiteUrl || '');
       setWebsiteAnalysisSuccess(null);
     }
-  }, [wine?.id, wine?.websiteUrl]);
+  }, [wine?.id]);
 
   if (!wine) return null;
 
@@ -94,12 +90,9 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
 
 
 
-  const currentYear = new Date().getFullYear();
   const windowStart = wine.drinkingWindow?.start || wine.vintage;
   const windowEnd = wine.drinkingWindow?.end || wine.vintage + 10;
   const peakYear = wine.drinkingWindow?.peakYear || Math.round((windowStart + windowEnd) / 2);
-
-  const wineryUrl = getWineryWebsiteUrl(wine.producer, wine.websiteUrl);
 
   const formattedPrice = new Intl.NumberFormat('it-IT', {
     style: 'currency',

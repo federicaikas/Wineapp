@@ -7,7 +7,7 @@ import './CellarHeader.css';
 export interface CellarHeaderProps {
   stats: CellarStats;
   uncorkedCount: number;
-  currentView?: 'cellar' | 'stats' | 'uncorked' | 'showcase';
+  currentView?: 'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage';
   onOpenAdd: () => void;
   onResetSeed?: () => void;
   filterFavoritesOnly: boolean;

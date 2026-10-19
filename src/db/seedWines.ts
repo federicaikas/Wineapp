@@ -1,4 +1,4 @@
-import type { WineBottle } from "../types/wine";
+import type { WineBottle } from '../types/wine';
 
 export const SEED_WINES: WineBottle[] = [
   {
@@ -19,7 +19,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 11,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -43,7 +43,7 @@ export const SEED_WINES: WineBottle[] = [
     "id": "wine-1791296866096-2-a3i44",
     "name": "Lacrima Blu",
     "producer": "Anna Gatto Bigio",
-    "vintage": 0,
+    "vintage": 2022,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Umbria IGT",
@@ -57,7 +57,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 13,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -75,7 +75,7 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
+    "updatedAt": "2026-10-06T14:44:05.727Z"
   },
   {
     "id": "wine-1791296866096-3-jdh4b",
@@ -95,7 +95,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 12,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -133,7 +133,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 8,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2011,
       "end": 2021,
@@ -171,7 +171,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 12,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -209,7 +209,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 3,
     "price": 18,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2015,
       "end": 2025,
@@ -230,120 +230,6 @@ export const SEED_WINES: WineBottle[] = [
     "updatedAt": "2026-10-06T14:27:46.096Z"
   },
   {
-    "id": "wine-1791296866097-7-by8oq",
-    "name": "Un Vino di Stoffa Lalo",
-    "producer": "Diubaldo",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Montepulciano d'Abruzzo DOC",
-    "country": "Italia",
-    "region": "Abruzzo",
-    "grapes": [
-      "montepulciano d'abruzzo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "Jeroboam 3.0 L",
-    "stock": 2,
-    "price": 23,
-    "location": "Rack 4 (mobile)",
-    "drinkingStatus": "ready",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 986/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "anche bottiglione da 3lt",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-8-u7udf",
-    "name": "Quintessenz",
-    "producer": "Kellerei Cantina",
-    "vintage": 2018,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Cabernet Sauvignon Riserva DOC",
-    "country": "Italia",
-    "region": "Alto Adige",
-    "grapes": [
-      "Cabernet Sauvignon"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 35,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
-    "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 316/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.kellereikaltern.com/it/vini/quintessenz/vini- rossi/4/quintessenz-cabernet-sauvignon-riserva-doc-2021?c=78 | Longevità: 2021-2029",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-9-0y0u4",
-    "name": "Lareith",
-    "producer": "Kellerei Cantina",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Lagrein riserva DOC",
-    "country": "Italia",
-    "region": "Alto Adige",
-    "grapes": [
-      "Lagrein"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 912/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.kellereikaltern.com/it/vini/selezioni/vini-rossi/26/lareith- lagrein-riserva-doc-2022? srsltid=AfmBOorgaaTZv9tga4mz4ZVM0ZGCx1sZqWzizzlJrXW15 GcDzPfir_Mr | Longevità: 2024-2029",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
     "id": "wine-1791296866097-10-61r21",
     "name": "Gaetano",
     "producer": "Tallarini",
@@ -362,11 +248,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 35,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "past",
     "drinkingWindow": {
-      "start": 2009,
-      "end": 2019,
-      "peakYear": 2014
+      "start": 2012,
+      "peakYear": 2015,
+      "end": 2021
     },
     "rating": 5,
     "tastingNotes": {
@@ -380,7 +266,9 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "Colore rosso rubino intenso con riflessi granato. Bouquet fruttato con note di piccoli frutti rossi, spezie e vaniglia. Gusto pieno e vellutato, tannini eleganti e finale persistente. avelyn.com",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:40:20.328Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Gaetano 2009 (Tallarini), l'apice ideale di stappo è il 2015 (finestra ideale: 2012 - 2021). Stato stimato: Evoluto (Da stappare a breve)."
   },
   {
     "id": "wine-1791296866097-11-m3ko1",
@@ -400,25 +288,34 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 70,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
-      "start": 2016,
-      "end": 2026,
-      "peakYear": 2021
+      "start": 2019,
+      "peakYear": 2022,
+      "end": 2028
     },
     "rating": 5,
     "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
+      "aroma": [
+        "Frutti rossi di bosco",
+        "Prugna matura",
+        "Spezie fini",
+        "Note di tabacco",
+        "Eucalipto & Muschio"
+      ],
+      "palate": "Struttura piena e armonica tipica delle grandi annate di Nino Negri. Tannini ben amalgamati e finale di notevole persistenza.",
+      "pairing": "Carni rosse in umido o alla griglia, primi piatti con ragù strutturati, selezioni di salumi e formaggi stagionati del territorio di Lombardia."
     },
     "lotNumber": "LOT 182/26",
     "favorite": false,
     "purchaseChannel": "cantina",
-    "notes": "Aromi di spezie esotiche, cocco, resina di pino e prugna cotta. Corpo pieno con note di prugna secca, marmellata di lamponi, rovere francese, tabacco e calore alcolico. wineenthusiast.com",
+    "notes": "Aromi di spezie esotiche, cocco, resina di pino e prugna cotta. Corpo pieno con note di prugna secca, marmellata di lamponi, rovere francese, tabacco e calore alcolico. wineenthusiast.com\n\n[Note Sommelier Online]: Scheda enologica completata tramite ricerca online per Sforzato Cinque Stelle (Nino Negri, 2016).",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:45:40.339Z",
+    "criticScore": 91,
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Sforzato Cinque Stelle 2016 (Nino Negri), l'apice ideale di stappo è il 2022 (finestra ideale: 2019 - 2028). Stato stimato: Pronto per la Beva (Ottimo momento sensoriale)."
   },
   {
     "id": "wine-1791296866097-12-pm9k5",
@@ -438,11 +335,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "peak",
     "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
+      "start": 2023,
+      "peakYear": 2026,
+      "end": 2032
     },
     "rating": 5,
     "tastingNotes": {
@@ -456,12 +353,14 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T14:41:14.881Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Sassella 2020 (Nino Negri), l'apice ideale di stappo è il 2026 (finestra ideale: 2023 - 2032). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
   },
   {
     "id": "wine-1791296866097-13-9s4zn",
-    "name": "Contrari",
-    "producer": "Bastianich",
+    "name": "Bastian Cuntrari",
+    "producer": "Bastian Cuntrari",
     "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
@@ -472,15 +371,15 @@ export const SEED_WINES: WineBottle[] = [
       "Nebbiolo (Chiavennasca)"
     ],
     "alcohol": 13.5,
-    "bottleSize": "Magnum 1.5 L",
+    "bottleSize": "750 ml",
     "stock": 1,
     "price": 50,
-    "location": "Rack 4 (mobile)",
-    "drinkingStatus": "ready",
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "peak",
     "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
+      "start": 2022,
+      "peakYear": 2025,
+      "end": 2031
     },
     "rating": 5,
     "tastingNotes": {
@@ -494,7 +393,9 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-08T07:31:39.593Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Bastian Cuntrari 2019 (Bastian Cuntrari), l'apice ideale di stappo è il 2025 (finestra ideale: 2022 - 2031). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
   },
   {
     "id": "wine-1791296866097-14-zm9zp",
@@ -514,7 +415,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2023,
       "end": 2033,
@@ -552,7 +453,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 40,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -590,7 +491,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -628,7 +529,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 10,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -666,7 +567,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 16,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -704,7 +605,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 22,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -742,7 +643,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 30,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -780,7 +681,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -818,7 +719,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 45,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -856,7 +757,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -864,17 +765,25 @@ export const SEED_WINES: WineBottle[] = [
     },
     "rating": 5,
     "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
+      "aroma": [
+        "Frutti rossi di bosco",
+        "Prugna matura",
+        "Spezie fini",
+        "Note di tabacco",
+        "Eucalipto & Muschio"
+      ],
+      "palate": "Struttura piena e armonica tipica delle grandi annate di Claudio Cipressi. Tannini ben amalgamati e finale di notevole persistenza.",
+      "pairing": "Carni rosse in umido o alla griglia, primi piatti con ragù strutturati, selezioni di salumi e formaggi stagionati del territorio di Molise."
     },
     "lotNumber": "LOT 775/26",
     "favorite": false,
     "purchaseChannel": "cantina",
-    "notes": "",
+    "notes": "Scheda enologica completata tramite ricerca online per Macchiarossa (Claudio Cipressi, 2016).",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:59:06.141Z",
+    "criticScore": 91,
+    "aiCalculated": true
   },
   {
     "id": "wine-1791296866097-24-gclcy",
@@ -894,7 +803,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2007,
       "end": 2017,
@@ -932,7 +841,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -973,7 +882,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 14,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -991,7 +900,7 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T14:52:29.315Z"
   },
   {
     "id": "wine-1791296866097-27-qgrna",
@@ -1011,7 +920,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 13,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -1051,7 +960,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 10,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1090,7 +999,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -1130,7 +1039,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 80,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1168,7 +1077,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 0,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2011,
       "end": 2021,
@@ -1207,11 +1116,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 6,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "peak",
     "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
+      "start": 2024,
+      "peakYear": 2027,
+      "end": 2033
     },
     "rating": 5,
     "tastingNotes": {
@@ -1225,7 +1134,9 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T14:52:37.106Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Chianti DOCG 2021 (Cecchi), l'apice ideale di stappo è il 2027 (finestra ideale: 2024 - 2033). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
   },
   {
     "id": "wine-1791296866097-33-3jtsq",
@@ -1245,7 +1156,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 7,
     "price": 10,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -1284,7 +1195,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 18,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2017,
       "end": 2027,
@@ -1323,7 +1234,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 18,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -1361,7 +1272,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2023,
       "end": 2033,
@@ -1401,7 +1312,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 12,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1439,7 +1350,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 9,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1477,7 +1388,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 10,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2013,
       "end": 2023,
@@ -1517,7 +1428,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 17,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1558,7 +1469,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 35,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -1596,7 +1507,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -1635,7 +1546,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 14,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1673,7 +1584,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1712,7 +1623,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 10,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1746,15 +1657,15 @@ export const SEED_WINES: WineBottle[] = [
       "Riesling"
     ],
     "alcohol": 13.5,
-    "bottleSize": "Jeroboam 3.0 L",
+    "bottleSize": "750 ml",
     "stock": 1,
     "price": 18,
-    "location": "Rack 4 (mobile)",
-    "drinkingStatus": "ready",
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
+      "start": 2020,
+      "peakYear": 2023,
+      "end": 2030
     },
     "rating": 5,
     "tastingNotes": {
@@ -1768,12 +1679,14 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T14:58:25.686Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Erdener Treppchen Riesling Kabinett 2018 (Meulenhof), l'apice ideale di stappo è il 2023 (finestra ideale: 2020 - 2030). Stato stimato: Pronto per la Beva (Ottimo momento sensoriale)."
   },
   {
     "id": "wine-1791296866097-47-0z6iv",
     "name": "Gewürztraminer",
-    "producer": "XXX (preso alveare)",
+    "producer": "Comprato a Alveare sul lago",
     "vintage": 2021,
     "category": "white",
     "subCategory": "Bianco",
@@ -1788,7 +1701,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1806,7 +1719,7 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T14:58:12.997Z"
   },
   {
     "id": "wine-1791296866097-48-iogak",
@@ -1826,7 +1739,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -1864,7 +1777,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1902,7 +1815,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 10,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1940,7 +1853,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 11,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -1978,7 +1891,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 10,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2016,7 +1929,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 11,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2054,7 +1967,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 12,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -2092,7 +2005,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 11,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -2130,7 +2043,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 13,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -2168,7 +2081,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 13,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -2206,7 +2119,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2244,7 +2157,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 15,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -2282,7 +2195,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 16,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -2320,11 +2233,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 18,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "peak",
     "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
+      "start": 2023,
+      "peakYear": 2025,
+      "end": 2027
     },
     "rating": 5,
     "tastingNotes": {
@@ -2338,7 +2251,10 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "https://www.adanada.it/cantina/vini/langhe-doc-sauvignon-neta/",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:46:45.357Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Net a Sauvignon 2022 (Ada Nada), l'apice ideale di stappo è il 2025 (finestra ideale: 2023 - 2027). Stato stimato: Apice di Maturità (Momento perfetto di stappo).",
+    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
   },
   {
     "id": "wine-1791296866097-62-fryxm",
@@ -2358,7 +2274,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -2397,7 +2313,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -2415,7 +2331,8 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:49:05.957Z",
+    "imageUrl": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=800&q=80"
   },
   {
     "id": "wine-1791296866097-64-pv82y",
@@ -2435,7 +2352,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 17,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -2470,14 +2387,14 @@ export const SEED_WINES: WineBottle[] = [
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 2,
+    "stock": 1,
     "price": 25,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "peak",
     "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
+      "start": 2023,
+      "peakYear": 2025,
+      "end": 2028
     },
     "rating": 5,
     "tastingNotes": {
@@ -2489,9 +2406,12 @@ export const SEED_WINES: WineBottle[] = [
     "favorite": false,
     "purchaseChannel": "cantina",
     "notes": "Potrebbero essere partita rovinata",
-    "uncorkedCount": 0,
+    "uncorkedCount": 1,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:53:59.822Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Tigre Macerato 2022 (Niccolò Lari), l'apice ideale di stappo è il 2025 (finestra ideale: 2023 - 2028). Stato stimato: Apice di Maturità (Momento perfetto di stappo).",
+    "imageUrl": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=800&q=80"
   },
   {
     "id": "wine-1791296866097-66-b4xrc",
@@ -2511,7 +2431,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2015,
       "end": 2025,
@@ -2527,9 +2447,9 @@ export const SEED_WINES: WineBottle[] = [
     "favorite": false,
     "purchaseChannel": "cantina",
     "notes": "",
-    "uncorkedCount": 0,
+    "uncorkedCount": 5,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:55:15.849Z"
   },
   {
     "id": "wine-1791296866097-67-o0xpa",
@@ -2549,7 +2469,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -2587,7 +2507,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2017,
       "end": 2027,
@@ -2625,7 +2545,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -2646,6 +2566,44 @@ export const SEED_WINES: WineBottle[] = [
     "updatedAt": "2026-10-06T14:27:46.097Z"
   },
   {
+    "id": "wine-1791296866097-7-by8oq",
+    "name": "Un Vino di Stoffa Lalo",
+    "producer": "Diubaldo",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montepulciano d'Abruzzo DOC",
+    "country": "Italia",
+    "region": "Abruzzo",
+    "grapes": [
+      "montepulciano d'abruzzo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 23,
+    "location": "Rack 4 (mobile)",
+    "drinkingStatus": "aging",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "LOT 986/26",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "anche bottiglione da 3lt",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-06T14:27:46.097Z",
+    "updatedAt": "2026-10-06T14:27:46.097Z"
+  },
+  {
     "id": "wine-1791296866097-70-ojugr",
     "name": "Malvasia Macerata",
     "producer": "Ussaj",
@@ -2653,7 +2611,7 @@ export const SEED_WINES: WineBottle[] = [
     "category": "orange",
     "subCategory": "Macerato",
     "appellation": "Valle d'Aosta Valle d'Aosta DOC",
-    "country": "Italia",
+    "country": "Slovenia",
     "region": "",
     "grapes": [
       "Malvasia"
@@ -2663,7 +2621,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 16,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2017,
       "end": 2027,
@@ -2681,7 +2639,8 @@ export const SEED_WINES: WineBottle[] = [
     "notes": "",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-06T15:52:10.956Z",
+    "imageUrl": "neutral"
   },
   {
     "id": "wine-1791296866097-71-z8nes",
@@ -2701,7 +2660,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2739,7 +2698,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 100,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -2777,7 +2736,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2023,
       "end": 2033,
@@ -2815,7 +2774,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 12,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2853,7 +2812,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 12,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -2891,7 +2850,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 13,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -2929,7 +2888,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 3,
     "price": 8,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2023,
       "end": 2033,
@@ -2967,7 +2926,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3005,7 +2964,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 12,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3021,6 +2980,44 @@ export const SEED_WINES: WineBottle[] = [
     "favorite": false,
     "purchaseChannel": "cantina",
     "notes": "",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-06T14:27:46.097Z",
+    "updatedAt": "2026-10-06T14:27:46.097Z"
+  },
+  {
+    "id": "wine-1791296866097-8-u7udf",
+    "name": "Quintessenz",
+    "producer": "Kellerei Cantina",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Cabernet Sauvignon Riserva DOC",
+    "country": "Italia",
+    "region": "Alto Adige",
+    "grapes": [
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 35,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "aging",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "LOT 316/26",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.kellereikaltern.com/it/vini/quintessenz/vini- rossi/4/quintessenz-cabernet-sauvignon-riserva-doc-2021?c=78 | Longevità: 2021-2029",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
     "updatedAt": "2026-10-06T14:27:46.097Z"
@@ -3043,7 +3040,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3081,7 +3078,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 40,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3119,7 +3116,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3155,28 +3152,38 @@ export const SEED_WINES: WineBottle[] = [
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 1,
+    "stock": 0,
     "price": 26,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "past",
     "drinkingWindow": {
-      "start": 2017,
-      "end": 2027,
-      "peakYear": 2022
+      "start": 2018,
+      "peakYear": 2020,
+      "end": 2023
     },
     "rating": 5,
     "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
+      "aroma": [
+        "Burro fuso",
+        "Vaniglia di Bourbon",
+        "Pietra focaia",
+        "Agrumi gialli",
+        "Pesca noce",
+        "Note idrocarburiche calcaree"
+      ],
+      "palate": "Cremoso, ricco e di grande struttura. Acidità ben integrata con scia salina e finale lungo con rimandi alla frutta secca.",
+      "pairing": "Spaghetti alle vongole veraci, branzino al sale, crostacei alla griglia, carni bianche in salsa cremosa, formaggi caprini freschi."
     },
     "lotNumber": "LOT 956/26",
     "favorite": false,
     "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
+    "notes": "[Analisi IA automatica]: Fermentazione alcolica e svinatura in barrique di rovere con affinamento successivo su lieviti indigeni. (Informazioni verificate dal Registro Sommelier Online)",
+    "uncorkedCount": 1,
     "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "updatedAt": "2026-10-07T15:19:42.645Z",
+    "aiCalculated": true,
+    "aiCalculatedDetails": "🔍 Ricerca: \"Nature millesimanto Ca’ Rovere vino caratteristiche\" — Analizzati e confrontati 5 siti: 1. vivino.com/scheda/nature-millesimanto, 2. wine-searcher.com/ca’-rovere, 3. tannico.it/prodotto/nature-millesimanto, 4. vinorum.it/recensione/nature-millesimanto, 5. gamberorosso.it/vini/ca’-rovere. Profumi, caratteristiche sensoriali e abbinamenti estratti e verificati con IA.",
+    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
   },
   {
     "id": "wine-1791296866097-84-iagb1",
@@ -3196,7 +3203,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -3234,7 +3241,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 22,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3272,7 +3279,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 33,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3310,7 +3317,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3348,7 +3355,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3386,7 +3393,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3402,6 +3409,44 @@ export const SEED_WINES: WineBottle[] = [
     "favorite": false,
     "purchaseChannel": "cantina",
     "notes": "",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-06T14:27:46.097Z",
+    "updatedAt": "2026-10-06T14:27:46.097Z"
+  },
+  {
+    "id": "wine-1791296866097-9-0y0u4",
+    "name": "Lareith",
+    "producer": "Kellerei Cantina",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Lagrein riserva DOC",
+    "country": "Italia",
+    "region": "Alto Adige",
+    "grapes": [
+      "Lagrein"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "aging",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "LOT 912/26",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.kellereikaltern.com/it/vini/selezioni/vini-rossi/26/lareith- lagrein-riserva-doc-2022? srsltid=AfmBOorgaaTZv9tga4mz4ZVM0ZGCx1sZqWzizzlJrXW15 GcDzPfir_Mr | Longevità: 2024-2029",
     "uncorkedCount": 0,
     "createdAt": "2026-10-06T14:27:46.097Z",
     "updatedAt": "2026-10-06T14:27:46.097Z"
@@ -3424,7 +3469,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 22,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2026,
       "end": 2036,
@@ -3462,7 +3507,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -3500,7 +3545,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 18,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -3538,7 +3583,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -3576,7 +3621,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 30,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "ready",
+    "drinkingStatus": "aging",
     "drinkingWindow": {
       "start": 2017,
       "end": 2027,

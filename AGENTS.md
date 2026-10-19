@@ -18,7 +18,7 @@ L'esperienza utente è ispirata alla raffinata estetica editoriale di **O,nice! 
 
 ### 🎨 Sub-Agent UI (Atomic Design & Editorial Aesthetics)
 - **Specializzazione**: Design tokens CSS, atomi e molecole sartoriali, composizione organisms complessi (`WineCard`, `CellarGrid`, `QuickAddDrawer`, `FilterToolbar`, `WineDetailModal`).
-- **Standard**: Rispetto maniacale dell'estetica *O,nice! Studio* (fondi alabastro/ecrù, accenti bordeaux ceralacca, timbri oro zecchino, micro-interazioni fluide a 60fps).
+
 
 ### 🛠️ Sub-Agent Git / QA (Quality, Testing & Semantic Versioning)
 - **Specializzazione**: Type safety (`tsc --noEmit`), build verification (`vite build`), linting, convenzione Conventional Commits (`feat:`, `fix:`, `chore:`, `refactor:`), gestione tag di versione e aggiornamento puntuale di `CHANGELOG.md`.
