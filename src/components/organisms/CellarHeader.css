@@ -467,3 +467,71 @@
     margin: 0 auto;
   }
 }
+
+/* Voci del menu account: Preferiti, Stappate, Report & Mappa */
+.cellar-header-user-dropdown__item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.625rem;
+  border-radius: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.cellar-header-user-dropdown__item:hover {
+  background: var(--brand-primary);
+  color: #FFFDF9;
+}
+
+.cellar-header-user-dropdown__item--active {
+  background: var(--brand-primary-soft);
+}
+
+.cellar-header-user-dropdown__count {
+  margin-left: auto;
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: rgba(45, 35, 74, 0.1);
+  color: inherit;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: center;
+}
+
+/* Numeri della cantina nel menu account (solo testo, nessuna icona) */
+.cellar-header-user-dropdown__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0.625rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+}
+
+.cellar-header-user-dropdown__row small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.cellar-header-user-dropdown__row strong {
+  color: var(--text-primary);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cellar-header-user-dropdown {
+  min-width: 250px;
+}

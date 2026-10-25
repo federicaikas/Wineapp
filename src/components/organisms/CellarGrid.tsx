@@ -4,7 +4,7 @@ import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
 import { EmptyState, Badge, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List, ChevronDown, Check, Wine, TrendingUp, Sparkles, BarChart3 } from 'lucide-react';
+import { LayoutGrid, List, ChevronDown, Check } from 'lucide-react';
 import './CellarGrid.css';
 
 const INITIAL_BATCH_SIZE = 10;
@@ -35,7 +35,6 @@ export interface CellarGridProps {
 
 export const CellarGrid: React.FC<CellarGridProps> = ({
   wines,
-  stats,
   searchQuery,
   onSearchChange,
   selectedCategory,
@@ -53,7 +52,6 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
   onStockChange,
   onToggleFavorite,
   onOpenAdd,
-  onOpenStats,
 }) => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_BATCH_SIZE);
@@ -106,76 +104,6 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
   return (
     <div className="cellar-grid-wrapper">
-      {/* Executive Minimal Bar Liquid Glass (Versione 3: Ultra-compatta) */}
-      {onOpenStats && (
-        <section
-          className="cellar-executive-bar"
-          onClick={onOpenStats}
-          role="button"
-          tabIndex={0}
-          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
-          aria-label="Statistiche cantina ultra-compatte"
-          title="Clicca per aprire la Mappa d'Italia e il Report Statistiche completo"
-        >
-          <div className="cellar-executive-bar__metrics">
-            {/* Metrica 1: Bottiglie */}
-            <div className="cellar-executive-bar__item">
-              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--wine">
-                <Wine size={15} />
-              </span>
-              <div className="cellar-executive-bar__data">
-                <strong className="cellar-executive-bar__value">{stats.totalBottles}</strong>
-                <span className="cellar-executive-bar__label">
-                  Bottiglie <span className="cellar-executive-bar__sub">({stats.uniqueLabels} etichette)</span>
-                </span>
-              </div>
-            </div>
-
-            <div className="cellar-executive-bar__divider" aria-hidden="true" />
-
-            {/* Metrica 2: Patrimonio */}
-            <div className="cellar-executive-bar__item">
-              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--gold">
-                <TrendingUp size={15} />
-              </span>
-              <div className="cellar-executive-bar__data">
-                <strong className="cellar-executive-bar__value">
-                  € {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}
-                </strong>
-                <span className="cellar-executive-bar__label">Valore stimato</span>
-              </div>
-            </div>
-
-            <div className="cellar-executive-bar__divider" aria-hidden="true" />
-
-            {/* Metrica 3: Pronte da bere */}
-            <div className="cellar-executive-bar__item">
-              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--ready">
-                <Sparkles size={15} />
-              </span>
-              <div className="cellar-executive-bar__data">
-                <strong className="cellar-executive-bar__value">{stats.readyToDrinkCount + stats.peakCount}</strong>
-                <span className="cellar-executive-bar__label">Pronte da stappare</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Action a destra: Bottone pillola coordinato con Nuova Bottiglia / Stappiamo */}
-          <Button
-            variant="primary"
-            size="sm"
-            icon={<BarChart3 size={15} />}
-            onClick={(e) => {
-              e.stopPropagation();
-              onOpenStats();
-            }}
-            className="cellar-executive-bar__btn"
-          >
-            Report &amp; Mappa
-          </Button>
-        </section>
-      )}
-
       {/* Barra Filtri, Ricerca e Toggle Viste */}
       <div className="cellar-grid-toolbar">
         <SearchFilterBar

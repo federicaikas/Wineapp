@@ -110,6 +110,7 @@ function CellarAppContent() {
         onOpenUncorked={() => setViewMode(viewMode === 'uncorked' ? 'cellar' : 'uncorked')}
         onOpenRandomWine={handleOpenRandomWine}
         onOpenManage={() => setViewMode('manage')}
+        onOpenStats={() => setViewMode(viewMode === 'stats' ? 'cellar' : 'stats')}
         onGoHome={handleGoHome}
       />
 

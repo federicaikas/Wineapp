@@ -750,3 +750,49 @@
 .cellar-wine-card__footer-actions {
   gap: 8px;
 }
+
+/* Pallini con icona e titolo, centrati */
+.cellar-wine-card__footer {
+  margin: 0 -4px;
+}
+
+.cellar-wine-card__footer-actions {
+  width: 100%;
+  justify-content: space-between;
+  gap: 4px;
+}
+
+.cellar-wine-card__footer .cellar-wine-card__round {
+  flex-direction: column;
+  gap: 3px;
+  width: 46px;
+  height: 46px;
+  text-align: center;
+}
+
+.cellar-wine-card__round-label {
+  font-family: var(--font-body);
+  font-size: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: none;
+  color: inherit;
+}
+
+.cellar-wine-card__qty-num {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cellar-wine-card__flag-btn .cellar-flag {
+  width: 18px;
+  height: 18px;
+}
+
+/* Titolo: corpo ridotto in base alla lunghezza */
+.cellar-wine-card .cellar-wine-card__name--md { font-size: 1.3rem; line-height: 1.2; }
+.cellar-wine-card .cellar-wine-card__name--sm { font-size: 1.15rem; line-height: 1.2; }
+.cellar-wine-card .cellar-wine-card__name--xs { font-size: 1rem; line-height: 1.2; }

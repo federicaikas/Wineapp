@@ -65,6 +65,11 @@ export const WineCard: React.FC<WineCardProps> = ({
   }).format(wine.price);
 
   const rackLocation = getRackLocation(wine.location);
+  const flagKey = getFlagKey(wine.country, wine.region, wine.appellation);
+  // Titoli lunghi: riduce leggermente il corpo per evitare righe spezzate e spaziature sproporzionate
+  const nameLength = wine.name.trim().length;
+  const nameSizeClass =
+    nameLength > 44 ? 'cellar-wine-card__name--xs' : nameLength > 32 ? 'cellar-wine-card__name--sm' : nameLength > 22 ? 'cellar-wine-card__name--md' : '';
 
   return (
     <article
@@ -84,7 +89,7 @@ export const WineCard: React.FC<WineCardProps> = ({
           </Typography>
         </div>
 
-        <Typography variant="serif-title" size="md" className="cellar-wine-card__name">
+        <Typography variant="serif-title" size="md" className={`cellar-wine-card__name ${nameSizeClass}`}>
           {wine.name}
         </Typography>
 
@@ -136,13 +141,14 @@ export const WineCard: React.FC<WineCardProps> = ({
             role="img"
             aria-label={wine.country || 'Paese'}
           >
-            <FlagCircle flag={getFlagKey(wine.country, wine.region, wine.appellation)} size={20} />
+            <FlagCircle flag={flagKey} size={18} />
+            <span className="cellar-wine-card__round-label">{flagKey ?? 'Estero'}</span>
           </span>
 
           <Button
             variant="outline"
             size="sm"
-            icon={<Eye size={14} />}
+            icon={<Eye size={15} />}
             title="Scheda"
             aria-label="Scheda"
             className="cellar-wine-card__round"
@@ -150,7 +156,9 @@ export const WineCard: React.FC<WineCardProps> = ({
               e.stopPropagation();
               onSelect(wine);
             }}
-          />
+          >
+            <span className="cellar-wine-card__round-label">Scheda</span>
+          </Button>
 
           <button
             type="button"
@@ -166,7 +174,8 @@ export const WineCard: React.FC<WineCardProps> = ({
             aria-label={wine.favorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
             title={wine.favorite ? 'Incluso tra i preferiti' : 'Aggiungi ai preferiti'}
           >
-            <Heart size={16} fill={wine.favorite ? 'currentColor' : 'none'} />
+            <Heart size={15} fill={wine.favorite ? 'currentColor' : 'none'} />
+            <span className="cellar-wine-card__round-label">Preferiti</span>
           </button>
 
           <span
@@ -174,7 +183,8 @@ export const WineCard: React.FC<WineCardProps> = ({
             title={`${wine.stock} ${wine.stock === 1 ? 'bottiglia' : 'bottiglie'}`}
             aria-label={`${wine.stock} ${wine.stock === 1 ? 'bottiglia' : 'bottiglie'}`}
           >
-            X{wine.stock}
+            <span className="cellar-wine-card__qty-num">X{wine.stock}</span>
+            <span className="cellar-wine-card__round-label">Btg.</span>
           </span>
         </div>
       </div>
