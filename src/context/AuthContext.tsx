@@ -1,18 +1,19 @@
 import React, { useEffect, useState, useTransition } from 'react';
 import type { User, Session } from '@supabase/supabase-js';
-import { supabase } from '../lib/supabase';
+import { supabase, supabaseNotConfiguredError } from '../lib/supabase';
 import { AuthContext, type ProfileRow } from './authContextDef';
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
   const [session, setSession] = useState<Session | null>(null);
   const [profile, setProfile] = useState<ProfileRow | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(supabase !== null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [authModalMode, setAuthModalMode] = useState<'login' | 'signup'>('login');
   const [, startTransition] = useTransition();
 
   const loadProfile = async (userId: string) => {
+    if (!supabase) return;
     try {
       const { data, error } = await supabase
         .from('profiles')
@@ -29,6 +30,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   useEffect(() => {
+    if (!supabase) return;
+
     // 1. Controlla la sessione attiva
     supabase.auth.getSession().then(({ data: { session } }) => {
       startTransition(() => {
@@ -72,6 +75,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signIn = async (email: string, password: string) => {
+    if (!supabase) return { error: supabaseNotConfiguredError };
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email,
@@ -94,6 +98,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const signUp = async (email: string, password: string, fullName?: string) => {
+    if (!supabase) return { error: supabaseNotConfiguredError };
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -124,7 +129,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const signOut = async () => {
     try {
-      await supabase.auth.signOut();
+      await supabase?.auth.signOut();
       setUser(null);
       setSession(null);
       setProfile(null);
