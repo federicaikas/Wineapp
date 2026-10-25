@@ -8,20 +8,20 @@
 }
 
 /* ==========================================================================
-   Executive Minimal Bar Liquid Glass (Versione 3: Ultra-compatta)
+   Executive Minimal Bar (Box Verde Cantina, Scritte Bianche & Bottone Liquid Glass Bianco)
    ========================================================================== */
 .cellar-executive-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0.65rem 1.25rem;
-  background: linear-gradient(135deg, rgba(255, 253, 249, 0.88) 0%, rgba(247, 241, 232, 0.78) 100%);
+  padding: 0.7rem 1.35rem;
+  background: linear-gradient(135deg, #1E4632 0%, #29573F 100%);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.75);
-  box-shadow: 0 4px 16px rgba(45, 35, 74, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 8px 24px rgba(30, 70, 50, 0.2), 0 2px 6px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+  border-radius: 10px;
   cursor: pointer;
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   box-sizing: border-box;
@@ -29,13 +29,13 @@
 
 .cellar-executive-bar:hover {
   transform: translateY(-1px);
-  background: linear-gradient(135deg, rgba(255, 253, 249, 0.95) 0%, rgba(247, 241, 232, 0.88) 100%);
-  border-color: rgba(114, 47, 55, 0.35);
-  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.07), inset 0 1px 1px #ffffff;
+  background: linear-gradient(135deg, #183C2A 0%, #234E37 100%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 10px 28px rgba(30, 70, 50, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.5);
 }
 
 .cellar-executive-bar:focus-visible {
-  outline: 2px solid var(--wine-bordeaux, #722F37);
+  outline: 2px solid #FFFFFF;
   outline-offset: 2px;
 }
 
@@ -49,107 +49,105 @@
 .cellar-executive-bar__item {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.65rem;
 }
 
 .cellar-executive-bar__icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
-.cellar-executive-bar__icon--wine {
-  background: rgba(114, 47, 55, 0.09);
-  color: var(--wine-bordeaux, #722F37);
-  border: 1px solid rgba(114, 47, 55, 0.18);
-}
-
-.cellar-executive-bar__icon--gold {
-  background: rgba(229, 168, 35, 0.12);
-  color: #C87D2B;
-  border: 1px solid rgba(229, 168, 35, 0.25);
-}
-
+.cellar-executive-bar__icon--wine,
+.cellar-executive-bar__icon--gold,
 .cellar-executive-bar__icon--ready {
-  background: rgba(85, 107, 47, 0.12);
-  color: #556B2F;
-  border: 1px solid rgba(85, 107, 47, 0.22);
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .cellar-executive-bar__data {
   display: flex;
   align-items: baseline;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .cellar-executive-bar__value {
   font-family: var(--font-display, "DIN Bold", "Oswald", sans-serif);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: #2D234A;
+  color: #FFFFFF;
   line-height: 1;
   letter-spacing: -0.01em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 .cellar-executive-bar__label {
   font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.8rem;
-  color: #6E6259;
-  font-weight: 500;
+  font-size: 0.82rem;
+  color: #FFFFFF;
+  font-weight: 600;
   white-space: nowrap;
+  letter-spacing: 0.01em;
 }
 
 .cellar-executive-bar__sub {
-  font-size: 0.75rem;
-  color: #8C827A;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.82);
   font-weight: 400;
 }
 
 .cellar-executive-bar__divider {
   width: 1px;
-  height: 20px;
-  background: rgba(45, 35, 74, 0.12);
+  height: 22px;
+  background: rgba(255, 255, 255, 0.25);
   flex-shrink: 0;
 }
 
-/* Bottone Report & Mappa (Stesso aspetto coordinato di Nuova Bottiglia e Stappiamo) */
+/* Bottone Report & Mappa: Bianco Liquid Glass su fondo verde */
 .cellar-executive-bar__btn.cellar-btn {
-  background-color: #2D234A !important;
-  color: #FFFFFF !important;
-  border: 1.5px solid #2D234A !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #1E4632 !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.95) !important;
   border-radius: 9999px !important;
   font-family: var(--font-body, 'Montserrat', sans-serif) !important;
   font-weight: 700 !important;
-  font-size: 0.8rem !important;
+  font-size: 0.82rem !important;
   letter-spacing: 0.01em;
   height: 36px;
-  padding: 0 1.15rem !important;
+  padding: 0 1.2rem !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  box-shadow: 0 3px 10px rgba(45, 35, 74, 0.18);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12), inset 0 1px 2px #FFFFFF !important;
+  backdrop-filter: blur(14px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(180%) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   flex-shrink: 0;
   cursor: pointer;
 }
 
 .cellar-executive-bar__btn.cellar-btn:hover {
-  background-color: #3B1B54 !important;
-  border-color: #3B1B54 !important;
-  color: #FFFFFF !important;
-  transform: translateY(-1px);
-  box-shadow: 0 5px 16px rgba(59, 27, 84, 0.28);
+  background: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  color: #143524 !important;
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18), inset 0 1px 2px #FFFFFF !important;
 }
 
 .cellar-executive-bar__btn.cellar-btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Toolbar & View Toggle */
