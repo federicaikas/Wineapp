@@ -7,158 +7,170 @@
   gap: 2rem;
 }
 
-/* Dashboard Statistiche & Legenda (Top Banner: 80% Statistiche, 20% Legenda su desktop) */
-.cellar-top-banner {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 1fr);
-  gap: 1.25rem;
-  align-items: stretch;
-  width: 100%;
-}
-
-.cellar-top-banner__stats {
+/* ==========================================================================
+   Dashboard a 3 Tile Liquid Glass & Barra Report
+   ========================================================================== */
+.cellar-liquid-stats-board {
   display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   width: 100%;
 }
 
-.cellar-stats-card-link {
+.cellar-liquid-stats-board__tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.15rem;
   width: 100%;
+}
+
+.cellar-liquid-tile {
+  background: linear-gradient(135deg, rgba(255, 253, 249, 0.82) 0%, rgba(247, 241, 232, 0.72) 100%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 20px rgba(45, 35, 74, 0.04), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  padding: 1.25rem 1.35rem;
+  cursor: pointer;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.cellar-stats-card-link:hover {
+.cellar-liquid-tile:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(45, 35, 74, 0.08);
-  border-color: var(--wine-bordeaux, #722F37);
+  box-shadow: 0 8px 25px rgba(45, 35, 74, 0.08), inset 0 1px 1px #ffffff;
+  border-color: rgba(114, 47, 55, 0.35);
 }
 
-.cellar-stats-card-link__content {
+.cellar-liquid-tile:focus-visible {
+  outline: 2px solid var(--wine-bordeaux, #722F37);
+  outline-offset: 2px;
+}
+
+.cellar-liquid-tile__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
-  font-size: 0.875rem;
-  color: #6E6259;
-  font-family: var(--font-sans);
-  flex-wrap: wrap;
-  gap: 1rem;
+  margin-bottom: 0.65rem;
 }
 
-.cellar-stats-card-link__number-group {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.cellar-stats-card-link__bottles-count {
-  font-size: 1.15rem;
-  color: #2D234A;
+.cellar-liquid-tile__label {
   font-family: var(--font-body, 'Montserrat', sans-serif);
-}
-
-.cellar-stats-card-link__bottles-count strong {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #3B1B54;
-}
-
-.cellar-stats-card-link__open-text {
-  font-size: 0.85rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: var(--wine-bordeaux, #722F37);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  transition: transform 0.2s ease;
+  letter-spacing: 0.08em;
+  color: #8C827A;
+  text-transform: uppercase;
 }
 
-.cellar-stats-card-link:hover .cellar-stats-card-link__open-text {
-  transform: translateX(4px);
-}
-
-.cellar-stats-card-link__subtitle {
-  color: #6E6259;
-  font-size: 0.85rem;
-  font-style: italic;
-  font-family: var(--font-serif-editorial, serif);
-}
-
-.cellar-dashboard-stat {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--paper-card);
-  border: var(--border-tactile);
-  border-radius: var(--radius-sm);
-  padding: 1.15rem 1.25rem;
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--transition-fast);
-}
-
-.cellar-dashboard-stat:hover {
-  transform: translateY(-2px);
-}
-
-.cellar-dashboard-stat__icon {
-  width: 42px;
-  height: 42px;
+.cellar-liquid-tile__icon-glass {
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   flex-shrink: 0;
+  transition: transform 0.2s ease;
 }
 
-.cellar-dashboard-stat__icon--wine {
-  background: var(--wine-soft);
-  color: var(--wine-bordeaux);
+.cellar-liquid-tile:hover .cellar-liquid-tile__icon-glass {
+  transform: scale(1.08);
 }
 
-.cellar-dashboard-stat__icon--ready {
-  background: #EDF7EE;
-  color: #2D6A35;
+.cellar-liquid-tile__icon-glass--wine {
+  background: rgba(114, 47, 55, 0.1);
+  color: var(--wine-bordeaux, #722F37);
+  border: 1px solid rgba(114, 47, 55, 0.2);
 }
 
-.cellar-dashboard-stat__icon--peak {
-  background: var(--gold-soft);
-  color: var(--gold-dark);
+.cellar-liquid-tile__icon-glass--gold {
+  background: rgba(229, 168, 35, 0.12);
+  color: #C87D2B;
+  border: 1px solid rgba(229, 168, 35, 0.25);
 }
 
-.cellar-dashboard-stat__icon--aging {
-  background: var(--paper-surface);
-  color: var(--ink-secondary);
+.cellar-liquid-tile__icon-glass--ready {
+  background: rgba(85, 107, 47, 0.12);
+  color: #556B2F;
+  border: 1px solid rgba(85, 107, 47, 0.25);
 }
 
-.cellar-dashboard-stat__info {
+.cellar-liquid-tile__main {
   display: flex;
   flex-direction: column;
 }
 
-.cellar-dashboard-stat__label {
-  font-family: var(--font-sans);
-  font-size: var(--text-2xs);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink-muted);
-}
-
-.cellar-dashboard-stat__value {
-  font-family: var(--font-serif-display);
-  font-size: var(--text-3xl);
-  font-weight: 600;
+.cellar-liquid-tile__number {
+  font-family: var(--font-display, "DIN Bold", "Oswald", sans-serif);
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #2D234A;
   line-height: 1.1;
-  color: var(--ink-dark);
+  margin-bottom: 3px;
+  display: block;
+  letter-spacing: -0.02em;
 }
 
-.cellar-dashboard-stat__sub {
-  font-family: var(--font-serif-editorial);
-  font-style: italic;
-  font-size: var(--text-xs);
-  color: var(--ink-muted);
+.cellar-liquid-tile__sub {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.82rem;
+  color: #6E6259;
+  font-weight: 500;
+}
+
+/* Footer Liquid Glass per Report & Mappa */
+.cellar-liquid-stats-board__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.25rem;
+  background: linear-gradient(135deg, rgba(255, 253, 249, 0.65) 0%, rgba(247, 241, 232, 0.55) 100%);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 2px 10px rgba(45, 35, 74, 0.03), inset 0 1px 1px rgba(255, 255, 255, 0.8);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cellar-liquid-stats-board__footer:hover {
+  background: linear-gradient(135deg, rgba(255, 253, 249, 0.88) 0%, rgba(247, 241, 232, 0.8) 100%);
+  box-shadow: 0 4px 14px rgba(45, 35, 74, 0.06);
+  border-color: rgba(114, 47, 55, 0.3);
+}
+
+.cellar-liquid-stats-board__footer:focus-visible {
+  outline: 2px solid var(--wine-bordeaux, #722F37);
+  outline-offset: 2px;
+}
+
+.cellar-liquid-stats-board__footer-text {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.82rem;
+  color: #6E6259;
+  font-weight: 500;
+}
+
+.cellar-liquid-stats-board__footer-link {
+  font-family: var(--font-body, 'Montserrat', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--wine-bordeaux, #722F37);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: gap 0.2s ease;
+}
+
+.cellar-liquid-stats-board__footer:hover .cellar-liquid-stats-board__footer-link {
+  gap: 8px;
 }
 
 /* Toolbar & View Toggle */
@@ -323,13 +335,15 @@
 }
 
 @media (max-width: 900px) {
-  .cellar-top-banner {
+  .cellar-liquid-stats-board__tiles {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
 
-  /* Togli la legenda solo da mobile */
-  .cellar-color-legend {
-    display: none !important;
+  .cellar-liquid-stats-board__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
   }
 
   .cellar-list-ledger {
@@ -371,47 +385,6 @@
   }
 }
 
-/* Legenda Colori e Tipologie (Desktop 20% width) */
-.cellar-color-legend {
-  background: var(--paper-card, #FDFBF7);
-  border: var(--border-tactile, 1px solid rgba(45,35,74,0.12));
-  border-radius: var(--radius-sm, 8px);
-  padding: 0.85rem 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.5rem;
-  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
-  height: 100%;
-  box-sizing: border-box;
-}
-
-.cellar-color-legend__title {
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--ink-secondary, #6E6259);
-}
-
-.cellar-color-legend__items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.35rem 0.5rem;
-  align-items: center;
-}
-
-.cellar-color-legend__item {
-  display: flex;
-  align-items: center;
-  border-radius: 6px;
-  transition: background 0.15s ease;
-}
-
-.cellar-color-legend__item:hover {
-  background: rgba(114, 47, 55, 0.05);
-}
 
 /* ==========================================================================
    Sezione Paginazione & Carica Altri (Editorial Load More)

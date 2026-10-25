@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
+import { EmptyState, Badge, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List, ChevronDown, Check } from 'lucide-react';
+import { LayoutGrid, List, ChevronDown, Check, Wine, TrendingUp, Sparkles, ArrowRight } from 'lucide-react';
 import './CellarGrid.css';
 
 const INITIAL_BATCH_SIZE = 10;
@@ -102,59 +102,93 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
   return (
     <div className="cellar-grid-wrapper">
-      {/* Sezione Superiore: Statistiche Cantina (80%) e Legenda (20%) su desktop */}
-      <div className="cellar-top-banner">
-        {onOpenStats && (
-          <section className="cellar-top-banner__stats" aria-label="Statistiche della Cantina">
-            <FeatureCard
-              badgeText="REPORT & ANALISI"
-              title="Statistiche Cantina"
+      {/* Dashboard Statistiche a 3 Tile Liquid Glass */}
+      {onOpenStats && (
+        <section className="cellar-liquid-stats-board" aria-label="Panoramica Statistiche Cantina">
+          <div className="cellar-liquid-stats-board__tiles">
+            {/* Tile 1: Collezione */}
+            <div
+              className="cellar-liquid-tile"
               onClick={onOpenStats}
-              accentBorder={true}
-              className="cellar-stats-card-link"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
+              title="Clicca per aprire le statistiche complete"
             >
-              <div className="cellar-stats-card-link__content">
-                <div className="cellar-stats-card-link__number-group">
-                  <span className="cellar-stats-card-link__bottles-count">
-                    <strong>{stats.totalBottles}</strong> {stats.totalBottles === 1 ? 'bottiglia totale' : 'bottiglie totali'}
-                  </span>
-                  <span className="cellar-stats-card-link__open-text">
-                    Apri statistiche →
-                  </span>
+              <div className="cellar-liquid-tile__header">
+                <span className="cellar-liquid-tile__label">BOTTIGLIE IN CANTINA</span>
+                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--wine">
+                  <Wine size={16} />
                 </div>
-                <span className="cellar-stats-card-link__subtitle">
-                  Consulta patrimonio, tipologie e mappa delle regioni
-                </span>
               </div>
-            </FeatureCard>
-          </section>
-        )}
+              <div className="cellar-liquid-tile__main">
+                <span className="cellar-liquid-tile__number">{stats.totalBottles}</span>
+                <span className="cellar-liquid-tile__sub">{stats.uniqueLabels} etichette uniche</span>
+              </div>
+            </div>
 
-        {/* Legenda Colori & Tipologie Vino (visibile su desktop, nascosta solo da mobile) */}
-        <div className="cellar-color-legend" aria-label="Legenda Colori e Tipologie Vini">
-          <span className="cellar-color-legend__title">Legenda Tipologie:</span>
-          <div className="cellar-color-legend__items">
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'red' ? 'all' : 'red')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="red" size="sm">Rosso</Badge>
+            {/* Tile 2: Patrimonio */}
+            <div
+              className="cellar-liquid-tile"
+              onClick={onOpenStats}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
+              title="Clicca per aprire le statistiche complete"
+            >
+              <div className="cellar-liquid-tile__header">
+                <span className="cellar-liquid-tile__label">VALORE STIMATO</span>
+                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--gold">
+                  <TrendingUp size={16} />
+                </div>
+              </div>
+              <div className="cellar-liquid-tile__main">
+                <span className="cellar-liquid-tile__number">
+                  € {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}
+                </span>
+                <span className="cellar-liquid-tile__sub">Patrimonio cantina</span>
+              </div>
             </div>
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'white' ? 'all' : 'white')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="white" size="sm">Bianco</Badge>
-            </div>
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'sparkling' ? 'all' : 'sparkling')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="sparkling" size="sm">Bollicine</Badge>
-            </div>
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'rose' ? 'all' : 'rose')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="rose" size="sm">Rosato</Badge>
-            </div>
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'orange' ? 'all' : 'orange')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="orange" size="sm">Orange</Badge>
-            </div>
-            <div className="cellar-color-legend__item" onClick={() => onCategoryChange(selectedCategory === 'dessert' ? 'all' : 'dessert')} style={{ cursor: 'pointer' }}>
-              <Badge variant="wine-type" category="dessert" size="sm">Dolce</Badge>
+
+            {/* Tile 3: Pronte al Calice */}
+            <div
+              className="cellar-liquid-tile"
+              onClick={onOpenStats}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
+              title="Clicca per aprire le statistiche complete"
+            >
+              <div className="cellar-liquid-tile__header">
+                <span className="cellar-liquid-tile__label">PRONTE AL CALICE</span>
+                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--ready">
+                  <Sparkles size={16} />
+                </div>
+              </div>
+              <div className="cellar-liquid-tile__main">
+                <span className="cellar-liquid-tile__number">{stats.readyToDrinkCount + stats.peakCount}</span>
+                <span className="cellar-liquid-tile__sub">All'apice evolutivo</span>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+
+          {/* Footer Bar Liquid Glass per Mappa & Report Completo */}
+          <div
+            className="cellar-liquid-stats-board__footer"
+            onClick={onOpenStats}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
+          >
+            <span className="cellar-liquid-stats-board__footer-text">
+              Consulta tipologie, valore per cru e mappa delle regioni d'Italia
+            </span>
+            <span className="cellar-liquid-stats-board__footer-link">
+              Apri Report &amp; Mappa <ArrowRight size={14} />
+            </span>
+          </div>
+        </section>
+      )}
 
       {/* Barra Filtri, Ricerca e Toggle Viste */}
       <div className="cellar-grid-toolbar">
