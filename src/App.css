@@ -1,4 +1,6 @@
 .cellar-app {
+  position: relative;
+  z-index: 1; /* sopra il canvas delle gocce */
   min-height: 100vh;
   display: flex;
   flex-direction: column;

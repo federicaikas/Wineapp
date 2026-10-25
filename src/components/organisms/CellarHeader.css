@@ -623,3 +623,54 @@
   background: rgba(255, 255, 255, 0.28);
   box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
+
+/* Mobile: logo a sinistra, account a destra, i due bottoni sotto */
+@media (max-width: 768px) {
+  .cellar-masthead__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.65rem;
+  }
+  .cellar-masthead__brand {
+    order: 1;
+    width: auto;
+    justify-content: flex-start;
+  }
+  .cellar-masthead__logo {
+    height: 24px;
+    margin: 0;
+  }
+  .cellar-masthead__left {
+    order: 2;
+    width: auto;
+    justify-content: flex-end;
+  }
+  .cellar-masthead__left .cellar-header-user-badge {
+    width: auto !important;
+    padding: 0 0.85rem 0 0.35rem !important;
+  }
+  .cellar-masthead__right {
+    order: 3;
+    flex-basis: 100%;
+    width: 100%;
+  }
+  .cellar-header-user-dropdown {
+    left: auto;
+    right: 0;
+  }
+}
+
+/* Telefoni stretti: il pulsante account mostra solo l'iniziale */
+@media (max-width: 360px) {
+  .cellar-masthead__left .cellar-header-user-name {
+    display: none;
+  }
+  .cellar-masthead__left .cellar-header-user-badge {
+    padding: 0 0.35rem !important;
+    width: 42px !important;
+    justify-content: center;
+  }
+}

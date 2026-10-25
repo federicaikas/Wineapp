@@ -3,10 +3,14 @@ import confetti from 'canvas-confetti';
 import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
-import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Calculator, Search, X } from 'lucide-react';
-import { calculateWineOptimalDrinkingWindow, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
+import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Search, X } from 'lucide-react';
+import { analyzeWineAutomatic, calculateWineOptimalDrinkingWindow } from '../../utils/onlineWineSearch';
+import { fetchMomentoTop, WineAiError } from '../../lib/wineAi';
 import { formatVintage } from '../../utils/formatters';
 import './WineDetailModal.css';
+
+const MOMENTO_PREFIX = '[MOMENTO TOP]';
+const ESTIMATE_TAG = '[STIMA]'; // calcolo automatico dell'app, non da fonti online
 
 export interface WineDetailModalProps {
   wine: WineBottle | null;
@@ -33,6 +37,8 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   const [isAnalyzingWebsite, setIsAnalyzingWebsite] = useState(false);
   const [websiteAnalysisSuccess, setWebsiteAnalysisSuccess] = useState<string | null>(null);
   const [showMomentoTop, setShowMomentoTop] = useState(false);
+  const [momentoError, setMomentoError] = useState<string | null>(null);
+  const [momentoSources, setMomentoSources] = useState<Array<{ title: string; url: string }>>([])
   const [showSensory, setShowSensory] = useState(false);
   const [currentYear] = useState(() => new Date().getFullYear());
 
@@ -41,6 +47,8 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
     setPrevWineId(wine.id);
     setWebsiteAnalysisSuccess(null);
     setShowMomentoTop(false);
+    setMomentoError(null);
+    setMomentoSources([]);
     setShowSensory(false);
   }
 
@@ -63,7 +71,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
         imageUrl: result.imageUrl || wine.imageUrl,
         notes: result.notes || wine.notes,
         aiCalculated: true,
-        aiCalculatedDetails: result.aiCalculatedDetails,
+        aiCalculatedDetails: wine.aiCalculatedDetails?.startsWith(MOMENTO_PREFIX) ? wine.aiCalculatedDetails : result.aiCalculatedDetails,
       });
       setWebsiteAnalysisSuccess(`✨ Analisi completata con successo tramite ricerca online multipla.`);
     } catch (err) {
@@ -73,26 +81,67 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
     }
   };
 
-  const handleCalculateOptimalDrinkingWindow = async () => {
-    if (!wine || !onUpdateWine) return;
+  const statusFromWindow = (start: number, peak: number, end: number): DrinkingStatus => {
+    if (currentYear < start) return 'aging';
+    if (currentYear > end) return 'past';
+    if (Math.abs(currentYear - peak) <= 1) return 'peak';
+    return 'ready';
+  };
+
+  // Ricerca online del momento top: al primo clic cerca e calcola, poi mostra la linea del tempo
+  const handleMomentoTopClick = async () => {
+    if (showMomentoTop) {
+      setShowMomentoTop(false);
+      return;
+    }
+    setShowMomentoTop(true);
+    setMomentoError(null);
+    if (momentoDone || !onUpdateWine) return;
+
     setIsCalculatingWindow(true);
     try {
-      const result = await calculateWineOptimalDrinkingWindow(wine);
-      const mappedStatus = (result.drinkingStatus === 'declining' ? 'past' : result.drinkingStatus) as DrinkingStatus;
+      const result = await fetchMomentoTop(wine);
+      setMomentoSources(result.sources);
+      const hosts = result.sources
+        .map((s) => { try { return new URL(s.url).hostname.replace(/^www\./, ''); } catch { return ''; } })
+        .filter(Boolean)
+        .slice(0, 5);
       await onUpdateWine(wine.id, {
-        drinkingWindow: result.drinkingWindow,
-        drinkingStatus: mappedStatus,
+        drinkingWindow: { start: result.windowStart, end: result.windowEnd, peakYear: result.peakYear },
+        drinkingStatus: statusFromWindow(result.windowStart, result.peakYear, result.windowEnd),
         aiCalculated: true,
-        aiCalculatedDetails: result.rationale,
+        aiCalculatedDetails: `${MOMENTO_PREFIX} ${result.summary}${hosts.length ? `\nFonti: ${hosts.join(', ')}` : ''}`,
       });
     } catch (err) {
-      console.error('Errore durante il calcolo dell’apice di beva:', err);
+      console.error('Errore durante il calcolo del momento top:', err);
+      // Senza ricerca online disponibile ripiega sulla stima automatica dell'app (segnalata come tale)
+      const noEstimate = err instanceof WineAiError && err.code === 'vintage_unknown';
+      if (noEstimate) {
+        setMomentoError(err.message);
+      } else {
+        try {
+          const est = await calculateWineOptimalDrinkingWindow(wine);
+          const mapped = (est.drinkingStatus === 'declining' ? 'past' : est.drinkingStatus) as DrinkingStatus;
+          await onUpdateWine(wine.id, {
+            drinkingWindow: est.drinkingWindow,
+            drinkingStatus: mapped,
+            aiCalculated: false,
+            aiCalculatedDetails: `${MOMENTO_PREFIX} ${ESTIMATE_TAG} Stima automatica basata su tipologia, vitigno e annata: momento top nel ${est.drinkingWindow.peakYear}, finestra di beva ${est.drinkingWindow.start}-${est.drinkingWindow.end}.`,
+          });
+        } catch (e2) {
+          console.error('Stima automatica non riuscita:', e2);
+          setMomentoError('Calcolo non riuscito. Riprova tra poco.');
+        }
+      }
     } finally {
       setIsCalculatingWindow(false);
     }
   };
 
-
+  const momentoDone = Boolean(wine.aiCalculatedDetails?.startsWith(MOMENTO_PREFIX));
+  const momentoRaw = momentoDone ? wine.aiCalculatedDetails!.slice(MOMENTO_PREFIX.length).trim() : '';
+  const momentoIsEstimate = momentoRaw.startsWith(ESTIMATE_TAG);
+  const momentoDetails = momentoIsEstimate ? momentoRaw.slice(ESTIMATE_TAG.length).trim() : momentoRaw;
 
   const windowStart = wine.drinkingWindow?.start || wine.vintage;
   const windowEnd = wine.drinkingWindow?.end || wine.vintage + 10;
@@ -110,21 +159,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
       await handleAnalyzeAutomatic();
     }
   };
-
-  // Testo del Momento TOP costruito in base alla finestra di beva e all'anno corrente
-  const yearsToEnd = windowEnd - currentYear;
-  let momentoTopText: string;
-  if (currentYear < windowStart) {
-    momentoTopText = `Il momento top è il ${peakYear}. Il vino è ancora giovane: la finestra di beva si apre nel ${windowStart} e termina nel ${windowEnd}. Conviene aspettare.`;
-  } else if (currentYear < peakYear - 1) {
-    momentoTopText = `Il momento top è il ${peakYear}. Il vino è già pronto da bere e continua a migliorare: la finestra va dal ${windowStart} al ${windowEnd}.`;
-  } else if (currentYear <= peakYear + 1) {
-    momentoTopText = `Il momento top è il ${peakYear}: il vino è al suo apice adesso. Finestra di beva dal ${windowStart} al ${windowEnd}.`;
-  } else if (currentYear <= windowEnd) {
-    momentoTopText = `Il momento top è stato il ${peakYear}. Il vino è ancora in ottima forma, ma da bere ${yearsToEnd > 0 ? `entro ${yearsToEnd} ${yearsToEnd === 1 ? 'anno' : 'anni'}` : 'quest\'anno'} (termine ottimale ${windowEnd}).`;
-  } else {
-    momentoTopText = `Il momento top era il ${peakYear} e la finestra si è chiusa nel ${windowEnd}: da bere al più presto.`;
-  }
 
   const formattedPrice = new Intl.NumberFormat('it-IT', {
     style: 'currency',
@@ -309,45 +343,65 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           </div>
         </div>
 
-        {/* Timeline Unificata (Stato Evolutivo + Finestra di Beva) */}
-        <div className="cellar-detail-content__timeline-card">
-          <div className="cellar-detail-content__timeline-header">
-            <div className="cellar-detail-content__timeline-title">
-              <Calendar size={15} />
-              <span>Finestra di Beva &amp; Stato Evolutivo</span>
-              {wine.aiCalculated && (
-                <span className="cellar-ai-verified-badge" title="Finestra di beva ed evoluzione verificate online con IA">
-                  ✨ Calcolato con IA &amp; Fonti Online
-                </span>
-              )}
+        {/* Linea del tempo: compare solo dopo il clic su MOMENTO TOP */}
+        {showMomentoTop && (
+          <div className="cellar-detail-content__timeline-card">
+            <div className="cellar-detail-content__timeline-header">
+              <div className="cellar-detail-content__timeline-title">
+                <Calendar size={15} />
+                <span>Finestra di Beva &amp; Momento TOP</span>
+                {momentoDone && (
+                  <span className="cellar-ai-verified-badge" title={momentoIsEstimate ? 'Stima automatica dell’app' : 'Calcolato cercando su internet'}>
+                    {momentoIsEstimate ? 'Stima automatica' : 'Calcolato con ricerca online'}
+                  </span>
+                )}
+              </div>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <Button
-                variant="primary"
-                size="sm"
-                icon={<Calculator size={14} />}
-                loading={isCalculatingWindow}
-                onClick={handleCalculateOptimalDrinkingWindow}
-                className="cellar-calc-btn"
-              >
-                {isCalculatingWindow ? 'Calcolo AI...' : 'Calcola con AI'}
-              </Button>
-            </div>
+            {isCalculatingWindow && (
+              <p className="cellar-detail-content__ai-cta-note cellar-detail-content__ai-cta-note--warn">
+                Ricerca online in corso… può richiedere qualche secondo.
+              </p>
+            )}
+
+            {momentoError && !isCalculatingWindow && (
+              <p className="cellar-detail-content__ai-cta-note cellar-detail-content__ai-cta-note--error" role="alert">
+                {momentoError}
+              </p>
+            )}
+
+            {momentoDone && !isCalculatingWindow && (
+              <>
+                <div className="cellar-detail-content__timeline-box">
+                  <MaturityTimeline status={wine.drinkingStatus} category={wine.category} size="md" showLabels={true} />
+                </div>
+
+                <div className="cellar-detail-content__progress-years">
+                  <span>{windowStart} (Inizio Beva)</span>
+                  <span className="cellar-detail-content__current-year-tag">Momento TOP: {peakYear}</span>
+                  <span>{windowEnd} (Termine Ottimale)</span>
+                </div>
+
+                {momentoDetails && (
+                  <div className="cellar-ai-rationale-box" style={{ marginTop: '12px', whiteSpace: 'pre-line' }}>
+                    <Sparkles size={14} className="cellar-ai-rationale-box__icon" />
+                    <span>{momentoDetails}</span>
+                  </div>
+                )}
+
+                {momentoSources.length > 0 && (
+                  <ul className="cellar-detail-content__sources">
+                    {momentoSources.slice(0, 5).map((s) => (
+                      <li key={s.url}>
+                        <a href={s.url} target="_blank" rel="noopener noreferrer">{s.title}</a>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </>
+            )}
           </div>
-
-          {/* Infografica 4 Stadi di Maturazione integrata */}
-          <div style={{ margin: '12px 0 14px 0', padding: '12px 14px', background: '#FFFFFF', borderRadius: '8px', border: '1px solid rgba(45,35,74,0.08)' }}>
-            <MaturityTimeline status={wine.drinkingStatus} category={wine.category} size="md" showLabels={true} />
-          </div>
-
-          {wine.aiCalculatedDetails && (
-            <div className="cellar-ai-rationale-box" style={{ marginBottom: '12px' }}>
-              <Sparkles size={14} className="cellar-ai-rationale-box__icon" />
-              <span>{wine.aiCalculatedDetails}</span>
-            </div>
-          )}
-        </div>
+        )}
 
         <Divider variant="hairline" spacing="md" />
 
@@ -359,7 +413,8 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               variant="primary"
               size="lg"
               icon={<Calendar size={16} />}
-              onClick={() => setShowMomentoTop((v) => !v)}
+              loading={isCalculatingWindow}
+              onClick={handleMomentoTopClick}
               aria-pressed={showMomentoTop}
             >
               MOMENTO TOP
@@ -375,14 +430,6 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               {isAnalyzingWebsite ? 'ANALISI IN CORSO...' : 'ANALISI SENSORIALE'}
             </Button>
           </div>
-
-          {showMomentoTop && (
-            <div className="cellar-detail-content__ai-text">
-              <span className="cellar-detail-content__sublabel">Momento TOP:</span>
-              <p>{momentoTopText}</p>
-              {wine.aiCalculatedDetails && <p className="cellar-detail-content__ai-text-note">{wine.aiCalculatedDetails}</p>}
-            </div>
-          )}
 
           {showSensory && websiteAnalysisSuccess && (
             <p className="cellar-detail-content__ai-cta-note">{websiteAnalysisSuccess}</p>

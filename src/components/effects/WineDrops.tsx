@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 /**
  * Effetto globale al passaggio del mouse: gocce di vino che si staccano dal puntatore,
  * cadono per un breve tratto e vengono assorbite dallo sfondo (la macchia si allarga e si asciuga).
- * Disattivato su touch e con "riduci animazioni". Disegna su un canvas fisso, senza intercettare i clic.
+ * Disattivato su touch e con "riduci animazioni". Il canvas sta SOTTO i contenuti: le gocce si vedono solo sullo sfondo, le card non vengono toccate.
  */
 
 interface Drop {
@@ -16,13 +16,12 @@ interface Drop {
   state: 'fall' | 'stain';
   age: number; // secondi dalla caduta
   stainR: number;
-  rot: number;
 }
 
 const COLORS = ['108, 26, 36', '139, 35, 50', '71, 17, 24', '159, 0, 0'];
 const MAX_DROPS = 70;
 const GRAVITY = 1500; // px/s^2
-const STAIN_LIFE = 1.9; // secondi per asciugare
+const STAIN_LIFE = 2.4; // secondi per asciugare
 
 export const WineDrops: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -68,8 +67,7 @@ export const WineDrops: React.FC = () => {
         hue: COLORS[Math.floor(Math.random() * COLORS.length)],
         state: 'fall',
         age: 0,
-        stainR: 8 + Math.random() * 9,
-        rot: Math.random() * Math.PI,
+        stainR: 14 + Math.random() * 14,
       });
     };
 
@@ -104,25 +102,40 @@ export const WineDrops: React.FC = () => {
       ctx.restore();
     };
 
+    // Macchia perfettamente tonda: un alone pieno e anelli concentrici che si allargano e svaniscono
+    const ease = (x: number) => 1 - Math.pow(1 - Math.min(Math.max(x, 0), 1), 3);
     const drawStain = (d: Drop) => {
       const t = Math.min(d.age / STAIN_LIFE, 1);
-      const spread = 1 - Math.pow(1 - Math.min(t * 3, 1), 3); // si allarga subito, poi si ferma
-      const radius = 2 + d.stainR * spread;
-      const alpha = 0.62 * Math.pow(1 - t, 1.5); // l'assorbimento: svanisce
-      if (alpha <= 0.002) return;
-      ctx.save();
-      ctx.translate(d.x, d.y);
-      ctx.rotate(d.rot);
-      ctx.scale(1, 0.62); // macchia leggermente ovale, in prospettiva
-      const g = ctx.createRadialGradient(0, 0, radius * 0.15, 0, 0, radius);
-      g.addColorStop(0, `rgba(${d.hue}, ${alpha * 0.55})`);
-      g.addColorStop(0.75, `rgba(${d.hue}, ${alpha * 0.8})`);
-      g.addColorStop(1, `rgba(${d.hue}, 0)`);
-      ctx.fillStyle = g;
-      ctx.beginPath();
-      ctx.arc(0, 0, radius, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
+      const fade = Math.pow(1 - t, 1.4); // si dissimula nello sfondo
+      if (fade <= 0.002) return;
+
+      // alone morbido
+      const R = d.stainR * ease(t * 1.6);
+      if (R > 0.5) {
+        const g = ctx.createRadialGradient(d.x, d.y, 0, d.x, d.y, R);
+        g.addColorStop(0, `rgba(${d.hue}, ${0.34 * fade})`);
+        g.addColorStop(0.7, `rgba(${d.hue}, ${0.2 * fade})`);
+        g.addColorStop(1, `rgba(${d.hue}, 0)`);
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, R, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // anelli concentrici
+      for (let k = 0; k < 3; k++) {
+        const delay = k * 0.14;
+        const p = (t - delay) / (1 - delay);
+        if (p <= 0) continue;
+        const rr = d.stainR * (0.45 + 0.75 * k * 0.55 + 0.55) * ease(p);
+        const a = 0.5 * Math.pow(1 - Math.min(p, 1), 1.5) * (1 - k * 0.22);
+        if (rr < 0.5 || a <= 0.003) continue;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, rr, 0, Math.PI * 2);
+        ctx.lineWidth = 1.6 - k * 0.35;
+        ctx.strokeStyle = `rgba(${d.hue}, ${a})`;
+        ctx.stroke();
+      }
     };
 
     const tick = (now: number) => {
@@ -177,7 +190,7 @@ export const WineDrops: React.FC = () => {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 9998 }}
+      style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }}
     />
   );
 };
