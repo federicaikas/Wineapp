@@ -142,7 +142,6 @@ export const WineCard: React.FC<WineCardProps> = ({
             aria-label={wine.country || 'Paese'}
           >
             <FlagCircle flag={flagKey} size={18} />
-            <span className="cellar-wine-card__round-label">{flagKey ?? 'Estero'}</span>
           </span>
 
           <Button
@@ -156,9 +155,7 @@ export const WineCard: React.FC<WineCardProps> = ({
               e.stopPropagation();
               onSelect(wine);
             }}
-          >
-            <span className="cellar-wine-card__round-label">Scheda</span>
-          </Button>
+          />
 
           <button
             type="button"
@@ -175,7 +172,6 @@ export const WineCard: React.FC<WineCardProps> = ({
             title={wine.favorite ? 'Incluso tra i preferiti' : 'Aggiungi ai preferiti'}
           >
             <Heart size={15} fill={wine.favorite ? 'currentColor' : 'none'} />
-            <span className="cellar-wine-card__round-label">Preferiti</span>
           </button>
 
           <span
@@ -184,7 +180,6 @@ export const WineCard: React.FC<WineCardProps> = ({
             aria-label={`${wine.stock} ${wine.stock === 1 ? 'bottiglia' : 'bottiglie'}`}
           >
             <span className="cellar-wine-card__qty-num">X{wine.stock}</span>
-            <span className="cellar-wine-card__round-label">Btg.</span>
           </span>
         </div>
       </div>

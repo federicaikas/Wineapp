@@ -161,9 +161,11 @@ export const PieChart: React.FC<PieChartProps> = ({
               onMouseEnter={() => setHoveredIdx(slice.idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
-              <div className="cellar-pie-legend-item__color" style={{ backgroundColor: slice.color }}>
-                {slice.icon && <span className="cellar-pie-legend-item__icon">{slice.icon}</span>}
-              </div>
+              <div
+                className={`cellar-pie-legend-item__color ${slice.icon ? 'cellar-pie-legend-item__color--dot' : ''}`}
+                style={{ backgroundColor: slice.color }}
+              />
+              {slice.icon && <span className="cellar-pie-legend-item__icon">{slice.icon}</span>}
               <span className="cellar-pie-legend-item__name">{slice.label}</span>
               <span className="cellar-pie-legend-item__count">{slice.value} btg</span>
               <span className="cellar-pie-legend-item__pct">{slice.percentage.toFixed(1)}%</span>

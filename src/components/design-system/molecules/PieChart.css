@@ -153,8 +153,16 @@
   flex-shrink: 0;
 }
 
+.cellar-pie-legend-item__color--dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 .cellar-pie-legend-item__icon {
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
   line-height: 1;
 }
 

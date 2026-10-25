@@ -751,22 +751,22 @@
   gap: 8px;
 }
 
-/* Pallini con icona e titolo, centrati */
+/* Pallini con sola icona, centrati */
 .cellar-wine-card__footer {
-  margin: 0 -4px;
+  margin: 0;
 }
 
 .cellar-wine-card__footer-actions {
   width: 100%;
   justify-content: space-between;
-  gap: 4px;
+  gap: 8px;
 }
 
 .cellar-wine-card__footer .cellar-wine-card__round {
   flex-direction: column;
-  gap: 3px;
-  width: 46px;
-  height: 46px;
+  gap: 0;
+  width: 34px;
+  height: 34px;
   text-align: center;
 }
 

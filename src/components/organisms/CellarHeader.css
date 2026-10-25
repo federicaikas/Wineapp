@@ -89,22 +89,24 @@
   gap: 0.65rem;
 }
 
-/* Bottone Cosa beviamo? (Ruby Liquid Glass) */
+/* Bottone Cosa beviamo? (Lime Liquid Glass, colore delle bollicine) */
 .cellar-header-btn-random {
-  background: linear-gradient(135deg, rgba(114, 47, 55, 0.92), rgba(155, 56, 71, 0.86)) !important;
-  color: #FFFFFF !important;
-  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38) 0%, rgba(255, 255, 255, 0) 55%),
+    linear-gradient(135deg, rgba(184, 194, 70, 0.92), rgba(150, 171, 65, 0.86)) !important;
+  color: var(--text-primary, #2D234A) !important;
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
   border-radius: 9999px !important;
   font-weight: 700 !important;
-  box-shadow: 0 4px 15px rgba(114, 47, 55, 0.28), inset 0 1px 1px rgba(255, 255, 255, 0.45) !important;
-  backdrop-filter: blur(14px) !important;
-  -webkit-backdrop-filter: blur(14px) !important;
+  box-shadow: 0 4px 15px rgba(128, 146, 40, 0.32), inset 0 1px 1px rgba(255, 255, 255, 0.7), inset 0 -1px 2px rgba(96, 110, 30, 0.2) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .cellar-header-btn-random:hover {
   transform: translateY(-1px) scale(1.02) !important;
-  box-shadow: 0 6px 18px rgba(114, 47, 55, 0.38), inset 0 1px 1px rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 6px 18px rgba(128, 146, 40, 0.42), inset 0 1px 1px rgba(255, 255, 255, 0.85), inset 0 -1px 2px rgba(96, 110, 30, 0.25) !important;
 }
 
 /* Bottone Preferiti (Capsula Liquid Glass) */
