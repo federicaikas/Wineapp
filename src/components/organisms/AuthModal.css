@@ -29,7 +29,7 @@
   position: relative;
   width: 100%;
   max-width: 440px;
-  background-color: var(--paper-card, #ffffff);
+  background-color: var(--surface-card, #ffffff);
   border: var(--border-tactile, 1px solid rgba(43, 37, 33, 0.14));
   border-radius: 16px;
   box-shadow: 0 10px 40px -10px rgba(45, 35, 74, 0.25), 0 20px 60px rgba(0, 0, 0, 0.15);
@@ -61,8 +61,8 @@
   height: 32px;
   border-radius: 50%;
   border: 1px solid rgba(43, 37, 33, 0.12);
-  background: var(--paper-surface, #F3ECE1);
-  color: var(--ink-secondary, #5F564F);
+  background: var(--surface-tint, #F3ECE1);
+  color: var(--text-secondary, #5F564F);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,9 +88,9 @@
   gap: 0.35rem;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
-  background: var(--gold-soft, #FAF5E6);
-  border: 1px solid var(--gold-border, rgba(184, 134, 11, 0.28));
-  color: var(--gold-foil, #B8860B);
+  background: var(--accent-secondary-soft, #FAF5E6);
+  border: 1px solid var(--accent-secondary-border, rgba(184, 134, 11, 0.28));
+  color: var(--accent-secondary-dark, #B8860B);
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.75rem;
   font-weight: 600;
@@ -100,7 +100,7 @@
 }
 
 .auth-modal-title {
-  font-family: var(--font-serif-display, Georgia, serif);
+  font-family: var(--font-heading);
   font-size: 1.625rem;
   font-weight: 700;
   color: var(--text-primary, #2D234A);
@@ -120,7 +120,7 @@
 /* Tabs */
 .auth-modal-tabs {
   display: flex;
-  background: var(--paper-surface, #F3ECE1);
+  background: var(--surface-tint, #F3ECE1);
   padding: 3px;
   border-radius: 9999px;
   margin-bottom: 1.5rem;
@@ -190,7 +190,7 @@
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--ink-primary, #2B2521);
+  color: var(--text-primary, #2B2521);
 }
 
 .auth-modal-input-wrapper {
@@ -202,7 +202,7 @@
 .auth-modal-input-icon {
   position: absolute;
   left: 0.875rem;
-  color: var(--ink-muted, #8E8377);
+  color: var(--text-muted, #8E8377);
   pointer-events: none;
 }
 
@@ -211,8 +211,8 @@
   padding: 0.75rem 0.875rem 0.75rem 2.5rem;
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.9375rem;
-  color: var(--ink-dark, #1A1614);
-  background: var(--paper-canvas, #FAF7F2);
+  color: var(--text-primary, #1A1614);
+  background: var(--background-base, #FAF7F2);
   border: 1px solid rgba(43, 37, 33, 0.16);
   border-radius: 8px;
   transition: all 0.2s ease;
@@ -227,7 +227,7 @@
 }
 
 .auth-modal-input::placeholder {
-  color: var(--ink-faint, #BDB4A8);
+  color: var(--text-muted);
 }
 
 /* Submit Button */

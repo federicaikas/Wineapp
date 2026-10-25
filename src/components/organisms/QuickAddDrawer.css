@@ -52,7 +52,7 @@
 }
 
 .cellar-add-form__aroma-label {
-  font-family: var(--font-sans, system-ui, sans-serif);
+  font-family: var(--font-body, system-ui, sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -67,7 +67,7 @@
 }
 
 .cellar-add-form__aroma-family-title {
-  font-family: var(--font-sans, system-ui, sans-serif);
+  font-family: var(--font-body, system-ui, sans-serif);
   font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -109,7 +109,7 @@
 /* Mode Switcher (Singolo / Batch) */
 .cellar-add-mode-toggle {
   display: flex;
-  background: var(--paper-surface, #F3ECE1);
+  background: var(--surface-tint, #F3ECE1);
   padding: 4px;
   border-radius: 9999px;
   margin-bottom: 1.25rem;
@@ -264,7 +264,7 @@
 }
 
 .cellar-batch-preview__table th {
-  background: var(--paper-surface, #F3ECE1);
+  background: var(--surface-tint, #F3ECE1);
   color: #3B1B54;
   text-align: left;
   padding: 8px 10px;

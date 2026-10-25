@@ -13,7 +13,7 @@
 }
 
 .cellar-divider--gold {
-  border-top: var(--border-gold-stamp);
+  border-top: var(--border-accent-stamp);
 }
 
 .cellar-divider--space-sm { margin: 0.75rem 0; }
@@ -31,13 +31,13 @@
 .cellar-divider-ornament__line {
   flex: 1;
   height: 1px;
-  background: var(--paper-subtle);
+  background: var(--surface-line);
 }
 
 .cellar-divider-ornament__symbol {
-  font-family: var(--font-serif-display);
+  font-family: var(--font-heading);
   font-size: var(--text-xs);
-  color: var(--gold-foil);
+  color: var(--accent-secondary-dark);
   line-height: 1;
   user-select: none;
 }

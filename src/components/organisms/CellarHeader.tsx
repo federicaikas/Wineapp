@@ -3,6 +3,7 @@ import { Button } from '../design-system';
 import type { CellarStats } from '../../types/wine';
 import { Plus, Heart, History, Shuffle, LogOut } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
+import affinappLogo from '../../assets/affinapp-logo.svg';
 import './CellarHeader.css';
 
 export interface CellarHeaderProps {
@@ -54,14 +55,16 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
   return (
     <header className="cellar-masthead">
       <div className="cellar-masthead__container">
-        {/* Brand WINAPP - grande, al centro su mobile */}
+        {/* Brand AFFINAPP - al centro su mobile */}
         <div
           className="cellar-masthead__brand"
           onClick={onGoHome}
           style={{ cursor: 'pointer' }}
           title="Torna alla Cantina (Home)"
         >
-          <h1 className="cellar-masthead__title">WINAPP</h1>
+          <h1 className="cellar-masthead__title">
+            <img src={affinappLogo} alt="AFFINAPP" className="cellar-masthead__logo" />
+          </h1>
         </div>
 
         {/* Bottoni di azione - mostrati solo se l'utente è autenticato */}

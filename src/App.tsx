@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useCellar } from './hooks/useCellar';
 import { useAuth } from './hooks/useAuth';
 import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal, AuthModal, AuthCard } from './components/organisms';
-import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
+import { DesignSystemShowcase, Divider } from './components/design-system';
+import affinappLogo from './assets/affinapp-logo.svg';
 import { CellarStatsPage } from './components/pages/CellarStatsPage';
 import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
 import { ManageCellarPage } from './components/pages/ManageCellarPage';
@@ -200,19 +201,18 @@ function CellarAppContent() {
       {/* Modal Autenticazione (se aperto manualmente) */}
       <AuthModal />
 
-      {/* Footer Editoriale O,nice! Studio */}
+      {/* Footer */}
       <footer className="cellar-footer">
         <div className="cellar-footer__inner">
-          <Typography
-            variant="serif-italic"
-            color="secondary"
-            className="cellar-footer__credits"
+          <button
+            type="button"
+            className="cellar-footer__brand"
             onClick={handleGoHome}
-            style={{ cursor: 'pointer' }}
             title="Torna alla Cantina (Home)"
+            aria-label="AFFINAPP — torna alla Home"
           >
-            WINAPP
-          </Typography>
+            <img src={affinappLogo} alt="AFFINAPP" className="cellar-footer__logo" />
+          </button>
           {user && (
             <button
               type="button"

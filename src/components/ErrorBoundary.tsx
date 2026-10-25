@@ -32,40 +32,40 @@ export class ErrorBoundary extends Component<Props, State> {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          backgroundColor: 'var(--paper-canvas)',
-          color: 'var(--ink-primary)',
-          fontFamily: 'var(--font-sans)',
+          backgroundColor: 'var(--background-base)',
+          color: 'var(--text-primary)',
+          fontFamily: 'var(--font-body)',
           padding: '2rem',
           textAlign: 'center',
         }}>
           <div style={{
             maxWidth: '540px',
-            backgroundColor: 'var(--paper-card)',
+            backgroundColor: 'var(--surface-card)',
             border: 'var(--border-tactile)',
             borderRadius: 'var(--radius-md)',
             padding: '2.5rem 2rem',
             boxShadow: 'var(--shadow-card)',
           }}>
             <span style={{
-              fontFamily: 'var(--font-mono)',
+              fontFamily: 'var(--font-body)',
               fontSize: 'var(--text-xs)',
               letterSpacing: '0.12em',
-              color: 'var(--gold-foil)',
+              color: 'var(--accent-secondary-dark)',
               textTransform: 'uppercase',
             }}>
-              WINAPP • AVVISO DI SISTEMA
+              AFFINAPP • AVVISO DI SISTEMA
             </span>
             <h1 style={{
-              fontFamily: 'var(--font-serif-display)',
+              fontFamily: 'var(--font-heading)',
               fontSize: 'var(--text-2xl)',
               margin: '0.75rem 0',
-              color: 'var(--wine-bordeaux)',
+              color: 'var(--brand-primary)',
             }}>
               Si è verificato un imprevisto
             </h1>
             <p style={{
               fontSize: 'var(--text-sm)',
-              color: 'var(--ink-secondary)',
+              color: 'var(--text-secondary)',
               marginBottom: '1.5rem',
               lineHeight: 1.5,
             }}>
@@ -75,7 +75,7 @@ export class ErrorBoundary extends Component<Props, State> {
               type="button"
               onClick={() => window.location.reload()}
               style={{
-                background: 'linear-gradient(135deg, var(--wine-crimson), var(--wine-bordeaux))',
+                background: 'linear-gradient(135deg, var(--brand-primary), var(--brand-primary))',
                 color: '#FFFFFF',
                 border: 'none',
                 borderRadius: '9999px',

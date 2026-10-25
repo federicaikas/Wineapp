@@ -17,12 +17,12 @@
   padding: 0;
   border: none;
   background: none;
-  color: var(--paper-subtle);
+  color: var(--surface-line);
   transition: transform var(--transition-fast), color var(--transition-fast);
 }
 
 .cellar-rating__star--filled {
-  color: var(--gold-foil);
+  color: var(--accent-secondary-dark);
 }
 
 .cellar-rating__star--interactive {
@@ -31,7 +31,7 @@
 
 .cellar-rating__star--interactive:hover {
   transform: scale(1.15);
-  color: var(--gold-accent);
+  color: var(--accent-secondary);
 }
 
 .cellar-rating--sm .cellar-rating__icon { width: 13px; height: 13px; }
@@ -39,32 +39,32 @@
 .cellar-rating--lg .cellar-rating__icon { width: 22px; height: 22px; }
 
 .cellar-rating__text {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
-  color: var(--ink-secondary);
+  color: var(--text-secondary);
 }
 
 .cellar-rating__score100 {
   display: inline-flex;
   align-items: baseline;
   gap: 2px;
-  background: var(--gold-soft);
-  color: var(--gold-dark);
-  border: 1px solid var(--gold-border);
+  background: var(--accent-secondary-soft);
+  color: var(--accent-secondary-dark);
+  border: 1px solid var(--accent-secondary-border);
   padding: 0.15rem 0.45rem;
   border-radius: var(--radius-xs);
   box-shadow: 0 1px 2px rgba(184, 134, 11, 0.1);
 }
 
 .cellar-rating__score-num {
-  font-family: var(--font-serif-display);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: var(--text-sm);
   line-height: 1;
 }
 
 .cellar-rating__score-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-2xs);
   font-weight: 600;
   letter-spacing: 0.05em;

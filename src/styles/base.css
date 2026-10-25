@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CELLAR — Base Styles & Editorial Paper Canvas
+   AFFINAPP — Base Styles
    ========================================================================== */
 
 *, *::before, *::after {
@@ -14,20 +14,20 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  background-color: var(--paper-canvas);
-  color: var(--ink-primary);
+  background-color: var(--background-base);
+  color: var(--text-primary);
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--paper-canvas);
-  color: var(--ink-primary);
+  font-family: var(--font-body);
+  background-color: var(--background-base);
+  color: var(--text-primary);
   min-height: 100vh;
   line-height: 1.5;
   overflow-x: hidden;
   /* Micro trama cartacea generata in CSS puro */
   background-image: 
-    radial-gradient(var(--paper-subtle) 0.75px, transparent 0.75px),
+    radial-gradient(var(--surface-line) 0.75px, transparent 0.75px),
     linear-gradient(to bottom, rgba(250, 247, 242, 0.96), rgba(243, 236, 225, 0.98));
   background-size: 24px 24px, 100% 100%;
   background-attachment: fixed;
@@ -35,15 +35,15 @@ body {
 
 /* Tipografia Editoriale */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-serif-display);
-  font-weight: 500;
-  color: var(--ink-dark);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-primary);
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
 }
 
 p {
-  color: var(--ink-secondary);
+  color: var(--text-secondary);
 }
 
 a {
@@ -74,22 +74,22 @@ input[type="reset"] {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--paper-surface);
+  background: var(--surface-tint);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--paper-subtle);
+  background: var(--surface-line);
   border-radius: var(--radius-pill);
-  border: 2px solid var(--paper-surface);
+  border: 2px solid var(--surface-tint);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--ink-muted);
+  background: var(--text-muted);
 }
 
-/* Selezione Testo con inchiostro bordeaux */
+/* Selezione testo */
 ::selection {
-  background: var(--wine-bordeaux);
+  background: var(--brand-primary);
   color: #FFFFFF;
 }
 
@@ -104,7 +104,7 @@ input[type="reset"] {
   left: 0;
   right: 0;
   height: 2px;
-  background-image: radial-gradient(circle at 2px 2px, var(--paper-subtle) 1px, transparent 1px);
+  background-image: radial-gradient(circle at 2px 2px, var(--surface-line) 1px, transparent 1px);
   background-size: 4px 4px;
 }
 
@@ -114,10 +114,10 @@ input[type="reset"] {
   align-items: center;
   gap: 0.35rem;
   padding: 0.25rem 0.65rem;
-  border: 1px solid var(--gold-border);
-  background: var(--gold-soft);
-  color: var(--gold-dark);
-  font-family: var(--font-mono);
+  border: 1px solid var(--accent-secondary-border);
+  background: var(--accent-secondary-soft);
+  color: var(--accent-secondary-dark);
+  font-family: var(--font-body);
   font-size: var(--text-2xs);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -127,7 +127,7 @@ input[type="reset"] {
 
 /* Monogramma ceralacca */
 .wax-badge {
-  background: linear-gradient(135deg, var(--wine-crimson), var(--wine-deep));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-deep));
   color: #FFFFFF;
   box-shadow: 0 2px 6px rgba(108, 26, 36, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.2);
 }

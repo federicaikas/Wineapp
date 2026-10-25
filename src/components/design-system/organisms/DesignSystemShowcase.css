@@ -175,7 +175,7 @@
   color: #FFFDF9;
   padding: var(--space-3, 16px);
   border-radius: var(--radius-soft, 8px);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-body);
   font-size: 0.8rem;
   max-height: 300px;
   overflow-y: auto;

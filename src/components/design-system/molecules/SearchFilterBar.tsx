@@ -199,12 +199,12 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             <div className="cellar-filterbar__group" style={{ marginTop: '0.85rem' }}>
               <div className="cellar-filterbar__group-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span>Prezzo Massimo Bottiglia:</span>
-                <strong style={{ color: 'var(--wine-bordeaux, #722F37)', fontFamily: 'var(--font-mono)', fontSize: '0.9rem' }}>
+                <strong style={{ color: 'var(--brand-primary)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
                   {maxPrice >= 500 ? 'Qualsiasi prezzo (Nessun limite)' : `Fino a € ${maxPrice}`}
                 </strong>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
-                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-mono)' }}>€ 0</span>
+                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-body)' }}>€ 0</span>
                 <input
                   type="range"
                   min="10"
@@ -219,7 +219,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     height: '6px',
                   }}
                 />
-                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-mono)' }}>€ 500+</span>
+                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-body)' }}>€ 500+</span>
               </div>
             </div>
           )}

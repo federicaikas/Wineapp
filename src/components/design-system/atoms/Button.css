@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
@@ -100,32 +100,32 @@
 /* Variante Outline */
 .cellar-btn--outline {
   background: transparent;
-  color: var(--ink-primary);
+  color: var(--text-primary);
   border: var(--border-tactile);
   border-radius: var(--radius-pill, 9999px);
 }
 
 .cellar-btn--outline:hover:not(:disabled) {
   background: rgba(43, 37, 33, 0.04);
-  border-color: var(--ink-primary);
+  border-color: var(--text-primary);
 }
 
 /* Variante Ghost */
 .cellar-btn--ghost {
   background: transparent;
-  color: var(--ink-secondary);
+  color: var(--text-secondary);
   border: 1px solid transparent;
   border-radius: var(--radius-pill, 9999px);
 }
 
 .cellar-btn--ghost:hover:not(:disabled) {
   background: rgba(43, 37, 33, 0.05);
-  color: var(--ink-dark);
+  color: var(--text-primary);
 }
 
 /* Variante Gold (Timbro d'Oro) */
 .cellar-btn--gold {
-  background: linear-gradient(135deg, var(--gold-accent), var(--gold-foil));
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-secondary-dark));
   color: #FFFFFF;
   border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: var(--radius-pill, 9999px);

@@ -5,7 +5,7 @@
   justify-content: center;
   text-align: center;
   padding: 3.5rem 1.5rem;
-  background: var(--paper-card);
+  background: var(--surface-card);
   border: var(--border-dashed);
   border-radius: var(--radius-md);
   margin: 1.5rem 0;
@@ -23,10 +23,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--paper-surface);
-  border: 1px solid var(--paper-subtle);
+  background: var(--surface-tint);
+  border: 1px solid var(--surface-line);
   border-radius: 50%;
-  color: var(--wine-bordeaux);
+  color: var(--brand-primary);
 }
 
 .cellar-empty-state__seal {
@@ -36,7 +36,7 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--gold-accent);
+  background: var(--accent-secondary);
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -45,18 +45,18 @@
 }
 
 .cellar-empty-state__title {
-  font-family: var(--font-serif-display);
+  font-family: var(--font-heading);
   font-size: var(--text-2xl);
   font-weight: 500;
-  color: var(--ink-dark);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
 }
 
 .cellar-empty-state__desc {
-  font-family: var(--font-serif-editorial);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--text-lg);
-  color: var(--ink-muted);
+  color: var(--text-muted);
   max-width: 460px;
   line-height: 1.45;
   margin-bottom: 1.5rem;

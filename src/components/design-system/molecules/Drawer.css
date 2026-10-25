@@ -95,7 +95,7 @@
 
 .cellar-drawer__close-btn:hover {
   background: rgba(45, 35, 74, 0.1);
-  color: var(--wine-bordeaux, #6C1A24);
+  color: var(--brand-primary, #6C1A24);
 }
 
 .cellar-drawer__body {

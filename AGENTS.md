@@ -1,7 +1,7 @@
 # AGENTS.md — Protocollo Multi-Agent & Governance di Progetto
 
 ## 1. Visione & Obiettivo
-Costruire **"Cellar"**, una web application locale e zero-friction per la gestione, catalogazione ed esperienza visiva della propria cantina di vini.
+Costruire **"AFFINAPP"**, una web application locale e zero-friction per la gestione, catalogazione ed esperienza visiva della propria cantina di vini.
 L'esperienza utente è ispirata alla raffinata estetica editoriale di **O,nice! Studio** (tipografia serif d'alta sartoria, sans geometrico bilanciato, palette materica su supporti cartacei caldi, micro-dettagli tattili di etichette vinicole, punzonature e timbri laccati).
 
 ---

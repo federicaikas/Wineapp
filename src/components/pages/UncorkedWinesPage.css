@@ -23,7 +23,7 @@
 }
 
 .cellar-uncorked-page__back-btn {
-  color: var(--ink-muted);
+  color: var(--text-muted);
 }
 
 .cellar-uncorked-page__title-lockup {
@@ -46,10 +46,10 @@
 }
 
 .cellar-uncorked-page__title {
-  font-family: var(--font-serif-display);
+  font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 500;
-  color: var(--ink-dark);
+  color: var(--text-primary);
 }
 
 .cellar-uncorked-page__grid {

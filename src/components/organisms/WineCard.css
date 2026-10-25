@@ -16,8 +16,8 @@
   cursor: pointer;
   overflow: hidden;
 
-  /* Accent border superiore ispessito a 14px */
-  border-top: 14px solid var(--accent-tertiary, #7A9A3B);
+  /* La fascia colorata superiore è l'elemento .cellar-wine-card__band */
+  --category-color: var(--accent-tertiary, #7A9A3B);
 
   /* Scrollytelling Reveal Defaults */
   opacity: 0;
@@ -76,8 +76,8 @@
 }
 
 .cellar-wine-card__fav-btn:hover {
-  background: var(--wine-soft, #F7EFEF);
-  color: var(--wine-bordeaux, #6C1A24);
+  background: var(--brand-primary-soft, #F7EFEF);
+  color: var(--brand-primary, #6C1A24);
   border-color: rgba(159, 0, 0, 0.2);
 }
 
@@ -96,7 +96,7 @@
 }
 
 .cellar-wine-card__lot {
-  font-family: var(--font-mono, monospace);
+  font-family: var(--font-body, monospace);
   font-size: var(--text-2xs, 0.6875rem);
   color: var(--text-muted, #706880);
   letter-spacing: 0.1em;
@@ -151,7 +151,7 @@
 }
 
 .cellar-wine-card:hover .cellar-wine-card__producer {
-  color: var(--ink-dark, #1A1614);
+  color: var(--text-primary, #1A1614);
   transform: translateX(2px);
 }
 
@@ -256,17 +256,6 @@
   color: var(--brand-primary, #2D234A);
 }
 
-.cellar-wine-card__timeline-wrapper {
-  margin-top: 0.65rem;
-  margin-bottom: 0.25rem;
-  padding: 0.5rem 0.75rem;
-  background: #FFFFFF;
-  border-radius: var(--radius-soft, 8px);
-  border: 1px solid rgba(45, 35, 74, 0.12);
-  box-shadow: 0 1px 4px rgba(45, 35, 74, 0.04);
-  position: relative;
-  z-index: 10;
-}
 
 /* Ubicazione Cantina */
 .cellar-wine-card__location {
@@ -327,6 +316,15 @@
   box-shadow: 0 4px 16px rgba(159, 0, 0, 0.3);
   pointer-events: none;
   z-index: 10;
+  font-family: var(--font-display, "DIN Bold", sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+/* Il testo della fascia deve restare chiaro (Typography imposta il colore scuro di default) */
+.cellar-wine-card__depleted-seal .cellar-type {
+  color: #FFFFFF;
   font-family: var(--font-display, "DIN Bold", sans-serif);
   font-size: var(--text-xs, 0.75rem);
   font-weight: 700;
@@ -650,3 +648,45 @@
 }
 
 
+
+/* Fascia colorata con stadio di maturazione (Giovane · Pronto · Vecchio) */
+.cellar-wine-card__band {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 0.25rem;
+  min-height: 34px;
+  padding: 0.3rem 0.6rem;
+  /* a tutta larghezza, annulla il padding della card */
+  margin: calc(-1 * var(--space-4, 24px)) calc(-1 * var(--space-4, 24px)) var(--space-3, 16px);
+  position: relative;
+  z-index: 1;
+  background: var(--category-color);
+  color: #FFFFFF;
+}
+
+.cellar-wine-card__band-stage {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.7rem;
+  border-radius: var(--radius-pill);
+  opacity: 0.8;
+  line-height: 1.2;
+}
+
+.cellar-wine-card__band-stage--active {
+  background: #FFFFFF;
+  color: var(--text-primary);
+  opacity: 1;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.2);
+}
+
+/* Categorie chiare: testo scuro per contrasto */
+.cellar-wine-card--cat-white .cellar-wine-card__band,
+.cellar-wine-card--cat-sparkling .cellar-wine-card__band {
+  color: var(--text-primary);
+}

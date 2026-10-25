@@ -31,7 +31,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--wine-crimson), var(--wine-deep));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-primary-deep));
   color: #FFFFFF;
   display: flex;
   align-items: center;
@@ -50,10 +50,10 @@
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-2xs);
   letter-spacing: 0.08em;
-  color: var(--gold-dark);
+  color: var(--accent-secondary-dark);
 }
 
 .cellar-masthead__sep {
@@ -357,7 +357,7 @@
   margin: 0.35rem 0 0;
   font-size: 0.75rem;
   font-style: italic;
-  color: var(--gold-foil, #B8860B);
+  color: var(--accent-secondary-dark, #B8860B);
 }
 
 .cellar-header-user-dropdown__divider {
@@ -402,7 +402,7 @@
     text-align: center;
   }
 
-  /* Winapp grande, al centro */
+  /* AFFINAPP al centro */
   .cellar-masthead__title {
     font-size: 2.35rem;
     font-weight: 800;
@@ -451,5 +451,19 @@
     height: 40px;
     justify-content: center;
     padding: 0 0.35rem !important;
+  }
+}
+
+/* Logo AFFINAPP (SVG viola) */
+.cellar-masthead__logo {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .cellar-masthead__logo {
+    height: 24px;
+    margin: 0 auto;
   }
 }

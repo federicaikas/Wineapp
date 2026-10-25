@@ -1,50 +1,49 @@
 :root {
   /* ==========================================================================
-     ANTIGRAVITY ATOMIC DESIGN SYSTEM TOKENS
+     AFFINAPP — Design System Tokens
+     Palette: panna calda + viola profondo, accento ocra, verde pistacchio.
+     Tipografia: solo sans serif (Oswald/DIN display, Montserrat, Caveat eyebrow).
      ========================================================================== */
-  
-  /* 1. COLOR PALETTE */
+
+  /* 1. COLOR PALETTE (base) */
   --background-base: #FFFDF9;      /* Panna caldo */
   --text-primary: #2D234A;         /* Viola scuro profondo */
   --brand-primary: #2D234A;        /* Viola scuro profondo */
   --accent-secondary: #E5A823;     /* Giallo senape / Ocra calda */
-  --accent-tertiary: #96AB41;     /* Verde oliva pistacchio (colore di riferimento) */
-  --text-muted: #706880;           /* Grigio-viola desaturato */
+  --accent-tertiary: #96AB41;      /* Verde oliva pistacchio */
+  --text-muted: #706880;           /* Grigio-viola desaturato (AA su panna: 5.2:1) */
 
-  /* 2. TYPOGRAPHY SYSTEM */
+  /* 1b. Derivati della palette (stessi colori, toni per testo/sfondi/bordi) */
+  --text-secondary: #4F4766;       /* Grigio-viola scuro (8.5:1) */
+  --text-faint: #8A8298;           /* Solo elementi decorativi, mai testo */
+
+  --brand-primary-deep: #1B1530;
+  --brand-primary-soft: #F1EEF7;
+  --brand-primary-border: rgba(45, 35, 74, 0.18);
+
+  --accent-secondary-dark: #6F5209;   /* Ocra scuro per testo su panna (7:1) */
+  --accent-secondary-soft: #FDF5E1;
+  --accent-secondary-border: rgba(229, 168, 35, 0.35);
+
+  --accent-tertiary-dark: #5F6F1F;    /* Pistacchio scuro per testo (5.5:1) */
+  --accent-tertiary-soft: #F4F7E6;
+  --accent-tertiary-border: rgba(150, 171, 65, 0.4);
+
+  /* Superfici */
+  --surface-card: #FFFFFF;
+  --surface-tint: #F7F2E9;
+  --surface-line: #E8E1D6;
+  --surface-line-strong: #DAD0C0;
+
+  /* 2. TYPOGRAPHY SYSTEM (solo sans serif) */
   --font-display: "DIN Bold", "DIN Alternate", "Oswald", sans-serif;
-  --font-body: "Montserrat", sans-serif;
+  --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-eyebrow: "Caveat", cursive;
 
   --display-line-height: 0.95;
   --display-letter-spacing: -0.02em;
   --eyebrow-rotation: -3deg;
-
-  /* 3. SPACING SCALE & RADIUS */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 16px;
-  --space-4: 24px;
-  --space-5: 32px;
-  --space-6: 48px;
-  --space-7: 64px;
-
-  --radius-soft: 8px;
-  --radius-pill: 999px;
-
-  --transition-hover: 200ms ease-in-out;
-
-  /* ==========================================================================
-     CELLAR — Design Tokens (O,nice! Studio Aesthetic)
-     Tactile Warm Paper • Editorial Serif • Vintage Wine Label Details
-     ========================================================================== */
-
-  /* --- TYPOGRAPHY --- */
-  --font-serif-display: 'Fraunces', Georgia, 'Times New Roman', serif;
-  --font-serif-editorial: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-sans: 'Montserrat', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-mono: 'Space Mono', 'Courier Prime', Menlo, monospace;
-
 
   /* Font Scale */
   --text-2xs: 0.6875rem; /* 11px */
@@ -59,74 +58,41 @@
   --text-5xl: 3rem;      /* 48px */
   --text-6xl: 3.75rem;   /* 60px */
 
-  /* --- PALETTE MATERICA (WARM PAPER & INKS) --- */
-  --paper-canvas: #FAF7F2;      /* Sfondo generale tipo carta cotone calda */
-  --paper-surface: #F3ECE1;     /* Superfici e card neutre */
-  --paper-card: #FFFFFF;        /* Etichetta vergata pura */
-  --paper-card-warm: #FCFAF6;   /* Etichetta avorio invecchiata */
-  --paper-subtle: #EAE2D3;      /* Separatori e bordi sfumati */
-  --paper-elevated: #E2D7C3;    /* Profondità e rilievi */
+  /* 3. SPACING SCALE & RADIUS */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
 
-  /* Inchiostri di stampa */
-  --ink-dark: #1A1614;          /* Nero inchiostro calcografico */
-  --ink-primary: #2B2521;       /* Testo primario, caffè scuro */
-  --ink-secondary: #5F564F;     /* Testo secondario, grafite calda */
-  --ink-muted: #8E8377;         /* Note a margine, annate, etichette tecniche */
-  --ink-faint: #BDB4A8;         /* Linee guida e placeholder */
-
-  /* Accento Ceralacca & Vini Rossi (Bordeaux Wax) */
-  --wine-bordeaux: #6C1A24;     /* Ceralacca bordeaux profonda */
-  --wine-deep: #471118;         /* Barolo granato scuro */
-  --wine-crimson: #8B2332;      /* Nebbiolo vibrante */
-  --wine-soft: #F7EFEF;         /* Sfumatura rosa antico su carta */
-  --wine-border: rgba(108, 26, 36, 0.18);
-
-  /* Accento Foglia d'Oro & Timbro (Antique Gold Foil) */
-  --gold-foil: #B8860B;         /* Oro brunito d'annata */
-  --gold-accent: #C79628;       /* Bagliore metallico etichetta */
-  --gold-light: #DEC069;        /* Riflesso champagne dorato */
-  --gold-soft: #FAF5E6;         /* Sfondo timbri di pregio */
-  --gold-border: rgba(184, 134, 11, 0.28);
-
-  /* Terroir & Bianchi (Verde Pistacchio Oliva #96AB41) */
-  --vine-olive: #6B7D2A;        /* Verde oliva scuro per testo */
-  --vine-sage: #96AB41;         /* Verde pistacchio oliva di riferimento */
-  --vine-soft: #F4F7E6;         /* Sfondo verde tenue */
-  --vine-border: rgba(150, 171, 65, 0.4);
-
-  /* Ambra & Ocra (Orange / Macerati) */
-  --terracotta: #C87D2B;        /* Ocra ambrata per vini orange */
-  --terracotta-soft: #FAF3E8;   /* Sfondo ocra tenue */
-  --terracotta-border: rgba(200, 125, 43, 0.28);
-
-  /* Rosé & Pet Nat */
-  --rose-blush: #B65E6D;
-  --rose-soft: #F9EFF1;
-  --rose-border: rgba(182, 94, 109, 0.22);
-
-  /* --- BORDI, RIFINITURE & TATTILITÀ --- */
-  --border-hairline: 1px solid rgba(43, 37, 33, 0.08);
-  --border-tactile: 1px solid rgba(43, 37, 33, 0.14);
-  --border-strong: 1px solid rgba(43, 37, 33, 0.28);
-  --border-dashed: 1px dashed rgba(43, 37, 33, 0.2);
-  --border-gold-stamp: 1px solid rgba(184, 134, 11, 0.35);
-
-  /* Ombreggiature letterpress & rilievi cartacei */
-  --shadow-sm: 0 1px 2px rgba(27, 22, 19, 0.04);
-  --shadow-card: 0 2px 8px rgba(27, 22, 19, 0.04), 0 12px 28px -6px rgba(27, 22, 19, 0.07);
-  --shadow-elevated: 0 4px 12px rgba(27, 22, 19, 0.06), 0 20px 40px -8px rgba(27, 22, 19, 0.1);
-  --shadow-drawer: -12px 0 48px rgba(27, 22, 19, 0.15);
-  --shadow-letterpress: inset 0 1px 2px rgba(27, 22, 19, 0.08);
-
-  /* Raggi di curvatura (Ispirati a etichette sagomate) */
   --radius-xs: 2px;
   --radius-sm: 4px;
+  --radius-soft: 8px;
   --radius-md: 8px;
   --radius-lg: 12px;
   --radius-xl: 16px;
   --radius-pill: 9999px;
+  --radius-full: 9999px;
 
-  /* Transizioni */
+  /* 4. BORDI */
+  --border-hairline: 1px solid rgba(45, 35, 74, 0.08);
+  --border-tactile: 1px solid rgba(45, 35, 74, 0.14);
+  --border-strong: 1px solid rgba(45, 35, 74, 0.28);
+  --border-dashed: 1px dashed rgba(45, 35, 74, 0.2);
+  --border-accent-stamp: 1px solid rgba(229, 168, 35, 0.45);
+
+  /* 5. OMBRE */
+  --shadow-sm: 0 1px 2px rgba(45, 35, 74, 0.05);
+  --shadow-card: 0 2px 8px rgba(45, 35, 74, 0.05), 0 12px 28px -6px rgba(45, 35, 74, 0.08);
+  --shadow-elevated: 0 4px 12px rgba(45, 35, 74, 0.07), 0 20px 40px -8px rgba(45, 35, 74, 0.12);
+  --shadow-drawer: -12px 0 48px rgba(45, 35, 74, 0.16);
+  --shadow-letterpress: inset 0 1px 2px rgba(45, 35, 74, 0.08);
+
+  /* 6. TRANSIZIONI */
+  --transition-hover: 200ms ease-in-out;
   --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
   --transition-spring: 400ms cubic-bezier(0.175, 0.885, 0.32, 1.15);

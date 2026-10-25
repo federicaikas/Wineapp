@@ -22,7 +22,7 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 export async function exportWinesToExcel(wines: WineBottle[], filename = 'Cantina_Federica.xlsx') {
   const workbook = new ExcelJS.Workbook();
-  workbook.creator = 'Winapp';
+  workbook.creator = 'AFFINAPP';
   const worksheet = workbook.addWorksheet('La Mia Cantina');
 
   worksheet.columns = [

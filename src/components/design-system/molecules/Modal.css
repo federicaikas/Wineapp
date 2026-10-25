@@ -20,7 +20,7 @@
   position: relative;
   width: 100%;
   max-height: 90vh;
-  background: var(--paper-canvas);
+  background: var(--background-base);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-elevated);
   border: var(--border-tactile);
@@ -46,48 +46,48 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: var(--paper-surface);
-  color: var(--ink-secondary);
-  border: 1px solid var(--paper-subtle);
+  background: var(--surface-tint);
+  color: var(--text-secondary);
+  border: 1px solid var(--surface-line);
   cursor: pointer;
   transition: all var(--transition-fast);
   z-index: 2;
 }
 
 .cellar-modal__close-btn:hover {
-  background: var(--wine-soft);
-  color: var(--wine-bordeaux);
+  background: var(--brand-primary-soft);
+  color: var(--brand-primary);
 }
 
 .cellar-modal__header {
   padding: 1.75rem 2rem 1.25rem;
   border-bottom: var(--border-hairline);
-  background: var(--paper-card);
+  background: var(--surface-card);
 }
 
 .cellar-modal__stamp {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-2xs);
   letter-spacing: 0.1em;
-  color: var(--gold-dark);
+  color: var(--accent-secondary-dark);
   text-transform: uppercase;
   display: block;
   margin-bottom: 0.25rem;
 }
 
 .cellar-modal__title {
-  font-family: var(--font-serif-display);
+  font-family: var(--font-heading);
   font-size: var(--text-3xl);
   font-weight: 500;
-  color: var(--ink-dark);
+  color: var(--text-primary);
   line-height: 1.15;
 }
 
 .cellar-modal__subtitle {
-  font-family: var(--font-serif-editorial);
+  font-family: var(--font-body);
   font-style: italic;
   font-size: var(--text-base);
-  color: var(--ink-muted);
+  color: var(--text-muted);
   margin-top: 0.25rem;
 }
 
@@ -105,7 +105,7 @@
   justify-content: flex-end;
   gap: 0.75rem;
   border-top: var(--border-hairline);
-  background: var(--paper-card);
+  background: var(--surface-card);
 }
 
 @keyframes cellar-zoom-in {
@@ -157,9 +157,9 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    background: var(--paper-surface, #FAF7F2);
-    color: var(--ink-dark, #2D234A);
-    border: 1px solid var(--paper-subtle, rgba(45, 35, 74, 0.15));
+    background: var(--surface-tint, #FAF7F2);
+    color: var(--text-primary, #2D234A);
+    border: 1px solid var(--surface-line, rgba(45, 35, 74, 0.15));
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
     display: inline-flex;
     align-items: center;
@@ -171,8 +171,8 @@
 
   .cellar-modal__close-btn:active {
     transform: translateX(-50%) scale(0.92);
-    background: var(--wine-soft, #F7EFEF);
-    color: var(--wine-bordeaux, #722F37);
+    background: var(--brand-primary-soft, #F7EFEF);
+    color: var(--brand-primary);
   }
 
   .cellar-modal__header {
@@ -200,7 +200,7 @@
   .cellar-modal__footer {
     flex-shrink: 0;
     padding: 0.75rem 1rem calc(env(safe-area-inset-bottom, 12px) + 0.75rem);
-    background: var(--paper-card);
+    background: var(--surface-card);
     border-top: var(--border-hairline);
     z-index: 10;
   }

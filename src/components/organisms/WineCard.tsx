@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { WineBottle } from '../../types/wine';
-import { Typography, Divider, Button, StockCounter, MaturityTimeline } from '../design-system';
+import { Typography, Divider, Button, StockCounter } from '../design-system';
 import { Heart, MapPin, Eye } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
 import { formatVintage } from '../../utils/formatters';
@@ -13,6 +13,16 @@ export interface WineCardProps {
   onStockChange: (id: string, delta: number) => void;
   onToggleFavorite: (id: string) => void;
 }
+
+const BAND_STAGES: Array<{ key: 'young' | 'ready' | 'old'; label: string }> = [
+  { key: 'young', label: 'Giovane' },
+  { key: 'ready', label: 'Pronto' },
+  { key: 'old', label: 'Vecchio' },
+];
+
+// Apice rientra in "Pronto"
+const getBandStage = (status: WineBottle['drinkingStatus']) =>
+  status === 'aging' ? 'young' : status === 'past' ? 'old' : 'ready';
 
 const getRackLocation = (loc: string): string => {
   if (loc === 'Rack 1' || loc === 'Rack 2' || loc === 'Rack 3') return loc;
@@ -67,6 +77,17 @@ export const WineCard: React.FC<WineCardProps> = ({
       }`}
       onClick={() => onSelect(wine)}
     >
+      {/* Fascia colorata con stadio di maturazione */}
+      <div className="cellar-wine-card__band" role="img" aria-label={`Stadio: ${BAND_STAGES.find((s) => s.key === getBandStage(wine.drinkingStatus))?.label}`}>
+        {BAND_STAGES.map((s) => (
+          <span
+            key={s.key}
+            className={`cellar-wine-card__band-stage ${s.key === getBandStage(wine.drinkingStatus) ? 'cellar-wine-card__band-stage--active' : ''}`}
+          >
+            {s.label}
+          </span>
+        ))}
+      </div>
       {/* Blocco Titolo Etichetta */}
       <div className="cellar-wine-card__body">
         <div className="cellar-wine-card__producer-row">
@@ -115,11 +136,6 @@ export const WineCard: React.FC<WineCardProps> = ({
         <Typography variant="serif-title" size="sm" color="primary" className="cellar-wine-card__price">
           {formattedPrice}
         </Typography>
-      </div>
-
-      {/* Infografica Stadio di Maturazione (Sotto il Prezzo) */}
-      <div className="cellar-wine-card__timeline-wrapper">
-        <MaturityTimeline status={wine.drinkingStatus} category={wine.category} size="sm" />
       </div>
 
       <Divider variant="hairline" spacing="sm" />

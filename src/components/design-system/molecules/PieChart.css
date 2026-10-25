@@ -33,7 +33,7 @@
   font-size: 0.9rem;
   color: var(--text-muted, #706880);
   font-style: italic;
-  background: var(--paper-canvas, #FAF7F2);
+  background: var(--background-base, #FAF7F2);
   border-radius: var(--radius-soft, 6px);
   margin-top: 1rem;
 }
@@ -130,7 +130,7 @@
   gap: 0.6rem;
   padding: 0.45rem 0.65rem;
   border-radius: var(--radius-soft, 6px);
-  background: var(--paper-canvas, #FAF7F2);
+  background: var(--background-base, #FAF7F2);
   border: 1px solid rgba(45, 35, 74, 0.06);
   transition: all 0.15s ease;
   cursor: pointer;

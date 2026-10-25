@@ -344,7 +344,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Globe size={15} style={{ color: '#722F37' }} />
-                <strong style={{ fontSize: '0.875rem', color: '#2D234A', fontFamily: 'var(--font-sans)' }}>
+                <strong style={{ fontSize: '0.875rem', color: '#2D234A', fontFamily: 'var(--font-body)' }}>
                   Analisi vino con IA
                 </strong>
               </div>

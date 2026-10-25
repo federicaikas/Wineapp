@@ -12,18 +12,18 @@
 }
 
 .cellar-field__label {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--ink-secondary);
+  color: var(--text-secondary);
 }
 
 .cellar-field__stamp {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-2xs);
-  color: var(--gold-dark);
+  color: var(--accent-secondary-dark);
   letter-spacing: 0.05em;
 }
 
@@ -38,7 +38,7 @@
 .cellar-field__icon {
   position: absolute;
   left: 0.85rem;
-  color: var(--ink-muted);
+  color: var(--text-muted);
   display: inline-flex;
   align-items: center;
   pointer-events: none;
@@ -48,10 +48,10 @@
 .cellar-field__select,
 .cellar-field__textarea {
   width: 100%;
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: var(--text-sm);
-  color: var(--ink-primary);
-  background: var(--paper-card);
+  color: var(--text-primary);
+  background: var(--surface-card);
   border: var(--border-tactile);
   border-radius: var(--radius-sm);
   padding: 0.65rem 0.85rem;
@@ -67,7 +67,7 @@
 .cellar-field__select:focus,
 .cellar-field__textarea:focus {
   outline: none;
-  border-color: var(--wine-bordeaux);
+  border-color: var(--brand-primary);
   box-shadow: 0 0 0 3px rgba(108, 26, 36, 0.1), inset 0 1px 2px rgba(27, 22, 19, 0.04);
   background: #FFFFFF;
 }
@@ -82,7 +82,7 @@
   position: absolute;
   right: 0.85rem;
   pointer-events: none;
-  color: var(--ink-muted);
+  color: var(--text-muted);
   font-size: 0.85rem;
 }
 
@@ -94,7 +94,7 @@
 
 .cellar-field__message {
   font-size: var(--text-2xs);
-  color: var(--ink-muted);
+  color: var(--text-muted);
 }
 
 .cellar-field--error .cellar-field__input,

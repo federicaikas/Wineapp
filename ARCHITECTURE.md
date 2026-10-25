@@ -1,8 +1,8 @@
-# ARCHITECTURE.md — Documento Architetturale & Guida Tecnica
+# ARCHITECTURE.md — AFFINAPP: Documento Architetturale & Guida Tecnica
 
 ## 1. Visione & Obiettivi Architetturali
-**CELLAR** è un'applicazione web locale ad altissima fedeltà estetica e zero-friction per collezionisti ed estimatori di vino.  
-L'architettura combina la reattività di **React 18 + TypeScript + Vite** con una persistenza locale client-side basata su **IndexedDB (via Dexie.js)** e un **Design System Vanilla CSS** ispirato all'eleganza editoriale di **O,nice! Studio**.
+**AFFINAPP** è un'applicazione web locale ad altissima fedeltà estetica e zero-friction per collezionisti ed estimatori di vino.  
+L'architettura combina la reattività di **React 18 + TypeScript + Vite** con una persistenza locale client-side basata su **IndexedDB (via Dexie.js)** e un **Design System Vanilla CSS** (viola, panna, ocra).
 
 ---
 
@@ -42,24 +42,20 @@ npm run build
 
 ---
 
-## 4. Design Tokens & Identità Visiva (O,nice! Studio)
+## 4. Design Tokens & Identità Visiva
 
-L'identità si ispira alla tattilità dei supporti cartacei d'arte e alle grandi etichette storiche:
+Fonte di verità: `src/styles/tokens.css` (e `tokens.json`). Logo: `src/assets/affinapp-logo.svg` (viola `#2D234A`).
 
-### Tipografia Sartoriale
-- **Display Serif**: `Fraunces` — Carattere d'autore ad alto contrasto con grazie morbide ed eleganti per i titoli principali e le testate.
-- **Editorial Serif**: `Cormorant Garamond` — Corsivo nobile per produttori, cuvée, note di degustazione e citazioni sensoriali.
-- **Modern Sans**: `Plus Jakarta Sans` — Grotesque geometrico e arioso per leggibilità impeccabile di etichette e metadati.
-- **Technical Monospace**: `Space Mono` — Timbri di lotto, gradazione alcolica, annate e prezzi (`LOT N° 15-B/24`, `14.5% VOL`).
+### Tipografia (solo sans serif)
+- **Display**: `Oswald` (stile DIN) — titoli grandi, nomi vino, numeri.
+- **Heading e testo**: `Montserrat` — titoli di sezione, interfaccia, metadati.
+- **Eyebrow**: `Caveat` — piccole etichette scritte a mano.
 
-### Palette Materica su Fondo Caldo
-- **Canvas Carta Cotone**: `--paper-canvas: #FAF7F2;`, `--paper-surface: #F3ECE1;`, `--paper-card: #FFFFFF;`
-- **Inchiostri di Stampa**: Carbon Ink `--ink-dark: #1A1614;`, Dark Espresso `--ink-primary: #2B2521;`, Grafite `--ink-secondary: #5F564F;`
-- **Ceralacca Bordeaux (Wax Seal)**: `--wine-bordeaux: #6C1A24;`, `--wine-deep: #471118;`, `--wine-soft: #F7EFEF;`
-- **Foglia d'Oro d'Annata (Gold Foil)**: `--gold-foil: #B8860B;`, `--gold-accent: #C79628;`, `--gold-soft: #FAF5E6;`
-- **Terroir & Vigna**: Olive Sage `--vine-olive: #435443;`, Terracotta Amphora `--terracotta: #AD5537;`
-
----
+### Palette
+- **Panna** `--background-base: #FFFDF9`
+- **Viola (brand e testo)** `--brand-primary` / `--text-primary: #2D234A`, `--text-secondary: #4F4766`, `--text-muted: #706880`
+- **Ocra** `--accent-secondary: #E5A823` (testo su chiaro: `--accent-secondary-dark`)
+- **Pistacchio** `--accent-tertiary: #96AB41` (testo su chiaro: `--accent-tertiary-dark`)
 
 ## 5. Struttura del Progetto (Atomic Design)
 
