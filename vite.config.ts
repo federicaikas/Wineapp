@@ -37,6 +37,8 @@ function syncDbPlugin() {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), syncDbPlugin()],
+  // NEXT_PUBLIC_ is the prefix used by the Vercel Supabase integration for client-safe vars
+  envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
   server: {
     port: 5173,
     host: true, // Esponi su localhost e rete locale (IP) per mobile testing
