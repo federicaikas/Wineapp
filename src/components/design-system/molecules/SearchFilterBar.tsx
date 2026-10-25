@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Search, X, ArrowUpDown, SlidersHorizontal, ChevronDown, RotateCcw } from 'lucide-react';
+import { Search, X, ArrowUpDown, SlidersHorizontal, ChevronDown, RotateCcw, Globe } from 'lucide-react';
+import { FlagCircle } from '../atoms/FlagCircle';
 import type { WineCategory } from '../atoms/Badge';
 import './SearchFilterBar.css';
 
 export type SortOption =
+  | 'random'
   | 'date-desc'
   | 'vintage-desc'
   | 'vintage-asc'
@@ -25,6 +27,8 @@ export interface SearchFilterBarProps {
   onSortChange: (sort: SortOption) => void;
   maxPrice?: number;
   onMaxPriceChange?: (price: number) => void;
+  minStock?: number;
+  onMinStockChange?: (n: number) => void;
   viewToggle?: React.ReactNode;
 }
 
@@ -38,12 +42,12 @@ const CATEGORIES: Array<{ key: WineCategory | 'all'; label: string }> = [
   { key: 'dessert', label: 'Dolci' },
 ];
 
-const COUNTRIES: Array<{ key: CountryFilterOption; label: string; flag: string }> = [
-  { key: 'all', label: 'Tutte le Nazioni', flag: '🌐' },
-  { key: 'IT', label: 'IT', flag: '🇮🇹' },
-  { key: 'FR', label: 'FR', flag: '🇫🇷' },
-  { key: 'ES', label: 'ES', flag: '🇪🇸' },
-  { key: 'EE', label: 'EE (Estero)', flag: '🌍' },
+const COUNTRIES: Array<{ key: CountryFilterOption; label: string; flag: React.ReactNode }> = [
+  { key: 'all', label: 'Tutte le Nazioni', flag: <Globe size={15} /> },
+  { key: 'IT', label: 'IT', flag: <FlagCircle flag="IT" size={16} /> },
+  { key: 'FR', label: 'FR', flag: <FlagCircle flag="FR" size={16} /> },
+  { key: 'ES', label: 'ES', flag: <FlagCircle flag="ES" size={16} /> },
+  { key: 'EE', label: 'EE (Estero)', flag: <Globe size={15} /> },
 ];
 
 export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
@@ -57,6 +61,8 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   onSortChange,
   maxPrice = 500,
   onMaxPriceChange,
+  minStock = 1,
+  onMinStockChange,
   viewToggle,
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -64,12 +70,14 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
   const activeFiltersCount =
     (selectedCategory !== 'all' ? 1 : 0) +
     (selectedCountryFilter !== 'all' ? 1 : 0) +
-    (maxPrice < 500 ? 1 : 0);
+    (maxPrice < 500 ? 1 : 0) +
+    (minStock > 1 ? 1 : 0);
 
   const handleResetFilters = () => {
     onCategoryChange('all');
     onCountryFilterChange?.('all');
     onMaxPriceChange?.(500);
+    onMinStockChange?.(1);
   };
 
   return (
@@ -131,6 +139,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                 <option value="date-desc">Recenti prima</option>
                 <option value="vintage-desc">Annata: Più maturi</option>
                 <option value="vintage-asc">Annata: Più giovani</option>
+                <option value="random">Ordine casuale</option>
                 <option value="price-desc">Prezzo: Dal più caro</option>
                 <option value="price-asc">Prezzo: Dal meno caro</option>
                 <option value="stock-desc">Quantità residua</option>
@@ -198,7 +207,20 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
           {onMaxPriceChange && (
             <div className="cellar-filterbar__group" style={{ marginTop: '0.85rem' }}>
               <div className="cellar-filterbar__group-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span>Prezzo Massimo Bottiglia:</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  Prezzo Massimo Bottiglia:
+                  {onMinStockChange && (
+                    <button
+                      type="button"
+                      className={`cellar-filterbar__stock-btn ${minStock > 1 ? 'cellar-filterbar__stock-btn--active' : ''}`}
+                      onClick={() => onMinStockChange(minStock >= 4 ? 1 : minStock + 1)}
+                      title="Bottiglie disponibili: clicca per cambiare (1+, 2+, 3+, 4+)"
+                      aria-label={`Disponibilità minima: ${minStock} o più bottiglie`}
+                    >
+                      {minStock}+ btg.
+                    </button>
+                  )}
+                </span>
                 <strong style={{ color: 'var(--brand-primary)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
                   {maxPrice >= 500 ? 'Qualsiasi prezzo (Nessun limite)' : `Fino a € ${maxPrice}`}
                 </strong>

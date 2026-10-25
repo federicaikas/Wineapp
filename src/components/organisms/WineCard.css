@@ -16,8 +16,9 @@
   cursor: pointer;
   overflow: hidden;
 
-  /* La fascia colorata superiore è l'elemento .cellar-wine-card__band */
+  /* Fascia colorata superiore (il colore arriva dalla categoria) */
   --category-color: var(--accent-tertiary, #7A9A3B);
+  border-top: 14px solid var(--category-color);
 
   /* Scrollytelling Reveal Defaults */
   opacity: 0;
@@ -524,7 +525,7 @@
 .cellar-wine-card--cat-red:hover::before,
 .cellar-wine-card--cat-white:hover::before,
 .cellar-wine-card--cat-orange:hover::before {
-  bottom: -610px; /* Mostra 90px */
+  bottom: -664px; /* 36px visibili */
   opacity: 0.35;
   animation: intertwine-wave 9s linear infinite;
 }
@@ -532,7 +533,7 @@
 .cellar-wine-card--cat-red:hover::after,
 .cellar-wine-card--cat-white:hover::after,
 .cellar-wine-card--cat-orange:hover::after {
-  bottom: -600px; /* Mostra 100px */
+  bottom: -660px; /* 40px visibili */
   opacity: 0.3;
   animation: intertwine-wave 7s linear infinite reverse;
 }
@@ -540,7 +541,7 @@
 .cellar-wine-card--cat-red:hover .cellar-wine-card__body::before,
 .cellar-wine-card--cat-white:hover .cellar-wine-card__body::before,
 .cellar-wine-card--cat-orange:hover .cellar-wine-card__body::before {
-  bottom: -590px; /* Mostra 110px */
+  bottom: -656px; /* 44px visibili */
   opacity: 0.25;
   animation: intertwine-wave 11s linear infinite;
 }
@@ -548,7 +549,7 @@
 .cellar-wine-card--cat-red:hover .cellar-wine-card__body::after,
 .cellar-wine-card--cat-white:hover .cellar-wine-card__body::after,
 .cellar-wine-card--cat-orange:hover .cellar-wine-card__body::after {
-  bottom: -580px; /* Mostra 120px */
+  bottom: -652px; /* 48px visibili */
   opacity: 0.4;
   animation: intertwine-wave 8s linear infinite reverse;
 }
@@ -649,44 +650,103 @@
 
 
 
-/* Fascia colorata con stadio di maturazione (Giovane · Pronto · Vecchio) */
-.cellar-wine-card__band {
-  display: flex;
+/* Voce "Stato" nell'elenco: pallino del colore della categoria + testo */
+.cellar-wine-card__status {
+  display: inline-flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 0.25rem;
-  min-height: 34px;
-  padding: 0.3rem 0.6rem;
-  /* a tutta larghezza, annulla il padding della card */
-  margin: calc(-1 * var(--space-4, 24px)) calc(-1 * var(--space-4, 24px)) var(--space-3, 16px);
-  position: relative;
-  z-index: 1;
-  background: var(--category-color);
-  color: #FFFFFF;
+  gap: 0.4rem;
 }
 
-.cellar-wine-card__band-stage {
+.cellar-wine-card__status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--category-color);
+  box-shadow: 0 0 0 1px rgba(45, 35, 74, 0.15);
+}
+
+/* Footer: quattro pallini (paese, scheda, preferiti, numero) */
+.cellar-wine-card__footer {
+  justify-content: flex-end;
+}
+
+.cellar-wine-card__footer .cellar-wine-card__round {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(45, 35, 74, 0.14);
+  background-color: #FFFFFF;
+  color: var(--text-muted, #706880);
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.cellar-wine-card__footer .cellar-wine-card__round:hover,
+.cellar-wine-card__footer .cellar-wine-card__round:focus-visible {
+  background-color: var(--brand-primary, #2D234A);
+  border-color: var(--brand-primary, #2D234A);
+  color: #FFFDF9;
+}
+
+.cellar-wine-card__flag-btn,
+.cellar-wine-card__qty {
+  cursor: default;
+}
+
+.cellar-wine-card__qty {
   font-family: var(--font-body);
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: 0.2rem 0.7rem;
-  border-radius: var(--radius-pill);
-  opacity: 0.8;
-  line-height: 1.2;
-}
-
-.cellar-wine-card__band-stage--active {
-  background: #FFFFFF;
-  color: var(--text-primary);
-  opacity: 1;
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(45, 35, 74, 0.2);
+  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
-/* Categorie chiare: testo scuro per contrasto */
-.cellar-wine-card--cat-white .cellar-wine-card__band,
-.cellar-wine-card--cat-sparkling .cellar-wine-card__band {
-  color: var(--text-primary);
+/* Cuore: micro-animazione quando una bottiglia viene aggiunta ai preferiti */
+.cellar-wine-card__fav-btn--pop svg {
+  animation: cellar-heart-pop 650ms cubic-bezier(0.2, 0.9, 0.3, 1.3);
+}
+
+.cellar-wine-card__fav-btn--pop::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 2px solid #F3AB19;
+  pointer-events: none;
+  animation: cellar-heart-ring 650ms ease-out forwards;
+}
+
+@keyframes cellar-heart-pop {
+  0% { transform: scale(0.6); }
+  35% { transform: scale(1.45) rotate(-8deg); }
+  60% { transform: scale(0.92) rotate(4deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes cellar-heart-ring {
+  0% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1.7); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cellar-wine-card__fav-btn--pop svg,
+  .cellar-wine-card__fav-btn--pop::after {
+    animation: none;
+  }
+}
+
+/* I quattro pallini restano sempre su una riga */
+.cellar-wine-card__footer,
+.cellar-wine-card__footer-actions {
+  flex-wrap: nowrap;
+}
+
+.cellar-wine-card__footer-actions {
+  gap: 8px;
 }

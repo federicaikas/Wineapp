@@ -5,7 +5,7 @@ export interface PieChartDataItem {
   label: string;
   value: number;
   color: string;
-  icon?: string;
+  icon?: React.ReactNode;
 }
 
 export interface PieChartProps {

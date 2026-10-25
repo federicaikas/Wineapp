@@ -538,3 +538,21 @@
 
 
 
+
+/* Bottone centrale "Analisi del vino con AI" */
+.cellar-detail-content__ai-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.25rem 0 1.25rem;
+}
+
+.cellar-detail-content__ai-cta-note {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #2D6A35;
+  text-align: center;
+}

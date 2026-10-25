@@ -1,4 +1,5 @@
 export type CountryCode = 'IT' | 'FR' | 'ES' | 'EE';
+export type FlagKey = 'IT' | 'FR' | 'ES' | 'DE' | 'AT' | 'PT' | 'CH' | 'US' | 'SI' | 'HU' | 'AR' | 'CL';
 
 const ITALIAN_REGIONS = [
   'abruzzo', 'basilicata', 'calabria', 'campania', 'emilia', 'romagna',
@@ -78,31 +79,24 @@ export const getWineCountryCode = (wine: {
 };
 
 /**
- * Helper per mappare paese, regione o denominazione alla relativa emoji bandiera
+ * Codice della bandiera flat da mostrare (null se il paese non e' riconosciuto).
  */
-export const getCountryFlag = (country?: string, region?: string, appellation?: string): string => {
+export const getFlagKey = (country?: string, region?: string, appellation?: string): FlagKey | null => {
   const combined = `${country || ''} ${region || ''} ${appellation || ''}`.toLowerCase().trim();
-  if (!combined) return '';
+  if (!combined) return null;
 
   const code = getWineCountryCode({ country, region, appellation });
-  if (code === 'IT') return '🇮🇹';
-  if (code === 'FR') return '🇫🇷';
-  if (code === 'ES') return '🇪🇸';
+  if (code === 'IT' || code === 'FR' || code === 'ES') return code;
 
-  if (combined.includes('germania') || combined.includes('germany') || combined.includes('mosel') || combined.includes('de')) return '🇩🇪';
-  if (combined.includes('portogallo') || combined.includes('portugal') || combined.includes('pt')) return '🇵🇹';
-  if (combined.includes('stati uniti') || combined.includes('usa') || combined.includes('us')) return '🇺🇸';
-  if (combined.includes('austria') || combined.includes('at')) return '🇦🇹';
-  if (combined.includes('svizzera') || combined.includes('switzerland') || combined.includes('ch')) return '🇨🇭';
-  if (combined.includes('slovenia') || combined.includes('vipava')) return '🇸🇮';
-  if (combined.includes('ungheria') || combined.includes('tokaj')) return '🇭🇺';
-  if (combined.includes('australia') || combined.includes('au')) return '🇦🇺';
-  if (combined.includes('nuova zelanda') || combined.includes('new zealand') || combined.includes('nz')) return '🇳🇿';
-  if (combined.includes('cile') || combined.includes('chile') || combined.includes('cl')) return '🇨🇱';
-  if (combined.includes('argentina') || combined.includes('ar')) return '🇦🇷';
-  if (combined.includes('sudafrica') || combined.includes('south africa') || combined.includes('za')) return '🇿🇦';
-
-  return '';
+  const has = (...keys: string[]) => keys.some((k) => combined.includes(k));
+  if (has('germania', 'germany', 'deutschland', 'mosel')) return 'DE';
+  if (has('portogallo', 'portugal', 'douro')) return 'PT';
+  if (has('stati uniti', 'usa', 'california', 'napa', 'oregon')) return 'US';
+  if (has('austria', 'österreich')) return 'AT';
+  if (has('svizzera', 'switzerland', 'schweiz')) return 'CH';
+  if (has('slovenia', 'slovenija', 'vipava')) return 'SI';
+  if (has('ungheria', 'hungary', 'tokaj')) return 'HU';
+  if (has('argentina', 'mendoza')) return 'AR';
+  if (has('cile', 'chile')) return 'CL';
+  return null;
 };
-
-

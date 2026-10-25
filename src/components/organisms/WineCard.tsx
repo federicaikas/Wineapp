@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { WineBottle } from '../../types/wine';
-import { Typography, Divider, Button, StockCounter } from '../design-system';
+import { Typography, Button } from '../design-system';
 import { Heart, MapPin, Eye } from 'lucide-react';
-import { getCountryFlag } from '../../utils/countryFlags';
+import { getFlagKey } from '../../utils/countryFlags';
+import { FlagCircle } from '../design-system/atoms/FlagCircle';
 import { formatVintage } from '../../utils/formatters';
 import './WineCard.css';
 
@@ -14,15 +15,13 @@ export interface WineCardProps {
   onToggleFavorite: (id: string) => void;
 }
 
-const BAND_STAGES: Array<{ key: 'young' | 'ready' | 'old'; label: string }> = [
-  { key: 'young', label: 'Giovane' },
-  { key: 'ready', label: 'Pronto' },
-  { key: 'old', label: 'Vecchio' },
-];
-
-// Apice rientra in "Pronto"
-const getBandStage = (status: WineBottle['drinkingStatus']) =>
-  status === 'aging' ? 'young' : status === 'past' ? 'old' : 'ready';
+// Stato di maturazione mostrato come voce dell'elenco (Apice rientra in "Pronto")
+const STATUS_LABEL: Record<WineBottle['drinkingStatus'], string> = {
+  aging: 'Giovane',
+  ready: 'Pronto',
+  peak: 'Pronto',
+  past: 'Vecchio',
+};
 
 const getRackLocation = (loc: string): string => {
   if (loc === 'Rack 1' || loc === 'Rack 2' || loc === 'Rack 3') return loc;
@@ -34,12 +33,12 @@ const getRackLocation = (loc: string): string => {
 export const WineCard: React.FC<WineCardProps> = ({
   wine,
   onSelect,
-  onStockChange,
   onToggleFavorite,
 }) => {
   const isOutOfStock = wine.stock <= 0;
   const [isRevealed, setIsRevealed] = useState(() => typeof IntersectionObserver === 'undefined');
   const cardRef = useRef<HTMLElement | null>(null);
+  const [heartPop, setHeartPop] = useState(false);
 
   useEffect(() => {
     const el = cardRef.current;
@@ -77,28 +76,12 @@ export const WineCard: React.FC<WineCardProps> = ({
       }`}
       onClick={() => onSelect(wine)}
     >
-      {/* Fascia colorata con stadio di maturazione */}
-      <div className="cellar-wine-card__band" role="img" aria-label={`Stadio: ${BAND_STAGES.find((s) => s.key === getBandStage(wine.drinkingStatus))?.label}`}>
-        {BAND_STAGES.map((s) => (
-          <span
-            key={s.key}
-            className={`cellar-wine-card__band-stage ${s.key === getBandStage(wine.drinkingStatus) ? 'cellar-wine-card__band-stage--active' : ''}`}
-          >
-            {s.label}
-          </span>
-        ))}
-      </div>
       {/* Blocco Titolo Etichetta */}
       <div className="cellar-wine-card__body">
         <div className="cellar-wine-card__producer-row">
           <Typography variant="body-sm" color="secondary" className="cellar-wine-card__producer">
             {wine.producer}
           </Typography>
-          {getCountryFlag(wine.country) ? (
-            <span className="cellar-wine-card__flag-badge" title={wine.country || 'Paese'}>
-              {getCountryFlag(wine.country)}
-            </span>
-          ) : null}
         </div>
 
         <Typography variant="serif-title" size="md" className="cellar-wine-card__name">
@@ -116,6 +99,12 @@ export const WineCard: React.FC<WineCardProps> = ({
           <tr>
             <th>Annata</th>
             <td>{formatVintage(wine.vintage)}</td>
+          </tr>
+          <tr>
+            <th>Stato</th>
+            <td>
+              <span className="cellar-wine-card__status">{STATUS_LABEL[wine.drinkingStatus] ?? 'Pronto'}</span>
+            </td>
           </tr>
           <tr>
             <th>Vitigni</th>
@@ -138,24 +127,25 @@ export const WineCard: React.FC<WineCardProps> = ({
         </Typography>
       </div>
 
-      <Divider variant="hairline" spacing="sm" />
-
-      {/* Footer con Gestione Bottiglie & Azioni */}
+      {/* Footer: paese, scheda, preferiti, numero bottiglie */}
       <div className="cellar-wine-card__footer" onClick={(e) => e.stopPropagation()}>
-        <StockCounter
-          count={wine.stock}
-          size="sm"
-          onIncrement={() => onStockChange(wine.id, 1)}
-          onDecrement={() => onStockChange(wine.id, -1)}
-        />
-
         <div className="cellar-wine-card__footer-actions">
+          <span
+            className="cellar-wine-card__round cellar-wine-card__flag-btn"
+            title={wine.country || 'Paese'}
+            role="img"
+            aria-label={wine.country || 'Paese'}
+          >
+            <FlagCircle flag={getFlagKey(wine.country, wine.region, wine.appellation)} size={20} />
+          </span>
+
           <Button
             variant="outline"
             size="sm"
             icon={<Eye size={14} />}
             title="Scheda"
             aria-label="Scheda"
+            className="cellar-wine-card__round"
             onClick={(e) => {
               e.stopPropagation();
               onSelect(wine);
@@ -164,9 +154,13 @@ export const WineCard: React.FC<WineCardProps> = ({
 
           <button
             type="button"
-            className={`cellar-wine-card__fav-btn ${wine.favorite ? 'cellar-wine-card__fav-btn--active' : ''}`}
+            className={`cellar-wine-card__round cellar-wine-card__fav-btn ${wine.favorite ? 'cellar-wine-card__fav-btn--active' : ''} ${heartPop ? 'cellar-wine-card__fav-btn--pop' : ''}`}
             onClick={(e) => {
               e.stopPropagation();
+              if (!wine.favorite) {
+                setHeartPop(true);
+                window.setTimeout(() => setHeartPop(false), 750);
+              }
               onToggleFavorite(wine.id);
             }}
             aria-label={wine.favorite ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}
@@ -174,9 +168,16 @@ export const WineCard: React.FC<WineCardProps> = ({
           >
             <Heart size={16} fill={wine.favorite ? 'currentColor' : 'none'} />
           </button>
+
+          <span
+            className="cellar-wine-card__round cellar-wine-card__qty"
+            title={`${wine.stock} ${wine.stock === 1 ? 'bottiglia' : 'bottiglie'}`}
+            aria-label={`${wine.stock} ${wine.stock === 1 ? 'bottiglia' : 'bottiglie'}`}
+          >
+            X{wine.stock}
+          </span>
         </div>
       </div>
-
 
       {/* Timbro di Esaurimento se le scorte sono a 0 */}
       {isOutOfStock && (

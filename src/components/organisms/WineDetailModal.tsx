@@ -3,8 +3,9 @@ import confetti from 'canvas-confetti';
 import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
-import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Globe, Calculator, Search, X } from 'lucide-react';
-import { getCountryFlag } from '../../utils/countryFlags';
+import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Calculator, Search, X } from 'lucide-react';
+import { getFlagKey } from '../../utils/countryFlags';
+import { FlagCircle } from '../design-system/atoms/FlagCircle';
 import { calculateWineOptimalDrinkingWindow, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
 import { formatVintage } from '../../utils/formatters';
 import './WineDetailModal.css';
@@ -196,7 +197,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
         <div className="cellar-detail-content__header">
           <div className="cellar-detail-content__title-block" style={{ flex: 1 }}>
             {/* Titolo Etichetta: Produttore -> Titolo DIN Bold -> Denominazione in colore */}
-            <div className={`cellar-wine-card cellar-wine-card--cat-${wine.category}`} style={{ background: 'transparent', border: 'none', boxShadow: 'none', padding: 0 }}>
+            <div className={`cellar-wine-card cellar-wine-card--cat-${wine.category}`} style={{ background: 'transparent', border: 'none', boxShadow: 'none', padding: 0, opacity: 1, transform: 'none', animation: 'none' }}>
               <div className="cellar-wine-card__producer-row" style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', gap: '6px' }}>
                 <Typography variant="body-sm" color="secondary" className="cellar-wine-card__producer">
                   {wine.producer}
@@ -218,7 +219,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             href={`https://www.google.com/search?q=${encodeURIComponent(`${wine.name} ${wine.producer}`)}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ textDecoration: 'none', flexShrink: 0, alignSelf: 'flex-start' }}
+            style={{ textDecoration: 'none', flexShrink: 0, alignSelf: 'flex-start', marginRight: '2.75rem' }}
           >
             <Button
               variant="outline"
@@ -243,26 +244,27 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
             <tr>
               <td colSpan={2} style={{ padding: '6px 0' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '1.25rem' }}>{getCountryFlag(wine.country)}</span>
+                  <FlagCircle flag={getFlagKey(wine.country, wine.region, wine.appellation)} size={22} />
                   <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Regione</strong>{' '}<strong>{wine.region}</strong></span>
                   <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
                   <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Zona</strong>{' '}<strong>{wine.appellation}</strong></span>
+                  <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
+                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Annata</strong>{' '}<strong>{formatVintage(wine.vintage)}</strong></span>
                 </div>
               </td>
             </tr>
             <tr>
-              <th style={{ width: '30%', padding: '6px 8px 6px 0' }}>Annata</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{formatVintage(wine.vintage)}</td>
-            </tr>
-            {wine.subCategory && (
-              <tr>
-                <th style={{ padding: '6px 8px 6px 0' }}>Tipologia</th>
-                <td style={{ padding: '6px 0 6px 8px', fontWeight: 600, color: '#3B1B54' }}>{wine.subCategory}</td>
-              </tr>
-            )}
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Vitigni</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.grapes?.join(', ') || 'Autoctono'}</td>
+              <td colSpan={2} style={{ padding: '6px 0' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                  {wine.subCategory && (
+                    <>
+                      <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tipologia</strong>{' '}<strong style={{ color: '#3B1B54' }}>{wine.subCategory}</strong></span>
+                      <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
+                    </>
+                  )}
+                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Vitigni</strong>{' '}<strong>{wine.grapes?.join(', ') || 'Autoctono'}</strong></span>
+                </div>
+              </td>
             </tr>
             <tr>
               <th style={{ padding: '6px 8px 6px 0' }}>Gradazione / Formato</th>
@@ -333,60 +335,19 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
 
         {/* Profilo Sensoriale & Degustazione */}
         <div className="cellar-detail-content__tasting-section">
-          {/* Blocco Input Analisi Automatica con IA */}
-          <div style={{
-            background: '#FBF9F5',
-            border: '1px solid rgba(45,35,74,0.12)',
-            borderRadius: '10px',
-            padding: '14px 16px',
-            marginBottom: '16px',
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '8px', marginBottom: '6px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <Globe size={15} style={{ color: '#722F37' }} />
-                <strong style={{ fontSize: '0.875rem', color: '#2D234A', fontFamily: 'var(--font-body)' }}>
-                  Analisi vino con IA
-                </strong>
-              </div>
-              <span style={{ fontSize: '0.7rem', padding: '2px 8px', borderRadius: '4px', background: '#F5E1DA', color: '#722F37', fontWeight: 600 }}>
-                ✨ Ricerca ed Estrazione con IA
-              </span>
-            </div>
-
-            <p style={{ fontSize: '0.775rem', color: '#6E6259', margin: '0 0 10px 0' }}>
-              Cliccando "Analizza", l'IA cercherà su Google, analizzerà i primi 5 siti web e confronterà i dati per restituire un'analisi con i profumi principali, le caratteristiche sensoriali e gli abbinamenti. <em>(Annata {formatVintage(wine.vintage)} e prezzo €{wine.price} rimarranno inalterati)</em>.
-            </p>
-
-            <div style={{ display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'flex-end' }}>
-              <Button
-                variant="primary"
-                size="sm"
-                icon={<Sparkles size={14} />}
-                loading={isAnalyzingWebsite}
-                onClick={handleAnalyzeAutomatic}
-                style={{ flexShrink: 0 }}
-              >
-                {isAnalyzingWebsite ? 'Analisi IA...' : 'ANALIZZA'}
-              </Button>
-            </div>
-
+          {/* Analisi del vino con IA: un solo bottone, poi compaiono palato e abbinamenti */}
+          <div className="cellar-detail-content__ai-cta">
+            <Button
+              variant="primary"
+              size="lg"
+              icon={<Sparkles size={16} />}
+              loading={isAnalyzingWebsite}
+              onClick={handleAnalyzeAutomatic}
+            >
+              {isAnalyzingWebsite ? 'ANALISI IN CORSO...' : 'ANALISI DEL VINO CON AI'}
+            </Button>
             {websiteAnalysisSuccess && (
-              <div style={{
-                fontSize: '0.8rem',
-                color: '#2D6A35',
-                background: '#EDF7EE',
-                border: '1px solid #C8E6CA',
-                borderRadius: '6px',
-                padding: '8px 10px',
-                marginTop: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-                fontWeight: 500,
-              }}>
-                <Sparkles size={14} style={{ flexShrink: 0 }} />
-                <span>{websiteAnalysisSuccess}</span>
-              </div>
+              <p className="cellar-detail-content__ai-cta-note">{websiteAnalysisSuccess}</p>
             )}
           </div>
 

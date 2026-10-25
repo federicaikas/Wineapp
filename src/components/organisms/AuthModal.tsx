@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
-import { X, Mail, Lock, User, AlertCircle, CheckCircle2, Loader2, Sparkles } from 'lucide-react';
+import { X, Mail, Lock, User, AlertCircle, CheckCircle2, Loader2 } from 'lucide-react';
 import './AuthModal.css';
 
 export interface AuthCardProps {
@@ -117,10 +117,6 @@ export const AuthCard: React.FC<AuthCardProps> = ({
 
       {/* Header Editoriale */}
       <div className="auth-modal-header">
-        <div className="auth-modal-badge">
-          <Sparkles size={13} />
-          <span>Cantina Privata</span>
-        </div>
         <h2 className="auth-modal-title">
           {isLogin ? 'Accedi al tuo Caveau' : 'Crea la tua Cantina'}
         </h2>

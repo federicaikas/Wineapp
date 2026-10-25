@@ -3,7 +3,8 @@ import type { WineBottle, CellarStats } from '../../types/wine';
 import { PieChart, type PieChartDataItem } from '../design-system/molecules/PieChart';
 import { Button } from '../design-system';
 import { ItalyRegionMap } from '../organisms/ItalyRegionMap';
-import { getCountryFlag } from '../../utils/countryFlags';
+import { getFlagKey } from '../../utils/countryFlags';
+import { FlagCircle } from '../design-system/atoms/FlagCircle';
 import { ArrowLeft, Globe, Wine, Award, Landmark } from 'lucide-react';
 import './CellarStatsPage.css';
 
@@ -68,11 +69,11 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
     label: countryName,
     value: count,
     color: COUNTRY_COLORS[idx % COUNTRY_COLORS.length],
-    icon: getCountryFlag(countryName),
+    icon: <FlagCircle flag={getFlagKey(countryName)} size={16} />,
   }));
 
   const topCountry = sortedCountries.length > 0 ? sortedCountries[0][0] : 'Nessuno';
-  const topCountryFlag = sortedCountries.length > 0 ? getCountryFlag(sortedCountries[0][0]) : '🍷';
+  const topCountryFlag = <FlagCircle flag={sortedCountries.length > 0 ? getFlagKey(sortedCountries[0][0]) : null} size={20} />;
 
   const formattedTotalValue = new Intl.NumberFormat('it-IT', {
     style: 'currency',
@@ -154,7 +155,9 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
             <div>
               <span className="cellar-stats-kpi__label">Paese Principale</span>
               <span className="cellar-stats-kpi__value">
-                {topCountryFlag} {topCountry}
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                  {topCountryFlag} {topCountry}
+                </span>
               </span>
             </div>
           </div>

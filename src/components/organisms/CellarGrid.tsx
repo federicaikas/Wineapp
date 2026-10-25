@@ -23,6 +23,8 @@ export interface CellarGridProps {
   onSortChange: (sort: SortOption) => void;
   maxPrice?: number;
   onMaxPriceChange?: (price: number) => void;
+  minStock?: number;
+  onMinStockChange?: (n: number) => void;
   onSelectWine: (wine: WineBottle) => void;
   onEditWine: (wine: WineBottle) => void;
   onStockChange: (id: string, delta: number) => void;
@@ -44,6 +46,8 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
   onSortChange,
   maxPrice,
   onMaxPriceChange,
+  minStock,
+  onMinStockChange,
   onSelectWine,
   onEditWine,
   onStockChange,
@@ -55,7 +59,7 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
   const [visibleCount, setVisibleCount] = useState<number>(INITIAL_BATCH_SIZE);
 
   // Resetta il conteggio visualizzato al mutare dei filtri o della ricerca senza cascading effect
-  const filterKey = `${searchQuery}_${selectedCategory}_${selectedCountryFilter}_${selectedSort}_${maxPrice}`;
+  const filterKey = `${searchQuery}_${selectedCategory}_${selectedCountryFilter}_${selectedSort}_${maxPrice}_${minStock}`;
   const [prevFilterKey, setPrevFilterKey] = useState(filterKey);
 
   if (prevFilterKey !== filterKey) {
@@ -185,6 +189,8 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           onSortChange={onSortChange}
           maxPrice={maxPrice}
           onMaxPriceChange={onMaxPriceChange}
+          minStock={minStock}
+          onMinStockChange={onMinStockChange}
           viewToggle={viewToggleElement}
         />
       </div>
@@ -195,13 +201,15 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           searchQuery.trim().length > 0 ||
           selectedCategory !== 'all' ||
           (selectedCountryFilter && selectedCountryFilter !== 'all') ||
-          (maxPrice !== undefined && maxPrice < 500);
+          (maxPrice !== undefined && maxPrice < 500) ||
+          (minStock !== undefined && minStock > 1);
 
         const handleResetAllFilters = () => {
           onSearchChange('');
           onCategoryChange('all');
           onCountryFilterChange?.('all');
           onMaxPriceChange?.(500);
+          onMinStockChange?.(1);
         };
 
         return (

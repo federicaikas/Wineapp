@@ -104,6 +104,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         email,
         password,
         options: {
+          // Il link di conferma riporta al sito da cui ti sei registrata (Vercel o localhost)
+          emailRedirectTo: window.location.origin,
           data: {
             full_name: fullName || '',
           },

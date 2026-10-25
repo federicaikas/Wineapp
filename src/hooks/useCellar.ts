@@ -20,9 +20,14 @@ export function useCellar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<WineCategory | 'all'>('all');
   const [selectedCountryFilter, setSelectedCountryFilter] = useState<'all' | 'IT' | 'FR' | 'ES' | 'EE'>('all');
-  const [selectedSort, setSelectedSort] = useState<SortOption>('date-desc');
+  const [selectedSort, setSelectedSort] = useState<SortOption>('random');
+  // Seme dell'ordine casuale: cambia ad ogni "reshuffle" (clic sulla Home) e al caricamento
+  const [shuffleSeed, setShuffleSeed] = useState<number>(() => Math.floor(Math.random() * 2147483647));
+  const reshuffle = useCallback(() => setShuffleSeed(Math.floor(Math.random() * 2147483647)), []);
   const [filterFavoritesOnly, setFilterFavoritesOnly] = useState(false);
   const [maxPrice, setMaxPrice] = useState<number>(500);
+  // Disponibilità minima: mostra solo vini con almeno N bottiglie (1 = nessun filtro extra)
+  const [minStock, setMinStock] = useState<number>(1);
   const [selectedWine, setSelectedWine] = useState<WineBottle | null>(null);
   const [isAddDrawerOpen, setIsAddDrawerOpen] = useState(false);
   const [editingWine, setEditingWine] = useState<WineBottle | null>(null);
@@ -56,7 +61,7 @@ export function useCellar() {
   // Filtraggio e Ordinamento (Mostra solo le bottiglie presenti in cantina con stock > 0)
   const filteredWines = allWines.filter((wine) => {
     // Le bottiglie con scorte esaurite (stock <= 0) sconsigliano dalla cantina e vanno in "Stappate"
-    if (wine.stock <= 0) {
+    if (wine.stock <= 0 || wine.stock < minStock) {
       return false;
     }
     // Filtro per prezzo massimo (500 corrisponde al limite massimo "Qualsiasi prezzo / Nessun limite")
@@ -94,8 +99,19 @@ export function useCellar() {
   });
 
   // Ordinamento
+  const randomKey = (id: string): number => {
+    let h = 2166136261 ^ shuffleSeed;
+    for (let i = 0; i < id.length; i++) {
+      h ^= id.charCodeAt(i);
+      h = Math.imul(h, 16777619);
+    }
+    return (h >>> 0) / 4294967295;
+  };
+
   filteredWines.sort((a, b) => {
     switch (selectedSort) {
+      case 'random':
+        return randomKey(a.id) - randomKey(b.id);
       case 'date-desc':
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       case 'vintage-desc':
@@ -211,10 +227,13 @@ export function useCellar() {
     setSelectedCountryFilter,
     selectedSort,
     setSelectedSort,
+    reshuffle,
     filterFavoritesOnly,
     setFilterFavoritesOnly,
     maxPrice,
     setMaxPrice,
+    minStock,
+    setMinStock,
     selectedWine,
     setSelectedWine,
     isAddDrawerOpen,

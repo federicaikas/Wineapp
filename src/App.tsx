@@ -39,10 +39,13 @@ function CellarAppContent() {
     setSelectedCountryFilter,
     selectedSort,
     setSelectedSort,
+    reshuffle,
     filterFavoritesOnly,
     setFilterFavoritesOnly,
     maxPrice,
     setMaxPrice,
+    minStock,
+    setMinStock,
     selectedWine,
     setSelectedWine,
     isAddDrawerOpen,
@@ -67,6 +70,9 @@ function CellarAppContent() {
     setSelectedCountryFilter('all');
     setFilterFavoritesOnly(false);
     setSelectedWine(null);
+    // Ordine casuale e sempre diverso ad ogni clic sulla Home
+    setSelectedSort('random');
+    reshuffle();
   };
 
   const handleOpenRandomWine = () => {
@@ -151,6 +157,8 @@ function CellarAppContent() {
             onSortChange={setSelectedSort}
             maxPrice={maxPrice}
             onMaxPriceChange={setMaxPrice}
+            minStock={minStock}
+            onMinStockChange={setMinStock}
             onSelectWine={(wine) => setSelectedWine(wine)}
             onEditWine={(wine) => setEditingWine(wine)}
             onStockChange={handleStockChange}
