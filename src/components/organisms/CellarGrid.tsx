@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Tag } from '../design-system';
+import { EmptyState, Badge, FeatureCard, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List } from 'lucide-react';
+import { LayoutGrid, List, ChevronDown, Check } from 'lucide-react';
 import './CellarGrid.css';
+
+const INITIAL_BATCH_SIZE = 10;
+const BATCH_INCREMENT = 10;
 
 export interface CellarGridProps {
   wines: WineBottle[];
@@ -49,6 +52,30 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
   onOpenStats,
 }) => {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [visibleCount, setVisibleCount] = useState<number>(INITIAL_BATCH_SIZE);
+
+  // Resetta il conteggio visualizzato al mutare dei filtri o della ricerca senza cascading effect
+  const filterKey = `${searchQuery}_${selectedCategory}_${selectedCountryFilter}_${selectedSort}_${maxPrice}`;
+  const [prevFilterKey, setPrevFilterKey] = useState(filterKey);
+
+  if (prevFilterKey !== filterKey) {
+    setPrevFilterKey(filterKey);
+    setVisibleCount(INITIAL_BATCH_SIZE);
+  }
+
+  const totalWinesCount = wines.length;
+  const displayedWines = wines.slice(0, visibleCount);
+  const hasMore = visibleCount < totalWinesCount;
+  const remainingCount = totalWinesCount - visibleCount;
+  const nextBatchSize = Math.min(BATCH_INCREMENT, remainingCount);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + BATCH_INCREMENT, totalWinesCount));
+  };
+
+  const handleShowAll = () => {
+    setVisibleCount(totalWinesCount);
+  };
 
   const viewToggleElement = (
     <div className="cellar-view-toggle" role="group" aria-label="Modalità visualizzazione">
@@ -158,107 +185,159 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           actionLabel={searchQuery ? 'Azzera Ricerca' : 'Aggiungi la Prima Bottiglia'}
           onAction={searchQuery ? () => onSearchChange('') : onOpenAdd}
         />
-      ) : viewMode === 'grid' ? (
-        /* Vista a Griglia Etichette */
-        <div className="cellar-cards-grid">
-          {wines.map((wine) => (
-            <WineCard
-              key={wine.id}
-              wine={wine}
-              onSelect={onSelectWine}
-              onEdit={onEditWine}
-              onStockChange={onStockChange}
-              onToggleFavorite={onToggleFavorite}
-            />
-          ))}
-        </div>
       ) : (
-        /* Vista a Registro Sartoriale (Elenco Dettagliato) */
-        <div className="cellar-list-ledger">
-          <div className="cellar-list-ledger__header">
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-wine">Vino &amp; Produttore</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-vintage">Millesimo</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-category">Tipologia</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-status">Stato Beva</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-rating">Critica</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-stock">Scorte</Typography>
-            <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-price">Valore</Typography>
-          </div>
+        <>
+          {viewMode === 'grid' ? (
+            /* Vista a Griglia Etichette */
+            <div className="cellar-cards-grid">
+              {displayedWines.map((wine) => (
+                <WineCard
+                  key={wine.id}
+                  wine={wine}
+                  onSelect={onSelectWine}
+                  onEdit={onEditWine}
+                  onStockChange={onStockChange}
+                  onToggleFavorite={onToggleFavorite}
+                />
+              ))}
+            </div>
+          ) : (
+            /* Vista a Registro Sartoriale (Elenco Dettagliato) */
+            <div className="cellar-list-ledger">
+              <div className="cellar-list-ledger__header">
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-wine">Vino &amp; Produttore</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-vintage">Millesimo</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-category">Tipologia</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-status">Stato Beva</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-rating">Critica</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-stock">Scorte</Typography>
+                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-price">Valore</Typography>
+              </div>
 
-          <div className="cellar-list-ledger__body">
-            {wines.map((wine) => (
-              <div
-                key={wine.id}
-                className="cellar-list-row"
-                onClick={() => onSelectWine(wine)}
-              >
-                <div className="cellar-list-ledger__col-wine">
-                  <Typography variant="serif-italic" color="secondary" className="cellar-list-row__producer">
-                    {wine.producer}
-                  </Typography>
-                  <Typography variant="serif-title" size="sm" className="cellar-list-row__name">
-                    {wine.name}
-                  </Typography>
-                  <Typography variant="body-sm" color="muted" className="cellar-list-row__appellation">
-                    {wine.appellation} • {wine.region}
-                  </Typography>
-                </div>
+              <div className="cellar-list-ledger__body">
+                {displayedWines.map((wine) => (
+                  <div
+                    key={wine.id}
+                    className="cellar-list-row"
+                    onClick={() => onSelectWine(wine)}
+                  >
+                    <div className="cellar-list-ledger__col-wine">
+                      <Typography variant="serif-italic" color="secondary" className="cellar-list-row__producer">
+                        {wine.producer}
+                      </Typography>
+                      <Typography variant="serif-title" size="sm" className="cellar-list-row__name">
+                        {wine.name}
+                      </Typography>
+                      <Typography variant="body-sm" color="muted" className="cellar-list-row__appellation">
+                        {wine.appellation} • {wine.region}
+                      </Typography>
+                    </div>
 
-                <div className="cellar-list-ledger__col-vintage">
-                  <Tag variant="pill">{wine.vintage}</Tag>
-                </div>
+                    <div className="cellar-list-ledger__col-vintage">
+                      <Tag variant="pill">{wine.vintage}</Tag>
+                    </div>
 
-                <div className="cellar-list-ledger__col-category">
-                  <Badge variant="wine-type" category={wine.category} size="sm">
-                    {wine.category === 'red' && 'Rosso'}
-                    {wine.category === 'white' && 'Bianco'}
-                    {wine.category === 'sparkling' && 'Bollicine'}
-                    {wine.category === 'rose' && 'Rosato'}
-                    {wine.category === 'orange' && 'Orange'}
-                    {wine.category === 'dessert' && 'Passito'}
-                  </Badge>
-                </div>
+                    <div className="cellar-list-ledger__col-category">
+                      <Badge variant="wine-type" category={wine.category} size="sm">
+                        {wine.category === 'red' && 'Rosso'}
+                        {wine.category === 'white' && 'Bianco'}
+                        {wine.category === 'sparkling' && 'Bollicine'}
+                        {wine.category === 'rose' && 'Rosato'}
+                        {wine.category === 'orange' && 'Orange'}
+                        {wine.category === 'dessert' && 'Passito'}
+                      </Badge>
+                    </div>
 
-                <div className="cellar-list-ledger__col-status">
-                  <Badge variant="drinking-status" status={wine.drinkingStatus} size="sm">
-                    {wine.drinkingStatus === 'ready' && 'Pronto'}
-                    {wine.drinkingStatus === 'aging' && 'Affinamento'}
-                    {wine.drinkingStatus === 'peak' && 'All’apice'}
-                    {wine.drinkingStatus === 'past' && 'Oltre picco'}
-                  </Badge>
-                </div>
+                    <div className="cellar-list-ledger__col-status">
+                      <Badge variant="drinking-status" status={wine.drinkingStatus} size="sm">
+                        {wine.drinkingStatus === 'ready' && 'Pronto'}
+                        {wine.drinkingStatus === 'aging' && 'Affinamento'}
+                        {wine.drinkingStatus === 'peak' && 'All’apice'}
+                        {wine.drinkingStatus === 'past' && 'Oltre picco'}
+                      </Badge>
+                    </div>
 
-                <div className="cellar-list-ledger__col-rating">
-                  {wine.criticScore ? (
-                    <Typography variant="stamp-mono" color="primary">
-                      {wine.criticScore} PTS
-                    </Typography>
-                  ) : (
-                    <RatingStars value={wine.rating} size="sm" />
-                  )}
-                </div>
+                    <div className="cellar-list-ledger__col-rating">
+                      {wine.criticScore ? (
+                        <Typography variant="stamp-mono" color="primary">
+                          {wine.criticScore} PTS
+                        </Typography>
+                      ) : (
+                        <RatingStars value={wine.rating} size="sm" />
+                      )}
+                    </div>
 
-                <div
-                  className="cellar-list-ledger__col-stock"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <StockCounter
-                    count={wine.stock}
-                    size="sm"
-                    onIncrement={() => onStockChange(wine.id, 1)}
-                    onDecrement={() => onStockChange(wine.id, -1)}
+                    <div
+                      className="cellar-list-ledger__col-stock"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <StockCounter
+                        count={wine.stock}
+                        size="sm"
+                        onIncrement={() => onStockChange(wine.id, 1)}
+                        onDecrement={() => onStockChange(wine.id, -1)}
+                      />
+                    </div>
+
+                    <div className="cellar-list-ledger__col-price">
+                      <Typography variant="serif-title" size="sm" color="primary">
+                        € {wine.price}
+                      </Typography>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Sezione Carica Altri / Paginazione Sartoriale */}
+          {totalWinesCount > INITIAL_BATCH_SIZE && (
+            <div className="cellar-load-more-section" aria-label="Controllo paginazione catalogo">
+              <div className="cellar-load-more__info">
+                <Typography variant="body-sm" color="secondary" className="cellar-load-more__counter">
+                  Visualizzati <strong>{displayedWines.length}</strong> di <strong>{totalWinesCount}</strong> vini
+                </Typography>
+                <div className="cellar-load-more__progress-track" aria-hidden="true">
+                  <div
+                    className="cellar-load-more__progress-fill"
+                    style={{ width: `${Math.min(100, (displayedWines.length / totalWinesCount) * 100)}%` }}
                   />
                 </div>
-
-                <div className="cellar-list-ledger__col-price">
-                  <Typography variant="serif-title" size="sm" color="primary">
-                    € {wine.price}
-                  </Typography>
-                </div>
               </div>
-            ))}
-          </div>
-        </div>
+
+              {hasMore ? (
+                <div className="cellar-load-more__actions">
+                  <Button
+                    variant="outline"
+                    size="md"
+                    onClick={handleLoadMore}
+                    className="cellar-load-more__btn"
+                    icon={<ChevronDown size={16} />}
+                    iconPosition="right"
+                  >
+                    Carica altri {nextBatchSize} vini
+                  </Button>
+                  {remainingCount > BATCH_INCREMENT && (
+                    <button
+                      type="button"
+                      onClick={handleShowAll}
+                      className="cellar-load-more__show-all"
+                    >
+                      Mostra tutti i {totalWinesCount} vini
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <div className="cellar-load-more__complete">
+                  <span className="cellar-load-more__complete-badge">
+                    <Check size={14} />
+                    Tutti i {totalWinesCount} vini della selezione sono visualizzati
+                  </span>
+                </div>
+              )}
+            </div>
+          )}
+        </>
       )}
     </div>
   );
