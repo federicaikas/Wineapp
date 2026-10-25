@@ -100,3 +100,25 @@ export const getFlagKey = (country?: string, region?: string, appellation?: stri
   if (has('cile', 'chile')) return 'CL';
   return null;
 };
+
+const NATION_NAMES: Record<FlagKey, string> = {
+  IT: 'Italia', FR: 'Francia', ES: 'Spagna', DE: 'Germania', AT: 'Austria', PT: 'Portogallo',
+  CH: 'Svizzera', US: 'Stati Uniti', SI: 'Slovenia', HU: 'Ungheria', AR: 'Argentina', CL: 'Cile',
+};
+
+/**
+ * Nazione di un vino (nome + bandiera), ricavata da paese, regione, denominazione e nome.
+ * Serve perché il campo "paese" spesso contiene la denominazione (es. "Toscana IGT").
+ */
+export const getWineNation = (wine: {
+  country?: string;
+  region?: string;
+  appellation?: string;
+  name?: string;
+}): { name: string; flag: FlagKey | null } => {
+  const code = getWineCountryCode(wine);
+  if (code === 'IT' || code === 'FR' || code === 'ES') return { name: NATION_NAMES[code], flag: code };
+  const flag = getFlagKey(wine.country, wine.region, wine.appellation);
+  if (flag) return { name: NATION_NAMES[flag], flag };
+  return { name: 'Altri paesi', flag: null };
+};

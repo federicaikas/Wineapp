@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge, Typography, StockCounter, Tag, Button } from '../design-system';
+import { EmptyState, Badge, Typography, StockCounter, Tag } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List, ChevronDown, Check } from 'lucide-react';
+import { LayoutGrid, List } from 'lucide-react';
 import './CellarGrid.css';
 
 const INITIAL_BATCH_SIZE = 10;
@@ -73,10 +73,6 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
   const handleLoadMore = () => {
     setVisibleCount((prev) => Math.min(prev + BATCH_INCREMENT, totalWinesCount));
-  };
-
-  const handleShowAll = () => {
-    setVisibleCount(totalWinesCount);
   };
 
   const viewToggleElement = (
@@ -266,50 +262,11 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
           )}
 
           {/* Sezione Carica Altri / Paginazione Sartoriale */}
-          {totalWinesCount > INITIAL_BATCH_SIZE && (
-            <div className="cellar-load-more-section" aria-label="Controllo paginazione catalogo">
-              <div className="cellar-load-more__info">
-                <Typography variant="body-sm" color="secondary" className="cellar-load-more__counter">
-                  Visualizzati <strong>{displayedWines.length}</strong> di <strong>{totalWinesCount}</strong> vini
-                </Typography>
-                <div className="cellar-load-more__progress-track" aria-hidden="true">
-                  <div
-                    className="cellar-load-more__progress-fill"
-                    style={{ width: `${Math.min(100, (displayedWines.length / totalWinesCount) * 100)}%` }}
-                  />
-                </div>
-              </div>
-
-              {hasMore ? (
-                <div className="cellar-load-more__actions">
-                  <Button
-                    variant="outline"
-                    size="md"
-                    onClick={handleLoadMore}
-                    className="cellar-load-more__btn"
-                    icon={<ChevronDown size={16} />}
-                    iconPosition="right"
-                  >
-                    Carica altri {nextBatchSize} vini
-                  </Button>
-                  {remainingCount > BATCH_INCREMENT && (
-                    <button
-                      type="button"
-                      onClick={handleShowAll}
-                      className="cellar-load-more__show-all"
-                    >
-                      Mostra tutti i {totalWinesCount} vini
-                    </button>
-                  )}
-                </div>
-              ) : (
-                <div className="cellar-load-more__complete">
-                  <span className="cellar-load-more__complete-badge">
-                    <Check size={14} />
-                    Tutti i {totalWinesCount} vini della selezione sono visualizzati
-                  </span>
-                </div>
-              )}
+          {hasMore && (
+            <div className="cellar-load-more-section">
+              <button type="button" className="cellar-load-more__btn" onClick={handleLoadMore}>
+                Mostra altri {nextBatchSize}
+              </button>
             </div>
           )}
         </>

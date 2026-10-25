@@ -9,6 +9,16 @@ import { fetchMomentoTop, WineAiError } from '../../lib/wineAi';
 import { formatVintage } from '../../utils/formatters';
 import './WineDetailModal.css';
 
+// Colore del vino per lo sfondo oscurato dietro la scheda (come le fasce delle card)
+const WINE_COLORS: Record<string, string> = {
+  red: '#9F0000',
+  white: '#FFCC79',
+  sparkling: '#A0A738',
+  rose: '#E74D6F',
+  orange: '#F2542D',
+  dessert: '#B85F00',
+};
+
 const MOMENTO_PREFIX = '[MOMENTO TOP]';
 const ESTIMATE_TAG = '[STIMA]'; // calcolo automatico dell'app, non da fonti online
 
@@ -171,6 +181,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       size="lg"
+      backdropColor={WINE_COLORS[wine.category]}
       footer={
         <div className="cellar-detail-modal__footer-actions">
           <div className="cellar-detail-modal__footer-stock">

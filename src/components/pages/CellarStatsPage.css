@@ -314,3 +314,29 @@
   }
 }
 
+
+/* Planisfero: nazioni presenti in cantina */
+.cellar-stats-world-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  border-radius: var(--radius-soft, 8px);
+  padding: 1.25rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cellar-stats-world-card__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  color: #3B1B54;
+}
+
+.cellar-stats-world-card__desc {
+  margin: 0.2rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}

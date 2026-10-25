@@ -12,6 +12,8 @@ export interface ModalProps {
   footer?: React.ReactNode;
   size?: 'sm' | 'md' | 'lg' | 'xl';
   hideCloseButton?: boolean;
+  /** Colore (hex) dello sfondo oscurato dietro la finestra; di default un grigio scuro neutro */
+  backdropColor?: string;
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -24,6 +26,7 @@ export const Modal: React.FC<ModalProps> = ({
   footer,
   size = 'md',
   hideCloseButton = false,
+  backdropColor,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -47,7 +50,11 @@ export const Modal: React.FC<ModalProps> = ({
 
   return (
     <div className="cellar-modal-portal">
-      <div className="cellar-modal-backdrop" onClick={onClose} />
+      <div
+        className="cellar-modal-backdrop"
+        onClick={onClose}
+        style={backdropColor ? { background: `color-mix(in srgb, ${backdropColor} 62%, transparent)` } : undefined}
+      />
       <div
         className={`cellar-modal cellar-modal--${size}`}
         role="dialog"

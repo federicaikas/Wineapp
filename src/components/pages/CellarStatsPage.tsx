@@ -3,8 +3,9 @@ import type { WineBottle, CellarStats } from '../../types/wine';
 import { PieChart, type PieChartDataItem } from '../design-system/molecules/PieChart';
 import { Button } from '../design-system';
 import { ItalyRegionMap } from '../organisms/ItalyRegionMap';
-import { getFlagKey } from '../../utils/countryFlags';
+import { getWineNation, type FlagKey } from '../../utils/countryFlags';
 import { FlagCircle } from '../design-system/atoms/FlagCircle';
+import { WorldWineMap } from '../organisms/WorldWineMap';
 import { ArrowLeft, Globe, Wine, Award, Landmark } from 'lucide-react';
 import './CellarStatsPage.css';
 
@@ -57,23 +58,25 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
     .filter((item) => item.value > 0);
 
   // 2. Dati Grafico Provenienza (Nazionalità)
-  const countryMap: Record<string, number> = {};
+  const countryMap: Record<string, { count: number; flag: FlagKey | null }> = {};
   wines.forEach((w) => {
-    const c = (w.country || 'Italia').trim();
-    countryMap[c] = (countryMap[c] || 0) + w.stock;
+    const nation = getWineNation(w);
+    const entry = countryMap[nation.name] ?? { count: 0, flag: nation.flag };
+    entry.count += w.stock;
+    countryMap[nation.name] = entry;
   });
 
-  const sortedCountries = Object.entries(countryMap).sort((a, b) => b[1] - a[1]);
+  const sortedCountries = Object.entries(countryMap).sort((a, b) => b[1].count - a[1].count);
 
-  const countryData: PieChartDataItem[] = sortedCountries.map(([countryName, count], idx) => ({
+  const countryData: PieChartDataItem[] = sortedCountries.map(([countryName, { count, flag }], idx) => ({
     label: countryName,
     value: count,
     color: COUNTRY_COLORS[idx % COUNTRY_COLORS.length],
-    icon: <FlagCircle flag={getFlagKey(countryName)} size={16} />,
+    icon: <FlagCircle flag={flag} size={16} />,
   }));
 
   const topCountry = sortedCountries.length > 0 ? sortedCountries[0][0] : 'Nessuno';
-  const topCountryFlag = <FlagCircle flag={sortedCountries.length > 0 ? getFlagKey(sortedCountries[0][0]) : null} size={20} />;
+  const topCountryFlag = <FlagCircle flag={sortedCountries.length > 0 ? sortedCountries[0][1].flag : null} size={20} />;
 
   const formattedTotalValue = new Intl.NumberFormat('it-IT', {
     style: 'currency',
@@ -87,16 +90,6 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
     currency: 'EUR',
     maximumFractionDigits: 0,
   }).format(avgPrice);
-
-  // 3. Dati Ripartizione In Cantina con grafica chiara
-  const inCellarCategories = [
-    { key: 'red', label: 'Rossi', color: '#9F0000', count: stats.statusCategoryBreakdown.all.red || 0 },
-    { key: 'white', label: 'Bianchi', color: '#B8860B', count: stats.statusCategoryBreakdown.all.white || 0 },
-    { key: 'sparkling', label: 'Bollicine', color: '#6B7D2A', count: stats.statusCategoryBreakdown.all.sparkling || 0 },
-    { key: 'rose', label: 'Rosati', color: '#E74D6F', count: stats.statusCategoryBreakdown.all.rose || 0 },
-    { key: 'orange', label: 'Orange', color: '#F2542D', count: stats.statusCategoryBreakdown.all.orange || 0 },
-    { key: 'dessert', label: 'Dolci', color: '#8A5A1B', count: stats.statusCategoryBreakdown.all.dessert || 0 },
-  ];
 
   return (
     <div className="cellar-stats-page">
@@ -164,60 +157,6 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
         </div>
 
         {/* Box In Cantina: Ripartizione Chiara per Tipologia */}
-        <div className="cellar-stats-in-cellar-card">
-          <div className="cellar-stats-in-cellar-card__header">
-            <div>
-              <span className="cellar-stats-in-cellar-card__badge">IN CANTINA</span>
-              <h2 className="cellar-stats-in-cellar-card__title">Composizione delle Bottiglie</h2>
-              <p className="cellar-stats-in-cellar-card__desc">
-                Panoramica chiara di tutte le tipologie attualmente presenti nella tua cantina
-              </p>
-            </div>
-            <div className="cellar-stats-in-cellar-card__total-pill">
-              Disponibili: <strong>{stats.totalBottles}</strong> {stats.totalBottles === 1 ? 'bottiglia' : 'bottiglie'}
-            </div>
-          </div>
-
-          <div className="cellar-stats-in-cellar-card__grid">
-            {inCellarCategories.map((cat) => {
-              const percentage = stats.totalBottles > 0 
-                ? Math.round((cat.count / stats.totalBottles) * 100) 
-                : 0;
-
-              return (
-                <div key={cat.key} className="cellar-stats-category-item">
-                  <div className="cellar-stats-category-item__header">
-                    <div className="cellar-stats-category-item__label-group">
-                      <span 
-                        className="cellar-stats-category-item__dot"
-                        style={{ backgroundColor: cat.color }}
-                      />
-                      <span className="cellar-stats-category-item__name">{cat.label}</span>
-                    </div>
-                    <span className="cellar-stats-category-item__count">
-                      <strong>{cat.count}</strong> {cat.count === 1 ? 'bt' : 'bt'}
-                    </span>
-                  </div>
-
-                  <div className="cellar-stats-category-item__bar-wrap">
-                    <div 
-                      className="cellar-stats-category-item__bar" 
-                      style={{ 
-                        width: `${percentage}%`,
-                        backgroundColor: cat.color 
-                      }} 
-                    />
-                  </div>
-
-                  <div className="cellar-stats-category-item__footer">
-                    <span className="cellar-stats-category-item__percentage">{percentage}% del totale</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Griglia Grafici a Torta */}
         <div className="cellar-stats-page__charts-grid">
           {/* Grafico 1: Tipologia di Vino */}
@@ -236,6 +175,17 @@ export const CellarStatsPage: React.FC<CellarStatsPageProps> = ({
             emptyText="Nessuna bottiglia presente per generare il grafico della provenienza."
           />
         </div>
+
+        {/* Planisfero interattivo con le nazioni presenti in cantina */}
+        <section className="cellar-stats-world-card" aria-label="Nazioni in cantina">
+          <div className="cellar-stats-world-card__head">
+            <h2 className="cellar-stats-world-card__title">Le tue nazioni</h2>
+            <p className="cellar-stats-world-card__desc">Passa sopra una nazione colorata o cliccala per vedere le bottiglie</p>
+          </div>
+          <WorldWineMap
+            nations={sortedCountries.map(([name, { count, flag }]) => ({ name, flag, count }))}
+          />
+        </section>
 
         {/* Card Mappa dell'Italia Interattiva */}
         <ItalyRegionMap wines={wines} onSelectWine={onSelectWine} />

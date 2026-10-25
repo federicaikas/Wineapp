@@ -1,0 +1,103 @@
+.cellar-worldmap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.cellar-worldmap__stage {
+  position: relative;
+  background: var(--surface-tint);
+  border-radius: var(--radius-soft);
+  padding: 0.5rem;
+}
+
+.cellar-worldmap__stage svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+}
+
+.cellar-worldmap__country {
+  fill: #E4DCCD;
+  stroke: #FFFDF9;
+  stroke-width: 0.6;
+  transition: fill-opacity var(--transition-fast), fill var(--transition-fast);
+}
+
+.cellar-worldmap__country--owned {
+  fill: var(--brand-primary);
+  cursor: pointer;
+  outline: none;
+}
+
+.cellar-worldmap__country--owned:hover,
+.cellar-worldmap__country--owned:focus-visible,
+.cellar-worldmap__country--on {
+  fill: var(--accent-secondary);
+  stroke: var(--brand-primary);
+  stroke-width: 1;
+}
+
+.cellar-worldmap__tip {
+  position: absolute;
+  transform: translate(12px, -110%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 0.4rem 0.65rem;
+  background: var(--brand-primary);
+  color: #FFFDF9;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  pointer-events: none;
+  white-space: nowrap;
+  box-shadow: var(--shadow-card);
+}
+
+.cellar-worldmap__tip strong { font-size: 0.8rem; }
+
+.cellar-worldmap__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cellar-worldmap__row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--background-base);
+  border: 1px solid rgba(45, 35, 74, 0.1);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.cellar-worldmap__row:disabled { cursor: default; }
+
+.cellar-worldmap__row--on,
+.cellar-worldmap__row:not(:disabled):hover {
+  background: var(--brand-primary);
+  color: #FFFDF9;
+}
+
+.cellar-worldmap__row-name { font-weight: 600; }
+.cellar-worldmap__row-count { font-weight: 700; font-size: 0.8rem; }
+.cellar-worldmap__row-pct { font-size: 0.75rem; opacity: 0.75; min-width: 2.2rem; text-align: right; }
+
+@media (max-width: 900px) {
+  .cellar-worldmap { grid-template-columns: 1fr; }
+}
