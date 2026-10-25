@@ -45,7 +45,7 @@
   justify-content: center;
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
   background: var(--paper-surface);
   color: var(--ink-secondary);
   border: 1px solid var(--paper-subtle);

@@ -163,8 +163,8 @@
   align-items: center;
   background: #FFFFFF;
   border: 1px solid rgba(45, 35, 74, 0.15);
-  border-radius: 6px;
-  padding: 2px;
+  border-radius: 9999px;
+  padding: 3px 4px;
   gap: 2px;
   box-shadow: 0 1px 3px rgba(45, 35, 74, 0.04);
   flex-shrink: 0;
@@ -176,9 +176,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0 0.65rem;
+  padding: 0 0.85rem;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 9999px;
   border: none;
   background: transparent;
   color: #706880;

@@ -122,7 +122,7 @@
   display: flex;
   background: var(--paper-surface, #F3ECE1);
   padding: 3px;
-  border-radius: 10px;
+  border-radius: 9999px;
   margin-bottom: 1.5rem;
   border: 1px solid rgba(43, 37, 33, 0.08);
 }
@@ -130,7 +130,7 @@
 .auth-modal-tab {
   flex: 1;
   padding: 0.6rem 1rem;
-  border-radius: 8px;
+  border-radius: 9999px;
   border: none;
   background: transparent;
   color: var(--text-muted, #706880);
@@ -234,7 +234,7 @@
 .auth-modal-submit-btn {
   margin-top: 0.5rem;
   padding: 0.875rem 1.5rem;
-  border-radius: 10px;
+  border-radius: 9999px;
   border: none;
   background-color: var(--brand-primary, #2D234A);
   color: #ffffff;

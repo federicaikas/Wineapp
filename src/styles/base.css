@@ -59,8 +59,12 @@ button, input, select, textarea {
   background: none;
 }
 
-button {
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
   cursor: pointer;
+  border-radius: var(--radius-pill, 9999px);
 }
 
 /* Custom Scrollbar Raffinata */

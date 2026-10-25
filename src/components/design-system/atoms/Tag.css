@@ -38,7 +38,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   padding: 3px 10px;
-  border-radius: var(--radius-soft, 8px);
+  border-radius: var(--radius-pill, 999px);
   background-color: var(--accent-tertiary, #7A9A3B);
   color: #FFFFFF;
   text-transform: uppercase;

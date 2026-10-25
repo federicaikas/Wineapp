@@ -2,752 +2,89 @@ import type { WineBottle } from '../types/wine';
 
 export const SEED_WINES: WineBottle[] = [
   {
-    "id": "wine-1791296866096-1-7vhv4",
-    "name": "Divina Villa",
-    "producer": "Duca della Cornea",
-    "vintage": 2021,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Gamay del Trasimeno DOC",
-    "country": "Italia",
-    "region": "Umbria",
-    "grapes": [
-      "100% Gamay"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 11,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 614/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
-  },
-  {
-    "id": "wine-1791296866096-2-a3i44",
-    "name": "Lacrima Blu",
-    "producer": "Anna Gatto Bigio",
-    "vintage": 2022,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Umbria IGT",
-    "country": "Italia",
-    "region": "Umbria",
-    "grapes": [
-      "100% Pinot Nero"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 13,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 289/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:44:05.727Z"
-  },
-  {
-    "id": "wine-1791296866096-3-jdh4b",
-    "name": "Legamè",
-    "producer": "Anna Gatto Bigio",
-    "vintage": 2016,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Gamay del Trasimeno",
-    "country": "Italia",
-    "region": "Umbria",
-    "grapes": [
-      "100% Gamay"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 12,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2016,
-      "end": 2026,
-      "peakYear": 2021
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 558/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
-  },
-  {
-    "id": "wine-1791296866096-4-2sh0a",
-    "name": "Montefalco Rosso",
-    "producer": "Tenute del Cerro",
-    "vintage": 2011,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Montefalco Rosso DOC",
-    "country": "Italia",
-    "region": "Umbria",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 8,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2011,
-      "end": 2021,
-      "peakYear": 2016
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 386/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
-  },
-  {
-    "id": "wine-1791296866096-5-wy95i",
-    "name": "Montefalco Rosso",
-    "producer": "Antonelli",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Montefalco Rosso DOC",
-    "country": "Italia",
-    "region": "Umbria",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 12,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 871/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "più astuccio",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
-  },
-  {
-    "id": "wine-1791296866096-6-vz0of",
+    "id": "000c4765-fe1b-445e-99cb-b7b8ea9fb5ef",
     "name": "Cola Montefalco",
     "producer": "Conti di Saragano",
     "vintage": 2015,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Montefalco Rosso DOC",
-    "country": "Italia",
+    "country": "Montefalco Rosso DOC",
     "region": "Umbria",
-    "grapes": [
-      "Autoctono"
-    ],
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 3,
     "price": 18,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2015,
       "end": 2025,
       "peakYear": 2020
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 960/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.096Z",
-    "updatedAt": "2026-10-06T14:27:46.096Z"
+    "createdAt": "2026-10-25T15:30:51.715925+00:00",
+    "updatedAt": "2026-10-25T15:30:51.715925+00:00"
   },
   {
-    "id": "wine-1791296866097-10-61r21",
-    "name": "Gaetano",
-    "producer": "Tallarini",
-    "vintage": 2009,
-    "category": "red",
-    "subCategory": "Rosso Riserva",
-    "appellation": "Valcalepio DOC",
-    "country": "Italia",
-    "region": "Lombardia",
+    "id": "01aff708-819f-4e7b-89e9-122beebbeac2",
+    "name": "Malvasia",
+    "producer": "Gustin",
+    "vintage": 2021,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "Sconosciuta",
     "grapes": [
-      "Merlot",
-      "Cabernet Sauvignon"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 35,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "past",
-    "drinkingWindow": {
-      "start": 2012,
-      "peakYear": 2015,
-      "end": 2021
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 250/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Colore rosso rubino intenso con riflessi granato. Bouquet fruttato con note di piccoli frutti rossi, spezie e vaniglia. Gusto pieno e vellutato, tannini eleganti e finale persistente. avelyn.com",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:40:20.328Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Gaetano 2009 (Tallarini), l'apice ideale di stappo è il 2015 (finestra ideale: 2012 - 2021). Stato stimato: Evoluto (Da stappare a breve)."
-  },
-  {
-    "id": "wine-1791296866097-11-m3ko1",
-    "name": "Sforzato Cinque Stelle",
-    "producer": "Nino Negri",
-    "vintage": 2016,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Valtellina Superiore DOCG",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Nebbiolo (Chiavennasca)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 70,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "peakYear": 2022,
-      "end": 2028
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [
-        "Frutti rossi di bosco",
-        "Prugna matura",
-        "Spezie fini",
-        "Note di tabacco",
-        "Eucalipto & Muschio"
-      ],
-      "palate": "Struttura piena e armonica tipica delle grandi annate di Nino Negri. Tannini ben amalgamati e finale di notevole persistenza.",
-      "pairing": "Carni rosse in umido o alla griglia, primi piatti con ragù strutturati, selezioni di salumi e formaggi stagionati del territorio di Lombardia."
-    },
-    "lotNumber": "LOT 182/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Aromi di spezie esotiche, cocco, resina di pino e prugna cotta. Corpo pieno con note di prugna secca, marmellata di lamponi, rovere francese, tabacco e calore alcolico. wineenthusiast.com\n\n[Note Sommelier Online]: Scheda enologica completata tramite ricerca online per Sforzato Cinque Stelle (Nino Negri, 2016).",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:45:40.339Z",
-    "criticScore": 91,
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Sforzato Cinque Stelle 2016 (Nino Negri), l'apice ideale di stappo è il 2022 (finestra ideale: 2019 - 2028). Stato stimato: Pronto per la Beva (Ottimo momento sensoriale)."
-  },
-  {
-    "id": "wine-1791296866097-12-pm9k5",
-    "name": "Sassella",
-    "producer": "Nino Negri",
-    "vintage": 2020,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Valtellina Superiore DOCG",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Nebbiolo (Chiavennasca)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "peak",
-    "drinkingWindow": {
-      "start": 2023,
-      "peakYear": 2026,
-      "end": 2032
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 434/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:41:14.881Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Sassella 2020 (Nino Negri), l'apice ideale di stappo è il 2026 (finestra ideale: 2023 - 2032). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
-  },
-  {
-    "id": "wine-1791296866097-13-9s4zn",
-    "name": "Bastian Cuntrari",
-    "producer": "Bastian Cuntrari",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Valtellina Superiore DOCG",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Nebbiolo (Chiavennasca)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 50,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "peak",
-    "drinkingWindow": {
-      "start": 2022,
-      "peakYear": 2025,
-      "end": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 452/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-08T07:31:39.593Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Bastian Cuntrari 2019 (Bastian Cuntrari), l'apice ideale di stappo è il 2025 (finestra ideale: 2022 - 2031). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
-  },
-  {
-    "id": "wine-1791296866097-14-zm9zp",
-    "name": "Curnàl",
-    "producer": "Barbacan",
-    "vintage": 2023,
-    "category": "red",
-    "subCategory": "Rosso (anfora)",
-    "appellation": "Alpi Retiche IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Nebbiolo (Chiavennasca)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 25,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2023,
-      "end": 2033,
-      "peakYear": 2028
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 845/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-15-9aw77",
-    "name": "Sassella Stella Retica",
-    "producer": "Arpepe",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Valtellina Superiore IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Nebbiolo (Chiavennasca)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 40,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 454/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-16-hg7uc",
-    "name": "Lanzato",
-    "producer": "Cantine Bignotti / Cultivar delle Volte",
-    "vintage": 2020,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Val IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "70% Barbera 30% Trebbiano"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 972/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Longevità: Un vino potente che esprime appieno tutta la sua territorialità, affilato, con il giusto tannino che garantirà nel tempo una forza penetrante rara. Profumi di lamponi e mirtilli con leggere piacevoli scosse dovute alla mineralità ed al tannino, con sentori di spezie e resine e piacevoli refoli balsamici.",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-17-o7rpb",
-    "name": "Blagheur",
-    "producer": "Michele Taliano",
-    "vintage": 2020,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Langhe Nebbiolo DOC",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 10,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 412/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-18-5bvqu",
-    "name": "Nibbio",
-    "producer": "Azienda Vitivinicola Piero Cassina",
-    "vintage": 0,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Piemonte IGT",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
+      "Malvasia"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 2,
-    "price": 16,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "price": 12,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Una bottiglia del 2020 inclusa",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 854/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://pietrocassina.com/",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.783443+00:00",
+    "updatedAt": "2026-10-25T15:30:51.783443+00:00"
   },
   {
-    "id": "wine-1791296866097-19-gpxud",
-    "name": "Braja",
-    "producer": "Del Tetto",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Roero DOCG Riserva",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 22,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 459/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.deltetto.com/wp-content/uploads/2018/06/roero-docg-riserva-braja.pdf",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-20-p9jb0",
-    "name": "Brunello di Montalcino",
-    "producer": "Caparzo",
-    "vintage": 2018,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Brunello di Montalcino DOCG",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Sangiovese"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 30,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 207/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-21-i58sp",
-    "name": "Barolo",
-    "producer": "Fontanafredda",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Barolo DOCG",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 25,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 333/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-22-x8bfb",
-    "name": "Barolo",
-    "producer": "Carlo del Tetto",
-    "vintage": 2016,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Barolo DOCG",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 45,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2016,
-      "end": 2026,
-      "peakYear": 2021
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 822/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-23-cueqt",
+    "id": "02b9abd2-4d8e-4576-b040-655dc6073ee2",
     "name": "Macchiarossa",
     "producer": "Claudio Cipressi",
     "vintage": 2016,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Tintilia del Molise DOC",
-    "country": "Italia",
+    "country": "Tintilia del Molise DOC",
     "region": "Molise",
     "grapes": [
       "Tintilia"
@@ -757,44 +94,643 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
       "peakYear": 2021
     },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [
-        "Frutti rossi di bosco",
-        "Prugna matura",
-        "Spezie fini",
-        "Note di tabacco",
-        "Eucalipto & Muschio"
-      ],
-      "palate": "Struttura piena e armonica tipica delle grandi annate di Claudio Cipressi. Tannini ben amalgamati e finale di notevole persistenza.",
-      "pairing": "Carni rosse in umido o alla griglia, primi piatti con ragù strutturati, selezioni di salumi e formaggi stagionati del territorio di Molise."
-    },
-    "lotNumber": "LOT 775/26",
+    "rating": 4,
+    "lotNumber": "",
     "favorite": false,
     "purchaseChannel": "cantina",
-    "notes": "Scheda enologica completata tramite ricerca online per Macchiarossa (Claudio Cipressi, 2016).",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:59:06.141Z",
-    "criticScore": 91,
-    "aiCalculated": true
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.716912+00:00",
+    "updatedAt": "2026-10-25T15:30:51.716912+00:00"
   },
   {
-    "id": "wine-1791296866097-24-gclcy",
+    "id": "04f67220-ac45-42cd-bbc3-943d51e3cac8",
+    "name": "Ronchedone",
+    "producer": "Ca' dei Frati",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Benaco Bresciano IGT",
+    "country": "Benaco Bresciano IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Marzemino",
+      "Sangiovese",
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 17,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.794839+00:00",
+    "updatedAt": "2026-10-25T15:30:51.794839+00:00"
+  },
+  {
+    "id": "09298f98-b206-44d8-aee5-caad277e9e4f",
+    "name": "Nibbio",
+    "producer": "Azienda Vitivinicola Piero Cassina",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Piemonte IGT",
+    "country": "Piemonte IGT",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 16,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://pietrocassina.com/",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.820044+00:00",
+    "updatedAt": "2026-10-25T15:30:51.820044+00:00"
+  },
+  {
+    "id": "09a6fbbd-3236-4cf8-bbb4-e0953b87063a",
+    "name": "Divina Villa",
+    "producer": "Duca della Cornea",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Gamay del Trasimeno DOC",
+    "country": "Gamay del Trasimeno DOC",
+    "region": "Umbria",
+    "grapes": [
+      "100% Gamay"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 11,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.810032+00:00",
+    "updatedAt": "2026-10-25T15:30:51.810032+00:00"
+  },
+  {
+    "id": "0f18b520-4d38-4d8a-ab06-b257b1f215b8",
+    "name": "Le Coq Volant",
+    "producer": "Domaine Galuval",
+    "vintage": 2021,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Côtes du Rhône",
+    "country": "Côtes du Rhône",
+    "region": "Francia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.827087+00:00",
+    "updatedAt": "2026-10-25T15:30:51.827087+00:00"
+  },
+  {
+    "id": "1402d29c-2f50-4e56-bd89-f1ae17a5c610",
+    "name": "Legamè",
+    "producer": "Anna Gatto Bigio",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Gamay del Trasimeno",
+    "country": "Gamay del Trasimeno",
+    "region": "Umbria",
+    "grapes": [
+      "100% Gamay"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.79164+00:00",
+    "updatedAt": "2026-10-25T15:30:51.79164+00:00"
+  },
+  {
+    "id": "163718cb-2a57-4aa2-939b-bde08eb8164f",
+    "name": "Barolo",
+    "producer": "Carlo del Tetto",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Barolo DOCG",
+    "country": "Barolo DOCG",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 45,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.750313+00:00",
+    "updatedAt": "2026-10-25T15:30:51.750313+00:00"
+  },
+  {
+    "id": "1dbd81ab-0dd7-4a45-aa99-01745f2edc39",
+    "name": "Barolo",
+    "producer": "Fontanafredda",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Barolo DOCG",
+    "country": "Barolo DOCG",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.807763+00:00",
+    "updatedAt": "2026-10-25T15:30:51.807763+00:00"
+  },
+  {
+    "id": "1fca1388-5231-4a69-9daa-207162c37df5",
+    "name": "Ribolla Gialla",
+    "producer": "Gravner",
+    "vintage": 2016,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Venezia Giulia IGP",
+    "country": "Venezia Giulia IGP",
+    "region": "Friuli",
+    "grapes": [
+      "Ribolla Gialla"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 100,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Annata da verificare",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.823246+00:00",
+    "updatedAt": "2026-10-25T15:30:51.823246+00:00"
+  },
+  {
+    "id": "2519fdeb-98cd-4807-8d90-36e47ba99fe6",
+    "name": "Montefalco Rosso",
+    "producer": "Antonelli",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montefalco Rosso DOC",
+    "country": "Montefalco Rosso DOC",
+    "region": "Umbria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "più astuccio",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.840342+00:00",
+    "updatedAt": "2026-10-25T15:30:51.840342+00:00"
+  },
+  {
+    "id": "2abb9dea-3d12-4194-96ab-c89ebb93a235",
+    "name": "Metodo Classico Brut Millesimato",
+    "producer": "Ca’ Rovere",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Metodo Classico Rosè Brut",
+    "appellation": "Metodo Classico Brut Millesimato",
+    "country": "Metodo Classico Brut Millesimato",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 22,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.783541+00:00",
+    "updatedAt": "2026-10-25T15:30:51.783541+00:00"
+  },
+  {
+    "id": "2b5c594d-37a8-4607-aac5-d0cce8e80f95",
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
+    "vintage": 2022,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "Sconosciuta",
+    "grapes": [
+      "Albana"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.831309+00:00",
+    "updatedAt": "2026-10-25T15:30:51.831309+00:00"
+  },
+  {
+    "id": "2edd044b-cc60-4eef-b25d-a994075bab74",
+    "name": "Otelli",
+    "producer": "Gemei",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Verona IGT",
+    "country": "Verona IGT",
+    "region": "Veneto",
+    "grapes": [
+      "Corvina Veronese",
+      "Merlot",
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.83265+00:00",
+    "updatedAt": "2026-10-25T15:30:51.83265+00:00"
+  },
+  {
+    "id": "37dc8830-d257-4c68-a92b-25bd5da0dd20",
+    "name": "Aromatta",
+    "producer": "Villa Persani",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Veneto IGT",
+    "country": "Veneto IGT",
+    "region": "Veneto",
+    "grapes": [
+      "Piwi"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.villapersani.com/Vini/aromatta",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.776283+00:00",
+    "updatedAt": "2026-10-25T15:30:51.776283+00:00"
+  },
+  {
+    "id": "3ff7a5a5-29a3-465d-97c7-8cc6b177496c",
+    "name": "Bordeaux Supérieur AOC",
+    "producer": "Domaine de Brondeau Lalande",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Bordeaux Supérieur AOC",
+    "country": "Bordeaux Supérieur AOC",
+    "region": "Francia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://sommelierwinebox.com/products/bordeaux-superieur-brondeau-lalande",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.831957+00:00",
+    "updatedAt": "2026-10-25T15:30:51.831957+00:00"
+  },
+  {
+    "id": "43094ef0-1c78-48e0-8ff8-2ff82571c68b",
+    "name": "Min 01",
+    "producer": "Ca' Lustra",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Colli Euganei Rosso DOC",
+    "country": "Colli Euganei Rosso DOC",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 13,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.600668+00:00",
+    "updatedAt": "2026-10-25T15:30:51.600668+00:00"
+  },
+  {
+    "id": "47fdd644-6788-4ae7-8f07-cce429e78a10",
+    "name": "Lacrima Blu",
+    "producer": "Anna Gatto Bigio",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Umbria IGT",
+    "country": "Umbria IGT",
+    "region": "Umbria",
+    "grapes": [
+      "100% Pinot Nero"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 13,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.829372+00:00",
+    "updatedAt": "2026-10-25T15:30:51.829372+00:00"
+  },
+  {
+    "id": "4e4c71e9-f075-4a47-993a-b9365ba1c713",
     "name": "Fumin",
     "producer": "Grosjean",
     "vintage": 2007,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Valle d'Aosta Valle d'Aosta DOC",
-    "country": "Italia",
-    "region": "",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "Sconosciuta",
     "grapes": [
       "Fumin"
     ],
@@ -803,73 +739,381 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 25,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2007,
       "end": 2017,
       "peakYear": 2012
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 295/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.823814+00:00",
+    "updatedAt": "2026-10-25T15:30:51.823814+00:00"
   },
   {
-    "id": "wine-1791296866097-25-7obg6",
-    "name": "Colle Antico",
-    "producer": "Bergamini",
-    "vintage": 2022,
+    "id": "4f4605a3-e42b-4dfc-8f14-71bca57a561c",
+    "name": "Braja",
+    "producer": "Del Tetto",
+    "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Veneto IGP",
-    "country": "Italia",
-    "region": "Veneto",
+    "appellation": "Roero DOCG Riserva",
+    "country": "Roero DOCG Riserva",
+    "region": "Piemonte",
     "grapes": [
-      "Teroldego"
+      "Nebbiolo"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 20,
+    "price": 22,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.deltetto.com/wp-content/uploads/2018/06/roero-docg-riserva-braja.pdf",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.810375+00:00",
+    "updatedAt": "2026-10-25T15:30:51.810375+00:00"
+  },
+  {
+    "id": "51ac3351-36d7-4472-86eb-5f669d9bf62a",
+    "name": "Negroamaro IGP",
+    "producer": "Torre Antica",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Negroamaro IGP",
+    "country": "Negroamaro IGP",
+    "region": "Puglia",
+    "grapes": [
+      "Negroamaro"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.794214+00:00",
+    "updatedAt": "2026-10-25T15:30:51.794214+00:00"
+  },
+  {
+    "id": "54447d94-dd2b-477b-bb97-938cdb1d7d2e",
+    "name": "Sassella",
+    "producer": "Nino Negri",
+    "vintage": 2020,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Valtellina Superiore DOCG",
+    "country": "Valtellina Superiore DOCG",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.807934+00:00",
+    "updatedAt": "2026-10-25T15:30:51.807934+00:00"
+  },
+  {
+    "id": "594df1d0-de2b-4a7f-a8b1-147e86c661da",
+    "name": "Rolando",
+    "producer": "Bricco Maiolica",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Langhe DOC",
+    "country": "Langhe DOC",
+    "region": "Piemonte",
+    "grapes": [
+      "Chardonnay"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 11,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.748131+00:00",
+    "updatedAt": "2026-10-25T15:30:51.748131+00:00"
+  },
+  {
+    "id": "5973d583-ec22-44bb-8483-299f96bdde34",
+    "name": "Chianti DOCG",
+    "producer": "Cecchi",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Chianti DOCG",
+    "country": "Chianti DOCG",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Canaiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 6,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.840686+00:00",
+    "updatedAt": "2026-10-25T15:30:51.840686+00:00"
+  },
+  {
+    "id": "5e806d7e-6e46-46af-b24c-861ca12347ea",
+    "name": "Quintessenz",
+    "producer": "Kellerei Cantina",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Cabernet Sauvignon Riserva DOC",
+    "country": "Cabernet Sauvignon Riserva DOC",
+    "region": "Alto Adige",
+    "grapes": [
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 35,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.kellereikaltern.com/it/vini/quintessenz/vini- rossi/4/quintessenz-cabernet-sauvignon-riserva-doc-2021?c=78 | Longevità: 2021-2029",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.774716+00:00",
+    "updatedAt": "2026-10-25T15:30:51.774716+00:00"
+  },
+  {
+    "id": "62858826-d3f4-4703-ac14-30204a5cd0cb",
+    "name": "Mamà",
+    "producer": "Sì Siri Casa Vinicola",
+    "vintage": 2022,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Terre Siciliane IGP",
+    "country": "Terre Siciliane IGP",
+    "region": "Sicilia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 10,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
       "peakYear": 2027
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 699/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.718525+00:00",
+    "updatedAt": "2026-10-25T15:30:51.718525+00:00"
   },
   {
-    "id": "wine-1791296866097-26-r3u4o",
+    "id": "652530e4-93d0-4294-a4aa-bd4bd6b026c4",
+    "name": "Malvazija",
+    "producer": "Pucer Z Vrha",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Vipava",
+    "country": "Vipava",
+    "region": "Slovenia",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://sommelierwinebox.com/products/malvazija-pristna-pucer-z-vrha",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.819476+00:00",
+    "updatedAt": "2026-10-25T15:30:51.819476+00:00"
+  },
+  {
+    "id": "66dddab5-ec32-46e0-8e52-0b22dcd7f5dd",
+    "name": "Rioja DOC",
+    "producer": "Elle de Landa Luce",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Rioja DOC",
+    "country": "Rioja DOC",
+    "region": "Spagna",
+    "grapes": [
+      "Tempranillo",
+      "Graciano"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 14,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://baskselekt.com/it/vini-rosso-paesi-baschi/664-vino-elle-di- landaluce.html",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.808129+00:00",
+    "updatedAt": "2026-10-25T15:30:51.808129+00:00"
+  },
+  {
+    "id": "69a88abb-da98-4802-bb2c-10e142d2105e",
     "name": "Teste Matte",
     "producer": "Bergamini",
     "vintage": 0,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Veneto IGP",
-    "country": "Italia",
+    "country": "Veneto IGP",
     "region": "Veneto",
     "grapes": [
       "Teroldego",
@@ -882,113 +1126,222 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 14,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 541/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:52:29.315Z"
+    "createdAt": "2026-10-25T15:30:51.716862+00:00",
+    "updatedAt": "2026-10-25T15:30:51.716862+00:00"
   },
   {
-    "id": "wine-1791296866097-27-qgrna",
-    "name": "Min 01",
-    "producer": "Ca' Lustra",
-    "vintage": 2018,
+    "id": "6adf6574-8542-4ffd-b3c6-891e1f2d0e0c",
+    "name": "Lanzato",
+    "producer": "Cantine Bignotti / Cultivar delle Volte",
+    "vintage": 2020,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Colli Euganei Rosso DOC",
-    "country": "Italia",
-    "region": "Veneto",
+    "appellation": "Val IGT",
+    "country": "Val IGT",
+    "region": "Lombardia",
     "grapes": [
-      "Autoctono"
+      "70% Barbera 30% Trebbiano"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 13,
+    "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Longevità: Un vino potente che esprime appieno tutta la sua territorialità, affilato, con il giusto tannino che garantirà nel tempo una forza penetrante rara. Profumi di lamponi e mirtilli con leggere piacevoli scosse dovute alla mineralità ed al tannino, con sentori di spezie e resine e piacevoli refoli balsamici.",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 593/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.71667+00:00",
+    "updatedAt": "2026-10-25T15:30:51.71667+00:00"
   },
   {
-    "id": "wine-1791296866097-28-x4syj",
-    "name": "Rosso",
-    "producer": "Fattoria Ca' Granda",
-    "vintage": 2022,
+    "id": "7042f9e9-3c53-41a2-9421-569d096fb5bd",
+    "name": "Supremo",
+    "producer": "Cultivar delle Volte",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Spumante Metodo Classico",
+    "appellation": "Valcamonica IGT",
+    "country": "Valcamonica IGT",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.778467+00:00",
+    "updatedAt": "2026-10-25T15:30:51.778467+00:00"
+  },
+  {
+    "id": "710f68b6-c575-4cb4-86a7-38f91930e5c2",
+    "name": "Blagheur",
+    "producer": "Michele Taliano",
+    "vintage": 2020,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Riviera del Garda Classico DOC",
-    "country": "Italia",
-    "region": "Lombardia",
+    "appellation": "Langhe Nebbiolo DOC",
+    "country": "Langhe Nebbiolo DOC",
+    "region": "Piemonte",
     "grapes": [
-      "Groppello",
-      "Marzemino",
-      "Barbera"
+      "Nebbiolo"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 2,
+    "stock": 1,
     "price": 10,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 469/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.714918+00:00",
+    "updatedAt": "2026-10-25T15:30:51.714918+00:00"
   },
   {
-    "id": "wine-1791296866097-29-fh7xh",
+    "id": "736e012e-587b-4263-9cc7-913717e6bd21",
+    "name": "Campo de Sampin",
+    "producer": "Contramalini",
+    "vintage": 2013,
+    "category": "dessert",
+    "subCategory": "Dolce",
+    "appellation": "Veneto IGT",
+    "country": "Veneto IGT",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 10,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2013,
+      "end": 2023,
+      "peakYear": 2018
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.777014+00:00",
+    "updatedAt": "2026-10-25T15:30:51.777014+00:00"
+  },
+  {
+    "id": "760000b7-48cd-477a-9dca-4831c2b335f1",
+    "name": "Malvasia Macerata",
+    "producer": "Ussaj",
+    "vintage": 2017,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "Sconosciuta",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 16,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.829302+00:00",
+    "updatedAt": "2026-10-25T15:30:51.829302+00:00"
+  },
+  {
+    "id": "808a2d8e-7958-4e7c-80d4-0fc174b8f0f0",
     "name": "Rosso Cinque Stelle",
     "producer": "Fattoria Ca' Granda",
     "vintage": 0,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Riviera del Garda Classico DOC",
-    "country": "Italia",
+    "country": "Riviera del Garda Classico DOC",
     "region": "Lombardia",
     "grapes": [
       "Rebo",
@@ -999,47 +1352,766 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
-    "rating": 5,
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
     "tastingNotes": {
       "aroma": [],
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 213/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:30:51.750399+00:00",
+    "updatedAt": "2026-10-25T15:30:51.750399+00:00"
   },
   {
-    "id": "wine-1791296866097-30-fu6i3",
-    "name": "Grattamacco",
-    "producer": "Podere Grattamacco",
-    "vintage": 2021,
+    "id": "8239f1f8-d86c-4700-9abc-9a6acd474faa",
+    "name": "Sassella Stella Retica",
+    "producer": "Arpepe",
+    "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Bolgheri Superiore DOC",
-    "country": "Italia",
+    "appellation": "Valtellina Superiore IGT",
+    "country": "Valtellina Superiore IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 40,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.821462+00:00",
+    "updatedAt": "2026-10-25T15:30:51.821462+00:00"
+  },
+  {
+    "id": "82ffe1c6-4fae-44b8-a354-825caeb99cc1",
+    "name": "Toscana Rosso",
+    "producer": "Il Colombaiolo",
+    "vintage": 2017,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
     "region": "Toscana",
     "grapes": [
-      "Cabernet Sauvignon",
-      "Merlot",
+      "Sangiovese",
+      "Ciliegiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.819156+00:00",
+    "updatedAt": "2026-10-25T15:30:51.819156+00:00"
+  },
+  {
+    "id": "85550c68-1380-4b93-bcbb-75c154a24212",
+    "name": "Colle Antico",
+    "producer": "Bergamini",
+    "vintage": 2022,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Veneto IGP",
+    "country": "Veneto IGP",
+    "region": "Veneto",
+    "grapes": [
+      "Teroldego"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.707692+00:00",
+    "updatedAt": "2026-10-25T15:30:51.707692+00:00"
+  },
+  {
+    "id": "86aa9c72-65b6-4b09-b443-0ece4c6f2334",
+    "name": "Maiorano",
+    "producer": "Pietreienne",
+    "vintage": 2020,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Falanghina del Sannio DOP",
+    "country": "Falanghina del Sannio DOP",
+    "region": "Campania",
+    "grapes": [
+      "Falanghina"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 17,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.774074+00:00",
+    "updatedAt": "2026-10-25T15:30:51.774074+00:00"
+  },
+  {
+    "id": "89f5f231-33b0-47a7-a3f6-21a76bfb7075",
+    "name": "Curnàl",
+    "producer": "Barbacan",
+    "vintage": 2023,
+    "category": "red",
+    "subCategory": "Rosso (anfora)",
+    "appellation": "Alpi Retiche IGT",
+    "country": "Alpi Retiche IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.716279+00:00",
+    "updatedAt": "2026-10-25T15:30:51.716279+00:00"
+  },
+  {
+    "id": "8b77a3d0-941f-4b65-a2d7-8e818ce3de17",
+    "name": "Fondo Zero Bianco Bio",
+    "producer": "La Piana",
+    "vintage": 2023,
+    "category": "sparkling",
+    "subCategory": "Frizzante con fondo",
+    "appellation": "-",
+    "country": "-",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Da bere nel 2025",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.774168+00:00",
+    "updatedAt": "2026-10-25T15:30:51.774168+00:00"
+  },
+  {
+    "id": "8c047b3f-9627-44e6-b9fb-dd64fb80f366",
+    "name": "Peuce",
+    "producer": "Rocca Brettia",
+    "vintage": 2021,
+    "category": "rose",
+    "subCategory": "Rosato",
+    "appellation": "Terre di Cosenza DOP",
+    "country": "Terre di Cosenza DOP",
+    "region": "Calabria",
+    "grapes": [
+      "Autoctoni"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 10,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.roccabrettia.com/peuce-2",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.715217+00:00",
+    "updatedAt": "2026-10-25T15:30:51.715217+00:00"
+  },
+  {
+    "id": "90924726-7dd6-4b57-967c-6be81d24c066",
+    "name": "Nature millesimanto",
+    "producer": "Ca’ Rovere",
+    "vintage": 2017,
+    "category": "sparkling",
+    "subCategory": "Metodo Classico Brut Nature Millesimato",
+    "appellation": "Colli Euganei DOC",
+    "country": "Colli Euganei DOC",
+    "region": "Veneto",
+    "grapes": [
+      "Chardonnay",
+      "Garganega"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 26,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.82857+00:00",
+    "updatedAt": "2026-10-25T15:30:51.82857+00:00"
+  },
+  {
+    "id": "936696a9-88ab-4fcb-aa62-e47542865442",
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
+    "vintage": 2015,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "Sconosciuta",
+    "grapes": [
+      "Albana"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2015,
+      "end": 2025,
+      "peakYear": 2020
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.807717+00:00",
+    "updatedAt": "2026-10-25T15:30:51.807717+00:00"
+  },
+  {
+    "id": "955d67e0-4dd3-42fe-a600-6d7499d1984f",
+    "name": "Contrari",
+    "producer": "Bastianich",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Valtellina Superiore DOCG",
+    "country": "Valtellina Superiore DOCG",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 50,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.762418+00:00",
+    "updatedAt": "2026-10-25T15:30:51.762418+00:00"
+  },
+  {
+    "id": "9bea03a6-386f-44eb-953a-a2af0b2e5399",
+    "name": "Brunello di Montalcino",
+    "producer": "Caparzo",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Brunello di Montalcino DOCG",
+    "country": "Brunello di Montalcino DOCG",
+    "region": "Toscana",
+    "grapes": [
       "Sangiovese"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 80,
+    "price": 30,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.600651+00:00",
+    "updatedAt": "2026-10-25T15:30:51.600651+00:00"
+  },
+  {
+    "id": "9d320c6a-afd4-4dd8-bf15-67a985cfdf7d",
+    "name": "Toscana Rosso",
+    "producer": "Il Colombaiolo",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Ciliegiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.836157+00:00",
+    "updatedAt": "2026-10-25T15:30:51.836157+00:00"
+  },
+  {
+    "id": "aeaf2329-5915-4a1e-add2-e17e7b0dc978",
+    "name": "Les Arts et Métiers",
+    "producer": "Domaine de la Citadelle",
+    "vintage": 2022,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Côtes du Rhône",
+    "country": "Côtes du Rhône",
+    "region": "Francia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 15,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.776002+00:00",
+    "updatedAt": "2026-10-25T15:30:51.776002+00:00"
+  },
+  {
+    "id": "b0b1b545-eecd-436d-8cab-a47b960147c3",
+    "name": "Florenza",
+    "producer": "Florenza",
+    "vintage": 2020,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 7,
+    "price": 10,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.828048+00:00",
+    "updatedAt": "2026-10-25T15:30:51.828048+00:00"
+  },
+  {
+    "id": "bc4906fa-3841-4aac-914d-ead6d3983de6",
+    "name": "Gewürztraminer",
+    "producer": "Kellerei Cantina",
+    "vintage": 2021,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Alto Adige DOC",
+    "country": "Alto Adige DOC",
+    "region": "Alto Adige",
+    "grapes": [
+      "Gewürztraminer"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 11,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Longevità: https://www.callmewine.com/gewurztraminer-cantina-di-caldaro-kaltern-2023-P53327.htm?tw_source=google&tw_adid=731499667188&tw_campaign=19970427291&gad_source=1&gclid=CjwKCAiA5Ka9BhB5EiwA1ZVtvIjIK8AToGgHgWEQ_DPJQOa6HepF9-E3Mt7vNOmfq_507Ccc8Jby6xoC-zAQAvD_BwE",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.745036+00:00",
+    "updatedAt": "2026-10-25T15:30:51.745036+00:00"
+  },
+  {
+    "id": "cd8c20e3-6d1c-4a8b-a234-0dc8971fb3a2",
+    "name": "Gióia",
+    "producer": "Tabarka Carloforte",
+    "vintage": 2022,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Moscato di Sardegna DOC",
+    "country": "Moscato di Sardegna DOC",
+    "region": "Sardegna",
+    "grapes": [
+      "Moscato"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.715133+00:00",
+    "updatedAt": "2026-10-25T15:30:51.715133+00:00"
+  },
+  {
+    "id": "da935bf1-7afd-4cc4-a166-81956ecadc21",
+    "name": "Rugiada del Mattino",
+    "producer": "I Carpini",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Derthona DOC",
+    "country": "Derthona DOC",
+    "region": "Piemonte",
+    "grapes": [
+      "Timorasso"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 16,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.812307+00:00",
+    "updatedAt": "2026-10-25T15:30:51.812307+00:00"
+  },
+  {
+    "id": "e8054148-16fc-452b-b8e8-0b32f333cab0",
+    "name": "5 puttonyos",
+    "producer": "Royal Borászat",
+    "vintage": 2017,
+    "category": "dessert",
+    "subCategory": "Dolce",
+    "appellation": "Tokaji",
+    "country": "Tokaji",
+    "region": "Ungheria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 30,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "https://www.boromidd.com/gb/wines/510-royal-tokaji-5-puttonyos- aszu-2017.html",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.83616+00:00",
+    "updatedAt": "2026-10-25T15:30:51.83616+00:00"
+  },
+  {
+    "id": "f535d318-8af9-4af2-ae51-4e50819d9be9",
+    "name": "Tigre Macerato",
+    "producer": "Niccolò Lari",
+    "vintage": 2022,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Trebbiano"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 25,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 4,
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "cantina",
+    "notes": "Potrebbero essere partita rovinata",
+    "uncorkedCount": 0,
+    "aiCalculated": false,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "createdAt": "2026-10-25T15:30:51.808472+00:00",
+    "updatedAt": "2026-10-25T15:30:51.808472+00:00"
+  },
+  {
+    "name": "Divina Villa",
+    "producer": "Duca della Cornea",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Gamay del Trasimeno DOC",
+    "country": "Gamay del Trasimeno DOC",
+    "region": "Umbria",
+    "grapes": [
+      "100% Gamay"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 11,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1051,37 +2123,37 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 149/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-0-dl0xg",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-31-00siu",
-    "name": "Tenuta Greppo",
-    "producer": "Biondi Santi",
-    "vintage": 2011,
+    "name": "Lacrima Blu",
+    "producer": "Anna Gatto Bigio",
+    "vintage": 0,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Brunello di Montalcino DOCG",
-    "country": "Italia",
-    "region": "Toscana",
+    "appellation": "Umbria IGT",
+    "country": "Umbria IGT",
+    "region": "Umbria",
     "grapes": [
-      "Sangiovese Grosso220-495"
+      "100% Pinot Nero"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 0,
+    "price": 13,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2011,
-      "end": 2021,
-      "peakYear": 2016
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
     "rating": 5,
     "tastingNotes": {
@@ -1089,152 +2161,33 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 567/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "* investimento",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-32-ltiv1",
-    "name": "Chianti DOCG",
-    "producer": "Cecchi",
-    "vintage": 2021,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Chianti DOCG",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Sangiovese",
-      "Canaiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 6,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "peak",
-    "drinkingWindow": {
-      "start": 2024,
-      "peakYear": 2027,
-      "end": 2033
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 907/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-1-lia6a",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:52:37.106Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Chianti DOCG 2021 (Cecchi), l'apice ideale di stappo è il 2027 (finestra ideale: 2024 - 2033). Stato stimato: Apice di Maturità (Momento perfetto di stappo)."
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-33-3jtsq",
-    "name": "Florenza",
-    "producer": "Florenza",
-    "vintage": 2020,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Toscana IGT",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 7,
-    "price": 10,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 670/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-34-0s4q2",
-    "name": "Toscana Rosso",
-    "producer": "Il Colombaiolo",
-    "vintage": 2017,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Toscana IGT",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Sangiovese",
-      "Ciliegiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 18,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2017,
-      "end": 2027,
-      "peakYear": 2022
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 658/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-35-jjor0",
-    "name": "Toscana Rosso",
-    "producer": "Il Colombaiolo",
+    "name": "Sforzato Cinque Stelle",
+    "producer": "Nino Negri",
     "vintage": 2016,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Toscana IGT",
-    "country": "Italia",
-    "region": "Toscana",
+    "appellation": "Valtellina Superiore DOCG",
+    "country": "Valtellina Superiore DOCG",
+    "region": "Lombardia",
     "grapes": [
-      "Sangiovese",
-      "Ciliegiolo"
+      "Nebbiolo (Chiavennasca)"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 18,
+    "stock": 1,
+    "price": 70,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2016,
       "end": 2026,
@@ -1246,37 +2199,37 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 879/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
+    "purchaseChannel": "",
+    "notes": "Aromi di spezie esotiche, cocco, resina di pino e prugna cotta. Corpo pieno con note di prugna secca, marmellata di lamponi, rovere francese, tabacco e calore alcolico. wineenthusiast.com",
+    "id": "wine-1792942306508-10-ob6zr",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-36-jdccp",
-    "name": "52 Filari di Viti",
-    "producer": "La Tommasina",
-    "vintage": 2023,
+    "name": "Sassella",
+    "producer": "Nino Negri",
+    "vintage": 2020,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Vino rosso",
-    "country": "Italia",
-    "region": "Piemonte",
+    "appellation": "Valtellina Superiore DOCG",
+    "country": "Valtellina Superiore DOCG",
+    "region": "Lombardia",
     "grapes": [
-      "Ruchè + freisa"
+      "Nebbiolo (Chiavennasca)"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2023,
-      "end": 2033,
-      "peakYear": 2028
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
     },
     "rating": 5,
     "tastingNotes": {
@@ -1284,151 +2237,33 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 347/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-11-lgfgk",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-37-y8u2x",
-    "name": "Otelli",
-    "producer": "Gemei",
-    "vintage": 2021,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Verona IGT",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Corvina Veronese",
-      "Merlot",
-      "Cabernet Sauvignon"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 12,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 421/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-38-6sevs",
-    "name": "Negroamaro IGP",
-    "producer": "Torre Antica",
-    "vintage": 2021,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Negroamaro IGP",
-    "country": "Italia",
-    "region": "Puglia",
-    "grapes": [
-      "Negroamaro"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 9,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 540/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-39-80154",
-    "name": "Campo de Sampin",
-    "producer": "Contramalini",
-    "vintage": 2013,
-    "category": "dessert",
-    "subCategory": "Dolce",
-    "appellation": "Veneto IGT",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 10,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2013,
-      "end": 2023,
-      "peakYear": 2018
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 564/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-40-5ju3m",
-    "name": "Ronchedone",
-    "producer": "Ca' dei Frati",
+    "name": "Contrari",
+    "producer": "Bastianich",
     "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
-    "appellation": "Benaco Bresciano IGT",
-    "country": "Italia",
+    "appellation": "Valtellina Superiore DOCG",
+    "country": "Valtellina Superiore DOCG",
     "region": "Lombardia",
     "grapes": [
-      "Marzemino",
-      "Sangiovese",
-      "Cabernet Sauvignon"
+      "Nebbiolo (Chiavennasca)"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 17,
+    "price": 50,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1440,23 +2275,1168 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 540/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-12-ph5d1",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-41-ibp9v",
+    "name": "Curnàl",
+    "producer": "Barbacan",
+    "vintage": 2023,
+    "category": "red",
+    "subCategory": "Rosso (anfora)",
+    "appellation": "Alpi Retiche IGT",
+    "country": "Alpi Retiche IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-13-mpg2k",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Sassella Stella Retica",
+    "producer": "Arpepe",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Valtellina Superiore IGT",
+    "country": "Valtellina Superiore IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Nebbiolo (Chiavennasca)"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 40,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-14-1wpov",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Lanzato",
+    "producer": "Cantine Bignotti / Cultivar delle Volte",
+    "vintage": 2020,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Val IGT",
+    "country": "Val IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "70% Barbera 30% Trebbiano"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Longevità: Un vino potente che esprime appieno tutta la sua territorialità, affilato, con il giusto tannino che garantirà nel tempo una forza penetrante rara. Profumi di lamponi e mirtilli con leggere piacevoli scosse dovute alla mineralità ed al tannino, con sentori di spezie e resine e piacevoli refoli balsamici.",
+    "id": "wine-1792942306508-15-sfc0z",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Blagheur",
+    "producer": "Michele Taliano",
+    "vintage": 2020,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Langhe Nebbiolo DOC",
+    "country": "Langhe Nebbiolo DOC",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 10,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-16-dw2wo",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Nibbio",
+    "producer": "Azienda Vitivinicola Piero Cassina",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Piemonte IGT",
+    "country": "Piemonte IGT",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 16,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://pietrocassina.com/",
+    "id": "wine-1792942306508-17-nj2et",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Braja",
+    "producer": "Del Tetto",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Roero DOCG Riserva",
+    "country": "Roero DOCG Riserva",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 22,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.deltetto.com/wp-content/uploads/2018/06/roero-docg-riserva-braja.pdf",
+    "id": "wine-1792942306508-18-qwmuh",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Brunello di Montalcino",
+    "producer": "Caparzo",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Brunello di Montalcino DOCG",
+    "country": "Brunello di Montalcino DOCG",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 30,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-19-ekfzr",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Legamè",
+    "producer": "Anna Gatto Bigio",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Gamay del Trasimeno",
+    "country": "Gamay del Trasimeno",
+    "region": "Umbria",
+    "grapes": [
+      "100% Gamay"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-2-kqa7a",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Barolo",
+    "producer": "Fontanafredda",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Barolo DOCG",
+    "country": "Barolo DOCG",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-20-max3h",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Barolo",
+    "producer": "Carlo del Tetto",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Barolo DOCG",
+    "country": "Barolo DOCG",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 45,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-21-kunwn",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Macchiarossa",
+    "producer": "Claudio Cipressi",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Tintilia del Molise DOC",
+    "country": "Tintilia del Molise DOC",
+    "region": "Molise",
+    "grapes": [
+      "Tintilia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-22-0r4en",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Fumin",
+    "producer": "Grosjean",
+    "vintage": 2007,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "",
+    "grapes": [
+      "Fumin"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2007,
+      "end": 2017,
+      "peakYear": 2012
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-23-v0dle",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Colle Antico",
+    "producer": "Bergamini",
+    "vintage": 2022,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Veneto IGP",
+    "country": "Veneto IGP",
+    "region": "Veneto",
+    "grapes": [
+      "Teroldego"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-24-mr4q2",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Teste Matte",
+    "producer": "Bergamini",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Veneto IGP",
+    "country": "Veneto IGP",
+    "region": "Veneto",
+    "grapes": [
+      "Teroldego",
+      "Corvina",
+      "Rondinella",
+      "Molinara"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 14,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-25-0cz98",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Min 01",
+    "producer": "Ca' Lustra",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Colli Euganei Rosso DOC",
+    "country": "Colli Euganei Rosso DOC",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 13,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-26-oqhnd",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Rosso",
+    "producer": "Fattoria Ca' Granda",
+    "vintage": 2022,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Riviera del Garda Classico DOC",
+    "country": "Riviera del Garda Classico DOC",
+    "region": "Lombardia",
+    "grapes": [
+      "Groppello",
+      "Marzemino",
+      "Barbera"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 10,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-27-wp6d9",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Rosso Cinque Stelle",
+    "producer": "Fattoria Ca' Granda",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Riviera del Garda Classico DOC",
+    "country": "Riviera del Garda Classico DOC",
+    "region": "Lombardia",
+    "grapes": [
+      "Rebo",
+      "Groppello"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-28-rxorl",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Grattamacco",
+    "producer": "Podere Grattamacco",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Bolgheri Superiore DOC",
+    "country": "Bolgheri Superiore DOC",
+    "region": "Toscana",
+    "grapes": [
+      "Cabernet Sauvignon",
+      "Merlot",
+      "Sangiovese"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 80,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-29-o2qyy",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Montefalco Rosso",
+    "producer": "Tenute del Cerro",
+    "vintage": 2011,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montefalco Rosso DOC",
+    "country": "Montefalco Rosso DOC",
+    "region": "Umbria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 8,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2011,
+      "end": 2021,
+      "peakYear": 2016
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-3-fyow9",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Tenuta Greppo",
+    "producer": "Biondi Santi",
+    "vintage": 2011,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Brunello di Montalcino DOCG",
+    "country": "Brunello di Montalcino DOCG",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese Grosso220-495"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 0,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2011,
+      "end": 2021,
+      "peakYear": 2016
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "* investimento",
+    "id": "wine-1792942306508-30-4p11v",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Chianti DOCG",
+    "producer": "Cecchi",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Chianti DOCG",
+    "country": "Chianti DOCG",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Canaiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 6,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-31-fqv7t",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Florenza",
+    "producer": "Florenza",
+    "vintage": 2020,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 7,
+    "price": 10,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-32-doycj",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Toscana Rosso",
+    "producer": "Il Colombaiolo",
+    "vintage": 2017,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Ciliegiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-33-v438d",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Toscana Rosso",
+    "producer": "Il Colombaiolo",
+    "vintage": 2016,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Ciliegiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-34-ci6ez",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "52 Filari di Viti",
+    "producer": "La Tommasina",
+    "vintage": 2023,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Vino rosso",
+    "country": "Vino rosso",
+    "region": "Piemonte",
+    "grapes": [
+      "Ruchè + freisa"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-35-oc9pu",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Otelli",
+    "producer": "Gemei",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Verona IGT",
+    "country": "Verona IGT",
+    "region": "Veneto",
+    "grapes": [
+      "Corvina Veronese",
+      "Merlot",
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-36-44ayv",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Negroamaro IGP",
+    "producer": "Torre Antica",
+    "vintage": 2021,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Negroamaro IGP",
+    "country": "Negroamaro IGP",
+    "region": "Puglia",
+    "grapes": [
+      "Negroamaro"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-37-h94jy",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Campo de Sampin",
+    "producer": "Contramalini",
+    "vintage": 2013,
+    "category": "dessert",
+    "subCategory": "Dolce",
+    "appellation": "Veneto IGT",
+    "country": "Veneto IGT",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 10,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2013,
+      "end": 2023,
+      "peakYear": 2018
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-38-whrmm",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Ronchedone",
+    "producer": "Ca' dei Frati",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Benaco Bresciano IGT",
+    "country": "Benaco Bresciano IGT",
+    "region": "Lombardia",
+    "grapes": [
+      "Marzemino",
+      "Sangiovese",
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 17,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-39-puvcd",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Montefalco Rosso",
+    "producer": "Antonelli",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montefalco Rosso DOC",
+    "country": "Montefalco Rosso DOC",
+    "region": "Umbria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "più astuccio",
+    "id": "wine-1792942306508-4-wfta8",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
     "name": "Châteauneuf-du-Pape",
     "producer": "Famille Mayard",
     "vintage": 0,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Châteauneuf-du-Pape AOP",
-    "country": "Francia",
+    "country": "Châteauneuf-du-Pape AOP",
     "region": "Francia",
     "grapes": [
       "Grenache",
@@ -1469,11 +3449,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 35,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
     "rating": 5,
     "tastingNotes": {
@@ -1481,33 +3461,31 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 125/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-40-mvjof",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-42-0mfdo",
     "name": "Bordeaux Supérieur AOC",
     "producer": "Domaine de Brondeau Lalande",
     "vintage": 2018,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Bordeaux Supérieur AOC",
-    "country": "Francia",
+    "country": "Bordeaux Supérieur AOC",
     "region": "Francia",
-    "grapes": [
-      "Autoctono"
-    ],
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -1519,23 +3497,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 776/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "https://sommelierwinebox.com/products/bordeaux-superieur-brondeau-lalande",
+    "id": "wine-1792942306508-41-gklvv",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-43-tunov",
     "name": "Rioja DOC",
     "producer": "Elle de Landa Luce",
     "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Rioja DOC",
-    "country": "Spagna",
+    "country": "Rioja DOC",
     "region": "Spagna",
     "grapes": [
       "Tempranillo",
@@ -1546,7 +3524,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 14,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1558,23 +3536,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 391/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "https://baskselekt.com/it/vini-rosso-paesi-baschi/664-vino-elle-di- landaluce.html",
+    "id": "wine-1792942306508-42-forw5",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-44-8wf2w",
     "name": "Gióia",
     "producer": "Tabarka Carloforte",
     "vintage": 2022,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Moscato di Sardegna DOC",
-    "country": "Italia",
+    "country": "Moscato di Sardegna DOC",
     "region": "Sardegna",
     "grapes": [
       "Moscato"
@@ -1584,7 +3562,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 15,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1596,23 +3574,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 630/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-43-297xf",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-45-y9o1c",
     "name": "Bianco Mosso",
     "producer": "Rocchi della Sala",
     "vintage": 2022,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Terre Siciliane IGP",
-    "country": "Italia",
+    "country": "Terre Siciliane IGP",
     "region": "Sicilia",
     "grapes": [
       "Grillo",
@@ -1623,7 +3601,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 10,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1635,23 +3613,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 516/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-44-nfmqk",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-46-4vu2y",
     "name": "Erdener Treppchen Riesling Kabinett",
     "producer": "Meulenhof",
     "vintage": 2018,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Mosella",
-    "country": "Germania",
+    "country": "Mosella",
     "region": "Germania",
     "grapes": [
       "Riesling"
@@ -1661,11 +3639,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 18,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2020,
-      "peakYear": 2023,
-      "end": 2030
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
     },
     "rating": 5,
     "tastingNotes": {
@@ -1673,25 +3651,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 194/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-45-p0fgo",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:58:25.686Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Erdener Treppchen Riesling Kabinett 2018 (Meulenhof), l'apice ideale di stappo è il 2023 (finestra ideale: 2020 - 2030). Stato stimato: Pronto per la Beva (Ottimo momento sensoriale)."
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-47-0z6iv",
     "name": "Gewürztraminer",
-    "producer": "Comprato a Alveare sul lago",
+    "producer": "XXX (preso alveare)",
     "vintage": 2021,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Trentino DOC",
-    "country": "Italia",
+    "country": "Trentino DOC",
     "region": "Trentino",
     "grapes": [
       "Gewürztraminer"
@@ -1701,7 +3677,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -1713,23 +3689,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 694/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-46-3nuqu",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:58:12.997Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-48-iogak",
     "name": "Aromatta",
     "producer": "Villa Persani",
     "vintage": 0,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Veneto IGT",
-    "country": "Italia",
+    "country": "Veneto IGT",
     "region": "Veneto",
     "grapes": [
       "Piwi"
@@ -1739,11 +3715,11 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 1,
     "price": 20,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
     "rating": 5,
     "tastingNotes": {
@@ -1751,23 +3727,23 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 857/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "https://www.villapersani.com/Vini/aromatta",
+    "id": "wine-1792942306508-47-r0cqw",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-49-r0t9a",
     "name": "Glanio",
     "producer": "Madrevite",
     "vintage": 2019,
     "category": "red",
     "subCategory": "Rosso",
     "appellation": "Trasimeno Rosso",
-    "country": "Italia",
+    "country": "Trasimeno Rosso",
     "region": "Umbria",
     "grapes": [
       "Sangiovese"
@@ -1777,7 +3753,7 @@ export const SEED_WINES: WineBottle[] = [
     "stock": 2,
     "price": 15,
     "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2019,
       "end": 2029,
@@ -1789,33 +3765,31 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 437/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "https://www.wonderumbria.com/it/glanio-madrevite-vino-doc-colli-del-trasimeno.html",
+    "id": "wine-1792942306508-48-3j61w",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-50-rlo7r",
     "name": "Mamà",
     "producer": "Sì Siri Casa Vinicola",
     "vintage": 2022,
     "category": "white",
     "subCategory": "Bianco",
     "appellation": "Terre Siciliane IGP",
-    "country": "Italia",
+    "country": "Terre Siciliane IGP",
     "region": "Sicilia",
-    "grapes": [
-      "Autoctono"
-    ],
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 2,
     "price": 10,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -1827,611 +3801,31 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 302/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-49-d0jzq",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-51-xke2j",
-    "name": "Rolando",
-    "producer": "Bricco Maiolica",
-    "vintage": 0,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Langhe DOC",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Chardonnay"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 11,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 538/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-52-8rart",
-    "name": "Peuce",
-    "producer": "Rocca Brettia",
-    "vintage": 2021,
-    "category": "rose",
-    "subCategory": "Rosato",
-    "appellation": "Terre di Cosenza DOP",
-    "country": "Italia",
-    "region": "Calabria",
-    "grapes": [
-      "Autoctoni"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 10,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 104/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.roccabrettia.com/peuce-2",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-53-wupwd",
-    "name": "Gewürztraminer",
-    "producer": "Kellerei Cantina",
-    "vintage": 2021,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Alto Adige DOC",
-    "country": "Italia",
-    "region": "Alto Adige",
-    "grapes": [
-      "Gewürztraminer"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 11,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 946/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Longevità: https://www.callmewine.com/gewurztraminer-cantina-di-caldaro-kaltern-2023-P53327.htm?tw_source=google&tw_adid=731499667188&tw_campaign=19970427291&gad_source=1&gclid=CjwKCAiA5Ka9BhB5EiwA1ZVtvIjIK8AToGgHgWEQ_DPJQOa6HepF9-E3Mt7vNOmfq_507Ccc8Jby6xoC-zAQAvD_BwE",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-54-p4lc7",
-    "name": "Malvazija",
-    "producer": "Pucer Z Vrha",
-    "vintage": 0,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Vipava",
-    "country": "Slovenia",
-    "region": "Slovenia",
-    "grapes": [
-      "Malvasia"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 12,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 516/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://sommelierwinebox.com/products/malvazija-pristna-pucer-z-vrha",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-55-7arc9",
-    "name": "Riesling macerato (leggero)",
-    "producer": "Non specificato",
-    "vintage": 0,
-    "category": "orange",
-    "subCategory": "Macerato  Renegade",
-    "appellation": "Provincia di Pavia IGP",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 11,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 260/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-56-2qpup",
-    "name": "Manzoni bianco",
-    "producer": "Ca’ Lustra",
-    "vintage": 2020,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Veneto IGT",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Manzoni"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 13,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 808/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-57-2vp4q",
-    "name": "A cengia",
-    "producer": "Ca’ Lustra",
-    "vintage": 2020,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Veneto IGP",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Moscato (secco)"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 13,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 203/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-58-dlyhv",
-    "name": "Le Coq Volant",
-    "producer": "Domaine Galuval",
-    "vintage": 2021,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Côtes du Rhône",
-    "country": "Francia",
-    "region": "Francia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2021,
-      "end": 2031,
-      "peakYear": 2026
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 496/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-59-mlzhd",
-    "name": "Les Arts et Métiers",
-    "producer": "Domaine de la Citadelle",
-    "vintage": 2022,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Côtes du Rhône",
-    "country": "Francia",
-    "region": "Francia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 15,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 850/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-60-pl5x1",
-    "name": "Rugiada del Mattino",
-    "producer": "I Carpini",
-    "vintage": 0,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Derthona DOC",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Timorasso"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 16,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 436/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-61-z7u31",
-    "name": "Net a Sauvignon",
-    "producer": "Ada Nada",
-    "vintage": 2022,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Langhe DOC",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Sauvignon Blanc"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 18,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "peak",
-    "drinkingWindow": {
-      "start": 2023,
-      "peakYear": 2025,
-      "end": 2027
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 638/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.adanada.it/cantina/vini/langhe-doc-sauvignon-neta/",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:46:45.357Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Net a Sauvignon 2022 (Ada Nada), l'apice ideale di stappo è il 2025 (finestra ideale: 2023 - 2027). Stato stimato: Apice di Maturità (Momento perfetto di stappo).",
-    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": "wine-1791296866097-62-fryxm",
-    "name": "Serena",
-    "producer": "Ada Nada",
-    "vintage": 2022,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Langhe Nebbiolo DOC",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Nebbiolo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 591/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-63-4zqt3",
-    "name": "Incipit",
-    "producer": "Borgo Macereto",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Toscana IGT",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Sangiovese",
-      "Gay"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 358/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:49:05.957Z",
-    "imageUrl": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": "wine-1791296866097-64-pv82y",
-    "name": "Maiorano",
-    "producer": "Pietreienne",
-    "vintage": 2020,
-    "category": "white",
-    "subCategory": "Bianco",
-    "appellation": "Falanghina del Sannio DOP",
-    "country": "Italia",
-    "region": "Campania",
-    "grapes": [
-      "Falanghina"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 17,
-    "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2020,
-      "end": 2030,
-      "peakYear": 2025
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 265/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-65-9bnph",
-    "name": "Tigre Macerato",
-    "producer": "Niccolò Lari",
-    "vintage": 2022,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Toscana IGT",
-    "country": "Italia",
-    "region": "Toscana",
-    "grapes": [
-      "Trebbiano"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 25,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "peak",
-    "drinkingWindow": {
-      "start": 2023,
-      "peakYear": 2025,
-      "end": 2028
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 498/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Potrebbero essere partita rovinata",
-    "uncorkedCount": 1,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:53:59.822Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "Ricerca Online & Analisi IA completata: Per Tigre Macerato 2022 (Niccolò Lari), l'apice ideale di stappo è il 2025 (finestra ideale: 2023 - 2028). Stato stimato: Apice di Maturità (Momento perfetto di stappo).",
-    "imageUrl": "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": "wine-1791296866097-66-b4xrc",
-    "name": "Albana Secco",
-    "producer": "Vigna Rocca",
+    "name": "Cola Montefalco",
+    "producer": "Conti di Saragano",
     "vintage": 2015,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Emilia-RomagnaAlbana Secco",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Albana"
-    ],
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montefalco Rosso DOC",
+    "country": "Montefalco Rosso DOC",
+    "region": "Umbria",
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 9,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "stock": 3,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2015,
       "end": 2025,
@@ -2443,37 +3837,37 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 178/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
-    "uncorkedCount": 5,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:55:15.849Z"
+    "id": "wine-1792942306508-5-j23ew",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-67-o0xpa",
-    "name": "Albana Secco",
-    "producer": "Vigna Rocca",
-    "vintage": 2018,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Emilia-RomagnaAlbana Secco",
-    "country": "Italia",
-    "region": "",
+    "name": "Rolando",
+    "producer": "Bricco Maiolica",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Langhe DOC",
+    "country": "Langhe DOC",
+    "region": "Piemonte",
     "grapes": [
-      "Albana"
+      "Chardonnay"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 9,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "price": 11,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
     },
     "rating": 5,
     "tastingNotes": {
@@ -2481,186 +3875,33 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 461/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-50-anf8r",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-68-35i42",
-    "name": "Albana Secco",
-    "producer": "Vigna Rocca",
-    "vintage": 2017,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Emilia-RomagnaAlbana Secco",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Albana"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 9,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2017,
-      "end": 2027,
-      "peakYear": 2022
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 154/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-69-z5fbo",
-    "name": "Albana Secco",
-    "producer": "Vigna Rocca",
-    "vintage": 2022,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Emilia-RomagnaAlbana Secco",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Albana"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 9,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2022,
-      "end": 2032,
-      "peakYear": 2027
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 376/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-7-by8oq",
-    "name": "Un Vino di Stoffa Lalo",
-    "producer": "Diubaldo",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Montepulciano d'Abruzzo DOC",
-    "country": "Italia",
-    "region": "Abruzzo",
-    "grapes": [
-      "montepulciano d'abruzzo"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 23,
-    "location": "Rack 4 (mobile)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 986/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "anche bottiglione da 3lt",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-70-ojugr",
-    "name": "Malvasia Macerata",
-    "producer": "Ussaj",
-    "vintage": 2017,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
-    "country": "Slovenia",
-    "region": "",
-    "grapes": [
-      "Malvasia"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 16,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2017,
-      "end": 2027,
-      "peakYear": 2022
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 655/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T15:52:10.956Z",
-    "imageUrl": "neutral"
-  },
-  {
-    "id": "wine-1791296866097-71-z8nes",
-    "name": "Ribolla Gialla",
-    "producer": "Elio Marta",
+    "name": "Peuce",
+    "producer": "Rocca Brettia",
     "vintage": 2021,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Venezia Giulia IGP",
-    "country": "Italia",
-    "region": "Friuli",
+    "category": "rose",
+    "subCategory": "Rosato",
+    "appellation": "Terre di Cosenza DOP",
+    "country": "Terre di Cosenza DOP",
+    "region": "Calabria",
     "grapes": [
-      "Ribolla Gialla"
+      "Autoctoni"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 20,
+    "price": 10,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2672,109 +3913,33 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 100/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "FIVI 2024",
+    "purchaseChannel": "",
+    "notes": "https://www.roccabrettia.com/peuce-2",
+    "id": "wine-1792942306508-51-6saeu",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-72-xp3g8",
-    "name": "Ribolla Gialla",
-    "producer": "Gravner",
-    "vintage": 2016,
-    "category": "orange",
-    "subCategory": "Macerato",
-    "appellation": "Venezia Giulia IGP",
-    "country": "Italia",
-    "region": "Friuli",
-    "grapes": [
-      "Ribolla Gialla"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 100,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2016,
-      "end": 2026,
-      "peakYear": 2021
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 864/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Annata da verificare",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-73-ss33v",
-    "name": "Fondo Zero Bianco Bio",
-    "producer": "La Piana",
-    "vintage": 2023,
-    "category": "sparkling",
-    "subCategory": "Frizzante con fondo",
-    "appellation": "-",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 9,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2023,
-      "end": 2033,
-      "peakYear": 2028
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 424/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Da bere nel 2025",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-74-y2t9j",
-    "name": "Malvasia",
-    "producer": "Gustin",
+    "name": "Gewürztraminer",
+    "producer": "Kellerei Cantina",
     "vintage": 2021,
     "category": "white",
     "subCategory": "Bianco",
-    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
-    "country": "Italia",
-    "region": "",
+    "appellation": "Alto Adige DOC",
+    "country": "Alto Adige DOC",
+    "region": "Alto Adige",
     "grapes": [
-      "Malvasia"
+      "Gewürztraminer"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 2,
-    "price": 12,
+    "stock": 1,
+    "price": 11,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -2786,33 +3951,107 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 280/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Una bottiglia del 2020 inclusa",
+    "purchaseChannel": "",
+    "notes": "Longevità: https://www.callmewine.com/gewurztraminer-cantina-di-caldaro-kaltern-2023-P53327.htm?tw_source=google&tw_adid=731499667188&tw_campaign=19970427291&gad_source=1&gclid=CjwKCAiA5Ka9BhB5EiwA1ZVtvIjIK8AToGgHgWEQ_DPJQOa6HepF9-E3Mt7vNOmfq_507Ccc8Jby6xoC-zAQAvD_BwE",
+    "id": "wine-1792942306508-52-glyco",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-75-aqusd",
-    "name": "Malvasia",
-    "producer": "Gustin",
+    "name": "Malvazija",
+    "producer": "Pucer Z Vrha",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Vipava",
+    "country": "Vipava",
+    "region": "Slovenia",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://sommelierwinebox.com/products/malvazija-pristna-pucer-z-vrha",
+    "id": "wine-1792942306508-53-gista",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Riesling macerato (leggero)",
+    "producer": "Non specificato",
+    "vintage": 0,
+    "category": "orange",
+    "subCategory": "Macerato  Renegade",
+    "appellation": "Provincia di Pavia IGP",
+    "country": "Provincia di Pavia IGP",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 11,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-54-sk940",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Manzoni bianco",
+    "producer": "Ca’ Lustra",
     "vintage": 2020,
     "category": "white",
     "subCategory": "Bianco",
-    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
-    "country": "Italia",
-    "region": "",
+    "appellation": "Veneto IGT",
+    "country": "Veneto IGT",
+    "region": "Veneto",
     "grapes": [
-      "Malvasia"
+      "Manzoni"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 12,
+    "stock": 2,
+    "price": 13,
     "location": "Rack 2 (centro)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2020,
       "end": 2030,
@@ -2824,151 +4063,37 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 383/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-55-wdkuj",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-76-g5iia",
-    "name": "Juspin sette filari di viti",
-    "producer": "La Tommasina",
-    "vintage": 0,
-    "category": "rose",
-    "subCategory": "Rosato",
-    "appellation": "-",
-    "country": "Italia",
-    "region": "Piemonte",
+    "name": "A cengia",
+    "producer": "Ca’ Lustra",
+    "vintage": 2020,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Veneto IGP",
+    "country": "Veneto IGP",
+    "region": "Veneto",
     "grapes": [
-      "Freisa"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 13,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 418/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://latommasina.it/i-vini/juspin/",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-77-wl9kc",
-    "name": "Noi Due",
-    "producer": "Rosso Frizz.La Piana Winery",
-    "vintage": 2023,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Emilia-RomagnaLambrusco di Sorbara DOC",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Lambrusco di Crespa Rossa"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 3,
-    "price": 8,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2023,
-      "end": 2033,
-      "peakYear": 2028
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 244/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-78-8dhnh",
-    "name": "Bespoi",
-    "producer": "Potere dei Folli",
-    "vintage": 0,
-    "category": "rose",
-    "subCategory": "Rosato",
-    "appellation": "Riviera del Garda Classico DOC",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Groppello"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 530/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-79-cngtd",
-    "name": "Carezza Lambrusco di Sorbara",
-    "producer": "Spumante Metodo Classico Brut Rosè Medici Ermete",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Bollicine",
-    "appellation": "Emilia-RomagnaLambrusco Metodo Classico",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Lambrusco di Sorbara"
+      "Moscato (secco)"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 2,
-    "price": 12,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "price": 13,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
     },
     "rating": 5,
     "tastingNotes": {
@@ -2976,234 +4101,31 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 190/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-56-zg63v",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-8-u7udf",
-    "name": "Quintessenz",
-    "producer": "Kellerei Cantina",
-    "vintage": 2018,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Cabernet Sauvignon Riserva DOC",
-    "country": "Italia",
-    "region": "Alto Adige",
-    "grapes": [
-      "Cabernet Sauvignon"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 35,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2018,
-      "end": 2028,
-      "peakYear": 2023
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 316/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.kellereikaltern.com/it/vini/quintessenz/vini- rossi/4/quintessenz-cabernet-sauvignon-riserva-doc-2021?c=78 | Longevità: 2021-2029",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-80-v8yip",
-    "name": "Supremo",
-    "producer": "Cultivar delle Volte",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Spumante Metodo Classico",
-    "appellation": "Valcamonica IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
+    "name": "Le Coq Volant",
+    "producer": "Domaine Galuval",
+    "vintage": 2021,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Côtes du Rhône",
+    "country": "Côtes du Rhône",
+    "region": "Francia",
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
     "price": 20,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 502/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-81-l0e33",
-    "name": "Furioso",
-    "producer": "Cultivar delle Volte",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Spumante Metodo Classico",
-    "appellation": "Valcamonica IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 40,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 969/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-82-2k4qk",
-    "name": "Gioia Metodo Classico Brut",
-    "producer": "Cultivar delle Volte",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Spumante Metodo Classico",
-    "appellation": "Valcamonica IGT",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 690/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-83-oqi7h",
-    "name": "Nature millesimanto",
-    "producer": "Ca’ Rovere",
-    "vintage": 2017,
-    "category": "sparkling",
-    "subCategory": "Metodo Classico Brut Nature Millesimato",
-    "appellation": "Colli Euganei DOC",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Chardonnay",
-      "Garganega"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 0,
-    "price": 26,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "past",
-    "drinkingWindow": {
-      "start": 2018,
-      "peakYear": 2020,
-      "end": 2023
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [
-        "Burro fuso",
-        "Vaniglia di Bourbon",
-        "Pietra focaia",
-        "Agrumi gialli",
-        "Pesca noce",
-        "Note idrocarburiche calcaree"
-      ],
-      "palate": "Cremoso, ricco e di grande struttura. Acidità ben integrata con scia salina e finale lungo con rimandi alla frutta secca.",
-      "pairing": "Spaghetti alle vongole veraci, branzino al sale, crostacei alla griglia, carni bianche in salsa cremosa, formaggi caprini freschi."
-    },
-    "lotNumber": "LOT 956/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "[Analisi IA automatica]: Fermentazione alcolica e svinatura in barrique di rovere con affinamento successivo su lieviti indigeni. (Informazioni verificate dal Registro Sommelier Online)",
-    "uncorkedCount": 1,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-07T15:19:42.645Z",
-    "aiCalculated": true,
-    "aiCalculatedDetails": "🔍 Ricerca: \"Nature millesimanto Ca’ Rovere vino caratteristiche\" — Analizzati e confrontati 5 siti: 1. vivino.com/scheda/nature-millesimanto, 2. wine-searcher.com/ca’-rovere, 3. tannico.it/prodotto/nature-millesimanto, 4. vinorum.it/recensione/nature-millesimanto, 5. gamberorosso.it/vini/ca’-rovere. Profumi, caratteristiche sensoriali e abbinamenti estratti e verificati con IA.",
-    "imageUrl": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    "id": "wine-1791296866097-84-iagb1",
-    "name": "Brut Nature Millesimato",
-    "producer": "Blanc de Serge",
-    "vintage": 2021,
-    "category": "sparkling",
-    "subCategory": "Metodo Classico Brut Nature Millesimato",
-    "appellation": "Champagne",
-    "country": "Francia",
-    "region": "Champagne",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 25,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2021,
       "end": 2031,
@@ -3215,337 +4137,31 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 131/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-57-aypgi",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-85-q1in8",
-    "name": "Gaio delle Paste",
-    "producer": "Pecis",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Metodo classico nature",
-    "appellation": "Lombardia Metodo Classico",
-    "country": "Italia",
-    "region": "",
-    "grapes": [
-      "Moscato Giallo 100%"
-    ],
+    "name": "Les Arts et Métiers",
+    "producer": "Domaine de la Citadelle",
+    "vintage": 2022,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Côtes du Rhône",
+    "country": "Côtes du Rhône",
+    "region": "Francia",
+    "grapes": [],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 2,
-    "price": 22,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 584/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.pecis.it/i-nostri-vini-e-sidro/gaio-delle-passere/",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-86-sgayg",
-    "name": "Brut",
-    "producer": "Marie de Mets",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Champagne Brut",
-    "appellation": "AOC Champagne",
-    "country": "Francia",
-    "region": "Champagne",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 33,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 664/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-87-3qt5c",
-    "name": "Il Duetto",
-    "producer": "Da controllare",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Rosato Frizzante Macerato",
-    "appellation": "Aqui terme",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
     "price": 15,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 384/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "Acqui Terme",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-88-7xz8b",
-    "name": "Bandiera Gialla",
-    "producer": "Bianco MaceratoDa controllare",
-    "vintage": 0,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Aqui terme",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 968/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-89-jakap",
-    "name": "Rosé",
-    "producer": "La Montina",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Rosato demi sec dolce",
-    "appellation": "Franciacorta DOCG",
-    "country": "Italia",
-    "region": "Lombardia",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 231/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-9-0y0u4",
-    "name": "Lareith",
-    "producer": "Kellerei Cantina",
-    "vintage": 2019,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "Lagrein riserva DOC",
-    "country": "Italia",
-    "region": "Alto Adige",
-    "grapes": [
-      "Lagrein"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 20,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 912/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.kellereikaltern.com/it/vini/selezioni/vini-rossi/26/lareith- lagrein-riserva-doc-2022? srsltid=AfmBOorgaaTZv9tga4mz4ZVM0ZGCx1sZqWzizzlJrXW15 GcDzPfir_Mr | Longevità: 2024-2029",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-90-acdxp",
-    "name": "Metodo Classico Brut Millesimato",
-    "producer": "Ca’ Rovere",
-    "vintage": 0,
-    "category": "sparkling",
-    "subCategory": "Metodo Classico Rosè Brut",
-    "appellation": "Metodo Classico Brut Millesimato",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 22,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2026,
-      "end": 2036,
-      "peakYear": 2031
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 886/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-91-cyepp",
-    "name": "Grappolo d’Oro",
-    "producer": "Bergamini",
-    "vintage": 2019,
-    "category": "dessert",
-    "subCategory": "Passito Dolce",
-    "appellation": "Passito del Veneto DOC",
-    "country": "Italia",
-    "region": "Veneto",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 15,
-    "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
-    "drinkingWindow": {
-      "start": 2019,
-      "end": 2029,
-      "peakYear": 2024
-    },
-    "rating": 5,
-    "tastingNotes": {
-      "aroma": [],
-      "palate": "",
-      "pairing": ""
-    },
-    "lotNumber": "LOT 227/26",
-    "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "",
-    "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
-  },
-  {
-    "id": "wine-1791296866097-92-1wto3",
-    "name": "Passito",
-    "producer": "Passito DolceCa ed curen",
-    "vintage": 2022,
-    "category": "red",
-    "subCategory": "Rosso",
-    "appellation": "-",
-    "country": "Italia",
-    "region": "Piemonte",
-    "grapes": [
-      "Autoctono"
-    ],
-    "alcohol": 13.5,
-    "bottleSize": "750 ml",
-    "stock": 1,
-    "price": 18,
-    "location": "Rack 1 (sx)",
-    "drinkingStatus": "aging",
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2022,
       "end": 2032,
@@ -3557,33 +4173,338 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 532/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-58-i297p",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-93-52l2j",
-    "name": "5 puttonyos",
-    "producer": "Angyal",
-    "vintage": 2018,
-    "category": "dessert",
-    "subCategory": "Dolce",
-    "appellation": "Tokaji",
-    "country": "Ungheria",
-    "region": "Ungheria",
+    "name": "Rugiada del Mattino",
+    "producer": "I Carpini",
+    "vintage": 0,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Derthona DOC",
+    "country": "Derthona DOC",
+    "region": "Piemonte",
     "grapes": [
-      "Autoctono"
+      "Timorasso"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 16,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-59-fq4dg",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Un Vino di Stoffa Lalo",
+    "producer": "Diubaldo",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Montepulciano d'Abruzzo DOC",
+    "country": "Montepulciano d'Abruzzo DOC",
+    "region": "Abruzzo",
+    "grapes": [
+      "montepulciano d'abruzzo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 23,
+    "location": "Rack 4 (mobile)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "anche bottiglione da 3lt",
+    "id": "wine-1792942306508-6-h8eyz",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Net a Sauvignon",
+    "producer": "Ada Nada",
+    "vintage": 2022,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Langhe DOC",
+    "country": "Langhe DOC",
+    "region": "Piemonte",
+    "grapes": [
+      "Sauvignon Blanc"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 18,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.adanada.it/cantina/vini/langhe-doc-sauvignon-neta/",
+    "id": "wine-1792942306508-60-0zvba",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Serena",
+    "producer": "Ada Nada",
+    "vintage": 2022,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Langhe Nebbiolo DOC",
+    "country": "Langhe Nebbiolo DOC",
+    "region": "Piemonte",
+    "grapes": [
+      "Nebbiolo"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-61-thpk7",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Incipit",
+    "producer": "Borgo Macereto",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Sangiovese",
+      "Gay"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
     "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-62-d26tb",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Maiorano",
+    "producer": "Pietreienne",
+    "vintage": 2020,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Falanghina del Sannio DOP",
+    "country": "Falanghina del Sannio DOP",
+    "region": "Campania",
+    "grapes": [
+      "Falanghina"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 17,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-63-xohx9",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Tigre Macerato",
+    "producer": "Niccolò Lari",
+    "vintage": 2022,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Toscana IGT",
+    "country": "Toscana IGT",
+    "region": "Toscana",
+    "grapes": [
+      "Trebbiano"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 25,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Potrebbero essere partita rovinata",
+    "id": "wine-1792942306508-64-h6xv4",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
+    "vintage": 2015,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "",
+    "grapes": [
+      "Albana"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2015,
+      "end": 2025,
+      "peakYear": 2020
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-65-v1ibq",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
+    "vintage": 2018,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "",
+    "grapes": [
+      "Albana"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2018,
       "end": 2028,
@@ -3595,33 +4516,33 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 174/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
+    "purchaseChannel": "",
     "notes": "",
+    "id": "wine-1792942306508-66-f7zmr",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   },
   {
-    "id": "wine-1791296866097-94-uc5as",
-    "name": "5 puttonyos",
-    "producer": "Royal Borászat",
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
     "vintage": 2017,
-    "category": "dessert",
-    "subCategory": "Dolce",
-    "appellation": "Tokaji",
-    "country": "Ungheria",
-    "region": "Ungheria",
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "",
     "grapes": [
-      "Autoctono"
+      "Albana"
     ],
     "alcohol": 13.5,
     "bottleSize": "750 ml",
     "stock": 1,
-    "price": 30,
+    "price": 9,
     "location": "Rack 3 (dx)",
-    "drinkingStatus": "aging",
+    "drinkingStatus": "ready",
     "drinkingWindow": {
       "start": 2017,
       "end": 2027,
@@ -3633,12 +4554,1089 @@ export const SEED_WINES: WineBottle[] = [
       "palate": "",
       "pairing": ""
     },
-    "lotNumber": "LOT 318/26",
+    "lotNumber": "",
     "favorite": false,
-    "purchaseChannel": "cantina",
-    "notes": "https://www.boromidd.com/gb/wines/510-royal-tokaji-5-puttonyos- aszu-2017.html",
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-67-pxrcm",
     "uncorkedCount": 0,
-    "createdAt": "2026-10-06T14:27:46.097Z",
-    "updatedAt": "2026-10-06T14:27:46.097Z"
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Albana Secco",
+    "producer": "Vigna Rocca",
+    "vintage": 2022,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Emilia-RomagnaAlbana Secco",
+    "country": "Emilia-RomagnaAlbana Secco",
+    "region": "",
+    "grapes": [
+      "Albana"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-68-mtmha",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Malvasia Macerata",
+    "producer": "Ussaj",
+    "vintage": 2017,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 16,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-69-kxzif",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Quintessenz",
+    "producer": "Kellerei Cantina",
+    "vintage": 2018,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Cabernet Sauvignon Riserva DOC",
+    "country": "Cabernet Sauvignon Riserva DOC",
+    "region": "Alto Adige",
+    "grapes": [
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 35,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.kellereikaltern.com/it/vini/quintessenz/vini- rossi/4/quintessenz-cabernet-sauvignon-riserva-doc-2021?c=78 | Longevità: 2021-2029",
+    "id": "wine-1792942306508-7-w7hd4",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Ribolla Gialla",
+    "producer": "Elio Marta",
+    "vintage": 2021,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Venezia Giulia IGP",
+    "country": "Venezia Giulia IGP",
+    "region": "Friuli",
+    "grapes": [
+      "Ribolla Gialla"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "FIVI 2024",
+    "id": "wine-1792942306508-70-gw7rs",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Ribolla Gialla",
+    "producer": "Gravner",
+    "vintage": 2016,
+    "category": "orange",
+    "subCategory": "Macerato",
+    "appellation": "Venezia Giulia IGP",
+    "country": "Venezia Giulia IGP",
+    "region": "Friuli",
+    "grapes": [
+      "Ribolla Gialla"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 100,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2016,
+      "end": 2026,
+      "peakYear": 2021
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Annata da verificare",
+    "id": "wine-1792942306508-71-6a9y3",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Fondo Zero Bianco Bio",
+    "producer": "La Piana",
+    "vintage": 2023,
+    "category": "sparkling",
+    "subCategory": "Frizzante con fondo",
+    "appellation": "-",
+    "country": "-",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 9,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Da bere nel 2025",
+    "id": "wine-1792942306508-72-esnu8",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Malvasia",
+    "producer": "Gustin",
+    "vintage": 2021,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 12,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Una bottiglia del 2020 inclusa",
+    "id": "wine-1792942306508-73-mg01l",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Malvasia",
+    "producer": "Gustin",
+    "vintage": 2020,
+    "category": "white",
+    "subCategory": "Bianco",
+    "appellation": "Valle d'Aosta Valle d'Aosta DOC",
+    "country": "Valle d'Aosta Valle d'Aosta DOC",
+    "region": "",
+    "grapes": [
+      "Malvasia"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 12,
+    "location": "Rack 2 (centro)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2020,
+      "end": 2030,
+      "peakYear": 2025
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-74-3hl36",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Juspin sette filari di viti",
+    "producer": "La Tommasina",
+    "vintage": 0,
+    "category": "rose",
+    "subCategory": "Rosato",
+    "appellation": "-",
+    "country": "-",
+    "region": "Piemonte",
+    "grapes": [
+      "Freisa"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 13,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://latommasina.it/i-vini/juspin/",
+    "id": "wine-1792942306508-75-x2nyg",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Noi Due",
+    "producer": "Rosso Frizz.La Piana Winery",
+    "vintage": 2023,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Emilia-RomagnaLambrusco di Sorbara DOC",
+    "country": "Emilia-RomagnaLambrusco di Sorbara DOC",
+    "region": "",
+    "grapes": [
+      "Lambrusco di Crespa Rossa"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 3,
+    "price": 8,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2023,
+      "end": 2033,
+      "peakYear": 2028
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-76-shxuv",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Bespoi",
+    "producer": "Potere dei Folli",
+    "vintage": 0,
+    "category": "rose",
+    "subCategory": "Rosato",
+    "appellation": "Riviera del Garda Classico DOC",
+    "country": "Riviera del Garda Classico DOC",
+    "region": "Lombardia",
+    "grapes": [
+      "Groppello"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-77-xv7ai",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Carezza Lambrusco di Sorbara",
+    "producer": "Spumante Metodo Classico Brut Rosè Medici Ermete",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Bollicine",
+    "appellation": "Emilia-RomagnaLambrusco Metodo Classico",
+    "country": "Emilia-RomagnaLambrusco Metodo Classico",
+    "region": "",
+    "grapes": [
+      "Lambrusco di Sorbara"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 12,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-78-0g02t",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Supremo",
+    "producer": "Cultivar delle Volte",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Spumante Metodo Classico",
+    "appellation": "Valcamonica IGT",
+    "country": "Valcamonica IGT",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-79-4itrt",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Lareith",
+    "producer": "Kellerei Cantina",
+    "vintage": 2019,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Lagrein riserva DOC",
+    "country": "Lagrein riserva DOC",
+    "region": "Alto Adige",
+    "grapes": [
+      "Lagrein"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.kellereikaltern.com/it/vini/selezioni/vini-rossi/26/lareith- lagrein-riserva-doc-2022? srsltid=AfmBOorgaaTZv9tga4mz4ZVM0ZGCx1sZqWzizzlJrXW15 GcDzPfir_Mr | Longevità: 2024-2029",
+    "id": "wine-1792942306508-8-vkb6t",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Furioso",
+    "producer": "Cultivar delle Volte",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Spumante Metodo Classico",
+    "appellation": "Valcamonica IGT",
+    "country": "Valcamonica IGT",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 40,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-80-sbqwh",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Gioia Metodo Classico Brut",
+    "producer": "Cultivar delle Volte",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Spumante Metodo Classico",
+    "appellation": "Valcamonica IGT",
+    "country": "Valcamonica IGT",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-81-zq4m0",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Nature millesimanto",
+    "producer": "Ca’ Rovere",
+    "vintage": 2017,
+    "category": "sparkling",
+    "subCategory": "Metodo Classico Brut Nature Millesimato",
+    "appellation": "Colli Euganei DOC",
+    "country": "Colli Euganei DOC",
+    "region": "Veneto",
+    "grapes": [
+      "Chardonnay",
+      "Garganega"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 26,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-82-pur5a",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Brut Nature Millesimato",
+    "producer": "Blanc de Serge",
+    "vintage": 2021,
+    "category": "sparkling",
+    "subCategory": "Metodo Classico Brut Nature Millesimato",
+    "appellation": "Champagne",
+    "country": "Champagne",
+    "region": "Champagne",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 25,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2021,
+      "end": 2031,
+      "peakYear": 2026
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-83-z655k",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Gaio delle Paste",
+    "producer": "Pecis",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Metodo classico nature",
+    "appellation": "Lombardia Metodo Classico",
+    "country": "Lombardia Metodo Classico",
+    "region": "",
+    "grapes": [
+      "Moscato Giallo 100%"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 2,
+    "price": 22,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.pecis.it/i-nostri-vini-e-sidro/gaio-delle-passere/",
+    "id": "wine-1792942306508-84-85w2u",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Brut",
+    "producer": "Marie de Mets",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Champagne Brut",
+    "appellation": "AOC Champagne",
+    "country": "AOC Champagne",
+    "region": "Champagne",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 33,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-85-98v68",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Il Duetto",
+    "producer": "Da controllare",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Rosato Frizzante Macerato",
+    "appellation": "Aqui terme",
+    "country": "Aqui terme",
+    "region": "Piemonte",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Acqui Terme",
+    "id": "wine-1792942306508-86-a5tgl",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Bandiera Gialla",
+    "producer": "Bianco MaceratoDa controllare",
+    "vintage": 0,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "Aqui terme",
+    "country": "Aqui terme",
+    "region": "Piemonte",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-87-61daa",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Rosé",
+    "producer": "La Montina",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Rosato demi sec dolce",
+    "appellation": "Franciacorta DOCG",
+    "country": "Franciacorta DOCG",
+    "region": "Lombardia",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 20,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-88-27qe8",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Metodo Classico Brut Millesimato",
+    "producer": "Ca’ Rovere",
+    "vintage": 0,
+    "category": "sparkling",
+    "subCategory": "Metodo Classico Rosè Brut",
+    "appellation": "Metodo Classico Brut Millesimato",
+    "country": "Metodo Classico Brut Millesimato",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 22,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 0,
+      "end": 10,
+      "peakYear": 5
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-89-mp7ol",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Gaetano",
+    "producer": "Tallarini",
+    "vintage": 2009,
+    "category": "red",
+    "subCategory": "Rosso Riserva",
+    "appellation": "Valcalepio DOC",
+    "country": "Valcalepio DOC",
+    "region": "Lombardia",
+    "grapes": [
+      "Merlot",
+      "Cabernet Sauvignon"
+    ],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 35,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2009,
+      "end": 2019,
+      "peakYear": 2014
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "Colore rosso rubino intenso con riflessi granato. Bouquet fruttato con note di piccoli frutti rossi, spezie e vaniglia. Gusto pieno e vellutato, tannini eleganti e finale persistente. avelyn.com",
+    "id": "wine-1792942306508-9-b1gfp",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Grappolo d’Oro",
+    "producer": "Bergamini",
+    "vintage": 2019,
+    "category": "dessert",
+    "subCategory": "Passito Dolce",
+    "appellation": "Passito del Veneto DOC",
+    "country": "Passito del Veneto DOC",
+    "region": "Veneto",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2019,
+      "end": 2029,
+      "peakYear": 2024
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-90-oydxp",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "Passito",
+    "producer": "Passito DolceCa ed curen",
+    "vintage": 2022,
+    "category": "red",
+    "subCategory": "Rosso",
+    "appellation": "-",
+    "country": "-",
+    "region": "Piemonte",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 18,
+    "location": "Rack 1 (sx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2022,
+      "end": 2032,
+      "peakYear": 2027
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-91-84z6g",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "5 puttonyos",
+    "producer": "Angyal",
+    "vintage": 2018,
+    "category": "dessert",
+    "subCategory": "Dolce",
+    "appellation": "Tokaji",
+    "country": "Tokaji",
+    "region": "Ungheria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 15,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2018,
+      "end": 2028,
+      "peakYear": 2023
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "",
+    "id": "wine-1792942306508-92-e7lz3",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
+  },
+  {
+    "name": "5 puttonyos",
+    "producer": "Royal Borászat",
+    "vintage": 2017,
+    "category": "dessert",
+    "subCategory": "Dolce",
+    "appellation": "Tokaji",
+    "country": "Tokaji",
+    "region": "Ungheria",
+    "grapes": [],
+    "alcohol": 13.5,
+    "bottleSize": "750 ml",
+    "stock": 1,
+    "price": 30,
+    "location": "Rack 3 (dx)",
+    "drinkingStatus": "ready",
+    "drinkingWindow": {
+      "start": 2017,
+      "end": 2027,
+      "peakYear": 2022
+    },
+    "rating": 5,
+    "tastingNotes": {
+      "aroma": [],
+      "palate": "",
+      "pairing": ""
+    },
+    "lotNumber": "",
+    "favorite": false,
+    "purchaseChannel": "",
+    "notes": "https://www.boromidd.com/gb/wines/510-royal-tokaji-5-puttonyos- aszu-2017.html",
+    "id": "wine-1792942306508-93-668pe",
+    "uncorkedCount": 0,
+    "createdAt": "2026-10-25T15:31:46.508Z",
+    "updatedAt": "2026-10-25T15:31:46.508Z"
   }
 ];

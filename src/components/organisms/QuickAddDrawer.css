@@ -111,7 +111,7 @@
   display: flex;
   background: var(--paper-surface, #F3ECE1);
   padding: 4px;
-  border-radius: var(--radius-soft, 8px);
+  border-radius: 9999px;
   margin-bottom: 1.25rem;
   border: 1px solid rgba(45, 35, 74, 0.1);
 }
@@ -125,7 +125,7 @@
   color: var(--text-muted, #706880);
   background: transparent;
   border: none;
-  border-radius: 6px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
@@ -279,6 +279,14 @@
   color: var(--text-primary, #2D234A);
 }
 
+.cellar-batch-preview__table .cellar-badge {
+  border-radius: 9999px !important;
+  padding: 3px 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  display: inline-block;
+}
+
 .cellar-batch-preview__more {
   padding: 6px 10px;
   font-size: 0.75rem;
@@ -361,7 +369,7 @@
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.8rem;
   font-weight: 600;
-  border-radius: 6px;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s ease;
   align-self: flex-start;

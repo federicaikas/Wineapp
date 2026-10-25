@@ -32,7 +32,7 @@
   height: 42px;
   background: var(--paper-card);
   border: var(--border-tactile);
-  border-radius: var(--radius-sm);
+  border-radius: 9999px;
   padding: 0 2.25rem 0 2.45rem;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
@@ -99,10 +99,10 @@
   align-items: center;
   gap: 0.5rem;
   height: 42px;
-  padding: 0 1rem;
+  padding: 0 1.15rem;
   background: var(--paper-card, #FFFFFF);
   border: 1px solid rgba(45, 35, 74, 0.15);
-  border-radius: var(--radius-sm, 6px);
+  border-radius: 9999px;
   font-family: var(--font-body, 'Montserrat', sans-serif);
   font-size: 0.825rem;
   font-weight: 600;
@@ -276,8 +276,8 @@
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 9999px;
 }
 
 .cellar-filterbar__reset-btn:hover {
