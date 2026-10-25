@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import type { WineBottle, CellarStats } from '../../types/wine';
 import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
-import { EmptyState, Badge, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
+import { EmptyState, Badge, Typography, StockCounter, Tag, Button } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
 import { LayoutGrid, List, ChevronDown, Check } from 'lucide-react';
 import './CellarGrid.css';
@@ -102,6 +102,25 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
     </div>
   );
 
+  // Intestazione cliccabile: primo clic ordine crescente, secondo decrescente
+  const sortHeader = (label: string, colClass: string, asc: SortOption, desc: SortOption) => {
+    const isAsc = selectedSort === asc;
+    const isDesc = selectedSort === desc;
+    return (
+      <div className={colClass}>
+        <button
+          type="button"
+          className={`cellar-list-ledger__sort-btn ${isAsc || isDesc ? 'cellar-list-ledger__sort-btn--active' : ''}`}
+          onClick={() => onSortChange(isAsc ? desc : asc)}
+          aria-label={`Ordina per ${label}`}
+        >
+          {label}
+          <span className="cellar-list-ledger__sort-arrow" aria-hidden="true">{isAsc ? '▲' : isDesc ? '▼' : '↕'}</span>
+        </button>
+      </div>
+    );
+  };
+
   return (
     <div className="cellar-grid-wrapper">
       {/* Barra Filtri, Ricerca e Toggle Viste */}
@@ -172,13 +191,12 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
             /* Vista a Registro Sartoriale (Elenco Dettagliato) */
             <div className="cellar-list-ledger">
               <div className="cellar-list-ledger__header">
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-wine">Vino &amp; Produttore</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-vintage">Millesimo</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-category">Tipologia</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-status">Stato Beva</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-rating">Critica</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-stock">Scorte</Typography>
-                <Typography variant="eyebrow" color="muted" className="cellar-list-ledger__col-price">Valore</Typography>
+                {sortHeader('Vino & Produttore', 'cellar-list-ledger__col-wine', 'name-asc', 'name-desc')}
+                {sortHeader('Millesimo', 'cellar-list-ledger__col-vintage', 'vintage-desc', 'vintage-asc')}
+                {sortHeader('Tipologia', 'cellar-list-ledger__col-category', 'category-asc', 'category-desc')}
+                {sortHeader('Stato Beva', 'cellar-list-ledger__col-status', 'status-asc', 'status-desc')}
+                {sortHeader('Scorte', 'cellar-list-ledger__col-stock', 'stock-asc', 'stock-desc')}
+                {sortHeader('Valore', 'cellar-list-ledger__col-price', 'price-asc', 'price-desc')}
               </div>
 
               <div className="cellar-list-ledger__body">
@@ -222,16 +240,6 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
                         {wine.drinkingStatus === 'peak' && 'All’apice'}
                         {wine.drinkingStatus === 'past' && 'Oltre picco'}
                       </Badge>
-                    </div>
-
-                    <div className="cellar-list-ledger__col-rating">
-                      {wine.criticScore ? (
-                        <Typography variant="stamp-mono" color="primary">
-                          {wine.criticScore} PTS
-                        </Typography>
-                      ) : (
-                        <RatingStars value={wine.rating} size="sm" />
-                      )}
                     </div>
 
                     <div

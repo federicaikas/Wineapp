@@ -234,7 +234,7 @@
 
 .cellar-list-ledger__header {
   display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
   padding: 0.85rem 1.25rem;
   background: var(--surface-tint);
   border-bottom: var(--border-tactile);
@@ -248,7 +248,7 @@
 
 .cellar-list-row {
   display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
   padding: 1rem 1.25rem;
   border-bottom: var(--border-hairline);
@@ -528,3 +528,34 @@
   }
 }
 
+
+/* Intestazioni del registro cliccabili per ordinare */
+.cellar-list-ledger__sort-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.cellar-list-ledger__sort-btn:hover,
+.cellar-list-ledger__sort-btn--active {
+  color: var(--brand-primary);
+}
+
+.cellar-list-ledger__sort-arrow {
+  font-size: 0.6rem;
+  opacity: 0.55;
+}
+
+.cellar-list-ledger__sort-btn--active .cellar-list-ledger__sort-arrow {
+  opacity: 1;
+}

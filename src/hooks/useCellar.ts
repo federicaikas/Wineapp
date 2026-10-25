@@ -14,6 +14,9 @@ import {
 } from '../lib/supabaseSync';
 import { getWineCountryCode } from '../utils/countryFlags';
 
+const CATEGORY_ORDER = ['red', 'white', 'sparkling', 'rose', 'orange', 'dessert'];
+const STATUS_ORDER = ['aging', 'ready', 'peak', 'past'];
+
 export function useCellar() {
   const { user } = useAuth();
   const userId = user?.id;
@@ -126,6 +129,18 @@ export function useCellar() {
         return b.stock - a.stock;
       case 'name-asc':
         return a.name.localeCompare(b.name);
+      case 'name-desc':
+        return b.name.localeCompare(a.name);
+      case 'stock-asc':
+        return a.stock - b.stock;
+      case 'category-asc':
+        return CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category);
+      case 'category-desc':
+        return CATEGORY_ORDER.indexOf(b.category) - CATEGORY_ORDER.indexOf(a.category);
+      case 'status-asc':
+        return STATUS_ORDER.indexOf(a.drinkingStatus) - STATUS_ORDER.indexOf(b.drinkingStatus);
+      case 'status-desc':
+        return STATUS_ORDER.indexOf(b.drinkingStatus) - STATUS_ORDER.indexOf(a.drinkingStatus);
       default:
         return 0;
     }

@@ -375,3 +375,53 @@
   border-color: var(--brand-primary);
   color: #FFFDF9;
 }
+
+/* Pannello filtri su una sola linea (va a capo solo se lo spazio non basta) */
+.cellar-filterbar__dropdown-panel {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.85rem 1.75rem;
+}
+
+/* Paese: solo la bandiera */
+.cellar-filterbar__chip--country {
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+}
+
+.cellar-filterbar__chip--country.cellar-filterbar__chip--active {
+  color: #FFFDF9;
+}
+
+/* Prezzo: linea corta */
+.cellar-filterbar__price-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 36px;
+}
+
+.cellar-filterbar__price-slider {
+  width: 150px;
+  height: 6px;
+  accent-color: var(--brand-primary);
+  cursor: pointer;
+}
+
+.cellar-filterbar__price-value {
+  color: var(--brand-primary);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.cellar-filterbar__reset-wrap--inline {
+  border-top: none;
+  padding-top: 0;
+  margin: 0 0 0 auto;
+  min-height: 36px;
+  align-items: center;
+}

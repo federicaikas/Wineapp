@@ -4,8 +4,6 @@ import type { WineBottle } from '../../types/wine';
 import type { DrinkingStatus } from '../design-system/atoms/Badge';
 import { Modal, Button, Divider, StockCounter, ContentBlock, Typography, Tag, MaturityTimeline } from '../design-system';
 import { Heart, Edit3, Trash2, Utensils, Calendar, Sparkles, Calculator, Search, X } from 'lucide-react';
-import { getFlagKey } from '../../utils/countryFlags';
-import { FlagCircle } from '../design-system/atoms/FlagCircle';
 import { calculateWineOptimalDrinkingWindow, analyzeWineAutomatic } from '../../utils/onlineWineSearch';
 import { formatVintage } from '../../utils/formatters';
 import './WineDetailModal.css';
@@ -34,11 +32,16 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   const [isCalculatingWindow, setIsCalculatingWindow] = useState(false);
   const [isAnalyzingWebsite, setIsAnalyzingWebsite] = useState(false);
   const [websiteAnalysisSuccess, setWebsiteAnalysisSuccess] = useState<string | null>(null);
+  const [showMomentoTop, setShowMomentoTop] = useState(false);
+  const [showSensory, setShowSensory] = useState(false);
+  const [currentYear] = useState(() => new Date().getFullYear());
 
   const [prevWineId, setPrevWineId] = useState(wine?.id);
   if (wine && wine.id !== prevWineId) {
     setPrevWineId(wine.id);
     setWebsiteAnalysisSuccess(null);
+    setShowMomentoTop(false);
+    setShowSensory(false);
   }
 
   if (!wine) return null;
@@ -94,6 +97,34 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
   const windowStart = wine.drinkingWindow?.start || wine.vintage;
   const windowEnd = wine.drinkingWindow?.end || wine.vintage + 10;
   const peakYear = wine.drinkingWindow?.peakYear || Math.round((windowStart + windowEnd) / 2);
+
+  const hasSensoryData = Boolean(wine.tastingNotes?.palate || wine.tastingNotes?.pairing);
+
+  const handleSensoryClick = async () => {
+    if (showSensory && hasSensoryData) {
+      setShowSensory(false);
+      return;
+    }
+    setShowSensory(true);
+    if (!hasSensoryData) {
+      await handleAnalyzeAutomatic();
+    }
+  };
+
+  // Testo del Momento TOP costruito in base alla finestra di beva e all'anno corrente
+  const yearsToEnd = windowEnd - currentYear;
+  let momentoTopText: string;
+  if (currentYear < windowStart) {
+    momentoTopText = `Il momento top è il ${peakYear}. Il vino è ancora giovane: la finestra di beva si apre nel ${windowStart} e termina nel ${windowEnd}. Conviene aspettare.`;
+  } else if (currentYear < peakYear - 1) {
+    momentoTopText = `Il momento top è il ${peakYear}. Il vino è già pronto da bere e continua a migliorare: la finestra va dal ${windowStart} al ${windowEnd}.`;
+  } else if (currentYear <= peakYear + 1) {
+    momentoTopText = `Il momento top è il ${peakYear}: il vino è al suo apice adesso. Finestra di beva dal ${windowStart} al ${windowEnd}.`;
+  } else if (currentYear <= windowEnd) {
+    momentoTopText = `Il momento top è stato il ${peakYear}. Il vino è ancora in ottima forma, ma da bere ${yearsToEnd > 0 ? `entro ${yearsToEnd} ${yearsToEnd === 1 ? 'anno' : 'anni'}` : 'quest\'anno'} (termine ottimale ${windowEnd}).`;
+  } else {
+    momentoTopText = `Il momento top era il ${peakYear} e la finestra si è chiusa nel ${windowEnd}: da bere al più presto.`;
+  }
 
   const formattedPrice = new Intl.NumberFormat('it-IT', {
     style: 'currency',
@@ -238,50 +269,45 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           </a>
         </div>
 
-        {/* Tabella Minimal Specifiche (Stesso design delle card della home) */}
-        <table className="cellar-wine-card__spec-table" style={{ fontSize: '0.875rem', margin: '8px 0' }}>
-          <tbody>
-            <tr>
-              <td colSpan={2} style={{ padding: '6px 0' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                  <FlagCircle flag={getFlagKey(wine.country, wine.region, wine.appellation)} size={22} />
-                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Regione</strong>{' '}<strong>{wine.region}</strong></span>
-                  <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
-                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Zona</strong>{' '}<strong>{wine.appellation}</strong></span>
-                  <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
-                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Annata</strong>{' '}<strong>{formatVintage(wine.vintage)}</strong></span>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td colSpan={2} style={{ padding: '6px 0' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                  {wine.subCategory && (
-                    <>
-                      <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Tipologia</strong>{' '}<strong style={{ color: '#3B1B54' }}>{wine.subCategory}</strong></span>
-                      <span style={{ color: 'rgba(45,35,74,0.2)' }}>•</span>
-                    </>
-                  )}
-                  <span><strong style={{ color: '#706880', fontWeight: 500, fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Vitigni</strong>{' '}<strong>{wine.grapes?.join(', ') || 'Autoctono'}</strong></span>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Gradazione / Formato</th>
-              <td style={{ padding: '6px 0 6px 8px' }}>{wine.alcohol}% Vol  ·  {wine.bottleSize}</td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Acquisto / Ubicazione</th>
-              <td style={{ padding: '6px 0 6px 8px', textTransform: 'capitalize' }}>
-                {wine.purchaseChannel === 'GDO' ? 'GDO' : (wine.purchaseChannel || 'Cantina')}  ·  {wine.location}
-              </td>
-            </tr>
-            <tr>
-              <th style={{ padding: '6px 8px 6px 0' }}>Valore stimato</th>
-              <td style={{ padding: '6px 0 6px 8px', fontWeight: 700, color: '#2D234A' }}>{formattedPrice}</td>
-            </tr>
-          </tbody>
-        </table>
+        {/* Informazioni in tabella: 4 colonne allineate */}
+        <div className="cellar-detail-specs" role="table" aria-label="Informazioni sul vino">
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Regione</span>
+            <span className="cellar-detail-specs__value">{wine.region}</span>
+          </div>
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Zona</span>
+            <span className="cellar-detail-specs__value">{wine.appellation}</span>
+          </div>
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Annata</span>
+            <span className="cellar-detail-specs__value">{formatVintage(wine.vintage)}</span>
+          </div>
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Valore stimato</span>
+            <span className="cellar-detail-specs__value">{formattedPrice}</span>
+          </div>
+          {wine.subCategory && (
+            <div className="cellar-detail-specs__cell" role="cell">
+              <span className="cellar-detail-specs__label">Tipologia</span>
+              <span className="cellar-detail-specs__value">{wine.subCategory}</span>
+            </div>
+          )}
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Vitigni</span>
+            <span className="cellar-detail-specs__value">{wine.grapes?.join(', ') || 'Autoctono'}</span>
+          </div>
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Gradazione / Formato</span>
+            <span className="cellar-detail-specs__value">{wine.alcohol}% Vol · {wine.bottleSize}</span>
+          </div>
+          <div className="cellar-detail-specs__cell" role="cell">
+            <span className="cellar-detail-specs__label">Acquisto / Ubicazione</span>
+            <span className="cellar-detail-specs__value" style={{ textTransform: 'capitalize' }}>
+              {wine.purchaseChannel === 'GDO' ? 'GDO' : (wine.purchaseChannel || 'Cantina')} · {wine.location}
+            </span>
+          </div>
+        </div>
 
         {/* Timeline Unificata (Stato Evolutivo + Finestra di Beva) */}
         <div className="cellar-detail-content__timeline-card">
@@ -321,38 +347,54 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
               <span>{wine.aiCalculatedDetails}</span>
             </div>
           )}
-
-          <div className="cellar-detail-content__progress-bar-wrap">
-            <div className="cellar-detail-content__progress-years">
-              <span>{windowStart} (Inizio Beva)</span>
-              <span className="cellar-detail-content__current-year-tag">Momento TOP: {peakYear}</span>
-              <span>{windowEnd} (Termine Ottimale)</span>
-            </div>
-          </div>
         </div>
 
         <Divider variant="hairline" spacing="md" />
 
         {/* Profilo Sensoriale & Degustazione */}
         <div className="cellar-detail-content__tasting-section">
-          {/* Analisi del vino con IA: un solo bottone, poi compaiono palato e abbinamenti */}
+          {/* Due bottoni centrali: Momento TOP e Analisi sensoriale. Al clic compare il testo sotto */}
           <div className="cellar-detail-content__ai-cta">
+            <Button
+              variant="primary"
+              size="lg"
+              icon={<Calendar size={16} />}
+              onClick={() => setShowMomentoTop((v) => !v)}
+              aria-pressed={showMomentoTop}
+            >
+              MOMENTO TOP
+            </Button>
             <Button
               variant="primary"
               size="lg"
               icon={<Sparkles size={16} />}
               loading={isAnalyzingWebsite}
-              onClick={handleAnalyzeAutomatic}
+              onClick={handleSensoryClick}
+              aria-pressed={showSensory}
             >
-              {isAnalyzingWebsite ? 'ANALISI IN CORSO...' : 'ANALISI DEL VINO CON AI'}
+              {isAnalyzingWebsite ? 'ANALISI IN CORSO...' : 'ANALISI SENSORIALE'}
             </Button>
-            {websiteAnalysisSuccess && (
-              <p className="cellar-detail-content__ai-cta-note">{websiteAnalysisSuccess}</p>
-            )}
           </div>
 
+          {showMomentoTop && (
+            <div className="cellar-detail-content__ai-text">
+              <span className="cellar-detail-content__sublabel">Momento TOP:</span>
+              <p>{momentoTopText}</p>
+              {wine.aiCalculatedDetails && <p className="cellar-detail-content__ai-text-note">{wine.aiCalculatedDetails}</p>}
+            </div>
+          )}
+
+          {showSensory && websiteAnalysisSuccess && (
+            <p className="cellar-detail-content__ai-cta-note">{websiteAnalysisSuccess}</p>
+          )}
+          {showSensory && !isAnalyzingWebsite && !hasSensoryData && (
+            <p className="cellar-detail-content__ai-cta-note cellar-detail-content__ai-cta-note--warn">
+              Analisi non disponibile al momento. Riprova tra poco.
+            </p>
+          )}
+
           {/* Aromi */}
-          {wine.tastingNotes?.aroma?.length > 0 && (
+          {showSensory && wine.tastingNotes?.aroma?.length > 0 && (
             <div className="cellar-detail-content__aromas">
               <span className="cellar-detail-content__sublabel">
                 Note Olfattive Principali:
@@ -368,7 +410,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           )}
 
           {/* Esperienza al Palato */}
-          {wine.tastingNotes?.palate && (
+          {showSensory && wine.tastingNotes?.palate && (
             <div className="cellar-detail-content__palate">
               <span className="cellar-detail-content__sublabel">
                 Esperienza al Palato:
@@ -383,7 +425,7 @@ export const WineDetailModal: React.FC<WineDetailModalProps> = ({
           )}
 
           {/* Abbinamenti Gastronomici (Box Bianco) */}
-          {wine.tastingNotes?.pairing && (
+          {showSensory && wine.tastingNotes?.pairing && (
             <div className="cellar-detail-content__pairing">
               <div className="cellar-detail-content__pairing-header">
                 <Utensils size={15} />

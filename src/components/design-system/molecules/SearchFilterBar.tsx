@@ -5,6 +5,12 @@ import type { WineCategory } from '../atoms/Badge';
 import './SearchFilterBar.css';
 
 export type SortOption =
+  | 'name-desc'
+  | 'stock-asc'
+  | 'category-asc'
+  | 'category-desc'
+  | 'status-asc'
+  | 'status-desc'
   | 'random'
   | 'date-desc'
   | 'vintage-desc'
@@ -180,10 +186,10 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             </div>
           </div>
 
-          {/* Sezione 2: Paese d'Origine (IT; FR; ES; EE) */}
+          {/* Sezione 2: Paese d'Origine (solo bandiere) */}
           {onCountryFilterChange && (
-            <div className="cellar-filterbar__group" style={{ marginTop: '0.85rem' }}>
-              <div className="cellar-filterbar__group-title">Paese d'Origine:</div>
+            <div className="cellar-filterbar__group">
+              <div className="cellar-filterbar__group-title">Paese:</div>
               <div className="cellar-filterbar__chips-row">
                 {COUNTRIES.map((c) => {
                   const isSelected = selectedCountryFilter === c.key;
@@ -193,9 +199,11 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                       type="button"
                       className={`cellar-filterbar__chip cellar-filterbar__chip--country ${isSelected ? 'cellar-filterbar__chip--active' : ''}`}
                       onClick={() => onCountryFilterChange(isSelected && c.key !== 'all' ? 'all' : c.key)}
+                      title={c.label}
+                      aria-label={c.label}
+                      aria-pressed={isSelected}
                     >
                       <span className="cellar-filterbar__chip-flag">{c.flag}</span>
-                      <span className="cellar-filterbar__chip-label">{c.label}</span>
                     </button>
                   );
                 })}
@@ -203,52 +211,44 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
             </div>
           )}
 
-          {/* Sezione 3: Slider Prezzo Massimo */}
+          {/* Sezione 3: Disponibilità e prezzo massimo (slider corto) */}
           {onMaxPriceChange && (
-            <div className="cellar-filterbar__group" style={{ marginTop: '0.85rem' }}>
-              <div className="cellar-filterbar__group-title" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-                  Prezzo Massimo Bottiglia:
-                  {onMinStockChange && (
-                    <button
-                      type="button"
-                      className={`cellar-filterbar__stock-btn ${minStock > 1 ? 'cellar-filterbar__stock-btn--active' : ''}`}
-                      onClick={() => onMinStockChange(minStock >= 4 ? 1 : minStock + 1)}
-                      title="Bottiglie disponibili: clicca per cambiare (1+, 2+, 3+, 4+)"
-                      aria-label={`Disponibilità minima: ${minStock} o più bottiglie`}
-                    >
-                      {minStock}+ btg.
-                    </button>
-                  )}
-                </span>
-                <strong style={{ color: 'var(--brand-primary)', fontFamily: 'var(--font-body)', fontSize: '0.9rem' }}>
-                  {maxPrice >= 500 ? 'Qualsiasi prezzo (Nessun limite)' : `Fino a € ${maxPrice}`}
+            <div className="cellar-filterbar__group cellar-filterbar__group--price">
+              <div className="cellar-filterbar__group-title">
+                Prezzo max:{' '}
+                <strong className="cellar-filterbar__price-value">
+                  {maxPrice >= 500 ? 'nessun limite' : `fino a € ${maxPrice}`}
                 </strong>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '6px' }}>
-                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-body)' }}>€ 0</span>
+              <div className="cellar-filterbar__price-row">
+                {onMinStockChange && (
+                  <button
+                    type="button"
+                    className={`cellar-filterbar__stock-btn ${minStock > 1 ? 'cellar-filterbar__stock-btn--active' : ''}`}
+                    onClick={() => onMinStockChange(minStock >= 4 ? 1 : minStock + 1)}
+                    title="Bottiglie disponibili: clicca per cambiare (1+, 2+, 3+, 4+)"
+                    aria-label={`Disponibilità minima: ${minStock} o più bottiglie`}
+                  >
+                    {minStock}+ btg.
+                  </button>
+                )}
                 <input
                   type="range"
+                  className="cellar-filterbar__price-slider"
                   min="10"
                   max="500"
                   step="5"
                   value={maxPrice}
+                  aria-label="Prezzo massimo bottiglia"
                   onChange={(e) => onMaxPriceChange(Number(e.target.value))}
-                  style={{
-                    flex: 1,
-                    accentColor: '#722F37',
-                    cursor: 'pointer',
-                    height: '6px',
-                  }}
                 />
-                <span style={{ fontSize: '0.75rem', color: '#6E6259', fontFamily: 'var(--font-body)' }}>€ 500+</span>
               </div>
             </div>
           )}
 
           {/* Tasto Reset se filtri attivi */}
           {activeFiltersCount > 0 && (
-            <div className="cellar-filterbar__reset-wrap">
+            <div className="cellar-filterbar__reset-wrap cellar-filterbar__reset-wrap--inline">
               <button
                 type="button"
                 className="cellar-filterbar__reset-btn"
