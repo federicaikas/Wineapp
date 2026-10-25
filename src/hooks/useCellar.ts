@@ -12,6 +12,7 @@ import {
   syncWineToSupabase,
   deleteWineFromSupabase,
 } from '../lib/supabaseSync';
+import { getWineCountryCode } from '../utils/countryFlags';
 
 export function useCellar() {
   const { user } = useAuth();
@@ -58,21 +59,20 @@ export function useCellar() {
     if (wine.stock <= 0) {
       return false;
     }
-    // Filtro per prezzo massimo
-    if (wine.price > maxPrice) {
+    // Filtro per prezzo massimo (500 corrisponde al limite massimo "Qualsiasi prezzo / Nessun limite")
+    if (maxPrice < 500 && wine.price > maxPrice) {
       return false;
     }
     // Filtro per categoria
     if (selectedCategory !== 'all' && wine.category !== selectedCategory) {
       return false;
     }
-    // Filtro per Paese (IT, FR, ES, EE)
+    // Filtro per Paese (IT, FR, ES, EE) con classificazione geografica intelligente
     if (selectedCountryFilter !== 'all') {
-      const country = (wine.country || 'Italia').trim().toLowerCase();
-      if (selectedCountryFilter === 'IT' && !country.includes('ital')) return false;
-      if (selectedCountryFilter === 'FR' && !country.includes('franc')) return false;
-      if (selectedCountryFilter === 'ES' && !country.includes('spagn') && !country.includes('spain')) return false;
-      if (selectedCountryFilter === 'EE' && (country.includes('ital') || country.includes('franc') || country.includes('spagn') || country.includes('spain'))) return false;
+      const wineCountryCode = getWineCountryCode(wine);
+      if (wineCountryCode !== selectedCountryFilter) {
+        return false;
+      }
     }
     // Filtro per preferiti
     if (filterFavoritesOnly && !wine.favorite) {
@@ -80,13 +80,13 @@ export function useCellar() {
     }
     // Ricerca testuale
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
+      const q = searchQuery.toLowerCase().trim();
       const matchName = wine.name.toLowerCase().includes(q);
       const matchProducer = wine.producer.toLowerCase().includes(q);
       const matchAppellation = wine.appellation.toLowerCase().includes(q);
       const matchRegion = wine.region.toLowerCase().includes(q);
       const matchVintage = wine.vintage.toString().includes(q);
-      const matchGrapes = wine.grapes.some((g) => g.toLowerCase().includes(q));
+      const matchGrapes = wine.grapes?.some((g) => g.toLowerCase().includes(q));
       const matchLocation = wine.location.toLowerCase().includes(q);
       return matchName || matchProducer || matchAppellation || matchRegion || matchVintage || matchGrapes || matchLocation;
     }

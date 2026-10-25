@@ -190,18 +190,33 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
       </div>
 
       {/* Risultati o Stato Vuoto */}
-      {wines.length === 0 ? (
-        <EmptyState
-          title={searchQuery ? 'Nessun vino corrisponde alla ricerca' : 'La cantina è attualmente vuota'}
-          description={
-            searchQuery
-              ? `Nessuna bottiglia risponde a "${searchQuery}". Prova a modificare i termini di ricerca o azzerare i filtri.`
-              : 'Inizia registrando la tua prima bottiglia di pregio, cru o grande millesimo per valorizzare la tua collezione enologica.'
-          }
-          actionLabel={searchQuery ? 'Azzera Ricerca' : 'Aggiungi la Prima Bottiglia'}
-          onAction={searchQuery ? () => onSearchChange('') : onOpenAdd}
-        />
-      ) : (
+      {wines.length === 0 ? (() => {
+        const isFiltered =
+          searchQuery.trim().length > 0 ||
+          selectedCategory !== 'all' ||
+          (selectedCountryFilter && selectedCountryFilter !== 'all') ||
+          (maxPrice !== undefined && maxPrice < 500);
+
+        const handleResetAllFilters = () => {
+          onSearchChange('');
+          onCategoryChange('all');
+          onCountryFilterChange?.('all');
+          onMaxPriceChange?.(500);
+        };
+
+        return (
+          <EmptyState
+            title={isFiltered ? 'Nessun vino corrisponde ai filtri selezionati' : 'La cantina è attualmente vuota'}
+            description={
+              isFiltered
+                ? 'Nessuna bottiglia risponde alla combinazione di filtri impostati. Prova a modificare i parametri o azzera tutti i filtri.'
+                : 'Inizia registrando la tua prima bottiglia di pregio, cru o grande millesimo per valorizzare la tua collezione enologica.'
+            }
+            actionLabel={isFiltered ? 'Azzera Tutti i Filtri' : 'Aggiungi la Prima Bottiglia'}
+            onAction={isFiltered ? handleResetAllFilters : onOpenAdd}
+          />
+        );
+      })() : (
         <>
           {viewMode === 'grid' ? (
             /* Vista a Griglia Etichette */

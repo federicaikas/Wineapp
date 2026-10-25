@@ -162,7 +162,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                     key={cat.key}
                     type="button"
                     className={`cellar-filterbar__chip ${isSelected ? 'cellar-filterbar__chip--active' : ''} ${cat.key !== 'all' ? `cellar-filterbar__chip--${cat.key}` : ''}`}
-                    onClick={() => onCategoryChange(cat.key)}
+                    onClick={() => onCategoryChange(isSelected && cat.key !== 'all' ? 'all' : cat.key)}
                   >
                     <span className="cellar-filterbar__chip-label">{cat.label}</span>
                   </button>
@@ -183,7 +183,7 @@ export const SearchFilterBar: React.FC<SearchFilterBarProps> = ({
                       key={c.key}
                       type="button"
                       className={`cellar-filterbar__chip cellar-filterbar__chip--country ${isSelected ? 'cellar-filterbar__chip--active' : ''}`}
-                      onClick={() => onCountryFilterChange(c.key)}
+                      onClick={() => onCountryFilterChange(isSelected && c.key !== 'all' ? 'all' : c.key)}
                     >
                       <span className="cellar-filterbar__chip-flag">{c.flag}</span>
                       <span className="cellar-filterbar__chip-label">{c.label}</span>
