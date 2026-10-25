@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useCellar } from './hooks/useCellar';
-import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal, AuthModal } from './components/organisms';
+import { useAuth } from './hooks/useAuth';
+import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal, AuthModal, AuthCard } from './components/organisms';
 import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
 import { CellarStatsPage } from './components/pages/CellarStatsPage';
 import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
@@ -9,6 +10,7 @@ import { AuthProvider } from './context/AuthContext';
 import './App.css';
 
 function CellarAppContent() {
+  const { user } = useAuth();
   const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage'>('cellar');
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -129,6 +131,10 @@ function CellarAppContent() {
         />
       ) : viewMode === 'showcase' ? (
         <DesignSystemShowcase />
+      ) : !user ? (
+        <main className="cellar-main cellar-main--auth">
+          <AuthCard inline />
+        </main>
       ) : (
         <main className="cellar-main">
           <CellarGrid
@@ -191,7 +197,7 @@ function CellarAppContent() {
         onUpdateWine={handleUpdateWine}
       />
 
-      {/* Modal Autenticazione (Login & Registrazione) */}
+      {/* Modal Autenticazione (se aperto manualmente) */}
       <AuthModal />
 
       {/* Footer Editoriale O,nice! Studio */}
@@ -207,13 +213,15 @@ function CellarAppContent() {
           >
             WINAPP
           </Typography>
-          <button
-            type="button"
-            className="cellar-footer__manage-link"
-            onClick={() => setViewMode('manage')}
-          >
-            Carica tutti i dati della tua cantina in un click
-          </button>
+          {user && (
+            <button
+              type="button"
+              className="cellar-footer__manage-link"
+              onClick={() => setViewMode('manage')}
+            >
+              Carica tutti i dati della tua cantina in un click
+            </button>
+          )}
           <Divider variant="ornament" symbol="◆ ❦ ◆" spacing="sm" />
         </div>
       </footer>

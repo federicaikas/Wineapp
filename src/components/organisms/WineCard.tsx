@@ -74,9 +74,11 @@ export const WineCard: React.FC<WineCardProps> = ({
           <Typography variant="body-sm" color="secondary" className="cellar-wine-card__producer">
             {wine.producer}
           </Typography>
-          <span className="cellar-wine-card__flag-badge" title={wine.country || 'Italia'}>
-            {getCountryFlag(wine.country)}
-          </span>
+          {getCountryFlag(wine.country) ? (
+            <span className="cellar-wine-card__flag-badge" title={wine.country || 'Paese'}>
+              {getCountryFlag(wine.country)}
+            </span>
+          ) : null}
         </div>
 
         <Typography variant="serif-title" size="md" className="cellar-wine-card__name">
@@ -98,16 +100,6 @@ export const WineCard: React.FC<WineCardProps> = ({
           <tr>
             <th>Vitigni</th>
             <td>{wine.grapes?.join(', ') || 'Autoctono'}</td>
-          </tr>
-          <tr>
-            <th>Gradazione</th>
-            <td>{wine.alcohol}% Vol</td>
-          </tr>
-          <tr>
-            <th>Acquisto</th>
-            <td style={{ textTransform: 'capitalize' }}>
-              {wine.purchaseChannel === 'GDO' ? 'GDO' : (wine.purchaseChannel || 'Cantina')}
-            </td>
           </tr>
         </tbody>
       </table>

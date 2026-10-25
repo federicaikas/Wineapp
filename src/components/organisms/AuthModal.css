@@ -301,3 +301,9 @@
 .auth-modal-link-btn:hover {
   color: #4b397d;
 }
+
+/* Auth Card Inline (mostrata al posto della cantina vuota se non loggati) */
+.auth-modal-card--inline {
+  margin: 3rem auto;
+  box-shadow: 0 4px 30px rgba(45, 35, 74, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+}

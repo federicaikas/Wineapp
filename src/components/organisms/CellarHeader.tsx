@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../design-system';
 import type { CellarStats } from '../../types/wine';
-import { Plus, Heart, History, Shuffle, User as UserIcon, LogOut } from 'lucide-react';
+import { Plus, Heart, History, Shuffle, LogOut } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
 import './CellarHeader.css';
 
@@ -29,7 +29,7 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
   onOpenRandomWine,
   onGoHome,
 }) => {
-  const { user, profile, openAuthModal, signOut } = useAuth();
+  const { user, profile, signOut } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -64,64 +64,64 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
           <h1 className="cellar-masthead__title">WINAPP</h1>
         </div>
 
-        {/* Bottoni di azione */}
-        <div className="cellar-masthead__actions">
-          {/* Subito sotto: i due bottoni cosa beviamo e nuova bottiglia */}
-          <div className="cellar-masthead__primary-actions">
-            {onOpenRandomWine && (
-              <Button
-                variant="outline"
-                size="md"
-                icon={<Shuffle size={16} />}
-                onClick={onOpenRandomWine}
-                className="cellar-header-btn-random"
-              >
-                COSA BEVIAMO
-              </Button>
-            )}
-
-            <Button
-              variant="primary"
-              size="md"
-              icon={<Plus size={16} />}
-              onClick={onOpenAdd}
-              className="cellar-header-btn-add"
-            >
-              Nuova Bottiglia
-            </Button>
-          </div>
-
-          {/* Sotto: le icone di preferiti, stappate e accesso utente */}
-          <div className="cellar-masthead__secondary-actions">
-            <button
-              type="button"
-              onClick={onToggleFilterFavorites}
-              className={`cellar-header-btn-fav ${filterFavoritesOnly ? 'cellar-header-btn-fav--active' : ''}`}
-              title={`Preferiti (${stats.favoritesCount})`}
-              aria-label={`Filtra preferiti (${stats.favoritesCount})`}
-            >
-              <Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
-              <span className="cellar-header-btn-fav__label">Preferiti</span>
-              {stats.favoritesCount > 0 && (
-                <span className="cellar-header-btn-fav__count" aria-hidden="true">
-                  {stats.favoritesCount}
-                </span>
+        {/* Bottoni di azione - mostrati solo se l'utente è autenticato */}
+        {user && (
+          <div className="cellar-masthead__actions">
+            {/* Subito sotto: i due bottoni cosa beviamo e nuova bottiglia */}
+            <div className="cellar-masthead__primary-actions">
+              {onOpenRandomWine && (
+                <Button
+                  variant="outline"
+                  size="md"
+                  icon={<Shuffle size={16} />}
+                  onClick={onOpenRandomWine}
+                  className="cellar-header-btn-random"
+                >
+                  COSA BEVIAMO
+                </Button>
               )}
-            </button>
 
-            <button
-              type="button"
-              onClick={onOpenUncorked}
-              className={`cellar-header-btn-uncorked ${currentView === 'uncorked' ? 'cellar-header-btn-uncorked--active' : ''}`}
-              title="Cronologia bottiglie stappate"
-              aria-label="Cronologia bottiglie stappate"
-            >
-              <History size={16} />
-              <span className="cellar-header-btn-uncorked__label">Stappate</span>
-            </button>
+              <Button
+                variant="primary"
+                size="md"
+                icon={<Plus size={16} />}
+                onClick={onOpenAdd}
+                className="cellar-header-btn-add"
+              >
+                Nuova Bottiglia
+              </Button>
+            </div>
 
-            {/* Sezione Autenticazione: Accedi o Profilo Utente */}
-            {user ? (
+            {/* Sotto: le icone di preferiti, stappate e accesso utente */}
+            <div className="cellar-masthead__secondary-actions">
+              <button
+                type="button"
+                onClick={onToggleFilterFavorites}
+                className={`cellar-header-btn-fav ${filterFavoritesOnly ? 'cellar-header-btn-fav--active' : ''}`}
+                title={`Preferiti (${stats.favoritesCount})`}
+                aria-label={`Filtra preferiti (${stats.favoritesCount})`}
+              >
+                <Heart size={16} fill={filterFavoritesOnly ? 'currentColor' : 'none'} />
+                <span className="cellar-header-btn-fav__label">Preferiti</span>
+                {stats.favoritesCount > 0 && (
+                  <span className="cellar-header-btn-fav__count" aria-hidden="true">
+                    {stats.favoritesCount}
+                  </span>
+                )}
+              </button>
+
+              <button
+                type="button"
+                onClick={onOpenUncorked}
+                className={`cellar-header-btn-uncorked ${currentView === 'uncorked' ? 'cellar-header-btn-uncorked--active' : ''}`}
+                title="Cronologia bottiglie stappate"
+                aria-label="Cronologia bottiglie stappate"
+              >
+                <History size={16} />
+                <span className="cellar-header-btn-uncorked__label">Stappate</span>
+              </button>
+
+              {/* Sezione Autenticazione: Profilo Utente */}
               <div className="cellar-header-user-wrapper" ref={menuRef}>
                 <button
                   type="button"
@@ -160,20 +160,9 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
                   </div>
                 )}
               </div>
-            ) : (
-              <button
-                type="button"
-                className="cellar-header-btn-auth"
-                onClick={() => openAuthModal('login')}
-                title="Accedi o registrati per sincronizzare la tua cantina"
-                aria-label="Accedi alla tua cantina"
-              >
-                <UserIcon size={16} />
-                <span className="cellar-header-btn-auth__label">Accedi</span>
-              </button>
-            )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

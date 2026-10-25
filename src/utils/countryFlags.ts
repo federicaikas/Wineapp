@@ -2,7 +2,7 @@
  * Helper per mappare il nome del paese alla relativa emoji bandiera
  */
 export const getCountryFlag = (country?: string): string => {
-  if (!country) return '🇮🇹';
+  if (!country) return '';
   const c = country.toLowerCase().trim();
   if (c.includes('italia') || c.includes('italy') || c === 'it') return '🇮🇹';
   if (c.includes('francia') || c.includes('france') || c === 'fr') return '🇫🇷';
@@ -17,5 +17,6 @@ export const getCountryFlag = (country?: string): string => {
   if (c.includes('cile') || c.includes('chile') || c === 'cl') return '🇨🇱';
   if (c.includes('argentina') || c === 'ar') return '🇦🇷';
   if (c.includes('sudafrica') || c.includes('south africa') || c === 'za') return '🇿🇦';
-  return '🍷';
+  return '';
 };
+

@@ -134,7 +134,7 @@
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2, 8px);
-  margin-bottom: var(--space-1, 4px);
+  margin-bottom: 0.35rem;
 }
 
 .cellar-wine-card__producer {
@@ -144,7 +144,8 @@
   font-style: normal;
   color: var(--text-muted, #706880);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
   display: block;
   transition: color var(--transition-fast, 150ms ease), transform var(--transition-fast, 150ms ease);
 }
@@ -168,16 +169,16 @@
 }
 
 
-/* Titolo DIN Bold come Organism 2: FeatureCard */
+/* Titolo DIN Bold come Organism 2: FeatureCard con interlinea aumentata */
 .cellar-wine-card__name {
   font-family: var(--font-display, "DIN Bold", "DIN Alternate", "Oswald", sans-serif);
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary, #2D234A);
   text-transform: uppercase;
-  line-height: var(--display-line-height, 0.95);
-  letter-spacing: var(--display-letter-spacing, -0.02em);
-  margin: 0 0 var(--space-2, 8px) 0;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin: 0.25rem 0 0.5rem 0;
   transition: color var(--transition-hover, 200ms ease-in-out);
 }
 
@@ -187,10 +188,10 @@
 
 .cellar-wine-card__appellation {
   font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--category-color, var(--brand-primary, #2D234A));
-  line-height: 1.4;
+  line-height: 1.45;
   margin: 0;
 }
 
