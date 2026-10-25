@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import type { WineBottle } from '../../types/wine';
 import { Typography, Divider, Button, StockCounter, MaturityTimeline } from '../design-system';
-import { Heart, MapPin, Eye, Edit3 } from 'lucide-react';
+import { Heart, MapPin, Eye } from 'lucide-react';
 import { getCountryFlag } from '../../utils/countryFlags';
 import { formatVintage } from '../../utils/formatters';
 import './WineCard.css';
@@ -24,7 +24,6 @@ const getRackLocation = (loc: string): string => {
 export const WineCard: React.FC<WineCardProps> = ({
   wine,
   onSelect,
-  onEdit,
   onStockChange,
   onToggleFavorite,
 }) => {
@@ -135,18 +134,6 @@ export const WineCard: React.FC<WineCardProps> = ({
         />
 
         <div className="cellar-wine-card__footer-actions">
-          <Button
-            variant="outline"
-            size="sm"
-            icon={<Edit3 size={14} />}
-            title="Modifica"
-            aria-label="Modifica"
-            onClick={(e) => {
-              e.stopPropagation();
-              onEdit?.(wine);
-            }}
-          />
-
           <Button
             variant="outline"
             size="sm"
