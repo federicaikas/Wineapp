@@ -58,6 +58,108 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
   return (
     <header className="cellar-masthead">
       <div className="cellar-masthead__container">
+        {/* Sinistra: account */}
+        <div className="cellar-masthead__left">
+          {user && (
+            <>
+            {/* Sezione Autenticazione: Profilo Utente */}
+            <div className="cellar-header-user-wrapper" ref={menuRef}>
+              <button
+                type="button"
+                className="cellar-header-user-badge"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-expanded={isMenuOpen}
+                aria-haspopup="true"
+                title={`Cantina di ${displayName}`}
+              >
+                <span className="cellar-header-user-avatar">{initialLetter}</span>
+                <span className="cellar-header-user-name">{displayName}</span>
+              </button>
+
+              {isMenuOpen && (
+                <div className="cellar-header-user-dropdown" role="menu">
+                  <div className="cellar-header-user-dropdown__info">
+                    <p className="cellar-header-user-dropdown__name">{profile?.full_name || displayName}</p>
+                    <p className="cellar-header-user-dropdown__email">{user.email}</p>
+                    {profile?.cellar_name && (
+                      <p className="cellar-header-user-dropdown__cellar">{profile.cellar_name}</p>
+                    )}
+                  </div>
+                  <div className="cellar-header-user-dropdown__divider" />
+                  <div className="cellar-header-user-dropdown__row" role="presentation">
+                    <span>Bottiglie <small>({stats.uniqueLabels} etichette)</small></span>
+                    <strong>{stats.totalBottles}</strong>
+                  </div>
+                  <div className="cellar-header-user-dropdown__row" role="presentation">
+                    <span>Valore stimato</span>
+                    <strong>€ {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}</strong>
+                  </div>
+                  <div className="cellar-header-user-dropdown__row" role="presentation">
+                    <span>Pronte da stappare</span>
+                    <strong>{stats.readyToDrinkCount + stats.peakCount}</strong>
+                  </div>
+                  <div className="cellar-header-user-dropdown__divider" />
+                  <button
+                    type="button"
+                    className={`cellar-header-user-dropdown__item ${filterFavoritesOnly ? 'cellar-header-user-dropdown__item--active' : ''}`}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      onToggleFilterFavorites();
+                    }}
+                    role="menuitem"
+                  >
+                    <span>Preferiti</span>
+                    {stats.favoritesCount > 0 && (
+                      <span className="cellar-header-user-dropdown__count">{stats.favoritesCount}</span>
+                    )}
+                  </button>
+                  <button
+                    type="button"
+                    className={`cellar-header-user-dropdown__item ${currentView === 'uncorked' ? 'cellar-header-user-dropdown__item--active' : ''}`}
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      onOpenUncorked();
+                    }}
+                    role="menuitem"
+                  >
+                    <span>Stappate</span>
+                    {uncorkedCount > 0 && (
+                      <span className="cellar-header-user-dropdown__count">{uncorkedCount}</span>
+                    )}
+                  </button>
+                  {onOpenStats && (
+                    <button
+                      type="button"
+                      className={`cellar-header-user-dropdown__item ${currentView === 'stats' ? 'cellar-header-user-dropdown__item--active' : ''}`}
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        onOpenStats();
+                      }}
+                      role="menuitem"
+                    >
+                      <span>Report &amp; Mappa</span>
+                    </button>
+                  )}
+                  <div className="cellar-header-user-dropdown__divider" />
+                  <button
+                    type="button"
+                    className="cellar-header-user-dropdown__logout"
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      signOut();
+                    }}
+                    role="menuitem"
+                  >
+                    <LogOut size={14} />
+                    <span>Disconnetti</span>
+                  </button>
+                </div>
+              )}
+            </div>
+            </>
+          )}
+        </div>
+
         {/* Brand AFFINAPP - al centro su mobile */}
         <div
           className="cellar-masthead__brand"
@@ -70,10 +172,9 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
           </h1>
         </div>
 
-        {/* Bottoni di azione - mostrati solo se l'utente è autenticato */}
-        {user && (
-          <div className="cellar-masthead__actions">
-            {/* Subito sotto: i due bottoni cosa beviamo e nuova bottiglia */}
+        {/* Destra: Cosa beviamo e Nuova bottiglia */}
+        <div className="cellar-masthead__right">
+          {user && (
             <div className="cellar-masthead__primary-actions">
               {onOpenRandomWine && (
                 <Button
@@ -97,106 +198,8 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
                 Nuova Bottiglia
               </Button>
             </div>
-
-            {/* Sotto: le icone di preferiti, stappate e accesso utente */}
-            <div className="cellar-masthead__secondary-actions">
-              {/* Sezione Autenticazione: Profilo Utente */}
-              <div className="cellar-header-user-wrapper" ref={menuRef}>
-                <button
-                  type="button"
-                  className="cellar-header-user-badge"
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  aria-expanded={isMenuOpen}
-                  aria-haspopup="true"
-                  title={`Cantina di ${displayName}`}
-                >
-                  <span className="cellar-header-user-avatar">{initialLetter}</span>
-                  <span className="cellar-header-user-name">{displayName}</span>
-                </button>
-
-                {isMenuOpen && (
-                  <div className="cellar-header-user-dropdown" role="menu">
-                    <div className="cellar-header-user-dropdown__info">
-                      <p className="cellar-header-user-dropdown__name">{profile?.full_name || displayName}</p>
-                      <p className="cellar-header-user-dropdown__email">{user.email}</p>
-                      {profile?.cellar_name && (
-                        <p className="cellar-header-user-dropdown__cellar">{profile.cellar_name}</p>
-                      )}
-                    </div>
-                    <div className="cellar-header-user-dropdown__divider" />
-                    <div className="cellar-header-user-dropdown__row" role="presentation">
-                      <span>Bottiglie <small>({stats.uniqueLabels} etichette)</small></span>
-                      <strong>{stats.totalBottles}</strong>
-                    </div>
-                    <div className="cellar-header-user-dropdown__row" role="presentation">
-                      <span>Valore stimato</span>
-                      <strong>€ {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}</strong>
-                    </div>
-                    <div className="cellar-header-user-dropdown__row" role="presentation">
-                      <span>Pronte da stappare</span>
-                      <strong>{stats.readyToDrinkCount + stats.peakCount}</strong>
-                    </div>
-                    <div className="cellar-header-user-dropdown__divider" />
-                    <button
-                      type="button"
-                      className={`cellar-header-user-dropdown__item ${filterFavoritesOnly ? 'cellar-header-user-dropdown__item--active' : ''}`}
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        onToggleFilterFavorites();
-                      }}
-                      role="menuitem"
-                    >
-                      <span>Preferiti</span>
-                      {stats.favoritesCount > 0 && (
-                        <span className="cellar-header-user-dropdown__count">{stats.favoritesCount}</span>
-                      )}
-                    </button>
-                    <button
-                      type="button"
-                      className={`cellar-header-user-dropdown__item ${currentView === 'uncorked' ? 'cellar-header-user-dropdown__item--active' : ''}`}
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        onOpenUncorked();
-                      }}
-                      role="menuitem"
-                    >
-                      <span>Stappate</span>
-                      {uncorkedCount > 0 && (
-                        <span className="cellar-header-user-dropdown__count">{uncorkedCount}</span>
-                      )}
-                    </button>
-                    {onOpenStats && (
-                      <button
-                        type="button"
-                        className={`cellar-header-user-dropdown__item ${currentView === 'stats' ? 'cellar-header-user-dropdown__item--active' : ''}`}
-                        onClick={() => {
-                          setIsMenuOpen(false);
-                          onOpenStats();
-                        }}
-                        role="menuitem"
-                      >
-                        <span>Report &amp; Mappa</span>
-                      </button>
-                    )}
-                    <div className="cellar-header-user-dropdown__divider" />
-                    <button
-                      type="button"
-                      className="cellar-header-user-dropdown__logout"
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        signOut();
-                      }}
-                      role="menuitem"
-                    >
-                      <LogOut size={14} />
-                      <span>Disconnetti</span>
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </header>
   );
