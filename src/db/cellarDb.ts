@@ -1,7 +1,6 @@
 import Dexie, { type Table } from 'dexie';
 import type { WineBottle, CellarStats, WineFormData } from '../types/wine';
 import type { WineCategory } from '../components/design-system/atoms/Badge';
-import { SEED_WINES } from './seedWines';
 import { calculateWineLocation } from '../utils/locationUtils';
 
 export class CellarDatabase extends Dexie {
@@ -11,9 +10,6 @@ export class CellarDatabase extends Dexie {
     super('CellarEnotequeDB');
     this.version(1).stores({
       wines: 'id, name, producer, vintage, category, drinkingStatus, stock, favorite, createdAt, updatedAt',
-    });
-    this.on('populate', () => {
-      this.wines.bulkAdd(SEED_WINES);
     });
   }
 }
@@ -35,21 +31,15 @@ async function syncToServer() {
   }
 }
 
-// Inizializzazione automatica e popolamento cantina utente
+// Inizializzazione cantina: nessun vino mock di default (cantina vuota per ogni nuovo utente)
 export async function initializeDatabase(): Promise<void> {
-  const isPopulatedKey = 'cellar_wines_imported_user_v1';
-  if (!localStorage.getItem(isPopulatedKey)) {
+  const emptySlateKey = 'cellar_wines_empty_slate_v2';
+  if (!localStorage.getItem(emptySlateKey)) {
+    // Svuota la cantina locale dai vecchi dati mock precaricati
     await db.wines.clear();
-    await db.wines.bulkAdd(SEED_WINES);
-    localStorage.setItem(isPopulatedKey, 'true');
+    localStorage.removeItem('cellar_wines_imported_user_v1');
+    localStorage.setItem(emptySlateKey, 'true');
   }
-
-  // Migrazione automatica: trasforma tutte le annate 2026 in 0 (Sconosciuta)
-  await migrateVintage2026ToUnknown();
-  // Migrazione automatica: trasforma tutte le bottiglie "ready" in "aging" (Affinamento)
-  await migrateReadyToAging();
-  // Migrazione automatica: ricalcola le ubicazioni delle rastrelliere (Rack 1 sx, Rack 2 centro, Rack 3 dx, Rack 4 mobile)
-  await migrateLocations();
 }
 
 export async function migrateVintage2026ToUnknown(): Promise<number> {
@@ -184,9 +174,12 @@ export async function toggleFavorite(id: string): Promise<boolean> {
   return newFav;
 }
 
+export async function clearAllWines(): Promise<void> {
+  await db.wines.clear();
+}
+
 export async function resetToDefaultSeed(): Promise<void> {
   await db.wines.clear();
-  await db.wines.bulkAdd(SEED_WINES);
 }
 
 export async function exportCellarData(): Promise<string> {

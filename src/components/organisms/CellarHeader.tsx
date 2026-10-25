@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Button } from '../design-system';
 import type { CellarStats } from '../../types/wine';
-import { Plus, Heart, History, Shuffle } from 'lucide-react';
+import { Plus, Heart, History, Shuffle, User as UserIcon, LogOut } from 'lucide-react';
+import { useAuth } from '../../hooks/useAuth';
 import './CellarHeader.css';
 
 export interface CellarHeaderProps {
@@ -28,6 +29,28 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
   onOpenRandomWine,
   onGoHome,
 }) => {
+  const { user, profile, openAuthModal, signOut } = useAuth();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Chiude il menu utente quando si clicca fuori
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMenuOpen(false);
+      }
+    };
+    if (isMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  const displayName = profile?.full_name?.trim() || user?.email?.split('@')[0] || 'Utente';
+  const initialLetter = displayName.charAt(0).toUpperCase();
+
   return (
     <header className="cellar-masthead">
       <div className="cellar-masthead__container">
@@ -68,7 +91,7 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
             </Button>
           </div>
 
-          {/* Sotto: le icone di preferiti e stappate con etichetta */}
+          {/* Sotto: le icone di preferiti, stappate e accesso utente */}
           <div className="cellar-masthead__secondary-actions">
             <button
               type="button"
@@ -96,6 +119,59 @@ export const CellarHeader: React.FC<CellarHeaderProps> = ({
               <History size={16} />
               <span className="cellar-header-btn-uncorked__label">Stappate</span>
             </button>
+
+            {/* Sezione Autenticazione: Accedi o Profilo Utente */}
+            {user ? (
+              <div className="cellar-header-user-wrapper" ref={menuRef}>
+                <button
+                  type="button"
+                  className="cellar-header-user-badge"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                  aria-expanded={isMenuOpen}
+                  aria-haspopup="true"
+                  title={`Cantina di ${displayName}`}
+                >
+                  <span className="cellar-header-user-avatar">{initialLetter}</span>
+                  <span className="cellar-header-user-name">{displayName}</span>
+                </button>
+
+                {isMenuOpen && (
+                  <div className="cellar-header-user-dropdown" role="menu">
+                    <div className="cellar-header-user-dropdown__info">
+                      <p className="cellar-header-user-dropdown__name">{profile?.full_name || displayName}</p>
+                      <p className="cellar-header-user-dropdown__email">{user.email}</p>
+                      {profile?.cellar_name && (
+                        <p className="cellar-header-user-dropdown__cellar">{profile.cellar_name}</p>
+                      )}
+                    </div>
+                    <div className="cellar-header-user-dropdown__divider" />
+                    <button
+                      type="button"
+                      className="cellar-header-user-dropdown__logout"
+                      onClick={() => {
+                        setIsMenuOpen(false);
+                        signOut();
+                      }}
+                      role="menuitem"
+                    >
+                      <LogOut size={14} />
+                      <span>Disconnetti</span>
+                    </button>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <button
+                type="button"
+                className="cellar-header-btn-auth"
+                onClick={() => openAuthModal('login')}
+                title="Accedi o registrati per sincronizzare la tua cantina"
+                aria-label="Accedi alla tua cantina"
+              >
+                <UserIcon size={16} />
+                <span className="cellar-header-btn-auth__label">Accedi</span>
+              </button>
+            )}
           </div>
         </div>
       </div>

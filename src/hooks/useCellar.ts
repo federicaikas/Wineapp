@@ -6,7 +6,16 @@ import type { WineCategory } from '../components/design-system/atoms/Badge';
 import type { SortOption } from '../components/design-system/molecules/SearchFilterBar';
 import confetti from 'canvas-confetti';
 
+import { useAuth } from './useAuth';
+import {
+  fetchUserWinesFromSupabase,
+  syncWineToSupabase,
+  deleteWineFromSupabase,
+} from '../lib/supabaseSync';
+
 export function useCellar() {
+  const { user } = useAuth();
+  const userId = user?.id;
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<WineCategory | 'all'>('all');
   const [selectedCountryFilter, setSelectedCountryFilter] = useState<'all' | 'IT' | 'FR' | 'ES' | 'EE'>('all');
@@ -17,10 +26,25 @@ export function useCellar() {
   const [isAddDrawerOpen, setIsAddDrawerOpen] = useState(false);
   const [editingWine, setEditingWine] = useState<WineBottle | null>(null);
 
-  // Inizializza il database in background al montaggio se vuoto
+  // Inizializza il database in background e sincronizza con Supabase se loggato
   useEffect(() => {
-    initializeDatabase().catch(console.error);
-  }, []);
+    const syncWithUser = async () => {
+      await initializeDatabase();
+      if (userId) {
+        // Carica i vini dal cloud Supabase per questo account
+        const cloudWines = await fetchUserWinesFromSupabase(userId);
+        await db.wines.clear();
+        if (cloudWines.length > 0) {
+          await db.wines.bulkAdd(cloudWines);
+        }
+      } else {
+        // Utente non autenticato: cantina pulita
+        await db.wines.clear();
+      }
+    };
+
+    syncWithUser().catch(console.error);
+  }, [userId]);
 
   // Live query puramente di lettura (senza transazioni di scrittura)
   const allWines = useLiveQuery(() => db.wines.toArray(), []) || [];
@@ -94,6 +118,12 @@ export function useCellar() {
   // Operazione di stappatura / variazione scorte con micro-celebrazione
   const handleStockChange = useCallback(async (id: string, delta: number) => {
     const result = await adjustStock(id, delta);
+    if (userId) {
+      const updated = await db.wines.get(id);
+      if (updated) {
+        syncWineToSupabase(updated, userId).catch(console.error);
+      }
+    }
     if (result.uncorked) {
       // Effetto stappatura calice con ceralacca dorata & bordeaux
       confetti({
@@ -104,20 +134,35 @@ export function useCellar() {
         disableForReducedMotion: true,
       });
     }
-  }, []);
+  }, [userId]);
 
   const handleToggleFavorite = useCallback(async (id: string) => {
     await toggleFavorite(id);
-  }, []);
+    if (userId) {
+      const updated = await db.wines.get(id);
+      if (updated) {
+        syncWineToSupabase(updated, userId).catch(console.error);
+      }
+    }
+  }, [userId]);
 
   const handleAddWine = useCallback(async (data: WineFormData) => {
     const created = await addWine(data);
+    if (userId) {
+      syncWineToSupabase(created, userId).catch(console.error);
+    }
     setIsAddDrawerOpen(false);
     return created;
-  }, []);
+  }, [userId]);
 
   const handleAddWinesBatch = useCallback(async (dataArray: WineFormData[]) => {
     const count = await addWinesBatch(dataArray);
+    if (userId) {
+      const allCurrent = await db.wines.toArray();
+      for (const b of allCurrent) {
+        syncWineToSupabase(b, userId).catch(console.error);
+      }
+    }
     setIsAddDrawerOpen(false);
     confetti({
       particleCount: 80,
@@ -126,23 +171,29 @@ export function useCellar() {
       colors: ['#9F0000', '#A0A738', '#FFCC79', '#F2542D'],
     });
     return count;
-  }, []);
+  }, [userId]);
 
   const handleUpdateWine = useCallback(async (id: string, data: Partial<WineBottle>) => {
     await updateWine(id, data);
-    setEditingWine(null);
-    if (selectedWine?.id === id) {
-      const refreshed = await db.wines.get(id);
-      if (refreshed) setSelectedWine(refreshed);
+    const refreshed = await db.wines.get(id);
+    if (userId && refreshed) {
+      syncWineToSupabase(refreshed, userId).catch(console.error);
     }
-  }, [selectedWine]);
+    setEditingWine(null);
+    if (selectedWine?.id === id && refreshed) {
+      setSelectedWine(refreshed);
+    }
+  }, [selectedWine, userId]);
 
   const handleDeleteWine = useCallback(async (id: string) => {
     await deleteWine(id);
+    if (userId) {
+      deleteWineFromSupabase(id, userId).catch(console.error);
+    }
     if (selectedWine?.id === id) {
       setSelectedWine(null);
     }
-  }, [selectedWine]);
+  }, [selectedWine, userId]);
 
   const handleResetSeed = useCallback(async () => {
     await resetToDefaultSeed();

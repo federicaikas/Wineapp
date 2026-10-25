@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useCellar } from './hooks/useCellar';
-import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal } from './components/organisms';
+import { CellarHeader, CellarGrid, QuickAddDrawer, WineDetailModal, AuthModal } from './components/organisms';
 import { DesignSystemShowcase, Typography, Divider } from './components/design-system';
 import { CellarStatsPage } from './components/pages/CellarStatsPage';
 import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
 import { ManageCellarPage } from './components/pages/ManageCellarPage';
+import { AuthProvider } from './context/AuthContext';
 import './App.css';
 
-export function App() {
+function CellarAppContent() {
   const [viewMode, setViewMode] = useState<'cellar' | 'stats' | 'uncorked' | 'showcase' | 'manage'>('cellar');
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -190,6 +191,9 @@ export function App() {
         onUpdateWine={handleUpdateWine}
       />
 
+      {/* Modal Autenticazione (Login & Registrazione) */}
+      <AuthModal />
+
       {/* Footer Editoriale O,nice! Studio */}
       <footer className="cellar-footer">
         <div className="cellar-footer__inner">
@@ -214,6 +218,14 @@ export function App() {
         </div>
       </footer>
     </div>
+  );
+}
+
+export function App() {
+  return (
+    <AuthProvider>
+      <CellarAppContent />
+    </AuthProvider>
   );
 }
 
