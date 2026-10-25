@@ -102,90 +102,64 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
 
   return (
     <div className="cellar-grid-wrapper">
-      {/* Dashboard Statistiche a 3 Tile Liquid Glass */}
+      {/* Executive Minimal Bar Liquid Glass (Versione 3: Ultra-compatta) */}
       {onOpenStats && (
-        <section className="cellar-liquid-stats-board" aria-label="Panoramica Statistiche Cantina">
-          <div className="cellar-liquid-stats-board__tiles">
-            {/* Tile 1: Collezione */}
-            <div
-              className="cellar-liquid-tile"
-              onClick={onOpenStats}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
-              title="Clicca per aprire le statistiche complete"
-            >
-              <div className="cellar-liquid-tile__header">
-                <span className="cellar-liquid-tile__label">BOTTIGLIE IN CANTINA</span>
-                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--wine">
-                  <Wine size={16} />
-                </div>
-              </div>
-              <div className="cellar-liquid-tile__main">
-                <span className="cellar-liquid-tile__number">{stats.totalBottles}</span>
-                <span className="cellar-liquid-tile__sub">{stats.uniqueLabels} etichette uniche</span>
-              </div>
-            </div>
-
-            {/* Tile 2: Patrimonio */}
-            <div
-              className="cellar-liquid-tile"
-              onClick={onOpenStats}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
-              title="Clicca per aprire le statistiche complete"
-            >
-              <div className="cellar-liquid-tile__header">
-                <span className="cellar-liquid-tile__label">VALORE STIMATO</span>
-                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--gold">
-                  <TrendingUp size={16} />
-                </div>
-              </div>
-              <div className="cellar-liquid-tile__main">
-                <span className="cellar-liquid-tile__number">
-                  € {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}
+        <section
+          className="cellar-executive-bar"
+          onClick={onOpenStats}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
+          aria-label="Statistiche cantina ultra-compatte"
+          title="Clicca per aprire la Mappa d'Italia e il Report Statistiche completo"
+        >
+          <div className="cellar-executive-bar__metrics">
+            {/* Metrica 1: Bottiglie */}
+            <div className="cellar-executive-bar__item">
+              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--wine">
+                <Wine size={15} />
+              </span>
+              <div className="cellar-executive-bar__data">
+                <strong className="cellar-executive-bar__value">{stats.totalBottles}</strong>
+                <span className="cellar-executive-bar__label">
+                  Bottiglie <span className="cellar-executive-bar__sub">({stats.uniqueLabels} etichette)</span>
                 </span>
-                <span className="cellar-liquid-tile__sub">Patrimonio cantina</span>
               </div>
             </div>
 
-            {/* Tile 3: Pronte al Calice */}
-            <div
-              className="cellar-liquid-tile"
-              onClick={onOpenStats}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
-              title="Clicca per aprire le statistiche complete"
-            >
-              <div className="cellar-liquid-tile__header">
-                <span className="cellar-liquid-tile__label">PRONTE AL CALICE</span>
-                <div className="cellar-liquid-tile__icon-glass cellar-liquid-tile__icon-glass--ready">
-                  <Sparkles size={16} />
-                </div>
+            <div className="cellar-executive-bar__divider" aria-hidden="true" />
+
+            {/* Metrica 2: Patrimonio */}
+            <div className="cellar-executive-bar__item">
+              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--gold">
+                <TrendingUp size={15} />
+              </span>
+              <div className="cellar-executive-bar__data">
+                <strong className="cellar-executive-bar__value">
+                  € {stats.totalEstimatedValue ? stats.totalEstimatedValue.toLocaleString('it-IT') : '0'}
+                </strong>
+                <span className="cellar-executive-bar__label">Valore stimato</span>
               </div>
-              <div className="cellar-liquid-tile__main">
-                <span className="cellar-liquid-tile__number">{stats.readyToDrinkCount + stats.peakCount}</span>
-                <span className="cellar-liquid-tile__sub">All'apice evolutivo</span>
+            </div>
+
+            <div className="cellar-executive-bar__divider" aria-hidden="true" />
+
+            {/* Metrica 3: Pronte da bere */}
+            <div className="cellar-executive-bar__item">
+              <span className="cellar-executive-bar__icon cellar-executive-bar__icon--ready">
+                <Sparkles size={15} />
+              </span>
+              <div className="cellar-executive-bar__data">
+                <strong className="cellar-executive-bar__value">{stats.readyToDrinkCount + stats.peakCount}</strong>
+                <span className="cellar-executive-bar__label">Pronte da stappare</span>
               </div>
             </div>
           </div>
 
-          {/* Footer Bar Liquid Glass per Mappa & Report Completo */}
-          <div
-            className="cellar-liquid-stats-board__footer"
-            onClick={onOpenStats}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') onOpenStats(); }}
-          >
-            <span className="cellar-liquid-stats-board__footer-text">
-              Consulta tipologie, valore per cru e mappa delle regioni d'Italia
-            </span>
-            <span className="cellar-liquid-stats-board__footer-link">
-              Apri Report &amp; Mappa <ArrowRight size={14} />
-            </span>
+          {/* Action a destra */}
+          <div className="cellar-executive-bar__cta">
+            <span>Report &amp; Mappa</span>
+            <ArrowRight size={14} className="cellar-executive-bar__arrow" />
           </div>
         </section>
       )}
