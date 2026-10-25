@@ -452,3 +452,11 @@
 }
 
 
+
+.cellar-add-drawer__submit-error {
+  margin-right: auto;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #991B1B;
+}

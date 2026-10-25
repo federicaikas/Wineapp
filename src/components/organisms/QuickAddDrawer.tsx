@@ -129,6 +129,7 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
   const [grapesInput, setGrapesInput] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Batch import state
   const [addMode, setAddMode] = useState<'single' | 'batch'>('single');
@@ -263,11 +264,13 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
     const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = 'Il nome del vino o cru è obbligatorio';
     if (!formData.producer.trim()) newErrors.producer = 'Il produttore o tenuta è obbligatorio';
-    if (!formData.vintage || formData.vintage < 1900 || formData.vintage > 2035) {
+    // 0 = annata sconosciuta (S.A. / N.V.), valida
+    if (formData.vintage !== 0 && (!formData.vintage || formData.vintage < 1900 || formData.vintage > 2035)) {
       newErrors.vintage = 'Inserisci un’annata valida';
     }
     if (formData.stock < 0) newErrors.stock = 'La quantità non può essere negativa';
     setErrors(newErrors);
+    setSubmitError(Object.values(newErrors)[0] ?? null);
     return Object.keys(newErrors).length === 0;
   };
 
@@ -275,6 +278,7 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
     e.preventDefault();
     if (!validate()) return;
 
+    setSubmitError(null);
     setIsSubmitting(true);
     try {
       const parsedGrapes = grapesInput
@@ -289,6 +293,7 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
       onClose();
     } catch (err) {
       console.error('Errore durante il salvataggio:', err);
+      setSubmitError('Salvataggio non riuscito. Riprova.');
     } finally {
       setIsSubmitting(false);
     }
@@ -320,6 +325,9 @@ export const QuickAddDrawer: React.FC<QuickAddDrawerProps> = ({
       footer={
         addMode === 'batch' && !editingWine ? null : (
           <div className="cellar-add-drawer__footer-actions">
+            {submitError && (
+              <span className="cellar-add-drawer__submit-error" role="alert">{submitError}</span>
+            )}
             <Button variant="ghost" onClick={onClose} disabled={isSubmitting}>
               Annulla
             </Button>
