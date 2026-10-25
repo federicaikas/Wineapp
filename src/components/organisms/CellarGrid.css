@@ -118,35 +118,38 @@
   flex-shrink: 0;
 }
 
-.cellar-executive-bar__cta {
+/* Bottone Report & Mappa (Stesso aspetto coordinato di Nuova Bottiglia e Stappiamo) */
+.cellar-executive-bar__btn.cellar-btn {
+  background-color: #2D234A !important;
+  color: #FFFFFF !important;
+  border: 1.5px solid #2D234A !important;
+  border-radius: 9999px !important;
+  font-family: var(--font-body, 'Montserrat', sans-serif) !important;
+  font-weight: 700 !important;
+  font-size: 0.8rem !important;
+  letter-spacing: 0.01em;
+  height: 36px;
+  padding: 0 1.15rem !important;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: var(--font-body, 'Montserrat', sans-serif);
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--wine-bordeaux, #722F37);
-  padding: 0.4rem 0.8rem;
-  background: rgba(114, 47, 55, 0.05);
-  border: 1px solid rgba(114, 47, 55, 0.15);
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  white-space: nowrap;
+  justify-content: center;
+  gap: 0.45rem;
+  box-shadow: 0 3px 10px rgba(45, 35, 74, 0.18);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
-.cellar-executive-bar:hover .cellar-executive-bar__cta {
-  background: var(--wine-bordeaux, #722F37);
-  color: #FFFFFF;
-  border-color: var(--wine-bordeaux, #722F37);
+.cellar-executive-bar__btn.cellar-btn:hover {
+  background-color: #3B1B54 !important;
+  border-color: #3B1B54 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(59, 27, 84, 0.28);
 }
 
-.cellar-executive-bar__arrow {
-  transition: transform 0.2s ease;
-}
-
-.cellar-executive-bar:hover .cellar-executive-bar__arrow {
-  transform: translateX(3px);
+.cellar-executive-bar__btn.cellar-btn:active {
+  transform: translateY(0);
 }
 
 /* Toolbar & View Toggle */
@@ -327,8 +330,7 @@
     display: none;
   }
 
-  .cellar-executive-bar__cta {
-    justify-content: center;
+  .cellar-executive-bar__btn.cellar-btn {
     width: 100%;
   }
 

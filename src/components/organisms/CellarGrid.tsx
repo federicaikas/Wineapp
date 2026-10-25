@@ -4,7 +4,7 @@ import { WineCard } from './WineCard';
 import { SearchFilterBar, type SortOption } from '../design-system/molecules/SearchFilterBar';
 import { EmptyState, Badge, Typography, StockCounter, RatingStars, Tag, Button } from '../design-system';
 import type { WineCategory } from '../design-system/atoms/Badge';
-import { LayoutGrid, List, ChevronDown, Check, Wine, TrendingUp, Sparkles, ArrowRight } from 'lucide-react';
+import { LayoutGrid, List, ChevronDown, Check, Wine, TrendingUp, Sparkles, BarChart3 } from 'lucide-react';
 import './CellarGrid.css';
 
 const INITIAL_BATCH_SIZE = 10;
@@ -156,11 +156,19 @@ export const CellarGrid: React.FC<CellarGridProps> = ({
             </div>
           </div>
 
-          {/* Action a destra */}
-          <div className="cellar-executive-bar__cta">
-            <span>Report &amp; Mappa</span>
-            <ArrowRight size={14} className="cellar-executive-bar__arrow" />
-          </div>
+          {/* Action a destra: Bottone pillola coordinato con Nuova Bottiglia / Stappiamo */}
+          <Button
+            variant="primary"
+            size="sm"
+            icon={<BarChart3 size={15} />}
+            onClick={(e) => {
+              e.stopPropagation();
+              onOpenStats();
+            }}
+            className="cellar-executive-bar__btn"
+          >
+            Report &amp; Mappa
+          </Button>
         </section>
       )}
 
