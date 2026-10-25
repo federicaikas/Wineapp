@@ -95,6 +95,7 @@ export function wineToDbInsert(wine: WineBottle, userId: string): WineInsert {
  * Recupera tutti i vini dell'utente loggato da Supabase
  */
 export async function fetchUserWinesFromSupabase(userId: string): Promise<WineBottle[]> {
+  if (!supabase) return [];
   try {
     const { data, error } = await supabase
       .from('wines')
@@ -118,6 +119,7 @@ export async function fetchUserWinesFromSupabase(userId: string): Promise<WineBo
  * Sincronizza una bottiglia (inserimento o aggiornamento) su Supabase
  */
 export async function syncWineToSupabase(wine: WineBottle, userId: string): Promise<string | null> {
+  if (!supabase) return null;
   try {
     const dbPayload = wineToDbInsert(wine, userId);
 
@@ -143,6 +145,7 @@ export async function syncWineToSupabase(wine: WineBottle, userId: string): Prom
  * Elimina un vino da Supabase
  */
 export async function deleteWineFromSupabase(wineId: string, userId: string): Promise<boolean> {
+  if (!supabase) return false;
   try {
     const { error } = await supabase
       .from('wines')
