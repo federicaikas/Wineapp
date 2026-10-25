@@ -8,6 +8,7 @@ import { CellarStatsPage } from './components/pages/CellarStatsPage';
 import { UncorkedWinesPage } from './components/pages/UncorkedWinesPage';
 import { ManageCellarPage } from './components/pages/ManageCellarPage';
 import { AuthProvider } from './context/AuthContext';
+import { WineDrops } from './components/effects/WineDrops';
 import './App.css';
 
 function CellarAppContent() {
@@ -242,6 +243,7 @@ export function App() {
   return (
     <AuthProvider>
       <CellarAppContent />
+      <WineDrops />
     </AuthProvider>
   );
 }
